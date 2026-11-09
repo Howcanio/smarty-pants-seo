@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { MODELS, modelHref, CATALOG_CHECKED, BENCH_URL, type Model } from '../../data/models';
+import { MACS, macHref } from '../../data/macs';
+import { SITE } from '../../data/site';
+
+export function getStaticPaths() {
+  return MODELS.map((m) => ({ params: { slug: m.slug }, props: { model: m } }));
+}
+const { model: m } = Astro.props as { model: Model };
+const f = m.facts;
+const checked = new Date(`${CATALOG_CHECKED}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const statusText = m.status === 'released' ? 'released' : 'in testing and opens soon';
+
+const titleByKind: Record<string, string> = {
+  text: `${m.shortName} API: price, specs and Macs`,
+  embedding: `${m.shortName} embeddings API: price and specs`,
+  speech_to_text: `${m.shortName} API for speech to text`,
+  image_generation: `${m.shortName} image API on Apple silicon`,
+};
+const title = titleByKind[m.kind] ?? `${m.shortName} on Smarty Pants`;
+const description = `${m.shortName} on Smarty Pants: ${m.short.toLowerCase().replace(/\.$/, '')}. Listed price, context, memory needed (${m.minMemoryGB} GB+ Macs) and code to call it.`.slice(0, 160);
+
+// Which chips have at least one memory option big enough for this model.
+const chips = MACS.map((c) => ({ chip: c, fits: c.memoryOptionsGB.filter((g) => g >= m.minMemoryGB) })).filter((x) => x.fits.length);
+const tooSmall = MACS.filter((c) => !c.memoryOptionsGB.some((g) => g >= m.minMemoryGB));
+
+const python = {
+  text: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nreply = client.chat.completions.create(\n    model="${m.id}",\n    messages=[{"role": "user", "content": "Hello!"}],\n)\nprint(reply.choices[0].message.content)`,
+  embedding: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nresult = client.embeddings.create(\n    model="${m.id}",\n    input=["Macs with unified memory run local models well."],\n)\nprint(len(result.data[0].embedding))  # 1,024 unless you ask for fewer with dimensions`,
+  speech_to_text: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nwith open("meeting.m4a", "rb") as audio:\n    text = client.audio.transcriptions.create(model="${m.id}", file=audio)\nprint(text.text)`,
+}[m.kind as 'text' | 'embedding' | 'speech_to_text'];
+
+const faqs = [
+  { q: `What is the API name for ${m.shortName} on Smarty Pants?`, a: `Use "${m.id}" as the model with the OpenAI-compatible base URL ${SITE.apiBase}.${m.aliases?.length ? ` The older name ${m.aliases.join(', ')} still works.` : ''}` },
+  { q: `How much does ${m.shortName} cost on Smarty Pants?`, a: `The listed price on ${checked} was ${m.priceText}. Prices can change; GET ${SITE.apiBase}/models returns the current price, and you are not charged for a request Smarty Pants can't serve.` },
+  { q: `How much memory does a Mac need to serve ${m.shortName}?`, a: `Smarty Pants serves this ${m.served} build only on qualified Apple silicon Macs with ${m.minMemoryGB} GB of unified memory or more.` },
+  ...(m.kind === 'text' || m.kind === 'embedding'
+    ? [{ q: `What context length does ${m.shortName} have on Smarty Pants?`, a: `Smarty Pants accepts up to ${m.contextTokens.toLocaleString('en-US')} tokens per request${m.maxOutputTokens ? ` and writes up to ${m.maxOutputTokens.toLocaleString('en-US')}` : ''}.${f?.nativeContext ? ` The upstream model card lists ${f.nativeContext}; Smarty Pants serves a smaller window so the model fits on Macs.` : ''}` }]
+    : []),
+  { q: `Is ${m.shortName} available right now?`, a: `On ${checked} it was ${statusText}. How many Macs have it online changes through the day; check is_ready on ${SITE.apiBase}/models before sending real traffic, and keep a fallback provider.` },
+  { q: `Can I send private data to ${m.shortName} on Smarty Pants?`, a: 'Requests on the general network run on Macs other people own, and a serving Mac decrypts a request in memory to answer it. Keep secrets, personal and confidential data off the general network; companies can run work on their own Macs with a Group.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  about: { '@type': 'SoftwareApplication', name: m.shortName, applicationCategory: 'AI model', ...(f?.license ? { license: f.license } : {}), ...(f?.developer ? { author: { '@type': 'Organization', name: f.developer } } : {}) },
+  dateModified: CATALOG_CHECKED,
+  publisher: { '@id': `${SITE.coreSite}/#organization` },
+};
+const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0, 4);
+---
+<BaseLayout title={title} description={description} schema={[schema]}>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Models', href: '/ai-models/' }, { label: m.shortName, href: modelHref(m) }]} />
+  </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">{m.kindLabel} model</p>
+        <h1>{m.shortName} on Apple silicon Macs</h1>
+        <p class="status-line"><StatusBadge status={m.status} /></p>
+        <p class="lead">{m.short} Smarty Pants serves an exact {m.served} build on qualified Macs with {m.minMemoryGB} GB of memory or more, through an OpenAI-compatible API.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href={`${SITE.coreSite}/models/${m.id}`}>Live status and price</a>
+          <a class="btn btn-secondary btn-lg" href="#call-it">Code to call it</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="big">{m.priceText.split(',')[0].replace(' per million input tokens', '')}</p>
+        <p>{m.priceText}</p>
+        <p><small>Listed price on {checked}. Current price: <code>GET /v1/models</code>.</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>{m.shortName} at a glance</h2>
+        <p>What Smarty Pants serves, from its public catalog, and what the model's developer publishes about it.</p>
+      </div>
+      <dl class="specs">
+        <div><dt>API name</dt><dd><code>{m.id}</code></dd></div>
+        <div><dt>Endpoint</dt><dd>{m.endpoint}</dd></div>
+        <div><dt>Build served</dt><dd>{m.served}{m.buildId ? ` (${m.buildId})` : ''}</dd></div>
+        <div><dt>Mac memory needed</dt><dd>{m.minMemoryGB} GB or more</dd></div>
+        {(m.kind === 'text' || m.kind === 'embedding') && <div><dt>Context on Smarty Pants</dt><dd>{m.contextTokens.toLocaleString('en-US')} tokens</dd></div>}
+        {m.kind === 'text' && <div><dt>Max output</dt><dd>{m.maxOutputTokens.toLocaleString('en-US')} tokens</dd></div>}
+        {f?.developer && <div><dt>Developer</dt><dd>{f.developer}</dd></div>}
+        {f?.params && <div><dt>Parameters</dt><dd>{f.params}{f.activeParams ? `, ${f.activeParams} active per token` : ''}</dd></div>}
+        {f?.license && <div><dt>License</dt><dd>{f.license}</dd></div>}
+        {f?.nativeContext && <div><dt>Upstream context</dt><dd>{f.nativeContext}</dd></div>}
+        {f?.released && <div><dt>First released</dt><dd>{new Date(`${f.released}-15T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' })}</dd></div>}
+        <div><dt>Status</dt><dd>{m.status === 'released' ? 'Released' : 'In testing, opens soon'}</dd></div>
+      </dl>
+      <p class="footnote">Smarty Pants catalog checked {checked}. Upstream facts from the developer's model card (sources below).</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container split">
+      <div class="text-block">
+        <h2>What {m.shortName} is good for</h2>
+        {f?.strengths && <p>{f.strengths}</p>}
+        {f?.uniqueFact && <p>{f.uniqueFact}</p>}
+        {m.kind === 'text' && f?.architecture?.includes('vision') && <p>The upstream model also accepts images. Smarty Pants serves it for text in, text out.</p>}
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Use it for</h3>
+          <ul class="tick-list">{m.useFor.map((u) => <li>{u}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h3>Look elsewhere for</h3>
+          <ul class="tick-list cross-list">{m.avoidFor.map((u) => <li>{u}</li>)}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {m.bench && (
+    <section class="section">
+      <div class="container text-block">
+        <h2>Measured on a real Mac</h2>
+        <p>{m.bench.text}</p>
+        <p class="footnote">Measured {m.bench.date} by the Smarty Pants model factory. Full method and results: <a href={BENCH_URL}>Smarty Pants Mac benchmarks on Hugging Face</a>. Live speed depends on the Mac serving your request.</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="call-it">
+    <div class="container">
+      <div class="section-head">
+        <h2>How to call {m.shortName}</h2>
+        <p>Smarty Pants works with OpenAI's libraries: change the base URL and the key, and keep the rest. Get a key at <a href={SITE.buyerCtaUrl}>smartypants.network/api</a>.</p>
+      </div>
+      {python ? <pre class="code"><code>{python}</code></pre> : <p>The request format for image making will be in the <a href={`${SITE.coreSite}/docs/agents`}>agent kit and docs</a> when the model opens. Every image is labeled as made by AI, and the use rules forbid sexual content involving minors, sexual or nude images of real people, and deceptive fakes.</p>}
+      <p class="footnote">Before sending real traffic, check <code>is_ready</code> for this model on <code>GET /v1/models</code>. A 429 or 503 means no Mac can take the request right now: wait the Retry-After seconds or use your fallback provider.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Which Macs can serve {m.shortName}</h2>
+        <p>Smarty Pants serves this model only on Macs with {m.minMemoryGB} GB of unified memory or more. These Apple silicon chips were sold with at least one memory size that big (memory options from Apple's tech specs).</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Chip</th><th>Memory sizes that fit</th><th>Memory sizes too small</th></tr></thead>
+          <tbody>
+            {chips.map(({ chip, fits }) => (
+              <tr>
+                <th><a href={macHref(chip)}>{chip.name}</a></th>
+                <td class="num">{fits.map((g) => `${g} GB`).join(', ')}</td>
+                <td class="num">{chip.memoryOptionsGB.filter((g) => g < m.minMemoryGB).map((g) => `${g} GB`).join(', ') || 'None'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {tooSmall.length > 0 && <p class="footnote">No memory option is big enough on: {tooSmall.map((c) => c.name).join(', ')}.</p>}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container text-block">
+      <Faq faqs={faqs} />
+      <section class="sources stack-top" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Sources</h2>
+        <ol>
+          <li><a href={`${SITE.apiBase}/models`}>Smarty Pants: GET /v1/models (checked {checked})</a></li>
+          <li><a href={`${SITE.coreSite}/api`}>Smarty Pants: API page</a></li>
+          {(f?.sources ?? []).map((s) => <li><a href={s.url}>{s.label}</a></li>)}
+          {m.bench && <li><a href={BENCH_URL}>Smarty Pants Mac benchmarks (Hugging Face)</a></li>}
+        </ol>
+      </section>
+      {others.length > 0 && (
+        <section class="stack-top" aria-labelledby="others-heading">
+          <h2 id="others-heading">Other {m.kindLabel.toLowerCase()} models</h2>
+          <ul class="related-list">{others.map((o) => <li><a href={modelHref(o)}>{o.shortName}</a></li>)}</ul>
+        </section>
+      )}
+    </div>
+  </section>
+  <CtaBand audience="buyer" />
+</BaseLayout>

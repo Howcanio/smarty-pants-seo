@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LINKS } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="brand" aria-label="Smarty Pants home"><Logo /></a>
+      <p>Exact open AI models on idle Apple silicon Macs, priced per token. Mac owners get paid for the hours their Mac is ready.</p>
+      <p>Questions? <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></p>
+    </div>
+    <nav aria-label="Inference">
+      <h2>Inference</h2>
+      <ul>{BUYER_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}<li><a href="/ai-models/">All models</a></li></ul>
+    </nav>
+    <nav aria-label="CPU and workspaces">
+      <h2>CPU and workspaces</h2>
+      <ul>{COMPUTE_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+    </nav>
+    <nav aria-label="Mac owners">
+      <h2>Mac owners</h2>
+      <ul>{OWNER_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      <h2 class="footer-sub">Product</h2>
+      <ul>{PRODUCT_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+    </nav>
+    <nav aria-label="Guides">
+      <h2>Guides</h2>
+      <ul>{GUIDE_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+    </nav>
+  </div>
+  <div class="container footer-legal">
+    <p>© 2026 Smarty Pants. Operated by {SITE.operator}</p>
+    <p>Facts checked against smartypants.network on {SITE.checkedLabel}. Prices and availability change; the live product is the source of truth.</p>
+  </div>
+</footer>

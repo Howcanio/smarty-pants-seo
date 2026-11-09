@@ -1,0 +1,216 @@
+{
+  "smartypants/qwen3.5-9b": {
+    "developer": "Qwen (Alibaba Cloud)",
+    "upstreamRepo": "Qwen/Qwen3.5-9B",
+    "params": "9B",
+    "activeParams": null,
+    "architecture": "hybrid Gated DeltaNet / gated-attention transformer with dense FFN layers and a vision encoder (32 layers)",
+    "nativeContext": "262,144 tokens (extensible up to 1,010,000)",
+    "released": "2026-02",
+    "license": "Apache-2.0",
+    "strengths": "Multimodal (text, image, video input) chat model for reasoning, coding, agent and visual-understanding tasks, with coverage of 201 languages and dialects. Runs in thinking mode by default; thinking can be turned off for direct answers.",
+    "uniqueFact": "Three of every four layers use Gated DeltaNet linear attention instead of full attention (layout 8 x (3 x Gated DeltaNet + 1 x Gated Attention)), and the model is trained with multi-token prediction for speculative decoding.",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3.5-9B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3.5-9B"
+      },
+      {
+        "label": "Hugging Face API: Qwen/Qwen3.5-9B (createdAt)",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3.5-9B"
+      },
+      {
+        "label": "Hugging Face: mlx-community/Qwen3.5-9B-MLX-4bit (served build)",
+        "url": "https://huggingface.co/mlx-community/Qwen3.5-9B-MLX-4bit"
+      }
+    ]
+  },
+  "smartypants/qwen3.5-4b": {
+    "developer": "Qwen (Alibaba Cloud)",
+    "upstreamRepo": "Qwen/Qwen3.5-4B",
+    "params": "4B",
+    "activeParams": null,
+    "architecture": "hybrid Gated DeltaNet / gated-attention transformer with dense FFN layers and a vision encoder (32 layers)",
+    "nativeContext": "262,144 tokens (extensible up to 1,010,000)",
+    "released": "2026-02",
+    "license": "Apache-2.0",
+    "strengths": "Multimodal (text, image, video input) chat model for reasoning, coding, agent and visual-understanding tasks, with coverage of 201 languages and dialects. Runs in thinking mode by default; thinking can be turned off for direct answers.",
+    "uniqueFact": "Same 32-layer hybrid layout as Qwen3.5-9B but with a 2,560-wide hidden dimension and an output layer tied to the token embedding, which keeps it at 4B parameters while supporting 201 languages and dialects.",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3.5-4B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3.5-4B"
+      },
+      {
+        "label": "Hugging Face API: Qwen/Qwen3.5-4B (createdAt)",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3.5-4B"
+      }
+    ]
+  },
+  "smartypants/qwen3.8-27b": {
+    "developer": "Qwen (Alibaba Cloud)",
+    "upstreamRepo": "Qwen/Qwen3.8-27B",
+    "params": "27B",
+    "activeParams": null,
+    "architecture": "dense hybrid Gated DeltaNet / gated-attention transformer with a vision encoder (64 layers)",
+    "nativeContext": "262,144 tokens (extensible up to 1,000,000)",
+    "released": "2026-08",
+    "license": "Apache-2.0",
+    "strengths": "Dense vision-language model aimed at coding, professional work, research and long-horizon agentic tasks, with native image and video understanding (including hour-scale videos).",
+    "uniqueFact": "Thinking is on by default but can be disabled per request, reasoning depth can be tuned with a reasoning_effort setting, and preserve_thinking keeps reasoning from earlier turns in context.",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3.8-27B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+      },
+      {
+        "label": "Hugging Face API: Qwen/Qwen3.8-27B (createdAt)",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3.8-27B"
+      }
+    ]
+  },
+  "smartypants/nanbeige4.3-33b": {
+    "developer": "Nanbeige LLM Lab (BOSS Zhipin)",
+    "upstreamRepo": "Nanbeige/Nanbeige4.3-33B",
+    "params": "33B",
+    "activeParams": null,
+    "architecture": "dense decoder-only transformer (Llama architecture, 52 layers)",
+    "nativeContext": "524,288 tokens",
+    "released": "2026-10",
+    "license": "Apache-2.0",
+    "strengths": "Text-only English/Chinese model built for agentic coding and professional 'cowork' tasks such as multi-turn tool use and office workflows, with switchable thinking and non-thinking modes.",
+    "uniqueFact": "Nanbeige4.3-33B is the flagship 'teacher' model of the Nanbeige4.3 series: its developers built it first so they can distil its agent skills into smaller models such as a planned Nanbeige4.3-3B.",
+    "sources": [
+      {
+        "label": "Hugging Face: Nanbeige/Nanbeige4.3-33B model card",
+        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+      },
+      {
+        "label": "Hugging Face: Nanbeige/Nanbeige4.3-33B config.json",
+        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B/blob/main/config.json"
+      },
+      {
+        "label": "Hugging Face API: Nanbeige/Nanbeige4.3-33B (createdAt)",
+        "url": "https://huggingface.co/api/models/Nanbeige/Nanbeige4.3-33B"
+      },
+      {
+        "label": "Hugging Face: Nurymanau/Nanbeige4.3-33B-MLX-4bit (served build)",
+        "url": "https://huggingface.co/Nurymanau/Nanbeige4.3-33B-MLX-4bit"
+      }
+    ]
+  },
+  "smartypants/qwen3.6-35b-a3b": {
+    "developer": "Qwen (Alibaba Cloud)",
+    "upstreamRepo": "Qwen/Qwen3.6-35B-A3B",
+    "params": "35B",
+    "activeParams": "3B",
+    "architecture": "mixture-of-experts hybrid Gated DeltaNet / gated-attention transformer with a vision encoder (40 layers, 256 experts)",
+    "nativeContext": "262,144 tokens (extensible up to 1,010,000)",
+    "released": "2026-04",
+    "license": "Apache-2.0",
+    "strengths": "First open-weight Qwen3.6 model, focused on agentic coding (frontend work and repository-level reasoning) and stability in real use; accepts image input alongside text.",
+    "uniqueFact": "Each token is routed to 8 of 256 experts plus 1 shared expert, so only about 3B of its 35B parameters are active per token; it also added an option to keep reasoning from earlier messages (thinking preservation).",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3.6-35B-A3B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+      },
+      {
+        "label": "Hugging Face API: Qwen/Qwen3.6-35B-A3B (createdAt)",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B"
+      }
+    ]
+  },
+  "smartypants/gpt-oss-20b": {
+    "developer": "OpenAI",
+    "upstreamRepo": "openai/gpt-oss-20b",
+    "params": "21B",
+    "activeParams": "3.6B",
+    "architecture": "mixture-of-experts decoder-only transformer (24 layers, 32 experts, 4 active per token)",
+    "nativeContext": "131,072 tokens",
+    "released": "2025-08",
+    "license": "Apache-2.0",
+    "strengths": "Smaller of OpenAI's two open-weight gpt-oss models, meant for lower-latency, local or specialised use: reasoning, agentic tasks, function calling, web browsing, Python code execution and structured outputs.",
+    "uniqueFact": "Reasoning effort is adjustable (low, medium, high), and the MoE weights were post-trained in MXFP4 so the model runs within 16 GB of memory; it must be used with OpenAI's harmony response format.",
+    "sources": [
+      {
+        "label": "Hugging Face: openai/gpt-oss-20b model card",
+        "url": "https://huggingface.co/openai/gpt-oss-20b"
+      },
+      {
+        "label": "Hugging Face: openai/gpt-oss-20b config.json",
+        "url": "https://huggingface.co/openai/gpt-oss-20b/blob/main/config.json"
+      },
+      {
+        "label": "Hugging Face API: openai/gpt-oss-20b (createdAt)",
+        "url": "https://huggingface.co/api/models/openai/gpt-oss-20b"
+      }
+    ]
+  },
+  "smartypants/qwen3-embedding-0.6b": {
+    "developer": "Qwen (Alibaba Cloud)",
+    "upstreamRepo": "Qwen/Qwen3-Embedding-0.6B",
+    "params": "0.6B",
+    "activeParams": null,
+    "architecture": "text embedding model built on the dense Qwen3-0.6B base (28 layers)",
+    "nativeContext": "32K tokens",
+    "released": "2025-06",
+    "license": "Apache-2.0",
+    "strengths": "Turns text into vectors for retrieval, semantic search, classification and clustering, including cross-lingual and code retrieval across 100+ languages; accepts task-specific instructions.",
+    "uniqueFact": "Outputs embeddings of up to 1,024 dimensions and supports Matryoshka-style (MRL) custom output sizes anywhere from 32 to 1,024 dimensions.",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3-Embedding-0.6B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      },
+      {
+        "label": "Hugging Face API: Qwen/Qwen3-Embedding-0.6B (createdAt)",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3-Embedding-0.6B"
+      }
+    ]
+  },
+  "smartypants/whisper-large-v3-turbo": {
+    "developer": "OpenAI",
+    "upstreamRepo": "openai/whisper-large-v3-turbo",
+    "params": "809M",
+    "activeParams": null,
+    "architecture": "Transformer encoder-decoder (sequence-to-sequence) speech model",
+    "nativeContext": "30-second audio window (longer audio is transcribed in 30-second chunks)",
+    "released": "2024-10",
+    "license": "MIT",
+    "strengths": "Automatic speech recognition and speech translation into English, trained on more than 5 million hours of labelled audio.",
+    "uniqueFact": "It is a fine-tuned, pruned Whisper large-v3 with the decoder cut from 32 layers to 4, which makes it much faster at the cost of a small drop in quality.",
+    "sources": [
+      {
+        "label": "Hugging Face: openai/whisper-large-v3-turbo model card",
+        "url": "https://huggingface.co/openai/whisper-large-v3-turbo"
+      },
+      {
+        "label": "Hugging Face API: openai/whisper-large-v3-turbo (createdAt)",
+        "url": "https://huggingface.co/api/models/openai/whisper-large-v3-turbo"
+      }
+    ]
+  },
+  "smartypants/flux.1-schnell": {
+    "developer": "Black Forest Labs",
+    "upstreamRepo": "black-forest-labs/FLUX.1-schnell",
+    "params": "12B",
+    "activeParams": null,
+    "architecture": "rectified flow transformer (text-to-image)",
+    "nativeContext": null,
+    "released": "2024-07",
+    "license": "Apache-2.0",
+    "strengths": "Generates images from text prompts; licensed for personal, scientific and commercial use.",
+    "uniqueFact": "Trained with latent adversarial diffusion distillation, it can produce an image in 1 to 4 sampling steps (the reference example uses 4 steps with guidance scale 0).",
+    "sources": [
+      {
+        "label": "Hugging Face: black-forest-labs/FLUX.1-schnell model card",
+        "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
+      },
+      {
+        "label": "Hugging Face API: black-forest-labs/FLUX.1-schnell (createdAt)",
+        "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell"
+      }
+    ]
+  }
+}

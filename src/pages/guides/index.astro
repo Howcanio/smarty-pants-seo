@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { GUIDE_LINKS } from '../../data/site';
+
+interface GuideModule {
+  frontmatter: { h1?: string; title: string; description: string; readingMinutes?: number };
+}
+const title = 'Guides: running and buying AI on Apple silicon';
+const description = 'Plain guides on running LLMs on a Mac, how much RAM models need, MLX, OpenAI-compatible APIs, LLM pricing, agent sandboxes and earning with an idle Mac.';
+const modules = import.meta.glob<GuideModule>('./*.md', { eager: true });
+const order = GUIDE_LINKS.map((g) => g.href);
+const guides = Object.entries(modules)
+  .map(([file, mod]) => ({ href: `/guides/${file.replace('./', '').replace(/\.md$/, '')}/`, ...mod.frontmatter }))
+  .sort((a, b) => (order.indexOf(a.href) + 99) % 99 - (order.indexOf(b.href) + 99) % 99);
+---
+<BaseLayout title={title} description={description}>
+  <div class="container"><Breadcrumbs items={[{ label: 'Guides', href: '/guides/' }]} /></div>
+  <section class="hero">
+    <div class="container hero-solo">
+      <p class="eyebrow">Guides</p>
+      <h1>Guides to AI on Apple silicon</h1>
+      <p class="lead">Straight answers for developers buying inference and for Mac owners deciding whether to run or share models. Every number is sourced.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {guides.map((g) => (
+          <a class="card card-link" href={g.href}>
+            <h2 class="card-title">{g.h1 ?? g.title}</h2>
+            <p>{g.description}</p>
+            <span class="arrow">{g.readingMinutes ? `${g.readingMinutes} min read →` : 'Read the guide →'}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</BaseLayout>

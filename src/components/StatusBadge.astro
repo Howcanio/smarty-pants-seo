@@ -1,0 +1,13 @@
+---
+interface Props { status?: string }
+const LABELS: Record<string, string> = {
+  live: 'Live',
+  released: 'Released',
+  testing: 'In testing, opens soon',
+  invite: 'Our own account first',
+  planned: 'Planned',
+};
+const { status } = Astro.props;
+const cls = status === 'released' ? 'live' : status;
+---
+{status && LABELS[status] && <span class={`badge badge-${cls}`}>{LABELS[status]}</span>}

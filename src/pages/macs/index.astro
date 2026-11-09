@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Faq from '../../components/Faq.astro';
+import { MACS, macHref, OWNER_MIN_GB, bandwidthLabel } from '../../data/macs';
+import { MODELS, MEMORY_TIERS, modelHref } from '../../data/models';
+import { SITE } from '../../data/site';
+
+const title = 'Apple silicon Macs for AI: memory and models';
+const description = 'Every Apple M-series chip from M1 to M6: memory options, bandwidth, which open AI models each memory size can serve, and which Macs can earn with Smarty Pants.';
+const generations = [...new Set(MACS.map((c) => c.generation))];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Apple silicon chips for AI models',
+  itemListElement: MACS.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: `Apple ${c.name}`, url: new URL(macHref(c), Astro.site).href })),
+};
+const faqs = [
+  { q: 'Which Macs can join Smarty Pants?', a: `Apple silicon Macs with ${OWNER_MIN_GB} GB of memory or more, on macOS 14 or later, with at least 15 GB of free disk. MacBooks must be plugged in while serving. The Mac app verifies the exact machine before any paid work.` },
+  { q: 'Does more memory or more bandwidth matter more?', a: 'Memory decides whether a model fits at all. Bandwidth decides how fast a language model can write once it fits, because each new token reads the weights from memory.' },
+  { q: 'Can I add memory to my Mac later?', a: 'No. Apple silicon Macs have unified memory built into the chip package, so the size you bought is the size you keep.' },
+];
+---
+<BaseLayout title={title} description={description} schema={[schema]}>
+  <div class="container"><Breadcrumbs items={[{ label: 'Macs', href: '/macs/' }]} /></div>
+  <section class="hero">
+    <div class="container hero-solo">
+      <p class="eyebrow">Macs</p>
+      <h1>Which Apple silicon Macs can run which AI models</h1>
+      <p class="lead">Pick your chip to see its memory options and bandwidth from Apple's tech specs, which Smarty Pants models each memory size can serve, and whether it can earn while idle.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Model memory minimums</h2>
+      <p class="muted">What Smarty Pants requires to serve each model ({SITE.checkedLabel}).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Memory</th><th>Models a Mac this size can serve</th></tr></thead>
+          <tbody>
+            {MEMORY_TIERS.map((t) => (
+              <tr><th class="num">{t} GB+</th><td>{MODELS.filter((m) => m.minMemoryGB <= t).map((m, i) => <>{i > 0 && ', '}<a href={modelHref(m)}>{m.shortName}</a></>)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="container">
+      <h2>All chips</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Chip</th><th>Memory options</th><th>Bandwidth</th><th>Can earn with Smarty Pants</th></tr></thead>
+          <tbody>
+            {generations.flatMap((g) => MACS.filter((c) => c.generation === g)).map((c) => {
+              const ok = c.memoryOptionsGB.filter((x) => x >= OWNER_MIN_GB);
+              return (
+                <tr>
+                  <th><a href={macHref(c)}>{c.name}</a></th>
+                  <td class="num">{c.memoryOptionsGB.map((x) => `${x} GB`).join(', ')}</td>
+                  <td class="num">{bandwidthLabel(c)}</td>
+                  <td>{ok.length === 0 ? 'No (under 16 GB)' : ok.length === c.memoryOptionsGB.length ? 'Yes, every size' : `${ok.map((x) => `${x} GB`).join(', ')} only`}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Memory options and bandwidth from Apple's tech specs pages, linked on each chip page.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container text-block"><Faq faqs={faqs} /></div>
+  </section>
+  <CtaBand audience="supplier" />
+</BaseLayout>

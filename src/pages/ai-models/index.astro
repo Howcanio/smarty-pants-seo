@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import Faq from '../../components/Faq.astro';
+import { MODELS, modelHref, CATALOG_CHECKED } from '../../data/models';
+import { SITE } from '../../data/site';
+
+const title = 'Open AI models on Apple silicon Macs: prices';
+const description = 'Every model Smarty Pants serves on Apple silicon Macs: chat, embeddings, speech to text and image making, with listed prices, context and the memory each needs.';
+const checked = new Date(`${CATALOG_CHECKED}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const groups = [
+  { kind: 'text', label: 'Chat and text' },
+  { kind: 'embedding', label: 'Embeddings' },
+  { kind: 'speech_to_text', label: 'Speech to text' },
+  { kind: 'image_generation', label: 'Image making' },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Models served by Smarty Pants',
+  itemListElement: MODELS.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m.shortName, url: new URL(modelHref(m), Astro.site).href })),
+};
+const faqs = [
+  { q: 'Which models does Smarty Pants serve?', a: `On ${checked} the catalog listed ${MODELS.map((m) => m.shortName).join(', ')}. Released models and models in testing are marked on each page; GET ${SITE.apiBase}/models is the live list.` },
+  { q: 'Are these the original models or modified versions?', a: 'Smarty Pants serves exact, pinned builds of open models, for example a 4-bit MLX conversion, and names each build in /v1/models. It does not fine-tune or change a model\'s answers.' },
+  { q: 'Can I ask Smarty Pants to host another model?', a: 'Yes. Request it at smartypants.network/request-a-model with no sign-in. A request is not a promise: a model must fit on the network\'s Macs and allow paid use.' },
+];
+---
+<BaseLayout title={title} description={description} schema={[schema]}>
+  <div class="container"><Breadcrumbs items={[{ label: 'Models', href: '/ai-models/' }]} /></div>
+  <section class="hero">
+    <div class="container hero-solo">
+      <p class="eyebrow">Models</p>
+      <h1>Open AI models running on real Macs</h1>
+      <p class="lead">Each model below is an exact open model build that Smarty Pants serves on qualified Apple silicon Macs, called through an OpenAI-compatible API. Prices are the listed prices on {checked}.</p>
+    </div>
+  </section>
+  {groups.map((g) => {
+    const list = MODELS.filter((m) => m.kind === g.kind);
+    return list.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <h2>{g.label}</h2>
+          <div class="grid grid-3">
+            {list.map((m) => (
+              <a class="card card-link" href={modelHref(m)}>
+                <h3 class="card-title">{m.shortName}</h3>
+                <p>{m.short}</p>
+                <p class="card-meta">{m.priceText}<br />Macs with {m.minMemoryGB} GB+{(m.kind === 'text' || m.kind === 'embedding') && ` · ${m.contextTokens.toLocaleString('en-US')} tokens`}</p>
+                <p class="card-meta"><StatusBadge status={m.status} /></p>
+                <span class="arrow">Specs and code →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+  <section class="section section-alt">
+    <div class="container text-block">
+      <h2>How to choose</h2>
+      <p>Start with the smallest model that does your task well, measured on your own non-sensitive examples. <a href="/inference/pricing/">Compare listed prices</a>, check <a href="/guides/how-much-ram-to-run-an-llm/">how much memory each needs</a> if you plan to run one yourself, and keep your current provider as a fallback.</p>
+      <Faq faqs={faqs} />
+    </div>
+  </section>
+  <CtaBand audience="buyer" />
+</BaseLayout>

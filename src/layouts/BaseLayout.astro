@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: unknown[];
+  ogType?: 'website' | 'article';
+}
+const { title, description, schema = [], ogType = 'website' } = Astro.props;
+
+const brand = ' | Smarty Pants';
+const fullTitle = title.includes('Smarty Pants') || title.length + brand.length > 64 ? title : title + brand;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const robots = SITE.indexable ? 'index, follow, max-image-preview:large' : 'noindex, nofollow';
+const ogImage = new URL('/_seo/og.png', Astro.site).href;
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE.coreSite}/#organization`,
+  name: 'Smarty Pants',
+  alternateName: 'SmartyPants.network',
+  url: SITE.coreSite,
+  logo: new URL('/_seo/apple-icon.png', Astro.site).href,
+  email: SITE.supportEmail,
+  description:
+    'Smarty Pants runs exact, pinned open AI models on idle Apple silicon Macs and sells them per token through an OpenAI-compatible API. Mac owners get paid for the hours their Mac is ready.',
+  sameAs: ['https://huggingface.co/smartypantsnet'],
+  parentOrganization: { '@type': 'Organization', name: SITE.operator },
+};
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE.coreSite}/#website`,
+  name: 'Smarty Pants',
+  url: SITE.coreSite,
+  publisher: { '@id': `${SITE.coreSite}/#organization` },
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={robots} />
+    <link rel="icon" href="/_seo/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/_seo/apple-icon.png" />
+    <link rel="preload" href="/_seo/fonts/BarlowCondensed-ExtraBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/_seo/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#071A33" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Smarty Pants" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Smarty Pants: exact open AI models on idle Apple silicon Macs." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+    <JsonLd data={organization} />
+    <JsonLd data={website} />
+    {schema.map((s) => <JsonLd data={s} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

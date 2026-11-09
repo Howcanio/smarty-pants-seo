@@ -1,0 +1,19 @@
+{
+  "name": "smarty-pants-seo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Smarty Pants SEO and AI-search site: inference, models, Macs, earning, CPU jobs, agent workspaces and guides.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "preview": "astro preview",
+    "refresh-catalog": "node scripts/refresh-catalog.mjs"
+  },
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "dependencies": {
+    "astro": "5.18.2"
+  }
+}

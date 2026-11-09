@@ -1,0 +1,827 @@
+[
+  {
+    "slug": "m1",
+    "name": "M1",
+    "generation": "M1",
+    "tier": "Base",
+    "announced": "2020-11",
+    "cpuCores": "8 (4 performance, 4 efficiency)",
+    "gpuCores": "7 or 8",
+    "memoryOptionsGB": [
+      8,
+      16
+    ],
+    "memoryBandwidthGBs": null,
+    "macs": [
+      "MacBook Air (M1, 2020)",
+      "MacBook Pro (13-inch, M1, 2020)",
+      "Mac mini (M1, 2020)",
+      "iMac (24-inch, M1, 2021)"
+    ],
+    "note": "Apple's first chip designed for the Mac, with a 16-core Neural Engine rated at 11 trillion operations per second; every M1 Mac tops out at 16GB of unified memory.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Air (M1, 2020) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111883"
+      },
+      {
+        "label": "Apple: MacBook Pro (13-inch, M1, 2020) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111893"
+      },
+      {
+        "label": "Apple: Mac mini (M1, 2020) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111894"
+      },
+      {
+        "label": "Apple: iMac (24-inch, M1, 2021) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111895"
+      },
+      {
+        "label": "Apple Newsroom: Apple unleashes M1 (Nov 2020)",
+        "url": "https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/"
+      }
+    ]
+  },
+  {
+    "slug": "m1-pro",
+    "name": "M1 Pro",
+    "generation": "M1",
+    "tier": "Pro",
+    "announced": "2021-10",
+    "cpuCores": "8 or 10 (6 or 8 performance, 2 efficiency)",
+    "gpuCores": "14 or 16",
+    "memoryOptionsGB": [
+      16,
+      32
+    ],
+    "memoryBandwidthGBs": "200",
+    "macs": [
+      "MacBook Pro (14-inch, 2021)",
+      "MacBook Pro (16-inch, 2021)"
+    ],
+    "note": "Apple's first Pro-tier chip, which raised Apple silicon to up to 32GB of unified memory at 200GB/s.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, 2021) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111902"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2021) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111901"
+      },
+      {
+        "label": "Apple Newsroom: Introducing M1 Pro and M1 Max (Oct 2021)",
+        "url": "https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/"
+      }
+    ]
+  },
+  {
+    "slug": "m1-max",
+    "name": "M1 Max",
+    "generation": "M1",
+    "tier": "Max",
+    "announced": "2021-10",
+    "cpuCores": "10 (8 performance, 2 efficiency)",
+    "gpuCores": "24 or 32",
+    "memoryOptionsGB": [
+      32,
+      64
+    ],
+    "memoryBandwidthGBs": "400",
+    "macs": [
+      "MacBook Pro (14-inch, 2021)",
+      "MacBook Pro (16-inch, 2021)",
+      "Mac Studio (2022)"
+    ],
+    "note": "Apple said M1 Max's 400GB/s of memory bandwidth was nearly 6x that of M1, and it supports up to 64GB of unified memory.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, 2021) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111902"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2021) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111901"
+      },
+      {
+        "label": "Apple: Mac Studio (2022) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111900"
+      },
+      {
+        "label": "Apple Newsroom: Introducing M1 Pro and M1 Max (Oct 2021)",
+        "url": "https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/"
+      }
+    ]
+  },
+  {
+    "slug": "m1-ultra",
+    "name": "M1 Ultra",
+    "generation": "M1",
+    "tier": "Ultra",
+    "announced": "2022-03",
+    "cpuCores": "20 (16 performance, 4 efficiency)",
+    "gpuCores": "48 or 64",
+    "memoryOptionsGB": [
+      64,
+      128
+    ],
+    "memoryBandwidthGBs": "800",
+    "macs": [
+      "Mac Studio (2022)"
+    ],
+    "note": "Two M1 Max dies joined by UltraFusion, with a 32-core Neural Engine that Apple rates at 22 trillion operations per second and up to 128GB of unified memory.",
+    "sources": [
+      {
+        "label": "Apple: Mac Studio (2022) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111900"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M1 Ultra (Mar 2022)",
+        "url": "https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/"
+      }
+    ]
+  },
+  {
+    "slug": "m2",
+    "name": "M2",
+    "generation": "M2",
+    "tier": "Base",
+    "announced": "2022-06",
+    "cpuCores": "8 (4 performance, 4 efficiency)",
+    "gpuCores": "8 or 10",
+    "memoryOptionsGB": [
+      8,
+      16,
+      24
+    ],
+    "memoryBandwidthGBs": "100",
+    "macs": [
+      "MacBook Air (M2, 2022)",
+      "MacBook Pro (13-inch, M2, 2022)",
+      "MacBook Air (15-inch, M2, 2023)",
+      "Mac mini (2023)"
+    ],
+    "note": "M2's Neural Engine processes up to 15.8 trillion operations per second, and its 100GB/s bandwidth is 50% more than M1, according to Apple.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Air (M2, 2022) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111867"
+      },
+      {
+        "label": "Apple: MacBook Pro (13-inch, M2, 2022) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111869"
+      },
+      {
+        "label": "Apple: MacBook Air (15-inch, M2, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111346"
+      },
+      {
+        "label": "Apple: Mac mini (2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111837"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M2 (Jun 2022)",
+        "url": "https://www.apple.com/newsroom/2022/06/apple-unveils-m2-with-breakthrough-performance-and-capabilities/"
+      }
+    ]
+  },
+  {
+    "slug": "m2-pro",
+    "name": "M2 Pro",
+    "generation": "M2",
+    "tier": "Pro",
+    "announced": "2023-01",
+    "cpuCores": "10 or 12 (6 or 8 performance, 4 efficiency)",
+    "gpuCores": "16 or 19",
+    "memoryOptionsGB": [
+      16,
+      32
+    ],
+    "memoryBandwidthGBs": "200",
+    "macs": [
+      "Mac mini (2023)",
+      "MacBook Pro (14-inch, 2023)",
+      "MacBook Pro (16-inch, 2023)"
+    ],
+    "note": "M2 Pro tops out at 32GB of unified memory, the same ceiling as M1 Pro, at 200GB/s.",
+    "sources": [
+      {
+        "label": "Apple: Mac mini (2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111837"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111340"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111838"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M2 Pro and M2 Max (Jan 2023)",
+        "url": "https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/"
+      }
+    ]
+  },
+  {
+    "slug": "m2-max",
+    "name": "M2 Max",
+    "generation": "M2",
+    "tier": "Max",
+    "announced": "2023-01",
+    "cpuCores": "12 (8 performance, 4 efficiency)",
+    "gpuCores": "30 or 38",
+    "memoryOptionsGB": [
+      32,
+      64,
+      96
+    ],
+    "memoryBandwidthGBs": "400",
+    "macs": [
+      "MacBook Pro (14-inch, 2023)",
+      "MacBook Pro (16-inch, 2023)",
+      "Mac Studio (2023)"
+    ],
+    "note": "The 96GB memory option is available only with the 38-core GPU version of M2 Max.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111340"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111838"
+      },
+      {
+        "label": "Apple: Mac Studio (2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111835"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M2 Pro and M2 Max (Jan 2023)",
+        "url": "https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/"
+      }
+    ]
+  },
+  {
+    "slug": "m2-ultra",
+    "name": "M2 Ultra",
+    "generation": "M2",
+    "tier": "Ultra",
+    "announced": "2023-06",
+    "cpuCores": "24 (16 performance, 8 efficiency)",
+    "gpuCores": "60 or 76",
+    "memoryOptionsGB": [
+      64,
+      128,
+      192
+    ],
+    "memoryBandwidthGBs": "800",
+    "macs": [
+      "Mac Studio (2023)",
+      "Mac Pro (2023)",
+      "Mac Pro (Rack, 2023)"
+    ],
+    "note": "Supports up to 192GB of unified memory, 50% more than M1 Ultra, and its 32-core Neural Engine delivers 31.6 trillion operations per second.",
+    "sources": [
+      {
+        "label": "Apple: Mac Studio (2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111835"
+      },
+      {
+        "label": "Apple: Mac Pro (2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111343"
+      },
+      {
+        "label": "Apple: Mac Pro (Rack, 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/111836"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M2 Ultra (Jun 2023)",
+        "url": "https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/"
+      }
+    ]
+  },
+  {
+    "slug": "m3",
+    "name": "M3",
+    "generation": "M3",
+    "tier": "Base",
+    "announced": "2023-10",
+    "cpuCores": "8 (4 performance, 4 efficiency)",
+    "gpuCores": "8 or 10",
+    "memoryOptionsGB": [
+      8,
+      16,
+      24
+    ],
+    "memoryBandwidthGBs": "100",
+    "macs": [
+      "MacBook Pro (14-inch, M3, Nov 2023)",
+      "iMac (24-inch, M3, 2023, Two ports)",
+      "iMac (24-inch, M3, 2023, Four ports)",
+      "MacBook Air (13-inch, M3, 2024)",
+      "MacBook Air (15-inch, M3, 2024)"
+    ],
+    "note": "The M3 family were the industry's first 3-nanometer chips for a personal computer, and Apple says their Neural Engine is up to 60% faster than M1's.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M3, Nov 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117735"
+      },
+      {
+        "label": "Apple: iMac (24-inch, M3, 2023, Two ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117733"
+      },
+      {
+        "label": "Apple: iMac (24-inch, M3, 2023, Four ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117734"
+      },
+      {
+        "label": "Apple: MacBook Air (13-inch, M3, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/118551"
+      },
+      {
+        "label": "Apple: MacBook Air (15-inch, M3, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/118552"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M3, M3 Pro, and M3 Max (Oct 2023)",
+        "url": "https://www.apple.com/newsroom/2023/10/apple-unveils-m3-m3-pro-and-m3-max-the-most-advanced-chips-for-a-personal-computer/"
+      }
+    ]
+  },
+  {
+    "slug": "m3-pro",
+    "name": "M3 Pro",
+    "generation": "M3",
+    "tier": "Pro",
+    "announced": "2023-10",
+    "cpuCores": "11 or 12 (5 or 6 performance, 6 efficiency)",
+    "gpuCores": "14 or 18",
+    "memoryOptionsGB": [
+      18,
+      36
+    ],
+    "memoryBandwidthGBs": "150",
+    "macs": [
+      "MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023)",
+      "MacBook Pro (16-inch, Nov 2023)"
+    ],
+    "note": "Apple lists M3 Pro at 150GB/s, lower than the 200GB/s it lists for M1 Pro and M2 Pro, and it tops out at 36GB.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117736"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, Nov 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117737"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M3, M3 Pro, and M3 Max (Oct 2023)",
+        "url": "https://www.apple.com/newsroom/2023/10/apple-unveils-m3-m3-pro-and-m3-max-the-most-advanced-chips-for-a-personal-computer/"
+      }
+    ]
+  },
+  {
+    "slug": "m3-max",
+    "name": "M3 Max",
+    "generation": "M3",
+    "tier": "Max",
+    "announced": "2023-10",
+    "cpuCores": "14 or 16 (10 or 12 performance, 4 efficiency)",
+    "gpuCores": "30 or 40",
+    "memoryOptionsGB": [
+      36,
+      48,
+      64,
+      96,
+      128
+    ],
+    "memoryBandwidthGBs": "300 or 400",
+    "macs": [
+      "MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023)",
+      "MacBook Pro (16-inch, Nov 2023)"
+    ],
+    "note": "Apple pitched M3 Max's up to 128GB of memory at AI developers working with transformer models with billions of parameters; 48, 64 and 128GB require the 16-core CPU / 40-core GPU version (400GB/s).",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117736"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, Nov 2023) - Tech Specs",
+        "url": "https://support.apple.com/en-us/117737"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils M3, M3 Pro, and M3 Max (Oct 2023)",
+        "url": "https://www.apple.com/newsroom/2023/10/apple-unveils-m3-m3-pro-and-m3-max-the-most-advanced-chips-for-a-personal-computer/"
+      }
+    ]
+  },
+  {
+    "slug": "m3-ultra",
+    "name": "M3 Ultra",
+    "generation": "M3",
+    "tier": "Ultra",
+    "announced": "2025-03",
+    "cpuCores": "28 or 32 (20 or 24 performance, 8 efficiency)",
+    "gpuCores": "60 or 80",
+    "memoryOptionsGB": [
+      96,
+      256,
+      512
+    ],
+    "memoryBandwidthGBs": "819",
+    "macs": [
+      "Mac Studio (2025)"
+    ],
+    "note": "Apple launched it with up to 512GB of unified memory and said it could run LLMs with over 600 billion parameters in memory; the current Mac Studio (2025) tech specs page lists only 96GB or 256GB.",
+    "sources": [
+      {
+        "label": "Apple: Mac Studio (2025) - Tech Specs",
+        "url": "https://support.apple.com/en-us/122211"
+      },
+      {
+        "label": "Apple Newsroom: Apple reveals M3 Ultra (Mar 2025)",
+        "url": "https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils new Mac Studio (Mar 2025)",
+        "url": "https://www.apple.com/newsroom/2025/03/apple-unveils-new-mac-studio-the-most-powerful-mac-ever/"
+      }
+    ]
+  },
+  {
+    "slug": "m4",
+    "name": "M4",
+    "generation": "M4",
+    "tier": "Base",
+    "announced": "2024-05",
+    "cpuCores": "8 or 10 (4 performance, 4 or 6 efficiency)",
+    "gpuCores": "8 or 10",
+    "memoryOptionsGB": [
+      16,
+      24,
+      32
+    ],
+    "memoryBandwidthGBs": "120",
+    "macs": [
+      "iMac (24-inch, 2024, Two ports)",
+      "iMac (24-inch, 2024, Four ports)",
+      "Mac mini (2024)",
+      "MacBook Pro (14-inch, M4, 2024)",
+      "MacBook Air (13-inch, M4, 2025)",
+      "MacBook Air (15-inch, M4, 2025)"
+    ],
+    "note": "M4 debuted in iPad Pro (May 2024) with a Neural Engine rated at 38 trillion operations per second, and every M4 Mac starts at 16GB of unified memory.",
+    "sources": [
+      {
+        "label": "Apple: iMac (24-inch, 2024, Two ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121556"
+      },
+      {
+        "label": "Apple: iMac (24-inch, 2024, Four ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121557"
+      },
+      {
+        "label": "Apple: Mac mini (2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121555"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch, M4, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121552"
+      },
+      {
+        "label": "Apple: MacBook Air (13-inch, M4, 2025) - Tech Specs",
+        "url": "https://support.apple.com/en-us/122209"
+      },
+      {
+        "label": "Apple: MacBook Air (15-inch, M4, 2025) - Tech Specs",
+        "url": "https://support.apple.com/en-us/122210"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M4 chip (May 2024)",
+        "url": "https://www.apple.com/newsroom/2024/05/apple-introduces-m4-chip/"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M4 Pro and M4 Max (Oct 2024)",
+        "url": "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+      }
+    ]
+  },
+  {
+    "slug": "m4-pro",
+    "name": "M4 Pro",
+    "generation": "M4",
+    "tier": "Pro",
+    "announced": "2024-10",
+    "cpuCores": "12 or 14 (8 or 10 performance, 4 efficiency)",
+    "gpuCores": "16 or 20",
+    "memoryOptionsGB": [
+      24,
+      48,
+      64
+    ],
+    "memoryBandwidthGBs": "273",
+    "macs": [
+      "Mac mini (2024)",
+      "MacBook Pro (14-inch, M4 Pro or M4 Max, 2024)",
+      "MacBook Pro (16-inch, 2024)"
+    ],
+    "note": "Apple says M4 Pro's 273GB/s is a 75% increase over M3 Pro, and M4 Pro and M4 Max were the first chips to bring Thunderbolt 5 to the Mac.",
+    "sources": [
+      {
+        "label": "Apple: Mac mini (2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121555"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch, M4 Pro or M4 Max, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121553"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121554"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M4 Pro and M4 Max (Oct 2024)",
+        "url": "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+      }
+    ]
+  },
+  {
+    "slug": "m4-max",
+    "name": "M4 Max",
+    "generation": "M4",
+    "tier": "Max",
+    "announced": "2024-10",
+    "cpuCores": "14 or 16 (10 or 12 performance, 4 efficiency)",
+    "gpuCores": "32 or 40",
+    "memoryOptionsGB": [
+      36,
+      48,
+      64,
+      128
+    ],
+    "memoryBandwidthGBs": "410 or 546",
+    "macs": [
+      "MacBook Pro (14-inch, M4 Pro or M4 Max, 2024)",
+      "MacBook Pro (16-inch, 2024)",
+      "Mac Studio (2025)"
+    ],
+    "note": "Apple says up to 128GB lets developers work with LLMs of nearly 200 billion parameters; 48GB and above require the 16-core CPU / 40-core GPU version (546GB/s).",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M4 Pro or M4 Max, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121553"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, 2024) - Tech Specs",
+        "url": "https://support.apple.com/en-us/121554"
+      },
+      {
+        "label": "Apple: Mac Studio (2025) - Tech Specs",
+        "url": "https://support.apple.com/en-us/122211"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M4 Pro and M4 Max (Oct 2024)",
+        "url": "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils new Mac Studio (Mar 2025)",
+        "url": "https://www.apple.com/newsroom/2025/03/apple-unveils-new-mac-studio-the-most-powerful-mac-ever/"
+      }
+    ]
+  },
+  {
+    "slug": "m5",
+    "name": "M5",
+    "generation": "M5",
+    "tier": "Base",
+    "announced": "2025-10",
+    "cpuCores": "10 (4 super cores, called performance cores at launch, plus 6 efficiency)",
+    "gpuCores": "8 or 10",
+    "memoryOptionsGB": [
+      16,
+      24,
+      32
+    ],
+    "memoryBandwidthGBs": "153",
+    "macs": [
+      "MacBook Pro (14-inch, M5)",
+      "MacBook Air (13-inch, M5)",
+      "MacBook Air (15-inch, M5)"
+    ],
+    "note": "First M-series chip with a Neural Accelerator in each GPU core, which Apple says gives over 4x the peak GPU compute for AI compared with M4.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M5) - Tech Specs",
+        "url": "https://support.apple.com/en-us/125405"
+      },
+      {
+        "label": "Apple: MacBook Air (13-inch, M5) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126320"
+      },
+      {
+        "label": "Apple: MacBook Air (15-inch, M5) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126321"
+      },
+      {
+        "label": "Apple Newsroom: Apple unleashes M5 (Oct 2025)",
+        "url": "https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces the new MacBook Air with M5 (Mar 2026)",
+        "url": "https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/"
+      }
+    ]
+  },
+  {
+    "slug": "m5-pro",
+    "name": "M5 Pro",
+    "generation": "M5",
+    "tier": "Pro",
+    "announced": "2026-03",
+    "cpuCores": "15 or 18 (5 or 6 super, 10 or 12 performance)",
+    "gpuCores": "16 or 20",
+    "memoryOptionsGB": [
+      24,
+      48,
+      64
+    ],
+    "memoryBandwidthGBs": "307",
+    "macs": [
+      "MacBook Pro (14-inch, M5 Pro or M5 Max)",
+      "MacBook Pro (16-inch, M5 Pro or M5 Max)",
+      "Mac mini (M6 or M5 Pro)",
+      "MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max)",
+      "MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max)"
+    ],
+    "note": "M5 Pro and M5 Max are built from two dies joined by Apple's Fusion Architecture; on the PROLED XDR MacBook Pro, the 16-core GPU M5 Pro tops out at 48GB and the 20-core version at 64GB.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126318"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126319"
+      },
+      {
+        "label": "Apple: Mac mini (M6 or M5 Pro) - Tech Specs",
+        "url": "https://support.apple.com/en-us/128108"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148301"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148302"
+      },
+      {
+        "label": "Apple Newsroom: Apple debuts M5 Pro and M5 Max (Mar 2026)",
+        "url": "https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils a more powerful Mac mini featuring M6 and M5 Pro (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/"
+      }
+    ]
+  },
+  {
+    "slug": "m5-max",
+    "name": "M5 Max",
+    "generation": "M5",
+    "tier": "Max",
+    "announced": "2026-03",
+    "cpuCores": "18 (6 super, 12 performance)",
+    "gpuCores": "32 or 40",
+    "memoryOptionsGB": [
+      36,
+      48,
+      64,
+      128
+    ],
+    "memoryBandwidthGBs": "460 or 614",
+    "macs": [
+      "MacBook Pro (14-inch, M5 Pro or M5 Max)",
+      "MacBook Pro (16-inch, M5 Pro or M5 Max)",
+      "Mac Studio (M5 Max or M5 Ultra)",
+      "MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max)",
+      "MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max)"
+    ],
+    "note": "The 32-core GPU M5 Max ships only with 36GB; 48, 64 and 128GB come with the 40-core GPU version, which has 614GB/s of bandwidth.",
+    "sources": [
+      {
+        "label": "Apple: MacBook Pro (14-inch, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126318"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/126319"
+      },
+      {
+        "label": "Apple: Mac Studio (M5 Max or M5 Ultra) - Tech Specs",
+        "url": "https://support.apple.com/en-us/128107"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148301"
+      },
+      {
+        "label": "Apple: MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148302"
+      },
+      {
+        "label": "Apple Newsroom: Apple debuts M5 Pro and M5 Max (Mar 2026)",
+        "url": "https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces new Mac Studio with M5 Max and M5 Ultra (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/"
+      }
+    ]
+  },
+  {
+    "slug": "m5-ultra",
+    "name": "M5 Ultra",
+    "generation": "M5",
+    "tier": "Ultra",
+    "announced": "2026-08",
+    "cpuCores": "30 or 36 (10 or 12 super, 20 or 24 performance)",
+    "gpuCores": "64 or 80",
+    "memoryOptionsGB": [
+      96,
+      256,
+      512
+    ],
+    "memoryBandwidthGBs": "1200",
+    "macs": [
+      "Mac Studio (M5 Max or M5 Ultra)"
+    ],
+    "note": "Apple's first M-series chip with a quad-die UltraFusion design, rated at 1.2TB/s of memory bandwidth; the 512GB option requires the 36-core CPU / 80-core GPU version.",
+    "sources": [
+      {
+        "label": "Apple: Mac Studio (M5 Max or M5 Ultra) - Tech Specs",
+        "url": "https://support.apple.com/en-us/128107"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M6 and M5 Ultra (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces new Mac Studio with M5 Max and M5 Ultra (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/"
+      }
+    ]
+  },
+  {
+    "slug": "m6",
+    "name": "M6",
+    "generation": "M6",
+    "tier": "Base",
+    "announced": "2026-08",
+    "cpuCores": "10 or 12 (2 super, 3 or 4 performance, 5 or 6 efficiency)",
+    "gpuCores": "10 or 12",
+    "memoryOptionsGB": [
+      16,
+      24,
+      32
+    ],
+    "memoryBandwidthGBs": "153 or 170",
+    "macs": [
+      "Mac mini (M6 or M5 Pro)",
+      "iMac (24-inch, M6, Two ports)",
+      "iMac (24-inch, M6, Four ports)",
+      "MacBook Pro (14-inch, M6)"
+    ],
+    "note": "Apple's first 2-nanometer chip, with a Dual 16-core Neural Engine; the 16GB configuration runs at 153GB/s, while 24GB and 32GB configurations get 170GB/s.",
+    "sources": [
+      {
+        "label": "Apple: Mac mini (M6 or M5 Pro) - Tech Specs",
+        "url": "https://support.apple.com/en-us/128108"
+      },
+      {
+        "label": "Apple: iMac (24-inch, M6, Two ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148298"
+      },
+      {
+        "label": "Apple: iMac (24-inch, M6, Four ports) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148299"
+      },
+      {
+        "label": "Apple: MacBook Pro (14-inch, M6) - Tech Specs",
+        "url": "https://support.apple.com/en-us/148300"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces M6 and M5 Ultra (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils a more powerful Mac mini featuring M6 and M5 Pro (Aug 2026)",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/"
+      }
+    ]
+  }
+]

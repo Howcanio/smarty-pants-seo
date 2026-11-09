@@ -1,0 +1,33 @@
+---
+import JsonLd from './JsonLd.astro';
+
+interface Props {
+  faqs: { q: string; a: string }[];
+  heading?: string;
+  id?: string;
+}
+const { faqs, heading = 'Frequently asked questions', id = 'faq' } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+{faqs.length > 0 && (
+  <section class="faq" id={id} aria-labelledby={`${id}-heading`}>
+    <h2 id={`${id}-heading`}>{heading}</h2>
+    <div class="faq-list">
+      {faqs.map((f) => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+    <JsonLd data={schema} />
+  </section>
+)}

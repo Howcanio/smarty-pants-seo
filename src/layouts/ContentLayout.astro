@@ -1,0 +1,110 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { SITE, LINK_LABELS } from '../data/site';
+import { MODELS, modelHref } from '../data/models';
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  h1?: string;
+  eyebrow?: string;
+  audience?: 'buyer' | 'supplier' | 'both';
+  status?: string;
+  primaryKeyword?: string;
+  summary?: string;
+  published: string;
+  updated?: string;
+  readingMinutes?: number;
+  faqs?: { q: string; a: string }[];
+  related?: string[];
+  sources?: { label: string; url: string }[];
+}
+interface Props {
+  frontmatter: Frontmatter;
+  headings?: { depth: number; slug: string; text: string }[];
+}
+const { frontmatter: fm, headings = [] } = Astro.props;
+const path = Astro.url.pathname;
+
+const h1 = fm.h1 ?? fm.title;
+const updated = fm.updated ?? fm.published;
+const toc = headings.filter((h) => h.depth === 2);
+const SECTIONS: Record<string, { label: string; href: string }> = {
+  guides: { label: 'Guides', href: '/guides/' },
+  inference: { label: 'Inference API', href: '/inference/' },
+  workspaces: { label: 'Agent workspaces', href: '/workspaces/' },
+  cpu: { label: 'CPU jobs', href: '/cpu/' },
+  earn: { label: 'Earn with a Mac', href: '/earn/' },
+};
+const section = SECTIONS[path.split('/')[1]];
+const crumbs = section && section.href !== path ? [section, { label: h1, href: path }] : [{ label: h1, href: path }];
+
+const modelLabels = Object.fromEntries(MODELS.map((m) => [modelHref(m), `${m.shortName} on Smarty Pants`]));
+const related = (fm.related ?? [])
+  .filter((href) => href !== path)
+  .map((href) => ({ href, label: LINK_LABELS[href] ?? modelLabels[href] ?? href }));
+const formatDate = (d: string) =>
+  new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const isGuide = path.startsWith('/guides/');
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': isGuide ? 'Article' : 'WebPage',
+  headline: h1,
+  name: h1,
+  description: fm.description,
+  datePublished: fm.published,
+  dateModified: updated,
+  author: { '@type': 'Organization', name: 'Smarty Pants', url: SITE.coreSite },
+  publisher: { '@id': `${SITE.coreSite}/#organization` },
+  mainEntityOfPage: new URL(path, Astro.site).href,
+  ...(fm.primaryKeyword ? { about: fm.primaryKeyword } : {}),
+};
+---
+<BaseLayout title={fm.title} description={fm.description} ogType={isGuide ? 'article' : 'website'} schema={[article]}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+  </div>
+  <article class="container">
+    <header class="article-header">
+      <p class="eyebrow">{fm.eyebrow ?? 'Guide'}</p>
+      <h1>{h1}</h1>
+      {fm.status && <p class="status-line"><StatusBadge status={fm.status} /></p>}
+      <p class="article-meta">
+        Updated <time datetime={updated}>{formatDate(updated)}</time>{fm.readingMinutes && ` · ${fm.readingMinutes} min read`} · By the Smarty Pants team
+      </p>
+      {fm.summary && <div class="summary"><p><strong>Short answer:</strong> {fm.summary}</p></div>}
+    </header>
+    <div class:list={['article-grid', { 'no-toc': toc.length < 3 }]}>
+      {toc.length >= 3 && (
+        <aside class="toc" aria-label="On this page">
+          <p class="toc-title">On this page</p>
+          <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </aside>
+      )}
+      <div class="prose">
+        <slot />
+        <div class="article-extras">
+          <Faq faqs={fm.faqs ?? []} />
+          {fm.sources && fm.sources.length > 0 && (
+            <section class="sources" aria-labelledby="sources-heading">
+              <h2 id="sources-heading">Sources</h2>
+              <ol>{fm.sources.map((s) => <li><a href={s.url}>{s.label}</a></li>)}</ol>
+            </section>
+          )}
+          {related.length > 0 && (
+            <section aria-labelledby="related-heading">
+              <h2 id="related-heading">Keep reading</h2>
+              <ul class="related-list">{related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}</ul>
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
+  </article>
+  <CtaBand audience={fm.audience ?? 'both'} />
+</BaseLayout>

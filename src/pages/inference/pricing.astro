@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Faq from '../../components/Faq.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { MODELS, modelHref, CATALOG_CHECKED } from '../../data/models';
+import { SITE } from '../../data/site';
+
+const checked = new Date(`${CATALOG_CHECKED}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const title = 'LLM API pricing on Smarty Pants, with calculator';
+const description = `Listed per-token prices for every Smarty Pants model, checked ${checked}, and a calculator that estimates your monthly cost from your own request sizes.`;
+const tokenModels = MODELS.filter((m) => m.kind === 'text' || m.kind === 'embedding');
+const fmt = (n: number) => (n >= 0.1 ? `$${n.toFixed(2)}` : `$${String(Number(n.toFixed(3)))}`);
+const faqs = [
+  { q: 'How does Smarty Pants charge?', a: 'Per token, at the listed price per million input tokens and per million output tokens for the model you call. Speech to text is priced per hour of audio and image making per picture. You are not charged for a request Smarty Pants can\'t serve.' },
+  { q: 'Where is the current price?', a: `GET ${SITE.apiBase}/models returns every model's price (per token, in its pricing field). The prices on this page were checked on ${checked} and can change.` },
+  { q: 'Do reasoning tokens cost extra?', a: 'Reasoning tokens count as output. Each model\'s default_reasoning field in /v1/models says whether reasoning is on by default; turning it off keeps output short.' },
+  { q: 'Is there a minimum spend or subscription?', a: 'Smarty Pants does not list a subscription for the API. You add credit to a balance and requests are paid from it; a 402 error means the balance is too low.' },
+  { q: 'How accurate is the calculator?', a: 'It multiplies your inputs by the listed prices, nothing more. Real token counts depend on the tokenizer and your prompts, so measure a sample of your own requests before you budget.' },
+];
+---
+<BaseLayout title={title} description={description}>
+  <div class="container"><Breadcrumbs items={[{ label: 'Inference API', href: '/inference/' }, { label: 'Prices', href: '/inference/pricing/' }]} /></div>
+  <section class="hero">
+    <div class="container hero-solo">
+      <p class="eyebrow">For developers</p>
+      <h1>What Smarty Pants inference costs</h1>
+      <p class="lead">Every model has a listed price per million tokens, the same unit most providers use. Here are the prices on {checked}, and a calculator for your own traffic.</p>
+      <div class="summary"><p><strong>Short answer:</strong> On {checked}, Smarty Pants listed released chat models from {fmt(Math.min(...tokenModels.filter((m) => m.kind === 'text' && m.released).map((m) => m.inputPricePerMillionUsd)))} per million input tokens, embeddings at {fmt(tokenModels.find((m) => m.kind === 'embedding')?.inputPricePerMillionUsd ?? 0)} per million tokens, speech to text at $0.18 an hour of audio and images at $0.003 each. You pay only for requests it serves; the live price list is GET /v1/models.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Listed prices</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Model</th><th>What it does</th><th class="num">Input</th><th class="num">Output</th><th>Status</th></tr></thead>
+          <tbody>
+            {MODELS.map((m) => (
+              <tr>
+                <th><a href={modelHref(m)}>{m.shortName}</a></th>
+                <td>{m.kindLabel}</td>
+                {m.kind === 'text' || m.kind === 'embedding'
+                  ? <><td class="num">{fmt(m.inputPricePerMillionUsd)} / M tokens</td><td class="num">{m.kind === 'embedding' ? '—' : `${fmt(m.outputPricePerMillionUsd)} / M tokens`}</td></>
+                  : <td class="num" colspan="2">{m.priceText}</td>}
+                <td><StatusBadge status={m.status} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Source: <a href={`${SITE.apiBase}/models`}>GET /v1/models</a> and <a href={`${SITE.coreSite}/api`}>smartypants.network/api</a>, checked {checked}. "M tokens" means one million tokens; a token is about three-quarters of a word.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <h2>Estimate your monthly cost</h2>
+        <p>Enter your own traffic. The calculator multiplies it by the listed price; it runs in your browser and sends nothing anywhere.</p>
+      </div>
+      <form class="calc" id="calc" onsubmit="return false">
+        <fieldset class="calc-inputs">
+          <legend class="sr-only">Your traffic</legend>
+          <label>Model
+            <select id="calc-model">
+              {tokenModels.map((m) => <option value={m.id} data-in={m.inputPricePerMillionUsd} data-out={m.outputPricePerMillionUsd}>{m.shortName}</option>)}
+            </select>
+          </label>
+          <label>Requests per day <input id="calc-req" type="number" min="0" step="1" value="1000" inputmode="numeric" /></label>
+          <label>Input tokens per request <small>Prompt, system message and any context you send.</small><input id="calc-in" type="number" min="0" step="1" value="800" inputmode="numeric" /></label>
+          <label>Output tokens per request <small>What the model writes back (none for embeddings).</small><input id="calc-out" type="number" min="0" step="1" value="200" inputmode="numeric" /></label>
+        </fieldset>
+        <div class="calc-results" aria-live="polite">
+          <dl>
+            <dt>Per day</dt><dd id="calc-day">—</dd>
+            <dt>Per 30-day month</dt><dd id="calc-month">—</dd>
+            <dt>Per 1,000 requests</dt><dd id="calc-k">—</dd>
+          </dl>
+          <p class="calc-note">Listed prices on {checked}. Your real token counts depend on the model's tokenizer; measure a sample first. Check <a href={`${SITE.apiBase}/models`}>/v1/models</a> for today's price.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container text-block">
+      <h2>Reading these prices</h2>
+      <p>Input and output are priced separately because writing tokens takes more work than reading them. For chat, output usually dominates the bill when answers are long; for retrieval and classification, input does. <a href="/guides/llm-api-pricing-explained/">LLM API pricing explained</a> walks through the math, and <a href="/inference/vs-centralized-providers/">Smarty Pants vs. centralized providers</a> covers when a GPU cloud is the better buy.</p>
+      <Faq faqs={faqs} />
+    </div>
+  </section>
+  <CtaBand audience="buyer" />
+</BaseLayout>
+
+<script>
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement | HTMLSelectElement;
+  const money = (n: number) => (n >= 100 ? `$${n.toFixed(0)}` : n >= 1 ? `$${n.toFixed(2)}` : `$${n.toFixed(4)}`);
+  function update() {
+    const opt = ($('calc-model') as HTMLSelectElement).selectedOptions[0];
+    const pin = Number(opt.dataset.in) / 1e6;
+    const pout = Number(opt.dataset.out) / 1e6;
+    const req = Math.max(0, Number($('calc-req').value) || 0);
+    const tin = Math.max(0, Number($('calc-in').value) || 0);
+    const tout = Math.max(0, Number($('calc-out').value) || 0);
+    const per = tin * pin + tout * pout;
+    $('calc-day').textContent = money(per * req);
+    $('calc-month').textContent = money(per * req * 30);
+    $('calc-k').textContent = money(per * 1000);
+  }
+  ['calc-model', 'calc-req', 'calc-in', 'calc-out'].forEach((id) => $(id).addEventListener('input', update));
+  update();
+</script>

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { MACS, macHref, MEASURED, OWNER_MIN_GB, modelsFor, announcedLabel, bandwidthLabel, type Mac } from '../../data/macs';
+import { MODELS, modelHref, BENCH_URL } from '../../data/models';
+import { SITE, OWNER_OFFER } from '../../data/site';
+
+export function getStaticPaths() {
+  return MACS.map((c, i) => ({ params: { slug: c.slug }, props: { chip: c, prev: MACS[i - 1] ?? null, next: MACS[i + 1] ?? null } }));
+}
+const { chip: c, prev, next } = Astro.props as { chip: Mac; prev: Mac | null; next: Mac | null };
+
+const maxGB = Math.max(...c.memoryOptionsGB);
+const minGB = Math.min(...c.memoryOptionsGB);
+const qualifying = c.memoryOptionsGB.filter((g) => g >= OWNER_MIN_GB);
+const eligibleText =
+  qualifying.length === 0
+    ? `No. Every ${c.name} Mac Apple sold has less than ${OWNER_MIN_GB} GB of memory, and Smarty Pants needs ${OWNER_MIN_GB} GB or more.`
+    : qualifying.length === c.memoryOptionsGB.length
+      ? `Yes, on memory: every ${c.name} configuration Apple sold has ${minGB} GB or more. The Mac app still checks free disk, power, temperature and real model speed before any paid work.`
+      : `Only the ${qualifying.map((g) => `${g} GB`).join(' and ')} configurations. Smarty Pants needs ${OWNER_MIN_GB} GB or more; ${c.memoryOptionsGB.filter((g) => g < OWNER_MIN_GB).map((g) => `${g} GB`).join(' and ')} Macs don't qualify.`;
+const bestModels = modelsFor(maxGB);
+const title = `${c.name} for AI: memory, models and earning`;
+const description = `What an Apple ${c.name} Mac can run: ${c.memoryOptionsGB.join(', ')} GB memory options, ${bandwidthLabel(c)} bandwidth, which Smarty Pants models fit each size, and earning eligibility.`.slice(0, 160);
+const measured = MEASURED[c.slug] ?? [];
+
+const faqs = [
+  { q: `How much memory does the ${c.name} have?`, a: `Apple sold ${c.name} Macs with ${c.memoryOptionsGB.map((g) => `${g} GB`).join(', ')} of unified memory. Memory is fixed at purchase, so check yours in Apple menu > About This Mac.` },
+  { q: `Can a ${c.name} Mac earn money with Smarty Pants?`, a: eligibleText },
+  { q: `Which Smarty Pants models can a ${maxGB} GB ${c.name} serve?`, a: bestModels.length ? `On memory alone: ${bestModels.map((m) => m.shortName).join(', ')}. Each model has its own minimum; the app chooses what a Mac holds, and a model counts only after the Mac passes its speed and safety checks.` : 'None of the current models: they all need 16 GB or more.' },
+  { q: `What is the memory bandwidth of the ${c.name}?`, a: c.memoryBandwidthGBs ? `Apple lists ${c.memoryBandwidthGBs} GB/s. Bandwidth matters for language models because generating each token reads the model's weights from memory.` : `Apple does not publish a bandwidth figure for the ${c.name}; it only compares later chips with it.` },
+  { q: `Which Macs use the ${c.name}?`, a: `${c.macs.join('; ')}.` },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  about: { '@type': 'Thing', name: `Apple ${c.name}` },
+  publisher: { '@id': `${SITE.coreSite}/#organization` },
+};
+---
+<BaseLayout title={title} description={description} schema={[schema]}>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Macs', href: '/macs/' }, { label: c.name, href: macHref(c) }]} />
+  </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">{c.generation} family · {c.tier} chip · announced {announcedLabel(c)}</p>
+        <h1>Apple {c.name} for AI models</h1>
+        <p class="lead">{c.note}</p>
+      </div>
+      <div class="hero-card">
+        <p class="big">{maxGB} GB</p>
+        <p>Most unified memory Apple sold with the {c.name}. Options: {c.memoryOptionsGB.map((g) => `${g} GB`).join(', ')}.</p>
+        <p>Memory bandwidth: {bandwidthLabel(c)}.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>{c.name} specs that matter for AI</h2>
+        <p>From Apple's tech specs and announcement. Memory decides which models fit; bandwidth sets a ceiling on how fast a language model can write.</p>
+      </div>
+      <dl class="specs">
+        <div><dt>CPU cores</dt><dd>{c.cpuCores ?? 'See Apple tech specs'}</dd></div>
+        <div><dt>GPU cores</dt><dd>{c.gpuCores ?? 'See Apple tech specs'}</dd></div>
+        <div><dt>Unified memory</dt><dd>{c.memoryOptionsGB.map((g) => `${g} GB`).join(', ')}</dd></div>
+        <div><dt>Memory bandwidth</dt><dd>{bandwidthLabel(c)}</dd></div>
+        <div><dt>Announced</dt><dd>{announcedLabel(c)}</dd></div>
+        <div><dt>Macs</dt><dd>{c.macs.join('; ')}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Which models each {c.name} memory size can serve</h2>
+        <p>Based on the minimum memory Smarty Pants requires for each model it serves. Fitting on memory is the first test; the Mac app also measures real speed, heat and free disk before a Mac serves anything.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th class="num">Needs</th>{c.memoryOptionsGB.map((g) => <th class="num">{g} GB</th>)}</tr>
+          </thead>
+          <tbody>
+            {MODELS.map((m) => (
+              <tr>
+                <th><a href={modelHref(m)}>{m.shortName}</a> <StatusBadge status={m.status === 'released' ? undefined : 'testing'} /></th>
+                <td class="num">{m.minMemoryGB} GB+</td>
+                {c.memoryOptionsGB.map((g) => (g >= m.minMemoryGB ? <td class="fit-yes">Fits</td> : <td class="fit-no">Too small</td>))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Model minimums from the Smarty Pants catalog (GET /v1/models), checked {SITE.checkedLabel}. A Mac serves the models its app assigns to it, not all of them at once.</p>
+    </div>
+  </section>
+
+  {measured.length > 0 && (
+    <section class="section">
+      <div class="container text-block">
+        <h2>Measured on a {c.name} Mac</h2>
+        <p>Smarty Pants runs its model factory on its own Macs and publishes every result, including the ones that didn't help.</p>
+        <ul class="tick-list">{measured.map((x) => <li>{x.text} <span class="muted">Measured {x.date}.</span></li>)}</ul>
+        <p class="footnote">Source: <a href={BENCH_URL}>Smarty Pants Mac benchmarks on Hugging Face</a>.</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container split">
+      <div class="text-block">
+        <h2>Can a {c.name} Mac earn with Smarty Pants?</h2>
+        <p>{eligibleText}</p>
+        {qualifying.length > 0 && <p>The current intro offer on smartypants.network is up to ${OWNER_OFFER.perDay} a day for each idle Mac that is on, plugged in and ready, {OWNER_OFFER.until} ({OWNER_OFFER.region}). Electricity and internet are your costs, and Macs are invited in small batches. <a href="/earn/earnings/">How earnings work</a>.</p>}
+        {c.macs.some((x) => x.startsWith('MacBook')) && <p>MacBooks must be plugged in while serving and pause on battery.</p>}
+      </div>
+      <div class="card">
+        <h3>Check your exact Mac</h3>
+        <p>The private browser check on smartypants.network takes about three seconds and nothing leaves your Mac. The signed app confirms the exact chip and memory before any paid work.</p>
+        <p><a class="btn btn-primary stack-top" href={SITE.ownerCtaUrl}>Check my Mac</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container text-block">
+      <Faq faqs={faqs} />
+      <section class="sources stack-top" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Sources</h2>
+        <ol>
+          {c.sources.map((s) => <li><a href={s.url}>{s.label}</a></li>)}
+          <li><a href={`${SITE.apiBase}/models`}>Smarty Pants: GET /v1/models (model memory minimums)</a></li>
+          <li><a href={`${SITE.coreSite}/compatibility`}>Smarty Pants: How Mac qualification works</a></li>
+          {measured.length > 0 && <li><a href={BENCH_URL}>Smarty Pants Mac benchmarks (Hugging Face)</a></li>}
+        </ol>
+      </section>
+      <nav class="stack-top" aria-label="Other chips">
+        <ul class="related-list">
+          {prev && <li><a href={macHref(prev)}>Previous: {prev.name}</a></li>}
+          {next && <li><a href={macHref(next)}>Next: {next.name}</a></li>}
+          <li><a href="/macs/">All Apple silicon chips</a></li>
+          <li><a href="/guides/how-much-ram-to-run-an-llm/">How much RAM to run an LLM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <CtaBand audience="supplier" />
+</BaseLayout>
