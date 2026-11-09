@@ -686,6 +686,10 @@
       {
         "label": "Apple Newsroom: Apple unveils a more powerful Mac mini featuring M6 and M5 Pro (Aug 2026)",
         "url": "https://www.apple.com/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils MacBook Pro with PROLED XDR Display (Oct 2026)",
+        "url": "https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/"
       }
     ]
   },
@@ -740,6 +744,10 @@
       {
         "label": "Apple Newsroom: Apple introduces new Mac Studio with M5 Max and M5 Ultra (Aug 2026)",
         "url": "https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/"
+      },
+      {
+        "label": "Apple Newsroom: Apple unveils MacBook Pro with PROLED XDR Display (Oct 2026)",
+        "url": "https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/"
       }
     ]
   },
@@ -760,7 +768,7 @@
     "macs": [
       "Mac Studio (M5 Max or M5 Ultra)"
     ],
-    "note": "Apple's first M-series chip with a quad-die UltraFusion design, rated at 1.2TB/s of memory bandwidth; the 512GB option requires the 36-core CPU / 80-core GPU version.",
+    "note": "Apple's first M-series chip with a quad-die UltraFusion design, rated at 1.2TB/s of memory bandwidth; the 30-core CPU / 64-core GPU version comes with 96GB, and the 256GB and 512GB options require the 36-core CPU / 80-core GPU version (Apple said in August 2026 that the 512GB Mac Studio would arrive in late October).",
     "sources": [
       {
         "label": "Apple: Mac Studio (M5 Max or M5 Ultra) - Tech Specs",
@@ -821,6 +829,10 @@
       {
         "label": "Apple Newsroom: Apple unveils a more powerful Mac mini featuring M6 and M5 Pro (Aug 2026)",
         "url": "https://www.apple.com/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/"
+      },
+      {
+        "label": "Apple Newsroom: Apple introduces the new 14-inch MacBook Pro with M6 (Oct 2026)",
+        "url": "https://www.apple.com/newsroom/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/"
       }
     ]
   }

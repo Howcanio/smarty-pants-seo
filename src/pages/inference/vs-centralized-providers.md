@@ -7,7 +7,7 @@ eyebrow: "For developers"
 audience: "buyer"
 primaryKeyword: "smarty pants vs centralized inference providers"
 keywords: ["decentralized inference vs centralized", "openrouter alternative", "together ai alternative", "fireworks ai alternative", "groq alternative", "llm inference provider comparison"]
-summary: "Smarty Pants runs exact, pinned open model builds on Apple Silicon Macs that owners make available when idle, priced per token, and lets a team keep work on its own Macs through Groups. Centralized GPU clouds such as Together AI, Fireworks and Groq offer what Smarty Pants does not: reserved capacity with SLAs, frontier-size models and context windows past 100,000 tokens. Use Smarty Pants for everyday open-model work, with one of them as your fallback."
+summary: "Smarty Pants runs exact, pinned open model builds on Apple Silicon Macs that owners make available when idle, priced per token, and lets a team keep work on its own Macs through Groups. Data-center GPU clouds such as Together AI and Fireworks, and Groq on its own inference chips, offer what Smarty Pants does not: reserved capacity with SLAs, frontier-size models and context windows past 100,000 tokens. Use Smarty Pants for everyday open-model work, with one of them as your fallback."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 7
@@ -48,18 +48,18 @@ sources:
     url: "https://console.groq.com/docs/openai"
 ---
 
-Most inference APIs run on GPUs in data centers. Smarty Pants runs open models on Apple Silicon Macs that their owners make available when idle. That changes what you get, and what you give up. This page compares the two honestly, using only what each provider's own pages said when we checked them on 9 Nov 2026. For the general idea, read [decentralized vs. centralized inference](/guides/decentralized-vs-centralized-inference/).
+Most inference APIs run on GPUs in data centers; Groq runs on its own inference chips. Smarty Pants runs open models on the GPU and unified memory of Apple silicon Macs that their owners make available when idle. That changes what you get, and what you give up. This page compares the two honestly, using only what each provider's own pages said when we checked them on 9 Nov 2026. For the general idea, read [decentralized vs. centralized inference](/guides/decentralized-vs-centralized-inference/).
 
 ## What is actually different about Smarty Pants?
 
-Four things: pinned builds, Macs instead of GPUs, owner-run hardware, and Groups. Price is listed per token for each model, like most providers.
+Four things: pinned builds, Apple silicon Macs instead of data-center GPU clouds, owner-run hardware, and Groups. Price is listed per token for each model, like most providers.
 
 - **Exact, pinned builds.** Each model is served as one specific build, named in `build_id` and `quantization` on [`/v1/models`](https://smartypants.network/v1/models). For example, Qwen3.8 27B is served as a 3.8-bit MLX build. A router like OpenRouter instead lets you filter providers by quantization level ([OpenRouter provider routing](https://openrouter.ai/docs/features/provider-routing)), which means the same model name can reach different builds.
-- **Apple Silicon Macs.** Models run on Macs with unified memory, using MLX builds for chat and embeddings.
+- **Apple silicon Macs.** Models run on the Mac's own GPU and unified memory, using MLX builds for chat and embeddings, instead of on data-center GPUs.
 - **Owner-run hardware.** The Macs belong to people who make them available when idle. They can pause at any time, so availability changes hour to hour. Check `is_ready` before sending traffic.
 - **Groups.** A team can put its own Macs in a Group: members use them for AI for free, work stays on the Group's Macs first, and earnings go to one company wallet ([For teams](https://smartypants.network/for-teams)). Group sign-up is invite only for now.
 
-## What do centralized GPU clouds do better?
+## What do data-center GPU clouds and Groq do better?
 
 Capacity, guarantees, model size and context length. If you need any of these, a centralized provider is the right choice today.
 

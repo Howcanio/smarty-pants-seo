@@ -109,7 +109,7 @@ What Smarty Pants says today (8 Nov 2026):
 
 - **Intro offer: up to $1 a day per idle Mac, until 50 computers join.** It applies to the first 50 supported Apple Silicon Macs with 16 GB+, US only, and pays for hours the Mac is on, plugged in, online and ready, even with no job running. After the first 50, pay depends on the Mac's memory, speed and how often it's on, and the app tells you before your pay changes. Details: [How earnings work](/earn/earnings/).
 - **Requirements:** Apple Silicon, 16 GB memory or more, macOS 14 or later. The app also checks for 15 GB+ free disk, power, temperature, system pressure, network and a model benchmark ([compatibility](https://smartypants.network/compatibility)).
-- **Controls:** Pause any time; the Mac also pauses itself for unsafe heat, memory or battery conditions. Smarty Pants "cannot browse your files, watch your screen, or control your Mac" ([for humans](https://smartypants.network/humans)).
+- **Controls:** Pause any time; the Mac also pauses itself for unsafe heat, memory or battery conditions. Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac" ([for humans](https://smartypants.network/humans)); the app does not ask for the macOS permissions that would take, though that is a design, not a guarantee.
 - **Access:** the Mac app is invite only for now. We're inviting Macs in small batches.
 
 Electricity and internet are your costs, and displayed earnings are gross. For the cost math with Apple's power figures, see [How to make money with an idle Mac](/guides/make-money-with-an-idle-mac/).

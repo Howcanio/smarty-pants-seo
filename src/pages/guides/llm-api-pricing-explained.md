@@ -85,7 +85,7 @@ A reasoning model can write far more tokens than the visible answer, so turn rea
 **Some services bill for machine time instead of tokens.** You pay for how long the hardware runs, whatever it produces.
 
 - Fireworks AI says its On Demand deployments bill per GPU-second, and listed an H100 80 GB at $8.00 an hour, or $0.134 a minute, on its [pricing page](https://fireworks.ai/pricing) (checked 9 Nov 2026). A deployment that runs for 90 seconds costs about $8.00 × 90 / 3,600 = $0.20, whether it served one request or a thousand.
-- Smarty Pants CPU jobs bill by machine time too: listed at $0.00405 per vCPU-hour plus $0.002025 per GB-hour, which the [agent docs](https://smartypants.network/docs/agents) put at about $0.00007 for a 20-second job. CPU jobs are open to Smarty Pants' own account first; see [/cpu/](/cpu/).
+- Smarty Pants CPU jobs bill by machine time too: listed at $0.00405 per vCPU-hour plus $0.002025 per GB-hour, which the [agent docs](https://smartypants.network/docs/agents) put at about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory. CPU jobs are open to Smarty Pants' own account first; see [/cpu/](/cpu/).
 
 Per-second pricing suits steady, heavy traffic that keeps the hardware busy. Per-token pricing suits uneven traffic, because you pay nothing between requests.
 

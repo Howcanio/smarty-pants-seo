@@ -16,7 +16,7 @@ faqs:
   - q: "Can code in a Smarty Pants workspace call a model today?"
     a: "No. Workspaces have no network today, and model calls from workspaces are Planned. Call the Smarty Pants API from your own code outside the workspace instead."
   - q: "What is a placeholder key?"
-    a: "A stand-in key the workspace would hold instead of a real one. Under the plan, the Smarty Pants site checks it, swaps in the real key and forwards the call, so the real key never enters the VM."
+    a: "A stand-in key the workspace would hold instead of a real one. Under the plan, the Smarty Pants site checks it, swaps in the real key and forwards the call, so the real key never enters the VM. It is tied to one workspace and its budget and stops working when the workspace ends; a copy can still be spent up to that budget while the workspace runs."
   - q: "Why not just put my API key in the workspace?"
     a: "Because a workspace's files and memory are not confidential from the Mac's owner. Never put a real key in a workspace."
   - q: "Would model calls from a workspace have a spending limit?"
@@ -53,7 +53,7 @@ The proxy is planned to live on the Smarty Pants site, never inside the guest VM
 
 Because the VM does not hide its contents from the Mac's owner. VM isolation protects the owner from guest code. It does not keep the guest's files or memory confidential from the Mac's owner.
 
-So a real key inside a workspace could be read on the Mac it runs on. A placeholder that only works through the Smarty Pants site, for one workspace, and dies when the workspace ends, is worth little if copied. That is the point of the design.
+So a real key inside a workspace could be read on the Mac it runs on. The plan binds each placeholder in four ways: it only works through the Smarty Pants site (the real key is added there, never in the VM), it belongs to one workspace, it can only spend that workspace's budget, and it stops working when the workspace ends or is blocked. That limits the damage, but does not remove it: while the workspace runs, anyone who copies the placeholder could spend up to the remaining budget. Keep budgets small. Whether a placeholder will also be tied to the Mac's own worker connection, so it fails when used from anywhere else, is not decided yet.
 
 ## Which models would a workspace call?
 

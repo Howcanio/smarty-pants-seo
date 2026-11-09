@@ -21,7 +21,7 @@ faqs:
   - q: "Do I pay tax on money my Mac earns?"
     a: "In the US, yes. The IRS says gig economy income is taxable even if you don't get a form such as a 1099. Smarty Pants shows earnings gross, with no electricity or tax taken off."
   - q: "Can Smarty Pants see my files?"
-    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac. You can pause any time, and you choose whether your Mac serves a company Group, the general network, or both."
+    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac, and its app does not ask for the macOS permissions that would take (a design, not a guarantee). You can pause any time, and you choose whether your Mac serves a company Group, the general network, or both."
   - q: "Does Salad work on a Mac?"
     a: "No. Salad's own support page says a Mac can't earn on Salad, with or without virtualization."
 related: ["/earn/", "/earn/earnings/", "/earn/safety-and-controls/", "/earn/how-it-works/", "/guides/mac-mini-for-ai/", "/macs/"]
@@ -88,7 +88,7 @@ Usually cents a day, but it depends on your rate and how hard the Mac works. The
 
 How the math works: watts × 24 hours ÷ 1,000 = kWh per day, then × your price. For the M4 at maximum: 65 W × 24 ÷ 1,000 = 1.56 kWh, × $0.173 = about $0.27.
 
-Two cautions. Apple's "max" figure comes from "a compute-intensive test application that maximizes processor usage", so a Mac serving AI requests on and off will usually sit somewhere between idle and max. And your own rate may be well above or below the national average, so use the price on your bill.
+Two cautions. Apple's "max" figure comes from "a compute-intensive test application that maximizes processor usage", so a Mac serving AI requests on and off will usually sit somewhere between idle and max. And your own rate may be well above or below the national average, so use the price on your bill. Treat these numbers as scenarios from Apple's tests, not measured Smarty Pants power use or a guaranteed cost range.
 
 ## What about heat, noise and wear?
 
@@ -100,7 +100,7 @@ We could not find published data on how continuous AI work affects a Mac's lifes
 
 ## Is it safe to let strangers' AI work run on my Mac?
 
-Each network handles this differently, so read its safety page. Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac", and you choose the network: your company Group only, the general network only, or both. More in [Safety and controls](/earn/safety-and-controls/).
+Each network handles this differently, so read its safety page. Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac" (its app does not ask for the macOS permissions that would take; that is a design, not a guarantee), and you choose the network: your company Group only, the general network only, or both. More in [Safety and controls](/earn/safety-and-controls/).
 
 ## Do I have to pay tax on what my Mac earns?
 

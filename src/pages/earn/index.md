@@ -22,7 +22,7 @@ faqs:
   - q: "Is a Mac mini a good fit?"
     a: "Smarty Pants says Apple Silicon Mac minis with 16 GB or more of memory are a primary launch target. The app checks the exact machine before any paid work."
   - q: "Can Smarty Pants see my files or screen?"
-    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac. It can use approved AI capacity, and you can pause at any time."
+    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac, and the app does not ask for the macOS permissions it would need to do so. It is a stated design, not a technical guarantee. You can pause at any time."
 related: ["/earn/how-it-works/", "/earn/safety-and-controls/", "/earn/earnings/", "/macs/", "/guides/make-money-with-an-idle-mac/"]
 sources:
   - label: "Smarty Pants: home page (intro offer and earnings estimate), viewed 8 Nov 2026"
@@ -75,7 +75,7 @@ The Node Operator Agreement also says that while earning is on, the app may keep
 
 ## What can't the app do?
 
-Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac." The live page says what it can do is "use approved AI capacity."
+Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac." The live page says what it can do is "use approved AI capacity." The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee.
 
 You can press Pause at any time, and the Mac pauses itself for unsafe battery, heat or memory conditions. You also choose which network the Mac serves. Details are on [safety and controls](/earn/safety-and-controls/).
 
@@ -87,6 +87,6 @@ When you run the check and leave your email, your test result travels with your 
 
 ## What is the next step?
 
-Run the 3-second check at [smartypants.network](https://smartypants.network/). It runs in your browser, nothing leaves the Mac, and there is no download. If the Mac looks promising, leave your email for an invite.
+Run the 3-second check at [smartypants.network](https://smartypants.network/). There is no download. The check runs in your browser. Smarty Pants records that a check started and finished, with an anonymous visitor ID and where you came from, but not the result. If you then ask for an invite, it sends your email, country, when the Mac is usually free and the check result (Apple silicon or not, memory size and the tier it suggests).
 
 The browser result is only an estimate. No browser result allows paid work: the signed app verifies the exact chip, memory, disk and real speed first. Read [how it works](/earn/how-it-works/) for every step from check to payout, or the guide to [making money with an idle Mac](/guides/make-money-with-an-idle-mac/) for a wider view of the options.

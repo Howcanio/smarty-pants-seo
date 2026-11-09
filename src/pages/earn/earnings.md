@@ -96,7 +96,7 @@ For a 16 GB M4 Mac mini at the US average price, between about $0.52 and $8.50 a
 | [M5 Pro](/macs/m5-pro/), 64 GB | 6 W idle | 6 × 720 ÷ 1,000 = 4.32 | 4.32 × $0.1816 = about $0.78 |
 | M5 Pro, 64 GB | 145 W max | 145 × 720 ÷ 1,000 = 104.4 | 104.4 × $0.1816 = about $18.96 |
 
-A real month sits somewhere between the idle and max rows. Running a model uses more power than sitting at the Finder, and the app keeps the Mac awake while earning is on, but a ready Mac is not always running a job. We can't tell you where in that range your Mac will land.
+A real month sits somewhere between the idle and max rows. Running a model uses more power than sitting at the Finder, and the app keeps the Mac awake while earning is on, but a ready Mac is not always running a job. We can't tell you where in that range your Mac will land. These rows are scenarios built from Apple's test figures, not measurements of a Mac running Smarty Pants, and not a promise of what your bill will be.
 
 Read it this way: against the intro offer of about $30 a month (or $27 after the payout fee), a 16 GB M4 Mac mini's electricity is between about $0.52 and $8.50 a month at the US average price. A higher-power Mac at max draw costs more. Internet, wear and tax are on top, and not counted here.
 

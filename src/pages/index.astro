@@ -49,12 +49,12 @@ client.chat.completions.create(
     <div class="container">
       <div class="section-head">
         <h2>For developers</h2>
-        <p>Chat, embeddings, speech to text and image making on Apple silicon, plus sandboxed code runs for agents. Each page says plainly what works today and what is planned.</p>
+        <p>Chat and embeddings today; speech to text and image making in testing; sandboxed code runs for agents on Smarty Pants' own account first. Each page says plainly what works today and what is planned.</p>
       </div>
       <div class="grid grid-3">
         <a class="card card-link" href="/inference/"><h3 class="card-title">LLM inference API</h3><p>Exact open models through an OpenAI-compatible API, priced per token.</p><span class="arrow">How it works →</span></a>
         <a class="card card-link" href="/inference/pricing/"><h3 class="card-title">Prices and calculator</h3><p>Listed price for every model and a calculator for your own traffic.</p><span class="arrow">See prices →</span></a>
-        <a class="card card-link" href="/inference/vs-centralized-providers/"><h3 class="card-title">Vs. centralized providers</h3><p>When Macs make sense, and when a GPU cloud is the better buy.</p><span class="arrow">Compare →</span></a>
+        <a class="card card-link" href="/inference/vs-centralized-providers/"><h3 class="card-title">Vs. centralized providers</h3><p>When Apple silicon Macs make sense, and when a data-center provider is the better buy.</p><span class="arrow">Compare →</span></a>
         <a class="card card-link" href="/inference/embeddings-api/"><h3 class="card-title">Embeddings API</h3><p>Qwen3 Embedding 0.6B for search and matching.</p><span class="arrow">Embeddings →</span></a>
         <a class="card card-link" href="/cpu/"><h3 class="card-title">Sandboxed CPU jobs <StatusBadge status="invite" /></h3><p>Short Python, JavaScript or shell programs in a sealed Linux VM on a Mac.</p><span class="arrow">CPU jobs →</span></a>
         <a class="card card-link" href="/workspaces/"><h3 class="card-title">Agent workspaces <StatusBadge status="invite" /></h3><p>One VM, many commands and files. Snapshots, fleets and always-on agents are planned.</p><span class="arrow">Workspaces →</span></a>
@@ -87,7 +87,7 @@ client.chat.completions.create(
       <div class="text-block">
         <h2>For Mac owners</h2>
         <p>Smarty Pants pays for each eligible Mac that sits idle and ready. The current intro offer is up to ${OWNER_OFFER.perDay} a day per idle Mac, {OWNER_OFFER.until} ({OWNER_OFFER.region}). You need an Apple silicon Mac with 16 GB of memory or more; electricity and internet are your costs.</p>
-        <p>Pause any time. The app pauses itself for heat, memory pressure and, on MacBooks, battery, and it cannot browse your files, watch your screen or control your Mac.</p>
+        <p>Pause any time. The app pauses itself for heat, memory pressure and, on MacBooks, battery, and it does not ask for macOS permission to read your protected folders, record your screen or control your Mac.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/earn/">How earning works</a>
           <a class="btn btn-secondary" href={SITE.ownerCtaUrl}>Check my Mac</a>

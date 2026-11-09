@@ -8,7 +8,7 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "remote code execution api"
 keywords: ["remote code execution api", "code sandbox api", "run code in a sandbox", "run code in a vm", "mcp run code tool", "python sandbox api"]
-summary: "Smarty Pants CPU jobs run a short Python, JavaScript or shell program in a sealed ARM64 Linux VM on a Mac: no network, no disk, wiped after. Each job runs up to 30 seconds and returns up to 4 KB of output, which you can stream while it runs. Listed price: $0.00405 per vCPU-hour plus $0.002025 per GB-hour, about $0.00007 for a 20-second job. Today it runs on Smarty Pants' own account first."
+summary: "Smarty Pants CPU jobs run a short Python, JavaScript or shell program in a sealed ARM64 Linux VM on a Mac: no network, no disk, wiped after. Each job runs up to 30 seconds and returns up to 4 KB of output, which you can stream while it runs. Listed price: $0.00405 per vCPU-hour plus $0.002025 per GB-hour, about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory. Today it runs on Smarty Pants' own account first."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -20,7 +20,7 @@ faqs:
   - q: "Can a CPU job reach the internet or install packages?"
     a: "No. The VM has no network and no disk, so it cannot download packages or call outside services. Use it for self-contained code."
   - q: "How much does a CPU job cost?"
-    a: "The listed price on 8 Nov 2026 is $0.00405 per vCPU-hour plus $0.002025 per GB-hour, which comes to about $0.00007 for a 20-second job. Each result reports its charge in chargeMicros."
+    a: "The listed price on 8 Nov 2026 is $0.00405 per vCPU-hour plus $0.002025 per GB-hour, which comes to about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory. Each result reports its charge in chargeMicros."
   - q: "How long can a job run and how much can it print?"
     a: "Up to 30 seconds per job and up to 4 KB of output. For longer work with files and several commands, see workspace sessions."
   - q: "Can the Mac's owner see my code?"
@@ -53,7 +53,7 @@ A short Python, JavaScript or shell program, in a sealed ARM64 Linux VM on a Mac
 | Output | Up to 4 KB |
 | Streaming | Read output while it runs, by byte offsets |
 | Listed price (8 Nov 2026) | $0.00405 per vCPU-hour + $0.002025 per GB-hour |
-| Example cost | About $0.00007 for a 20-second job |
+| Example cost | About $0.00007 for a 20-second job at the default 2 vCPU and 2 GB (2 × $0.00405 + 2 × $0.002025 = $0.01215 an hour; × 20 ÷ 3,600 = $0.0000675) |
 | Status | Smarty Pants' own account first |
 
 ## How do I run a job from Python or JavaScript?
@@ -118,7 +118,7 @@ When the work needs the network, more than 30 seconds, more than 4 KB of output,
 
 ## How is a job priced?
 
-By resources used over time: the listed price on 8 Nov 2026 is $0.00405 per vCPU-hour plus $0.002025 per GB-hour of memory. The live docs give about $0.00007 for a 20-second job as an example.
+By resources used over time: the listed price on 8 Nov 2026 is $0.00405 per vCPU-hour plus $0.002025 per GB-hour of memory. The live docs give about $0.00007 for a 20-second job as an example. That assumes the default job size of 2 vCPU and 2 GB of memory (2,048 MiB): 2 vCPU × $0.00405 + 2 GB × $0.002025 = $0.01215 an hour, and 20 seconds is 20 ÷ 3,600 of an hour, so $0.01215 × 20 ÷ 3,600 = $0.0000675, about $0.00007.
 
 Each result includes `chargeMicros`, the charge for that job. Check the [agent docs](https://smartypants.network/docs/agents) for the current price.
 

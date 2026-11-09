@@ -68,13 +68,14 @@ const EXTRA: Record<string, Extra> = {
     slug: 'flux-1-schnell', short: 'Makes pictures from a description.', kindLabel: 'Image making', endpoint: 'Image generation (request format in the docs at launch)', served: '8-bit MLX',
     priceText: '$0.003 a picture',
     useFor: ['Illustrations, mockups and concept images', 'Up to 4 images up to 1536×1024 per request'],
-    avoidFor: ['Images of real people (not allowed by the use rules)', 'Anything that must not be labeled as AI-made'],
+    avoidFor: ['Sexual or nude images of real people, or fakes meant to fool people about real people (not allowed by the use rules)', 'Anything that must not be labeled as AI-made'],
   },
 };
 
 const money = (n: number) => {
-  if (n >= 0.1) return `$${n.toFixed(2)}`;
-  return `$${String(Number(n.toFixed(3)))}`;
+  // Exact listed rate, never rounded (gpt-oss-20b output is $0.135, not $0.14); at least 2 decimals.
+  const [whole, frac = ''] = String(Number(n.toFixed(6))).split('.');
+  return `$${whole}.${frac.padEnd(2, '0')}`;
 };
 
 export const MODELS = catalog.models

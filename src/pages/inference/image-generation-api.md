@@ -83,7 +83,7 @@ The listed price on 8 Nov 2026 was $0.003 a picture ([smartypants.network/api](h
 
 ## What is it good for?
 
-Drafts and placeholders where an open model that makes images in a few steps is good enough: product mockups, blog and slide illustrations, concept sketches, and test images for your own app. It is not for realistic pictures of real people, and every image carries an AI label.
+Drafts and placeholders where an open model that makes images in a few steps is good enough: product mockups, blog and slide illustrations, concept sketches, and test images for your own app. The use rules forbid sexual or nude images of real people and fakes meant to fool people about real people, and every image carries an AI label.
 
 Prompts run on Macs other people own, and the live site says: "General network: please don't send sensitive data." Keep confidential product names or unreleased designs out of prompts.
 
