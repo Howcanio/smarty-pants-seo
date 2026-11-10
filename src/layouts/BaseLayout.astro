@@ -30,7 +30,10 @@ const organization = {
   description:
     'Smarty Pants is a distributed inference network powered by independently owned Macs. It runs pinned, quantized builds of open AI models on idle Apple silicon Macs and sells them per token through an OpenAI-compatible API. Mac owners get paid for the hours their Mac is ready.',
   sameAs: ['https://huggingface.co/smartypantsnet'],
-  parentOrganization: { '@type': 'Organization', name: SITE.operator },
+  parentOrganization: {
+    '@type': 'Organization', name: SITE.operator,
+    address: { '@type': 'PostalAddress', streetAddress: SITE.mailingAddress.street, addressLocality: SITE.mailingAddress.city, addressRegion: SITE.mailingAddress.region, postalCode: SITE.mailingAddress.postalCode, addressCountry: SITE.mailingAddress.country },
+  },
 };
 const website = {
   '@context': 'https://schema.org',

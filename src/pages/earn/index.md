@@ -8,7 +8,7 @@ audience: "supplier"
 status: "invite"
 primaryKeyword: "earn money with my mac"
 keywords: ["earn money with my mac", "passive income mac mini", "make money with idle mac", "rent out my mac for ai", "mac mini side income"]
-summary: "Smarty Pants pays owners of eligible Apple Silicon Macs (16 GB memory or more, macOS 14 or later) to keep them available for AI work while idle. The current intro offer, listed on 8 November 2026, is up to $1 a day per idle Mac until 50 computers join, US only. That is a ceiling, not a forecast: you earn it only for hours the Mac is on, idle and ready, and real earnings can be lower. You pay for electricity and internet. Owners are invited in small batches; start with the 3-second browser check."
+summary: "Smarty Pants pays owners of eligible Apple Silicon Macs (16 GB memory or more, macOS 14 or later) to keep them available for AI work while idle. Earn up to $1/day per eligible Mac during the intro offer (US only, first 50 Macs, paid only for hours the Mac is on, idle and ready). You pay for electricity and internet. Owners are invited in small batches; start with the 3-second browser check."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -18,7 +18,7 @@ faqs:
   - q: "Which Macs qualify?"
     a: "An Apple Silicon Mac with 16 GB of memory or more and macOS 14 or later. The app also checks for 15 GB or more of free disk, power, temperature, system pressure, network and a model benchmark, and MacBooks must be plugged in while serving."
   - q: "How much does the intro offer pay?"
-    a: "On 8 November 2026 the live site listed up to $1 a day per idle Mac, until 50 computers join, US only. At most, that is a hypothetical $30 a month if the Mac were ready every hour of the month; real earnings can be lower. It is not a promise of income."
+    a: "Earn up to $1/day per eligible Mac during the intro offer. It is US only, for the first 50 supported Macs, and pays only for hours the Mac is on, plugged in, online and ready. It is not a promise of income."
   - q: "Is a Mac mini a good fit?"
     a: "Smarty Pants says Apple Silicon Mac minis with 16 GB or more of memory are a primary launch target. The app checks the exact machine before any paid work."
   - q: "Can Smarty Pants see my files or screen?"
@@ -63,15 +63,15 @@ Mac minis with 16 GB or more are "a primary launch target," and MacBooks are inc
 
 ## What does the current intro offer pay?
 
-On 8 November 2026 the live site listed an intro offer of **up to $1 a day per idle Mac, until 50 computers join**. It is US only and applies to the first 50 supported Apple Silicon Macs with 16 GB or more.
+**Earn up to $1/day per eligible Mac during the intro offer.** It is US only and applies to the first 50 supported Apple Silicon Macs with 16 GB or more.
 
-The live home page puts that at "about $30.00 a month if your Mac is on, plugged in and ready all day." Treat that as a hypothetical ceiling: you are paid only for the hours the Mac is ready, so real earnings can be lower. After the first 50 computers, pay depends on your Mac's memory, its speed and how often it is on, and Smarty Pants says it will tell you in the app before your pay changes. Nothing here is a promise of income. The [Node Operator Agreement](https://smartypants.network/legal) says no demand, work, availability or earnings are promised. The full details, including the payout fee, are on [how earnings work](/earn/earnings/).
+You are paid only for the hours the Mac is on, plugged in, online and ready. Nothing here is a promise of income. The [Node Operator Agreement](https://smartypants.network/legal) says no demand, work, availability or earnings are promised. The full details, including the payout fee, are on [how earnings work](/earn/earnings/).
 
 ## What costs do I pay?
 
 Electricity and internet are your costs. Displayed earnings are gross: they do not deduct electricity or tax.
 
-The Node Operator Agreement also says that while earning is on, the app may keep the Mac awake, download and store approved model files, use processor and memory capacity, create heat and fan activity, and use electricity and bandwidth. The display may sleep. Our [earnings page](/earn/earnings/) works through an electricity example using Apple's published Mac mini power figures and the US average electricity price.
+The Node Operator Agreement also says that while earning is on, the app may keep the Mac awake, download and store approved model files, use processor and memory capacity, create heat and fan activity, and use electricity and bandwidth. The display may sleep.
 
 ## What can't the app do?
 

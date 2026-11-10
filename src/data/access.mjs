@@ -1,7 +1,7 @@
 // Who can get an API key, and how Mac owners join. One switch for the whole site:
 // [[API_ACCESS]] and [[MAC_ACCESS]] in any page body or frontmatter become these sentences.
-// Set API_ACCESS=open on Render only if open sign-up (with free credit) is what the live product and terms say.
-export const API_ACCESS = process.env.API_ACCESS === 'open' ? 'open' : 'invite';
+// Open sign-up is live and in the terms (Nat, 10 Nov 2026). Set API_ACCESS=invite if OPEN_SIGNUP_ENABLED is turned off.
+export const API_ACCESS = process.env.API_ACCESS === 'invite' ? 'invite' : 'open';
 
 export const API_ACCESS_TEXT = {
   invite: 'API keys are invite only for now: join the API list at smartypants.network/api and Smarty Pants emails you when access opens.',
