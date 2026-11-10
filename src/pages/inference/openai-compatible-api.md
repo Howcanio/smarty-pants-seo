@@ -42,7 +42,7 @@ This is the Smarty Pants how-to: the exact base URL, the parameters each model a
 
 Change two lines: the base URL and the API key. Everything else in your OpenAI SDK code stays the same; only the model name changes to a Smarty Pants one.
 
-Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key. Keep it in `SMARTYPANTS_API_KEY`, never in code.
+[[API_ACCESS]] Keep it in `SMARTYPANTS_API_KEY`, never in code.
 
 ### Python
 

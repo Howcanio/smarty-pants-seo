@@ -121,12 +121,12 @@ const schema = {
       <div class="text-block">
         <h2>Can a {c.name} Mac earn with Smarty Pants?</h2>
         <p>{eligibleText}</p>
-        {qualifying.length > 0 && <p>The current intro offer on smartypants.network is up to ${OWNER_OFFER.perDay} a day for each idle Mac that is on, plugged in and ready, {OWNER_OFFER.until} ({OWNER_OFFER.region}). Electricity and internet are your costs, and Macs are invited in small batches. <a href="/earn/earnings/">How earnings work</a>.</p>}
+        {qualifying.length > 0 && <p>{OWNER_OFFER.line} {OWNER_OFFER.conditions} Electricity and internet are your costs, and Macs are invited in small batches. <a href="/earn/earnings/">How earnings work</a>.</p>}
         {c.macs.some((x) => x.startsWith('MacBook')) && <p>MacBooks must be plugged in while serving and pause on battery.</p>}
       </div>
       <div class="card">
         <h3>Check your exact Mac</h3>
-        <p>The private browser check on smartypants.network takes about three seconds and nothing leaves your Mac. The signed app confirms the exact chip and memory before any paid work.</p>
+        <p>The browser check on smartypants.network takes about three seconds and runs in your browser; the result is sent only if you ask for an invite, along with your email. The signed app confirms the exact chip and memory before any paid work.</p>
         <p><a class="btn btn-primary stack-top" href={SITE.ownerCtaUrl}>Check my Mac</a></p>
       </div>
     </div>

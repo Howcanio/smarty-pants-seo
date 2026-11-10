@@ -6,7 +6,7 @@ import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LIN
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="/" class="brand" aria-label="Smarty Pants home"><Logo /></a>
-      <p>Exact open AI models on idle Apple silicon Macs, priced per token. Mac owners get paid for the hours their Mac is ready.</p>
+      <p>Pinned builds of open AI models on idle Apple silicon Macs, priced per token. Mac owners get paid for the hours their Mac is ready.</p>
       <p>Questions? <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></p>
     </div>
     <nav aria-label="Inference">
@@ -29,7 +29,7 @@ import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LIN
     </nav>
   </div>
   <div class="container footer-legal">
-    <p>© 2026 Smarty Pants. Operated by {SITE.operator}</p>
+    <p>© 2026 Smarty Pants. Operated by {SITE.operator}, {SITE.mailingAddress.street}, {SITE.mailingAddress.city}, {SITE.mailingAddress.region} {SITE.mailingAddress.postalCode}</p>
     <p>Facts checked against smartypants.network on {SITE.checkedLabel}. Prices and availability change; the live product is the source of truth.</p>
   </div>
 </footer>

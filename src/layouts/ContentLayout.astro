@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import StatusBadge from '../components/StatusBadge.astro';
-import { SITE, LINK_LABELS } from '../data/site';
+import { SITE, LINK_LABELS, expandTokens } from '../data/site';
 import { MODELS, modelHref } from '../data/models';
 
 interface Frontmatter {
@@ -27,7 +27,14 @@ interface Props {
   frontmatter: Frontmatter;
   headings?: { depth: number; slug: string; text: string }[];
 }
-const { frontmatter: fm, headings = [] } = Astro.props;
+const { frontmatter: raw, headings = [] } = Astro.props;
+// [[API_ACCESS]] and [[MAC_ACCESS]] become the site-wide access sentences (src/data/site.ts).
+const fm: Frontmatter = {
+  ...raw,
+  description: expandTokens(raw.description),
+  summary: raw.summary && expandTokens(raw.summary),
+  faqs: raw.faqs?.map((f) => ({ q: f.q, a: expandTokens(f.a) })),
+};
 const path = Astro.url.pathname;
 
 const h1 = fm.h1 ?? fm.title;

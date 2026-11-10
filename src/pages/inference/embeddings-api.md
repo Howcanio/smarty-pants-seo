@@ -58,7 +58,7 @@ The upstream [Qwen3-Embedding-0.6B model card](https://huggingface.co/Qwen/Qwen3
 
 ## How do you call POST /v1/embeddings?
 
-Send OpenAI-format requests to `https://smartypants.network/v1/embeddings` with your Smarty Pants key. Smarty Pants is opening in stages; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+Send OpenAI-format requests to `https://smartypants.network/v1/embeddings` with your Smarty Pants key. [[API_ACCESS]]
 
 ### Python
 

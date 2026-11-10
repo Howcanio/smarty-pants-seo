@@ -116,4 +116,4 @@ The [Smarty Pants Mac benchmarks](https://huggingface.co/datasets/smartypantsnet
 
 Yes. [Smarty Pants](/inference/) runs open models on idle Apple Silicon Macs, and each model is served as a specific build, for example 4-bit MLX. The build is named in [`/v1/models`](https://smartypants.network/v1/models) with a `build_id` and a `quantization` field, so you know exactly which weights answer your request.
 
-You call those models through an [OpenAI-compatible API](/inference/openai-compatible-api/) at `https://smartypants.network/v1`, priced per token. Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key. If you have a Mac with enough memory and want full control, running MLX yourself is free and keeps your data on your machine.
+You call those models through an [OpenAI-compatible API](/inference/openai-compatible-api/) at `https://smartypants.network/v1`, priced per token. [[API_ACCESS]] If you have a Mac with enough memory and want full control, running MLX yourself is free and keeps your data on your machine.

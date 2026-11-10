@@ -45,7 +45,7 @@ Earning with a Mac on Smarty Pants takes a few steps, and only the last one invo
 
 There are seven, from a browser check to a Stripe payout. Steps 1 and 2 work today for anyone; the rest need an invite.
 
-1. **Run the browser check.** At [smartypants.network](https://smartypants.network/), one click runs a local test of about 3 seconds. Nothing leaves the Mac, and there is no download or questionnaire.
+1. **Run the browser check.** At [smartypants.network](https://smartypants.network/), one click runs a test of about 3 seconds, with no download or questionnaire. The check runs in your browser. Smarty Pants records that a check started and finished, with an anonymous visitor ID and where you came from, but not the result. If you then ask for an invite, it sends your email, country, when the Mac is usually free and the check result (Apple silicon or not, memory size and the tier it suggests).
 2. **Save your spot.** Leave your email and Smarty Pants invites you when a batch opens. Your test result travels with your request, so stronger Macs can be invited first.
 3. **Install the signed app.** Invited testers download the signed installer, move Smarty Pants to Applications and open it. Later releases install through **Check for updates…** inside the app.
 4. **Connect the Mac.** Choose **Connect this Mac**, sign in with your email, accept the terms, then turn on earning.

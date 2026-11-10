@@ -60,7 +60,7 @@ The [Hugging Face model card](https://huggingface.co/openai/whisper-large-v3-tur
 
 ## How do you send audio?
 
-Upload the file as multipart form data with your Smarty Pants key, in the OpenAI format. Smarty Pants is opening in stages; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+Upload the file as multipart form data with your Smarty Pants key, in the OpenAI format. [[API_ACCESS]]
 
 ### curl
 

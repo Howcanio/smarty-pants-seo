@@ -198,7 +198,7 @@
     "activeParams": null,
     "architecture": "rectified flow transformer (text-to-image)",
     "nativeContext": null,
-    "released": "2024-07",
+    "released": "2024-08",
     "license": "Apache-2.0",
     "strengths": "Generates images from text prompts; licensed for personal, scientific and commercial use.",
     "uniqueFact": "Trained with latent adversarial diffusion distillation, it can produce an image in 1 to 4 sampling steps (the reference example uses 4 steps with guidance scale 0).",
@@ -208,8 +208,8 @@
         "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
       },
       {
-        "label": "Hugging Face API: black-forest-labs/FLUX.1-schnell (createdAt)",
-        "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell"
+        "label": "Black Forest Labs: Announcing Black Forest Labs (1 Aug 2024)",
+        "url": "https://bfl.ai/blog/24-08-01-bfl"
       }
     ]
   }

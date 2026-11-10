@@ -22,7 +22,7 @@ faqs:
   - q: "Are files kept after a session ends?"
     a: "No. Files live until the workspace ends and nothing is kept after. Fetch what you need before you end it."
   - q: "Can a session install packages from the internet?"
-    a: "No. The VM has no network today. Internet access through a filter of listed public sites is Planned."
+    a: "No. The VM has no network today. Internet access from a workspace is Planned and not available."
 related: ["/workspaces/", "/cpu/", "/workspaces/snapshots-and-recovery/", "/guides/ai-agent-sandboxes-explained/"]
 sources:
   - label: "Smarty Pants: Agent kit (Workspaces: one VM, many commands)"
@@ -94,13 +94,27 @@ Good habits:
 - Fetch any file you need as soon as a step produces it.
 - On `OWNER_RETURNED`, start a new session, put the inputs back and redo the last step.
 
-Moving a workspace to another Mac from a saved checkpoint is Planned; see [snapshots and recovery](/workspaces/snapshots-and-recovery/).
+Continuing a workspace on another Mac is Planned and not available; see [snapshots and recovery](/workspaces/snapshots-and-recovery/).
 
 ## What should not go into a session?
 
 Secrets and confidential data. The VM protects the Mac's owner from your code. It does not keep your files or memory confidential from the Mac's owner.
 
 Use sessions for public code, test data and throwaway work. If you need internet access, large files or work that runs for hours, a hosted sandbox on dedicated servers fits better today.
+
+## What is available today and what is Planned?
+
+| Feature | Status |
+|---|---|
+| Sessions on Smarty Pants' own account, with the limits above | Available today |
+| Sessions from your own account | Planned |
+| [Snapshots and recovery](/workspaces/snapshots-and-recovery/) | Planned |
+| Internet access from a workspace | Planned |
+| [Model calls from a workspace](/workspaces/model-calls/) | Planned |
+| [Several sessions at once](/workspaces/fleets/) | Planned |
+| CLI and SDK | Planned |
+
+Planned features are not available. We'll announce it on smartypants.network/docs/agents when each one opens.
 
 ## Where next?
 

@@ -8,7 +8,7 @@ audience: "buyer"
 status: "planned"
 primaryKeyword: "video generation api"
 keywords: ["video generation api", "ai video api", "open source video model api", "text to video api"]
-summary: "Video generation on Smarty Pants is Planned. It is not available, there is no video model in the catalog, and there is no date. Today Smarty Pants serves chat, embedding and speech models, and is testing image generation with FLUX.1 schnell. If you need video now, use a provider that offers it. To ask for a specific open video model, use smartypants.network/request-a-model."
+summary: "Video generation on Smarty Pants is Planned. It is not available, there is no video model in the catalog, and there is no date. Today Smarty Pants serves chat and embedding models, and is testing speech to text (Whisper large-v3 turbo) and image generation (FLUX.1 schnell); both open soon. If you need video now, use a provider that offers it. To ask for a specific open video model, use smartypants.network/request-a-model."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 3

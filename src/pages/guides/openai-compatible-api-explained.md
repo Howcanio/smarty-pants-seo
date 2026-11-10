@@ -23,7 +23,7 @@ faqs:
   - q: "What is the Smarty Pants base URL?"
     a: "https://smartypants.network/v1. Authentication is a Bearer API key, which you get by signing in with your email on smartypants.network/api."
   - q: "Is an OpenAI-compatible API the same model as OpenAI's?"
-    a: "No. Compatibility is about the request and response format, not the model. Smarty Pants serves exact, pinned open models such as smartypants/qwen3.5-9b, not OpenAI's models."
+    a: "No. Compatibility is about the request and response format, not the model. Smarty Pants serves pinned, quantized builds of open models such as smartypants/qwen3.5-9b, not OpenAI's models."
 related: ["/inference/openai-compatible-api/", "/inference/", "/inference/embeddings-api/", "/inference/speech-to-text-api/", "/guides/llm-api-pricing-explained/", "/ai-models/"]
 sources:
   - label: "OpenAI API reference: Create chat completion"
@@ -83,7 +83,7 @@ curl https://smartypants.network/v1/chat/completions \
   -d '{"model": "smartypants/nanbeige4.3-33b", "messages": [{"role": "user", "content": "Hello"}], "max_tokens": 200}'
 ```
 
-Keep the key in an environment variable, never in code. Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+Keep the key in an environment variable, never in code. [[API_ACCESS]]
 
 ## What usually differs between OpenAI-compatible providers?
 
@@ -121,4 +121,4 @@ A practical pattern: put the base URL, key and model name in configuration, chec
 
 ## Where does Smarty Pants fit?
 
-Smarty Pants runs exact, pinned, unmodified open models on Apple Silicon Macs that owners make available when idle, and sells them per token through the OpenAI-compatible API above. Each model is a specific build named in `/v1/models`, for example `build_id` `qwen3.5-9b-mlx-4bit-r938d891` for `smartypants/qwen3.5-9b`. Requests run on Macs other people own, so keep private data off the general network. See the [OpenAI-compatible API page](/inference/openai-compatible-api/) for the product details and [/inference/pricing/](/inference/pricing/) for prices.
+Smarty Pants runs pinned, quantized builds of upstream open-weight models on Apple Silicon Macs that owners make available when idle, and sells them per token through the OpenAI-compatible API above. Each model is a specific build named in `/v1/models`, for example `build_id` `qwen3.5-9b-mlx-4bit-r938d891` for `smartypants/qwen3.5-9b`. Requests run on Macs other people own, so keep private data off the general network. See the [OpenAI-compatible API page](/inference/openai-compatible-api/) for the product details and [/inference/pricing/](/inference/pricing/) for prices.

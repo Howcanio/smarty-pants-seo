@@ -5,6 +5,7 @@ export const SITE = {
   name: 'Smarty Pants',
   domain: 'smartypants.network',
   operator: 'Howcan, Inc.',
+  mailingAddress: { street: '50 6th Avenue', city: 'Brooklyn', region: 'NY', postalCode: '11217', country: 'US' },
   coreSite: 'https://smartypants.network',
   apiBase: 'https://smartypants.network/v1',
   supportEmail: 'info@howcan.io',
@@ -28,7 +29,13 @@ export const OWNER_OFFER = {
   payoutFeeMinimum: 3,
   requirements: 'Apple silicon Mac with 16 GB of memory or more, macOS 14 or later',
   region: 'US only for now',
+  /** The one approved earnings line (Nat, 10 Nov 2026). */
+  line: 'Earn up to $1/day per eligible Mac during the intro offer.',
+  /** The conditions that go with it. */
+  conditions: 'It is for the first 50 supported Macs, US only, and pays only for hours the Mac is on, plugged in, online and ready.',
 };
+
+export { API_ACCESS, API_ACCESS_TEXT, MAC_ACCESS_TEXT, PRIVACY_TEXT, expandTokens } from './access.mjs';
 
 export const NAV = [
   { href: '/inference/', label: 'Inference API' },

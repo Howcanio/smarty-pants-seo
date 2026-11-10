@@ -21,7 +21,7 @@ faqs:
   - q: "Can I use Smarty Pants CPU jobs today?"
     a: "Not yet for most people. Smarty Pants runs CPU jobs and workspaces on its own account first, and other accounts get a 403 error until they open."
   - q: "Do Smarty Pants sandboxes have internet access?"
-    a: "CPU jobs run with no network. Guest internet through a filter that allows listed public sites only is Planned, not available."
+    a: "No. CPU jobs and workspace sessions run with no network today. Internet access from a workspace is Planned and not available."
   - q: "Should an agent retry a failed sandbox command automatically?"
     a: "Only when rerunning is safe. A command can have changed files before it failed, so check state first, or use an idempotency key where the API offers one."
 related: ["/cpu/", "/workspaces/", "/workspaces/sessions/", "/workspaces/snapshots-and-recovery/", "/workspaces/model-calls/", "/workspaces/fleets/", "/workspaces/always-on-agents/"]
@@ -63,7 +63,7 @@ The isolation layer varies. [Modal](https://modal.com/docs/guide/sandboxes.md) r
 | Streamed output | Send stdout and stderr while the program runs | E2B `onStdout` / `onStderr` callbacks |
 | Snapshots | Save the sandbox's state and start new ones from it | E2B snapshots capture filesystem and memory; Modal filesystem snapshots |
 | Egress control | Turn network off or allow only some destinations | E2B can disable internet or use allow and deny lists |
-| Lifetime limits | End the sandbox after a time or idle period | Modal: 5-minute default, up to 24 hours |
+| Lifetime limits | End the sandbox after a time or idle period | Smarty Pants workspaces: 30 minutes, or 10 minutes idle |
 
 Defaults differ. E2B's [internet access page](https://docs.e2b.dev/network/internet-access.md) says "Every sandbox has outbound access to the internet by default," and lets you turn it off. Check each provider's default before running untrusted code.
 
@@ -82,16 +82,16 @@ Defaults differ. E2B's [internet access page](https://docs.e2b.dev/network/inter
 
 **Because a failed command may already have changed something.** A script can write half a file, or a job can finish while the response is lost. Rerunning it blindly can double the effect. Before retrying, check the sandbox state, or send an idempotency key so the service can recognize a repeat. The Smarty Pants Python starter kit sends an `idempotencyKey` with each CPU job.
 
-## How do Smarty Pants CPU jobs and workspaces work today?
+## What is available today on Smarty Pants?
 
-**Both run in a sealed Linux VM on an Apple Silicon Mac, and both are open to Smarty Pants' own account first.** Other accounts get a 403 error until they open. Details from the [agent docs](https://smartypants.network/docs/agents):
+**CPU jobs and workspace sessions are available today. Both run in a sealed Linux VM on an Apple Silicon Mac, and both are open to Smarty Pants' own account first.** Other accounts get a 403 error until they open. Details from the [agent docs](https://smartypants.network/docs/agents):
 
 ### CPU jobs (one-shot)
 
 - A short Python, JavaScript or shell program runs in a sealed Linux (ARM64) VM: no network, no disk, wiped after.
 - Up to 30 seconds per job and up to 4 KB of output.
 - Output streams while it runs: `GET /v1/cpu/jobs/{id}/output?stdoutOffset=0&stderrOffset=0` returns what it has printed so far. Pass back each stream's `nextOffset` until `done` is true.
-- Listed price: $0.00405 per vCPU-hour plus $0.002025 per GB-hour, about $0.00007 for a 20-second job.
+- Listed price: $0.00405 per vCPU-hour plus $0.002025 per GB-hour, about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory.
 
 More on the [CPU jobs page](/cpu/).
 
@@ -107,14 +107,16 @@ More on [Agent workspaces](/workspaces/) and [Workspace sessions](/workspaces/se
 
 ## What is Planned for Smarty Pants workspaces?
 
-**These features are on the roadmap and not usable by the public. Each is Planned.**
+**These features are Planned and not available.**
 
-- **Planned:** [Snapshots and recovery](/workspaces/snapshots-and-recovery/): disk-only snapshots, and restoring on another Mac after a host is lost.
-- **Planned:** [Model calls from workspaces](/workspaces/model-calls/): a workspace-scoped inference key with a budget, and a credential proxy with placeholder keys.
-- **Planned:** [Browser work and fleets](/workspaces/fleets/): several sessions at once.
-- **Planned:** [Always-on agents](/workspaces/always-on-agents/): persistent agents.
-- **Planned:** Guest internet through a filter that allows listed public sites only and blocks home-network addresses.
-- **Planned:** A CLI and SDK for paid developer use.
+| Feature | Status | What it will let you do |
+|---|---|---|
+| [Snapshots and recovery](/workspaces/snapshots-and-recovery/) | Planned | Save a workspace and continue it on another Mac if its Mac goes away |
+| [Model calls from workspaces](/workspaces/model-calls/) | Planned | Call Smarty Pants models from inside a workspace with a key limited to that workspace and a spending budget |
+| [Fleets and browser work](/workspaces/fleets/) | Planned | Run several sessions at once, and use a web browser in a workspace |
+| [Always-on agents](/workspaces/always-on-agents/) | Planned | Keep an agent working for days |
+| Internet access | Planned | Reach the internet from inside a workspace |
+| CLI and SDK | Planned | Tools for paid developer use |
 
 ## Who does sandbox isolation protect?
 

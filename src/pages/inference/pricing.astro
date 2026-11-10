@@ -11,7 +11,7 @@ const checked = new Date(`${CATALOG_CHECKED}T12:00:00Z`).toLocaleDateString('en-
 const title = 'LLM API pricing on Smarty Pants, with calculator';
 const description = `Listed per-token prices for every Smarty Pants model, checked ${checked}, and a calculator that estimates your monthly cost from your own request sizes.`;
 const tokenModels = MODELS.filter((m) => m.kind === 'text' || m.kind === 'embedding');
-const fmt = (n: number) => (n >= 0.1 ? `$${n.toFixed(2)}` : `$${String(Number(n.toFixed(3)))}`);
+const fmt = (n: number) => { const [w, f = ''] = String(Number(n.toFixed(6))).split('.'); return `$${w}.${f.padEnd(2, '0')}`; };
 const faqs = [
   { q: 'How does Smarty Pants charge?', a: 'Per token, at the listed price per million input tokens and per million output tokens for the model you call. Speech to text is priced per hour of audio and image making per picture. You are not charged for a request Smarty Pants can\'t serve.' },
   { q: 'Where is the current price?', a: `GET ${SITE.apiBase}/models returns every model's price (per token, in its pricing field). The prices on this page were checked on ${checked} and can change.` },
@@ -51,7 +51,7 @@ const faqs = [
           </tbody>
         </table>
       </div>
-      <p class="footnote">Source: <a href={`${SITE.apiBase}/models`}>GET /v1/models</a> and <a href={`${SITE.coreSite}/api`}>smartypants.network/api</a>, checked {checked}. "M tokens" means one million tokens; a token is about three-quarters of a word.</p>
+      <p class="footnote">Source: <a href={`${SITE.apiBase}/models`}>GET /v1/models</a> and <a href={`${SITE.coreSite}/api`}>smartypants.network/api</a>, checked {checked}. "M tokens" means one million tokens; for English text, a token is about three-quarters of a word (other languages and code use more tokens per word).</p>
     </div>
   </section>
 

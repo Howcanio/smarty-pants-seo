@@ -21,7 +21,7 @@ faqs:
   - q: "Mac mini or Mac Studio for AI?"
     a: "The Mac Studio offers far more memory (up to 512 GB with M5 Ultra) and more memory bandwidth. The Mac mini is smaller and draws much less power. If your models fit in 64 GB, the mini is the simpler choice."
   - q: "Can a Mac mini earn money when I'm not using it?"
-    a: "Possibly, with Smarty Pants. Intro offer: up to $1 a day per idle Mac, until 50 computers join. It is US only and for supported Apple Silicon Macs with 16 GB or more; Macs are being invited in small batches."
+    a: "Possibly, with Smarty Pants: Earn up to $1/day per eligible Mac during the intro offer. It is US only and for supported Apple Silicon Macs with 16 GB or more; Macs are being invited in small batches."
 related: ["/guides/how-much-ram-to-run-an-llm/", "/guides/how-to-run-an-llm-on-a-mac/", "/guides/make-money-with-an-idle-mac/", "/earn/", "/macs/", "/ai-models/"]
 sources:
   - label: "Apple: Mac mini, Tech Specs (current models)"
@@ -95,7 +95,7 @@ Studio figures are from Apple's [Mac Studio tech specs](https://www.apple.com/ma
 
 Trade-offs worth naming:
 
-- **Mac mini.** Low idle power (4 to 6 W in Apple's tests) suits a machine left on. The ceiling is 64 GB.
+- **Mac mini.** Low idle power (4 to 6 W in Apple's specifications) suits a machine left on. The ceiling is 64 GB.
 - **Mac Studio.** The only Mac here that can hold the very largest open models in memory. Its rated maximum continuous power is 480 W, against 155 W for the mini.
 - **MacBook.** Portable, with memory that depends on the chip you choose. If you want it to serve Smarty Pants work, it must be plugged in, and it pauses itself on battery.
 
@@ -107,9 +107,9 @@ It can, with [Smarty Pants](/earn/), which sends AI requests to Apple Silicon Ma
 
 What Smarty Pants says today (8 Nov 2026):
 
-- **Intro offer: up to $1 a day per idle Mac, until 50 computers join.** It applies to the first 50 supported Apple Silicon Macs with 16 GB+, US only, and pays for hours the Mac is on, plugged in, online and ready, even with no job running. After the first 50, pay depends on the Mac's memory, speed and how often it's on, and the app tells you before your pay changes. Details: [How earnings work](/earn/earnings/).
+- **Earn up to $1/day per eligible Mac during the intro offer.** It applies to the first 50 supported Apple Silicon Macs with 16 GB+, US only, and pays for hours the Mac is on, plugged in, online and ready, even with no job running. Details: [How earnings work](/earn/earnings/).
 - **Requirements:** Apple Silicon, 16 GB memory or more, macOS 14 or later. The app also checks for 15 GB+ free disk, power, temperature, system pressure, network and a model benchmark ([compatibility](https://smartypants.network/compatibility)).
-- **Controls:** Pause any time; the Mac also pauses itself for unsafe heat, memory or battery conditions. Smarty Pants "cannot browse your files, watch your screen, or control your Mac" ([for humans](https://smartypants.network/humans)).
-- **Access:** the Mac app is invite only for now. We're inviting Macs in small batches.
+- **Controls:** Pause any time; the Mac also pauses itself for unsafe heat, memory or battery conditions. The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee.
+- **Access:** [[MAC_ACCESS]]
 
-Electricity and internet are your costs, and displayed earnings are gross. For the cost math with Apple's power figures, see [How to make money with an idle Mac](/guides/make-money-with-an-idle-mac/).
+Electricity and internet are your costs, and displayed earnings are gross.

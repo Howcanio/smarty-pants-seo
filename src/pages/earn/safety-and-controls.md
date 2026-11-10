@@ -8,7 +8,7 @@ audience: "supplier"
 status: "invite"
 primaryKeyword: "is it safe to share my mac for ai"
 keywords: ["is it safe to share my mac for ai", "smarty pants pause", "can smarty pants see my files", "mac ai app privacy owner", "sealed vm mac"]
-summary: "You can pause the Smarty Pants app at any time: Pause stops new work, disconnects the Mac and interrupts work in progress. The Mac also pauses itself for unsafe battery, heat or memory conditions, and MacBooks pause on battery. You choose company only, general network or both. Smarty Pants says it cannot browse your files, watch your screen or control your Mac. It makes no security guarantee."
+summary: "You can pause the Smarty Pants app at any time: Pause stops new work, disconnects the Mac and interrupts work in progress. The Mac also pauses itself for unsafe battery, heat or memory conditions, and MacBooks pause on battery. You choose company only, general network or both. The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee. Smarty Pants makes no security guarantee."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -18,9 +18,9 @@ faqs:
   - q: "Does the Mac pause itself?"
     a: "Yes. The Mac pauses for unsafe battery, heat or memory conditions. Mac minis pause for heat or unsafe pressure, and MacBooks also pause on battery."
   - q: "Can Smarty Pants see my files or my screen?"
-    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac. It can use approved AI capacity."
+    a: "The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee."
   - q: "Can I read the prompts my Mac answers?"
-    a: "No. Your Mac must decrypt each request in memory to answer it, but Smarty Pants does not show or retain prompt content in its interface or product logs. The Node Operator Agreement also forbids owners from accessing, copying or retaining request inputs or outputs."
+    a: "Prompts are not shown in the app, and the owner agreement forbids you from trying to access, copy or keep them. But your Mac decrypts each request in memory to answer it, so keeping prompts from the Mac's owner is a rule and an app design, not a technical guarantee. That is why developers are told not to send sensitive data to the general network."
   - q: "Is it guaranteed to be safe for my Mac?"
     a: "No. The Node Operator Agreement says no device safety or useful life is promised. The app keeps the Mac awake, uses processor and memory, and creates heat and fan activity while earning is on."
 related: ["/earn/", "/earn/how-it-works/", "/earn/earnings/", "/cpu/", "/guides/ai-agent-sandboxes-explained/"]
@@ -64,7 +64,7 @@ On a Mac with 48 GB or more, you can also turn picture making off in the app's s
 
 ## Can I see the prompts my Mac answers?
 
-No, and you are not allowed to try. A serving Mac must decrypt a request in memory to compute the answer. Smarty Pants "does not show or retain prompt content in its interface or product logs."
+Not in the app, and you are not allowed to try. Smarty Pants "does not show or retain prompt content in its interface or product logs." But a serving Mac must decrypt each request in memory to compute the answer, so confidentiality from the Mac's owner is not guaranteed: it rests on the agreement below and on the app's design, not on something the owner technically cannot get around.
 
 The owner agreement says you will not access, copy, retain, reconstruct, disclose or use request inputs or outputs. The same FAQ calls a general-network Mac "an independently managed trust boundary" and tells developers to use the general network only for non-sensitive work.
 
@@ -81,7 +81,9 @@ For workspaces, "the Mac's owner comes first: if they come back, the workspace e
 
 ## What can't the app do?
 
-Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac." It can use approved AI capacity.
+What the app can use is approved AI capacity: processor, memory, storage and network, as listed below.
+
+The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee.
 
 What it does do while earning is on, per the owner agreement: keep the Mac awake while safety checks permit, download and store approved model files, use processor and memory capacity, create heat and fan activity, send and receive request data, and use electricity and bandwidth. The display may sleep.
 

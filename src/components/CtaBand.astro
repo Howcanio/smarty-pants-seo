@@ -1,20 +1,20 @@
 ---
-import { SITE, OWNER_OFFER } from '../data/site';
+import { SITE, OWNER_OFFER, PRIVACY_TEXT, API_ACCESS } from '../data/site';
 
 interface Props { audience?: 'buyer' | 'supplier' | 'both'; heading?: string; body?: string }
 const { audience = 'both' } = Astro.props;
 const copy = {
   buyer: {
-    heading: 'Try an exact open model on real Macs.',
+    heading: 'Try a pinned open model on real Macs.',
     body: 'See every model, its listed price and the code to call it. Smarty Pants works with the OpenAI SDK you already use: change the base URL and the key.',
   },
   supplier: {
     heading: 'Is your Mac smart enough?',
-    body: `Run the private three-second check on smartypants.network. Current intro offer: up to $${OWNER_OFFER.perDay} a day per idle Mac, ${OWNER_OFFER.until}. Macs are invited in small batches.`,
+    body: `Run the private three-second check on smartypants.network. ${OWNER_OFFER.line} Macs are invited in small batches.`,
   },
   both: {
     heading: 'Use AI on real Macs, or let your Mac earn.',
-    body: 'Developers call exact open models through an OpenAI-compatible API. Mac owners make an idle Apple silicon Mac available and get paid for the hours it is ready.',
+    body: 'Developers call pinned builds of open models through an OpenAI-compatible API. Mac owners make an idle Apple silicon Mac available and get paid for the hours it is ready.',
   },
 }[audience];
 const heading = Astro.props.heading ?? copy.heading;
@@ -25,9 +25,10 @@ const body = Astro.props.body ?? copy.body;
     <div>
       <h2>{heading}</h2>
       <p>{body}</p>
+      {audience !== 'supplier' && <p class="cta-note"><small>{PRIVACY_TEXT}</small></p>}
     </div>
     <div class="cta-actions">
-      {audience !== 'supplier' && <a class="btn btn-yellow btn-lg" href={SITE.buyerCtaUrl}>See models and get a key</a>}
+      {audience !== 'supplier' && <a class="btn btn-yellow btn-lg" href={SITE.buyerCtaUrl}>{API_ACCESS === 'open' ? 'See models and get a key' : 'See models and join the API list'}</a>}
       {audience !== 'buyer' && <a class={`btn ${audience === 'supplier' ? 'btn-yellow' : 'btn-secondary'} btn-lg`} href={SITE.ownerCtaUrl}>Check my Mac</a>}
     </div>
   </div>

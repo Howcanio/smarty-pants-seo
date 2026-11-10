@@ -8,7 +8,7 @@ audience: "supplier"
 status: "invite"
 primaryKeyword: "earn money with my mac"
 keywords: ["earn money with my mac", "passive income mac mini", "make money with idle mac", "rent out my mac for ai", "mac mini side income"]
-summary: "Smarty Pants pays owners of eligible Apple Silicon Macs (16 GB memory or more, macOS 14 or later) to keep them available for AI work while idle. The current intro offer, listed on 8 November 2026, is up to $1 a day per idle Mac until 50 computers join, US only. You pay for electricity and internet. Owners are invited in small batches; start with the 3-second browser check."
+summary: "Smarty Pants pays owners of eligible Apple Silicon Macs (16 GB memory or more, macOS 14 or later) to keep them available for AI work while idle. Earn up to $1/day per eligible Mac during the intro offer (US only, first 50 Macs, paid only for hours the Mac is on, idle and ready). You pay for electricity and internet. Owners are invited in small batches; start with the 3-second browser check."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -18,11 +18,11 @@ faqs:
   - q: "Which Macs qualify?"
     a: "An Apple Silicon Mac with 16 GB of memory or more and macOS 14 or later. The app also checks for 15 GB or more of free disk, power, temperature, system pressure, network and a model benchmark, and MacBooks must be plugged in while serving."
   - q: "How much does the intro offer pay?"
-    a: "On 8 November 2026 the live site listed up to $1 a day per idle Mac, until 50 computers join, US only. That is about $30 a month if the Mac is on, plugged in and ready all day. It is not a promise of future income."
+    a: "Earn up to $1/day per eligible Mac during the intro offer. It is US only, for the first 50 supported Macs, and pays only for hours the Mac is on, plugged in, online and ready. It is not a promise of income."
   - q: "Is a Mac mini a good fit?"
     a: "Smarty Pants says Apple Silicon Mac minis with 16 GB or more of memory are a primary launch target. The app checks the exact machine before any paid work."
   - q: "Can Smarty Pants see my files or screen?"
-    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac. It can use approved AI capacity, and you can pause at any time."
+    a: "The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee. You can pause at any time."
 related: ["/earn/how-it-works/", "/earn/safety-and-controls/", "/earn/earnings/", "/macs/", "/guides/make-money-with-an-idle-mac/"]
 sources:
   - label: "Smarty Pants: home page (intro offer and earnings estimate), viewed 8 Nov 2026"
@@ -63,19 +63,19 @@ Mac minis with 16 GB or more are "a primary launch target," and MacBooks are inc
 
 ## What does the current intro offer pay?
 
-On 8 November 2026 the live site listed an intro offer of **up to $1 a day per idle Mac, until 50 computers join**. It is US only and applies to the first 50 supported Apple Silicon Macs with 16 GB or more.
+**Earn up to $1/day per eligible Mac during the intro offer.** It is US only and applies to the first 50 supported Apple Silicon Macs with 16 GB or more.
 
-The live home page says that is "about $30.00 a month if your Mac is on, plugged in and ready all day," and that you are paid only for the hours it is ready. After the first 50 computers, pay depends on your Mac's memory, its speed and how often it is on, and Smarty Pants says it will tell you in the app before your pay changes. Nothing here is a promise of income. The [Node Operator Agreement](https://smartypants.network/legal) says no demand, work, availability or earnings are promised. The full details, including the payout fee, are on [how earnings work](/earn/earnings/).
+You are paid only for the hours the Mac is on, plugged in, online and ready. Nothing here is a promise of income. The [Node Operator Agreement](https://smartypants.network/legal) says no demand, work, availability or earnings are promised. The full details, including the payout fee, are on [how earnings work](/earn/earnings/).
 
 ## What costs do I pay?
 
 Electricity and internet are your costs. Displayed earnings are gross: they do not deduct electricity or tax.
 
-The Node Operator Agreement also says that while earning is on, the app may keep the Mac awake, download and store approved model files, use processor and memory capacity, create heat and fan activity, and use electricity and bandwidth. The display may sleep. Our [earnings page](/earn/earnings/) works through an electricity example using Apple's published Mac mini power figures and the US average electricity price.
+The Node Operator Agreement also says that while earning is on, the app may keep the Mac awake, download and store approved model files, use processor and memory capacity, create heat and fan activity, and use electricity and bandwidth. The display may sleep.
 
 ## What can't the app do?
 
-Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac." The live page says what it can do is "use approved AI capacity."
+The live page says what it can do is "use approved AI capacity." The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee.
 
 You can press Pause at any time, and the Mac pauses itself for unsafe battery, heat or memory conditions. You also choose which network the Mac serves. Details are on [safety and controls](/earn/safety-and-controls/).
 
@@ -87,6 +87,6 @@ When you run the check and leave your email, your test result travels with your 
 
 ## What is the next step?
 
-Run the 3-second check at [smartypants.network](https://smartypants.network/). It runs in your browser, nothing leaves the Mac, and there is no download. If the Mac looks promising, leave your email for an invite.
+Run the 3-second check at [smartypants.network](https://smartypants.network/). There is no download. The check runs in your browser. Smarty Pants records that a check started and finished, with an anonymous visitor ID and where you came from, but not the result. If you then ask for an invite, it sends your email, country, when the Mac is usually free and the check result (Apple silicon or not, memory size and the tier it suggests).
 
 The browser result is only an estimate. No browser result allows paid work: the signed app verifies the exact chip, memory, disk and real speed first. Read [how it works](/earn/how-it-works/) for every step from check to payout, or the guide to [making money with an idle Mac](/guides/make-money-with-an-idle-mac/) for a wider view of the options.

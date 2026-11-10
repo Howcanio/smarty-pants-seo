@@ -63,7 +63,7 @@ The [Black Forest Labs model card](https://huggingface.co/black-forest-labs/FLUX
 
 The request format is not published yet. The [API docs](https://smartypants.network/docs/agents) will cover it when image generation opens. Until then, the [model page](/ai-models/flux-1-schnell/) shows its current state.
 
-Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+[[API_ACCESS]]
 
 ## What are the use rules?
 
@@ -83,7 +83,7 @@ The listed price on 8 Nov 2026 was $0.003 a picture ([smartypants.network/api](h
 
 ## What is it good for?
 
-Drafts and placeholders where an open model that makes images in a few steps is good enough: product mockups, blog and slide illustrations, concept sketches, and test images for your own app. It is not for realistic pictures of real people, and every image carries an AI label.
+Drafts and placeholders where an open model that makes images in a few steps is good enough: product mockups, blog and slide illustrations, concept sketches, and test images for your own app. The use rules forbid sexual or nude images of real people and fakes meant to fool people about real people, and every image carries an AI label.
 
 Prompts run on Macs other people own, and the live site says: "General network: please don't send sensitive data." Keep confidential product names or unreleased designs out of prompts.
 

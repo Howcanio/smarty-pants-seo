@@ -8,7 +8,7 @@ import { MODELS, modelHref, CATALOG_CHECKED } from '../../data/models';
 import { SITE } from '../../data/site';
 
 const title = 'Open AI models on Apple silicon Macs: prices';
-const description = 'Every model Smarty Pants serves on Apple silicon Macs: chat, embeddings, speech to text and image making, with listed prices, context and the memory each needs.';
+const description = 'Every model Smarty Pants serves on Apple silicon Macs: chat and embeddings, plus speech and image making in testing, with prices, context and memory needs.';
 const checked = new Date(`${CATALOG_CHECKED}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 const groups = [
   { kind: 'text', label: 'Chat and text' },
@@ -24,7 +24,7 @@ const schema = {
 };
 const faqs = [
   { q: 'Which models does Smarty Pants serve?', a: `On ${checked} the catalog listed ${MODELS.map((m) => m.shortName).join(', ')}. Released models and models in testing are marked on each page; GET ${SITE.apiBase}/models is the live list.` },
-  { q: 'Are these the original models or modified versions?', a: 'Smarty Pants serves exact, pinned builds of open models, for example a 4-bit MLX conversion, and names each build in /v1/models. It does not fine-tune or change a model\'s answers.' },
+  { q: 'Are these the original models or modified versions?', a: 'Smarty Pants serves pinned, quantized builds of open models, for example a 4-bit MLX conversion, and names each build in /v1/models. It does not fine-tune or change a model\'s answers.' },
   { q: 'Can I ask Smarty Pants to host another model?', a: 'Yes. Request it at smartypants.network/request-a-model with no sign-in. A request is not a promise: a model must fit on the network\'s Macs and allow paid use.' },
 ];
 ---
@@ -34,7 +34,7 @@ const faqs = [
     <div class="container hero-solo">
       <p class="eyebrow">Models</p>
       <h1>Open AI models running on real Macs</h1>
-      <p class="lead">Each model below is an exact open model build that Smarty Pants serves on qualified Apple silicon Macs, called through an OpenAI-compatible API. Prices are the listed prices on {checked}.</p>
+      <p class="lead">Each model below is a pinned, quantized build of an open model that Smarty Pants serves on qualified Apple silicon Macs, called through an OpenAI-compatible API. Prices are the listed prices on {checked}.</p>
     </div>
   </section>
   {groups.map((g) => {
