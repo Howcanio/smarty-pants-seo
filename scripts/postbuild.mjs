@@ -97,7 +97,7 @@ writeFileSync(join(DIST, '_seo', 'sitemap.xml'), sitemap(indexable.filter((p) =>
 writeFileSync(
   join(DIST, 'robots.txt'),
   INDEXABLE
-    ? `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`
+    ? `# AI search and assistants are welcome.\n${['OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'Claude-SearchBot', 'Claude-User', 'ClaudeBot', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', '*'].map((a) => `User-agent: ${a}`).join('\n')}\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`
     : `# Staging copy: kept out of search until it is served from a Smarty Pants domain.\nUser-agent: *\nDisallow: /\n`
 );
 
