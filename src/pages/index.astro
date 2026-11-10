@@ -3,18 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Faq from '../components/Faq.astro';
 import StatusBadge from '../components/StatusBadge.astro';
-import { SITE, OWNER_OFFER, GUIDE_LINKS } from '../data/site';
+import { SITE, OWNER_OFFER, GUIDE_LINKS, API_ACCESS, API_ACCESS_TEXT, MAC_ACCESS_TEXT } from '../data/site';
 import { MODELS, modelHref } from '../data/models';
 import { MACS, macHref } from '../data/macs';
 
 const title = 'Smarty Pants: open AI models on idle Apple silicon Macs';
-const description = 'Smarty Pants runs exact open AI models on idle Apple silicon Macs. Developers call them through an OpenAI-compatible API; Mac owners get paid while idle.';
+const description = 'Smarty Pants is a distributed inference network powered by independently owned Macs. Developers use an OpenAI-compatible API; Mac owners get paid while idle.';
 const faqs = [
-  { q: 'What is Smarty Pants?', a: 'Smarty Pants (smartypants.network) is a network of Apple silicon Macs that owners make available when they are idle. Developers send requests to exact, pinned open AI models through an OpenAI-compatible API and pay per token; Mac owners get paid for the hours their Mac is ready.' },
-  { q: 'Is Smarty Pants open to everyone?', a: 'It is opening in stages. You can see the models, prices and code today and sign in with your email at smartypants.network/api to get a key. The Mac app is invite only for now, and Macs are invited in small batches.' },
+  { q: 'What is Smarty Pants?', a: 'Smarty Pants (smartypants.network) is a distributed inference network powered by independently owned Macs: Apple silicon Macs that owners make available when they are idle. Developers send requests to pinned, quantized builds of open AI models through an OpenAI-compatible API and pay per token; Mac owners get paid for the hours their Mac is ready.' },
+  { q: 'Who can use Smarty Pants today?', a: `${API_ACCESS_TEXT[API_ACCESS]} ${MAC_ACCESS_TEXT}` },
   { q: 'What can I run on Smarty Pants?', a: 'Chat and text models, embeddings, and, in testing, speech to text and image making. Short sandboxed CPU jobs and agent workspaces run on Smarty Pants\' own account first; snapshots, fleets and always-on agents are planned.' },
   { q: 'Who should not use Smarty Pants?', a: 'Anyone who needs a frontier-size model, more context than a model lists, strict latency guarantees, or to send confidential data on a shared network. Requests run on Macs other people own; companies can keep work on their own Macs with a Group.' },
-  { q: 'How much can a Mac earn?', a: `The current intro offer is up to $${OWNER_OFFER.perDay} a day per idle Mac with 16 GB or more, ${OWNER_OFFER.until}, ${OWNER_OFFER.region}. Electricity and internet are the owner's costs. After the first 50, pay depends on the Mac's memory, speed and how often it is on.` },
+  { q: 'How much can a Mac earn?', a: `The current intro offer is up to $${OWNER_OFFER.perDay} a day per idle Mac with 16 GB or more, ${OWNER_OFFER.until}, ${OWNER_OFFER.region}. ${OWNER_OFFER.caveat} Electricity and internet are the owner's costs. After the first 50, pay depends on the Mac's memory, speed and how often it is on.` },
 ];
 const featured = MODELS.slice(0, 6);
 const chips = MACS.filter((c) => ['m4', 'm4-pro', 'm4-max', 'm5', 'm5-pro', 'm3-ultra'].includes(c.slug));
@@ -25,12 +25,12 @@ const chips = MACS.filter((c) => ['m4', 'm4-pro', 'm4-max', 'm5', 'm5-pro', 'm3-
       <div>
         <p class="eyebrow">Your intelligence network</p>
         <h1>Open AI models, served by real Macs.</h1>
-        <p class="lead">Smarty Pants runs exact, pinned open models on idle Apple silicon Macs. Developers call them with the OpenAI SDK they already use and pay per token. Mac owners get paid for the hours their Mac is ready.</p>
+        <p class="lead">Smarty Pants is a distributed inference network powered by independently owned Macs. It runs pinned, quantized builds of open models on idle Apple silicon Macs. Developers call them with the OpenAI SDK they already use and pay per token. Mac owners get paid for the hours their Mac is ready.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="/inference/">Use the API</a>
           <a class="btn btn-secondary btn-lg" href="/earn/">Earn with your Mac</a>
         </div>
-        <ul class="checks"><li>OpenAI-compatible</li><li>Exact model builds</li><li>Priced per token</li></ul>
+        <ul class="checks"><li>OpenAI-compatible</li><li>Pinned model builds</li><li>Priced per token</li></ul>
       </div>
       <div class="hero-card">
         <p><small>Change two lines</small></p>
@@ -52,7 +52,7 @@ client.chat.completions.create(
         <p>Chat and embeddings today; speech to text and image making in testing; sandboxed code runs for agents on Smarty Pants' own account first. Each page says plainly what works today and what is planned.</p>
       </div>
       <div class="grid grid-3">
-        <a class="card card-link" href="/inference/"><h3 class="card-title">LLM inference API</h3><p>Exact open models through an OpenAI-compatible API, priced per token.</p><span class="arrow">How it works →</span></a>
+        <a class="card card-link" href="/inference/"><h3 class="card-title">LLM inference API</h3><p>Pinned builds of open models through an OpenAI-compatible API, priced per token.</p><span class="arrow">How it works →</span></a>
         <a class="card card-link" href="/inference/pricing/"><h3 class="card-title">Prices and calculator</h3><p>Listed price for every model and a calculator for your own traffic.</p><span class="arrow">See prices →</span></a>
         <a class="card card-link" href="/inference/vs-centralized-providers/"><h3 class="card-title">Vs. centralized providers</h3><p>When Apple silicon Macs make sense, and when a data-center provider is the better buy.</p><span class="arrow">Compare →</span></a>
         <a class="card card-link" href="/inference/embeddings-api/"><h3 class="card-title">Embeddings API</h3><p>Qwen3 Embedding 0.6B for search and matching.</p><span class="arrow">Embeddings →</span></a>
@@ -86,7 +86,7 @@ client.chat.completions.create(
     <div class="container split">
       <div class="text-block">
         <h2>For Mac owners</h2>
-        <p>Smarty Pants pays for each eligible Mac that sits idle and ready. The current intro offer is up to ${OWNER_OFFER.perDay} a day per idle Mac, {OWNER_OFFER.until} ({OWNER_OFFER.region}). You need an Apple silicon Mac with 16 GB of memory or more; electricity and internet are your costs.</p>
+        <p>Smarty Pants pays for each eligible Mac that sits idle and ready. The current intro offer is up to ${OWNER_OFFER.perDay} a day per idle Mac, {OWNER_OFFER.until} ({OWNER_OFFER.region}). {OWNER_OFFER.caveat} You need an Apple silicon Mac with 16 GB of memory or more; electricity and internet are your costs.</p>
         <p>Pause any time. The app pauses itself for heat, memory pressure and, on MacBooks, battery, and it does not ask for macOS permission to read your protected folders, record your screen or control your Mac.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/earn/">How earning works</a>

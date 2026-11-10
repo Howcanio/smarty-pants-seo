@@ -8,7 +8,7 @@ audience: "supplier"
 status: "invite"
 primaryKeyword: "is it safe to share my mac for ai"
 keywords: ["is it safe to share my mac for ai", "smarty pants pause", "can smarty pants see my files", "mac ai app privacy owner", "sealed vm mac"]
-summary: "You can pause the Smarty Pants app at any time: Pause stops new work, disconnects the Mac and interrupts work in progress. The Mac also pauses itself for unsafe battery, heat or memory conditions, and MacBooks pause on battery. You choose company only, general network or both. The app does not ask for macOS file, screen-recording or accessibility permissions, and Smarty Pants says it cannot browse your files, watch your screen or control your Mac. It makes no security guarantee."
+summary: "You can pause the Smarty Pants app at any time: Pause stops new work, disconnects the Mac and interrupts work in progress. The Mac also pauses itself for unsafe battery, heat or memory conditions, and MacBooks pause on battery. You choose company only, general network or both. The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee. Smarty Pants makes no security guarantee."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -18,7 +18,7 @@ faqs:
   - q: "Does the Mac pause itself?"
     a: "Yes. The Mac pauses for unsafe battery, heat or memory conditions. Mac minis pause for heat or unsafe pressure, and MacBooks also pause on battery."
   - q: "Can Smarty Pants see my files or my screen?"
-    a: "The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee. Smarty Pants says it cannot browse your files, watch your screen, or control your Mac."
+    a: "The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee."
   - q: "Can I read the prompts my Mac answers?"
     a: "Prompts are not shown in the app, and the owner agreement forbids you from trying to access, copy or keep them. But your Mac decrypts each request in memory to answer it, so keeping prompts from the Mac's owner is a rule and an app design, not a technical guarantee. That is why developers are told not to send sensitive data to the general network."
   - q: "Is it guaranteed to be safe for my Mac?"
@@ -81,7 +81,7 @@ For workspaces, "the Mac's owner comes first: if they come back, the workspace e
 
 ## What can't the app do?
 
-Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac." It can use approved AI capacity.
+What the app can use is approved AI capacity: processor, memory, storage and network, as listed below.
 
 The Mac app does not ask for the macOS permissions an app needs to read your protected folders, record your screen or control your Mac (Full Disk Access, Screen Recording, Accessibility). It is not a sandboxed App Store app, so this is Smarty Pants' design and stated policy, not a technical guarantee.
 

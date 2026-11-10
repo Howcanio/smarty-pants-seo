@@ -8,7 +8,7 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "agent sandbox"
 keywords: ["agent sandbox", "cloud sandbox for ai agents", "ai agent workspace", "sandbox for ai agents", "code execution sandbox"]
-summary: "A Smarty Pants agent workspace keeps one sealed Linux VM open on an Apple Silicon Mac so an AI agent can write files, run several programs and read results back, then end it. Sessions run on Smarty Pants' own account first and are not charged while tested. Snapshots, model calls, fleets, always-on agents, filtered internet access and a CLI or SDK are Planned. The Mac's owner always comes first."
+summary: "A Smarty Pants agent workspace keeps one sealed Linux VM open on an Apple Silicon Mac so an AI agent can write files, run several programs and read results back, then end it. Available today: sessions, on Smarty Pants' own account first, not charged while tested. Planned, not available: snapshots and recovery, model calls, fleets, always-on agents, internet access and a CLI or SDK. The Mac's owner always comes first."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -16,7 +16,7 @@ faqs:
   - q: "Can I use Smarty Pants agent workspaces today?"
     a: "Not from your own account yet. Workspace sessions run on Smarty Pants' own account first and are not charged while tested; everything else on this page is Planned."
   - q: "Does a workspace have internet access?"
-    a: "No. Today the VM has no network. Internet access through a filter that allows listed public sites only and blocks home-network addresses is Planned."
+    a: "No. Today the VM has no network. Internet access from a workspace is Planned and not available."
   - q: "Are my files in a workspace confidential?"
     a: "No. VM isolation protects the Mac's owner from guest code, but it does not keep the guest's files or memory confidential from the Mac's owner. Do not put secrets in a workspace."
   - q: "What happens if the Mac's owner comes back?"
@@ -37,19 +37,20 @@ One sealed VM kept open so your agent can write files, run several programs and 
 
 The VM is ARM64 Linux with no network. The starter kits wrap it as `sp.workspace()`, and the API has routes to create a session, run commands, move files and end it. Details and limits are on [workspace sessions](/workspaces/sessions/).
 
-## What works today and what is Planned?
+## What is available today and what is Planned?
 
-Only sessions exist today, and only on Smarty Pants' own account. Every other piece is on the roadmap and labeled Planned.
+Only sessions are available today, and only on Smarty Pants' own account. Every other piece is Planned and not available.
 
-| Piece | Status today | What it is |
+| Piece | Status | What it lets you do |
 |---|---|---|
-| [Sessions](/workspaces/sessions/) | Our own account first, not charged while tested | One sealed VM for many commands and small files, up to 30 minutes |
-| [Snapshots and recovery](/workspaces/snapshots-and-recovery/) | Planned | Disk-only snapshots; restore on another Mac after a host is lost |
-| [Model calls](/workspaces/model-calls/) | Planned | Call Smarty Pants models from inside a workspace with a workspace-scoped key and budget |
-| [Fleets and browser work](/workspaces/fleets/) | Planned | Several sessions at once, and browser work |
-| [Always-on agents](/workspaces/always-on-agents/) | Planned | Persistent agents that survive a host loss through recovery |
-| Internet through a filter | Planned | Listed public sites only; home-network addresses blocked |
-| CLI and SDK | Planned | Tools for paid developer use (today there are one-file starter kits) |
+| [Sessions](/workspaces/sessions/) | Available today (Smarty Pants' own account first, not charged while tested) | One sealed VM for many commands and small files, up to 30 minutes |
+| One-file starter kits | Available today | Use sessions from Python with `sp.workspace()` |
+| [Snapshots and recovery](/workspaces/snapshots-and-recovery/) | Planned | Save a workspace and continue it on another Mac if its Mac goes away |
+| [Model calls](/workspaces/model-calls/) | Planned | Call Smarty Pants models from inside a workspace with a key limited to that workspace and a spending budget |
+| [Fleets and browser work](/workspaces/fleets/) | Planned | Run several sessions at once, and use a web browser in a workspace |
+| [Always-on agents](/workspaces/always-on-agents/) | Planned | Keep an agent working for days |
+| Internet access | Planned | Reach the internet from inside a workspace |
+| CLI and SDK | Planned | Tools for paid developer use |
 
 For one-off code with no files, [CPU jobs](/cpu/) run a single program for up to 30 seconds.
 
@@ -63,7 +64,7 @@ Workspaces run on Macs other people own. VM isolation protects the owner from gu
 
 Because these are people's own computers, lent while idle. If the owner comes back, the workspace ends within 5 seconds and the request says `OWNER_RETURNED`.
 
-Plan for that. Keep each command short enough to redo, and fetch results you need before the next step. Planned [snapshots and recovery](/workspaces/snapshots-and-recovery/) aim to let a workspace continue on another Mac from its last saved checkpoint.
+Plan for that. Keep each command short enough to redo, and fetch results you need before the next step. [Snapshots and recovery](/workspaces/snapshots-and-recovery/), which will let a workspace continue on another Mac, are Planned and not available.
 
 ## When is a Smarty Pants workspace the wrong choice?
 

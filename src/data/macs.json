@@ -18,7 +18,7 @@
       "Mac mini (M1, 2020)",
       "iMac (24-inch, M1, 2021)"
     ],
-    "note": "Apple's first chip designed for the Mac, with a 16-core Neural Engine rated at 11 trillion operations per second; every M1 Mac tops out at 16GB of unified memory.",
+    "note": "M1 comes with 8 or 16GB of unified memory.",
     "sources": [
       {
         "label": "Apple: MacBook Air (M1, 2020) - Tech Specs",
@@ -59,7 +59,7 @@
       "MacBook Pro (14-inch, 2021)",
       "MacBook Pro (16-inch, 2021)"
     ],
-    "note": "Apple's first Pro-tier chip, which raised Apple silicon to up to 32GB of unified memory at 200GB/s.",
+    "note": "M1 Pro comes with 16 or 32GB of unified memory, at 200GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, 2021) - Tech Specs",
@@ -93,7 +93,7 @@
       "MacBook Pro (16-inch, 2021)",
       "Mac Studio (2022)"
     ],
-    "note": "Apple said M1 Max's 400GB/s of memory bandwidth was nearly 6x that of M1, and it supports up to 64GB of unified memory.",
+    "note": "M1 Max comes with 32 or 64GB of unified memory, at 400GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, 2021) - Tech Specs",
@@ -129,7 +129,7 @@
     "macs": [
       "Mac Studio (2022)"
     ],
-    "note": "Two M1 Max dies joined by UltraFusion, with a 32-core Neural Engine that Apple rates at 22 trillion operations per second and up to 128GB of unified memory.",
+    "note": "M1 Ultra comes with 64 or 128GB of unified memory, at 800GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: Mac Studio (2022) - Tech Specs",
@@ -161,7 +161,7 @@
       "MacBook Air (15-inch, M2, 2023)",
       "Mac mini (2023)"
     ],
-    "note": "M2's Neural Engine processes up to 15.8 trillion operations per second, and its 100GB/s bandwidth is 50% more than M1, according to Apple.",
+    "note": "M2 comes with 8, 16 or 24GB of unified memory, at 100GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: MacBook Air (M2, 2022) - Tech Specs",
@@ -203,7 +203,7 @@
       "MacBook Pro (14-inch, 2023)",
       "MacBook Pro (16-inch, 2023)"
     ],
-    "note": "M2 Pro tops out at 32GB of unified memory, the same ceiling as M1 Pro, at 200GB/s.",
+    "note": "M2 Pro comes with 16 or 32GB of unified memory, at 200GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: Mac mini (2023) - Tech Specs",
@@ -242,7 +242,7 @@
       "MacBook Pro (16-inch, 2023)",
       "Mac Studio (2023)"
     ],
-    "note": "The 96GB memory option is available only with the 38-core GPU version of M2 Max.",
+    "note": "M2 Max comes with 32, 64 or 96GB of unified memory, at 400GB/s of memory bandwidth. The 96GB option comes only with the 38-core GPU version.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, 2023) - Tech Specs",
@@ -281,7 +281,7 @@
       "Mac Pro (2023)",
       "Mac Pro (Rack, 2023)"
     ],
-    "note": "Supports up to 192GB of unified memory, 50% more than M1 Ultra, and its 32-core Neural Engine delivers 31.6 trillion operations per second.",
+    "note": "M2 Ultra comes with 64, 128 or 192GB of unified memory, at 800GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: Mac Studio (2023) - Tech Specs",
@@ -322,7 +322,7 @@
       "MacBook Air (13-inch, M3, 2024)",
       "MacBook Air (15-inch, M3, 2024)"
     ],
-    "note": "The M3 family were the industry's first 3-nanometer chips for a personal computer, and Apple says their Neural Engine is up to 60% faster than M1's.",
+    "note": "M3 comes with 8, 16 or 24GB of unified memory, at 100GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M3, Nov 2023) - Tech Specs",
@@ -367,7 +367,7 @@
       "MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023)",
       "MacBook Pro (16-inch, Nov 2023)"
     ],
-    "note": "Apple lists M3 Pro at 150GB/s, lower than the 200GB/s it lists for M1 Pro and M2 Pro, and it tops out at 36GB.",
+    "note": "M3 Pro comes with 18 or 36GB of unified memory, at 150GB/s of memory bandwidth. That is lower than M1 Pro and M2 Pro (200GB/s).",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023) - Tech Specs",
@@ -403,7 +403,7 @@
       "MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023)",
       "MacBook Pro (16-inch, Nov 2023)"
     ],
-    "note": "Apple pitched M3 Max's up to 128GB of memory at AI developers working with transformer models with billions of parameters; 48, 64 and 128GB require the 16-core CPU / 40-core GPU version (400GB/s).",
+    "note": "M3 Max comes with 36, 48, 64, 96 or 128GB of unified memory. 48, 64, 96 and 128GB need the 16-core CPU / 40-core GPU version (400GB/s); the other version has 300GB/s.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023) - Tech Specs",
@@ -436,7 +436,7 @@
     "macs": [
       "Mac Studio (2025)"
     ],
-    "note": "Apple launched it with up to 512GB of unified memory and said it could run LLMs with over 600 billion parameters in memory; the current Mac Studio (2025) tech specs page lists only 96GB or 256GB.",
+    "note": "M3 Ultra comes with 96, 256 or 512GB of unified memory, at 819GB/s of memory bandwidth. Apple launched it with up to 512GB; the current Mac Studio (2025) tech specs page lists 96GB or 256GB.",
     "sources": [
       {
         "label": "Apple: Mac Studio (2025) - Tech Specs",
@@ -474,7 +474,7 @@
       "MacBook Air (13-inch, M4, 2025)",
       "MacBook Air (15-inch, M4, 2025)"
     ],
-    "note": "M4 debuted in iPad Pro (May 2024) with a Neural Engine rated at 38 trillion operations per second, and every M4 Mac starts at 16GB of unified memory.",
+    "note": "M4 comes with 16, 24 or 32GB of unified memory, at 120GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: iMac (24-inch, 2024, Two ports) - Tech Specs",
@@ -529,7 +529,7 @@
       "MacBook Pro (14-inch, M4 Pro or M4 Max, 2024)",
       "MacBook Pro (16-inch, 2024)"
     ],
-    "note": "Apple says M4 Pro's 273GB/s is a 75% increase over M3 Pro, and M4 Pro and M4 Max were the first chips to bring Thunderbolt 5 to the Mac.",
+    "note": "M4 Pro comes with 24, 48 or 64GB of unified memory, at 273GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: Mac mini (2024) - Tech Specs",
@@ -569,7 +569,7 @@
       "MacBook Pro (16-inch, 2024)",
       "Mac Studio (2025)"
     ],
-    "note": "Apple says up to 128GB lets developers work with LLMs of nearly 200 billion parameters; 48GB and above require the 16-core CPU / 40-core GPU version (546GB/s).",
+    "note": "M4 Max comes with 36, 48, 64 or 128GB of unified memory. 48GB and above need the 16-core CPU / 40-core GPU version (546GB/s); the other version has 410GB/s.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M4 Pro or M4 Max, 2024) - Tech Specs",
@@ -612,7 +612,7 @@
       "MacBook Air (13-inch, M5)",
       "MacBook Air (15-inch, M5)"
     ],
-    "note": "First M-series chip with a Neural Accelerator in each GPU core, which Apple says gives over 4x the peak GPU compute for AI compared with M4.",
+    "note": "M5 comes with 16, 24 or 32GB of unified memory, at 153GB/s of memory bandwidth.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M5) - Tech Specs",
@@ -657,7 +657,7 @@
       "MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max)",
       "MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max)"
     ],
-    "note": "M5 Pro and M5 Max are built from two dies joined by Apple's Fusion Architecture; on the PROLED XDR MacBook Pro, the 16-core GPU M5 Pro tops out at 48GB and the 20-core version at 64GB.",
+    "note": "M5 Pro comes with 24, 48 or 64GB of unified memory, at 307GB/s of memory bandwidth. On the PROLED XDR MacBook Pro, the 16-core GPU M5 Pro tops out at 48GB and the 20-core version at 64GB.",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M5 Pro or M5 Max) - Tech Specs",
@@ -715,7 +715,7 @@
       "MacBook Pro (14-inch PROLED XDR, M5 Pro or M5 Max)",
       "MacBook Pro (16-inch PROLED XDR, M5 Pro or M5 Max)"
     ],
-    "note": "The 32-core GPU M5 Max ships only with 36GB; 48, 64 and 128GB come with the 40-core GPU version, which has 614GB/s of bandwidth.",
+    "note": "M5 Max comes with 36, 48, 64 or 128GB of unified memory. The 32-core GPU version ships only with 36GB (460GB/s); 48, 64 and 128GB come with the 40-core GPU version (614GB/s).",
     "sources": [
       {
         "label": "Apple: MacBook Pro (14-inch, M5 Pro or M5 Max) - Tech Specs",
@@ -768,7 +768,7 @@
     "macs": [
       "Mac Studio (M5 Max or M5 Ultra)"
     ],
-    "note": "Apple's first M-series chip with a quad-die UltraFusion design, rated at 1.2TB/s of memory bandwidth; the 30-core CPU / 64-core GPU version comes with 96GB, and the 256GB and 512GB options require the 36-core CPU / 80-core GPU version (Apple said in August 2026 that the 512GB Mac Studio would arrive in late October).",
+    "note": "M5 Ultra comes with 96, 256 or 512GB of unified memory, at 1200GB/s of memory bandwidth. The 30-core CPU / 64-core GPU version comes with 96GB; 256GB and 512GB need the 36-core CPU / 80-core GPU version.",
     "sources": [
       {
         "label": "Apple: Mac Studio (M5 Max or M5 Ultra) - Tech Specs",
@@ -804,7 +804,7 @@
       "iMac (24-inch, M6, Four ports)",
       "MacBook Pro (14-inch, M6)"
     ],
-    "note": "Apple's first 2-nanometer chip, with a Dual 16-core Neural Engine; the 16GB configuration runs at 153GB/s, while 24GB and 32GB configurations get 170GB/s.",
+    "note": "M6 comes with 16, 24 or 32GB of unified memory. The 16GB configuration has 153GB/s of memory bandwidth; 24GB and 32GB configurations have 170GB/s.",
     "sources": [
       {
         "label": "Apple: Mac mini (M6 or M5 Pro) - Tech Specs",

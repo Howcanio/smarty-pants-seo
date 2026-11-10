@@ -5,6 +5,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, mkdirSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { API_ACCESS, API_ACCESS_TEXT, MAC_ACCESS_TEXT, PRIVACY_TEXT } from '../src/data/access.mjs';
 
 const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
 const SITE = (process.env.SITE_URL || process.env.RENDER_EXTERNAL_URL || 'https://smartypants.network').replace(/\/+$/, '');
@@ -110,7 +111,7 @@ const price = (m) =>
 const llms = [
   '# Smarty Pants',
   '',
-  '> Smarty Pants (smartypants.network) runs pinned, quantized builds (named in /v1/models) of upstream open-weight AI models on idle Apple silicon Macs that owners make available. Developers call them through an OpenAI-compatible API at https://smartypants.network/v1 and pay per token; you are not charged for a request Smarty Pants cannot serve. Mac owners with an Apple silicon Mac with 16 GB or more get paid for the hours their Mac is ready; the current intro offer is up to $1 a day per idle Mac until 50 computers join (US only). Smarty Pants is opening in stages: the Mac app is invite only, and requests run on Macs other people own, so do not send sensitive data on the general network. Operated by Howcan, Inc. Contact: info@howcan.io.',
+  '> Smarty Pants (smartypants.network) is a distributed inference network powered by independently owned Macs. It runs pinned, quantized builds (named in /v1/models) of upstream open-weight AI models on idle Apple silicon Macs that owners make available. Developers call them through an OpenAI-compatible API at https://smartypants.network/v1 and pay per token; you are not charged for a request Smarty Pants cannot serve. Mac owners with an Apple silicon Mac with 16 GB or more get paid for the hours their Mac is ready; the current intro offer is up to $1 a day per idle Mac until 50 computers join (US only), a ceiling, not a forecast. ' + API_ACCESS_TEXT[API_ACCESS] + ' ' + MAC_ACCESS_TEXT + ' ' + PRIVACY_TEXT + ' Operated by Howcan, Inc. Contact: info@howcan.io.',
   '',
   `## Models (listed on ${catalog.checked}; the live list with prices and is_ready is GET https://smartypants.network/v1/models)`,
   ...models.map((m) => `- \`${m.id}\`: ${m.name.replace(/ \(Smarty Pants\)$/, '')}; ${price(m)}; ${m.released ? 'released' : 'in testing, opens soon'}; ${m.description}`),

@@ -28,7 +28,11 @@ export const OWNER_OFFER = {
   payoutFeeMinimum: 3,
   requirements: 'Apple silicon Mac with 16 GB of memory or more, macOS 14 or later',
   region: 'US only for now',
+  /** Said wherever the offer appears: the $1 is a ceiling, not a forecast. */
+  caveat: 'That is a ceiling, not a forecast: you earn it only for hours the Mac is on, idle and ready, and real earnings can be lower.',
 };
+
+export { API_ACCESS, API_ACCESS_TEXT, MAC_ACCESS_TEXT, PRIVACY_TEXT, expandTokens } from './access.mjs';
 
 export const NAV = [
   { href: '/inference/', label: 'Inference API' },

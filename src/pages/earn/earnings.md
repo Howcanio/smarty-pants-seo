@@ -8,13 +8,13 @@ audience: "supplier"
 status: "invite"
 primaryKeyword: "how much can my mac earn"
 keywords: ["how much can my mac earn", "mac mini passive income how much", "smarty pants earnings", "smarty pants $1 a day", "mac mini electricity cost per month"]
-summary: "On 8 November 2026, Smarty Pants listed an intro offer of up to $1 a day per idle Mac until 50 computers join, US only. That is about $30 a month if the Mac is on, plugged in and ready all day. A $30 withdrawal leaves $27 after the 3% payout fee with its $3 minimum. Earnings are gross. After the first 50 Macs, pay depends on memory, speed and time on."
+summary: "On 8 November 2026, Smarty Pants listed an intro offer of up to $1 a day per idle Mac until 50 computers join, US only. At most that is a hypothetical $30 a month if the Mac were ready every hour of the month; real earnings can be lower. A hypothetical $30 withdrawal leaves $27 after the 3% payout fee with its $3 minimum. Earnings are gross. After the first 50 Macs, pay depends on memory, speed and time on."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 6
 faqs:
   - q: "How much can my Mac earn on Smarty Pants?"
-    a: "On 8 November 2026 the live intro offer was up to $1 a day per idle Mac, until 50 computers join, US only. That is about $30 a month if the Mac is ready all day. No income is promised."
+    a: "On 8 November 2026 the live intro offer was up to $1 a day per idle Mac, until 50 computers join, US only. At most that is a hypothetical $30 a month if the Mac were ready every hour of the month. No income is promised."
   - q: "Do I need a job running to earn?"
     a: "Not during the intro offer. You are paid for hours the Mac is on, plugged in, online and ready, even with no job running."
   - q: "What is the payout fee?"
@@ -24,7 +24,7 @@ faqs:
   - q: "What will my Mac earn after the first 50 join?"
     a: "Smarty Pants has not published a rate. It says pay will depend on the Mac's memory, speed and how often it is on, and that it will tell you in the app before your pay changes."
   - q: "How much electricity does a Mac mini use for this?"
-    a: "Apple lists 4 W idle and 65 W max for a 2024 M4 Mac mini with 16 GB. At the US average residential price of 18.16 cents per kWh (August 2026), a month ranges from about $0.52 at idle to about $8.50 at max."
+    a: "Apple's specifications list 4 W idle and 65 W max for a 2024 M4 Mac mini with 16 GB; these are not measurements of a Mac serving AI models. At the US average residential price of 18.16 cents per kWh (August 2026), a month ranges from about $0.52 at idle to about $8.50 at max."
 related: ["/earn/", "/earn/how-it-works/", "/earn/safety-and-controls/", "/macs/", "/guides/make-money-with-an-idle-mac/", "/guides/mac-mini-for-ai/"]
 sources:
   - label: "Smarty Pants: home page (earnings estimate and payout fee), viewed 8 Nov 2026"
@@ -43,7 +43,7 @@ This page sets out exactly what Smarty Pants offers Mac owners today, what comes
 
 ## What does the intro offer pay?
 
-Up to $1 a day per idle Mac, until 50 computers join. That is the offer [smartypants.network](https://smartypants.network/) listed on 8 November 2026; check the live site for the current terms.
+Up to $1 a day per idle Mac, until 50 computers join. That is the offer [smartypants.network](https://smartypants.network/) listed on 8 November 2026; check the live site for the current terms. That is a ceiling, not a forecast: you earn it only for hours the Mac is on, idle and ready, and real earnings can be lower.
 
 The terms, from the [owner FAQ](https://smartypants.network/humans) and home page:
 
@@ -53,7 +53,7 @@ The terms, from the [owner FAQ](https://smartypants.network/humans) and home pag
 | Who | The first 50 supported Apple Silicon Macs with 16 GB of memory or more, MacBooks included |
 | Where | US only for now |
 | Paid for | Hours the Mac is on, plugged in, online and ready, even with no job running |
-| Monthly | "About $30.00 a month if your Mac is on, plugged in and ready all day" |
+| Monthly (hypothetical ceiling) | "About $30.00 a month if your Mac is on, plugged in and ready all day"; real earnings can be lower |
 | Closes | Once 50 Macs have joined, the offer closes to new Macs |
 
 "Up to" matters. You are paid only for the hours the Mac is ready, so a Mac that is off, asleep, unplugged or paused part of the day earns less. Full terms are shown in the app before your Mac starts earning.
@@ -85,7 +85,7 @@ For a 16 GB M4 Mac mini at the US average price, between about $0.52 and $8.50 a
 **Inputs:**
 
 - Price: 18.16 cents per kWh, the US average residential price for August 2026 in the [EIA Electricity Monthly Update](https://www.eia.gov/electricity/monthly/update/end-use.php) (released 23 October 2026). EIA calculates this as average revenue per kWh. Your own rate may be higher or lower; check your bill.
-- Power: from [Apple's Mac mini power consumption page](https://support.apple.com/en-us/103253) (published 21 September 2026), measured at the wall. "Idle" means only Finder open with default power settings. "Max" is Apple's maximum figure.
+- Power: from [Apple's Mac mini power consumption page](https://support.apple.com/en-us/103253) (published 21 September 2026), Apple's specifications, measured by Apple at the wall in its own tests. "Idle" means only Finder open with default power settings. "Max" is Apple's maximum figure. Neither is a measurement of a Mac serving AI models.
 
 **Formula:** watts × 24 hours × 30 days ÷ 1,000 = kWh a month. kWh × $0.1816 = cost a month.
 
@@ -98,7 +98,7 @@ For a 16 GB M4 Mac mini at the US average price, between about $0.52 and $8.50 a
 
 A real month sits somewhere between the idle and max rows. Running a model uses more power than sitting at the Finder, and the app keeps the Mac awake while earning is on, but a ready Mac is not always running a job. We can't tell you where in that range your Mac will land. These rows are scenarios built from Apple's test figures, not measurements of a Mac running Smarty Pants, and not a promise of what your bill will be.
 
-Read it this way: against the intro offer of about $30 a month (or $27 after the payout fee), a 16 GB M4 Mac mini's electricity is between about $0.52 and $8.50 a month at the US average price. A higher-power Mac at max draw costs more. Internet, wear and tax are on top, and not counted here.
+Read it this way: against the hypothetical ceiling of about $30 a month (or $27 after the payout fee), a 16 GB M4 Mac mini's electricity is between about $0.52 and $8.50 a month at the US average price. A higher-power Mac at max draw costs more. Internet, wear and tax are on top, and not counted here.
 
 ## Is it worth it?
 

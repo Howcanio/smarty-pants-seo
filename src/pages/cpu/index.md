@@ -37,7 +37,14 @@ Smarty Pants CPU jobs are a small remote code execution API: your program or you
 
 Not from your own account yet. Smarty Pants runs CPU jobs on its own account first; other accounts get a 403 error until it opens, and the [agent docs](https://smartypants.network/docs/agents) will say when that changes.
 
-Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+| Feature | Status |
+|---|---|
+| CPU jobs on Smarty Pants' own account, with the limits below | Available today |
+| Streamed output by byte offsets | Available today |
+| `run_code` MCP tool, for accounts that have CPU jobs | Available today |
+| CPU jobs from your own account | Planned |
+
+[[API_ACCESS]]
 
 ## What runs inside a CPU job?
 

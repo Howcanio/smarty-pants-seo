@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "LLM inference API on Apple Silicon Macs | Smarty Pants"
-description: "Smarty Pants is an LLM inference API that runs exact, pinned open models on Apple Silicon Macs, priced per token, behind an OpenAI-compatible endpoint."
+description: "Smarty Pants is an LLM inference API that runs pinned, quantized builds of open models on Apple Silicon Macs, priced per token, behind an OpenAI-compatible endpoint."
 h1: "LLM inference API on Apple Silicon Macs"
 eyebrow: "For developers"
 audience: "buyer"
@@ -13,7 +13,7 @@ updated: "2026-11-09"
 readingMinutes: 6
 faqs:
   - q: "What is the Smarty Pants inference API?"
-    a: "It is an OpenAI-compatible API at https://smartypants.network/v1 that runs exact, pinned open models on Apple Silicon Macs that owners make available when idle. You pay per token, at the price listed for each model in /v1/models."
+    a: "It is an OpenAI-compatible API at https://smartypants.network/v1 that runs pinned, quantized builds of open models on Apple Silicon Macs that owners make available when idle. You pay per token, at the price listed for each model in /v1/models."
   - q: "Which models can I call?"
     a: "The catalog lists chat models (Qwen3.5 9B, Qwen3.8 27B, Nanbeige4.3 33B), an embedding model (Qwen3 Embedding 0.6B), and several models in testing, including gpt-oss-20b, Whisper large-v3 turbo and FLUX.1 schnell. Check is_ready on /v1/models before you send traffic, because availability changes hour to hour."
   - q: "Can I use the OpenAI SDK?"
@@ -22,8 +22,8 @@ faqs:
     a: "No. The live model pages say you are never charged for a request Smarty Pants can't serve. A 429 or 503 means no Mac is free right now; retry after the Retry-After seconds or use your fallback provider."
   - q: "Can I send sensitive data?"
     a: "No. Requests run on Macs other people own, and a serving Mac must decrypt a request in memory to answer it. The live site asks you not to send sensitive data to the general network."
-  - q: "Can anyone sign up today?"
-    a: "Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on smartypants.network/api to get a key."
+  - q: "Who can get an API key?"
+    a: "[[API_ACCESS]]"
 related: ["/inference/openai-compatible-api/", "/inference/pricing/", "/inference/vs-centralized-providers/", "/inference/embeddings-api/", "/ai-models/", "/guides/decentralized-vs-centralized-inference/"]
 sources:
   - label: "Smarty Pants: llms.txt"
@@ -98,11 +98,11 @@ The endpoints that exist today ([llms.txt](https://smartypants.network/llms.txt)
 
 Image generation with FLUX.1 schnell is in testing; see [/inference/image-generation-api/](/inference/image-generation-api/). Video generation is Planned and not available; see [/inference/video-generation/](/inference/video-generation/).
 
-To get a key: Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+[[API_ACCESS]]
 
 ## When is Smarty Pants a good fit?
 
-It fits everyday text work where an exact open model is good enough and price matters. The product's own guidance ([llms.txt](https://smartypants.network/llms.txt)):
+It fits everyday text work where an open model is good enough and price matters. The product's own guidance ([llms.txt](https://smartypants.network/llms.txt)):
 
 - **Good fit:** summaries, extraction, classification, drafting, tool calls, JSON output, and embeddings. Measure quality on your own non-sensitive examples first.
 - **Not a fit yet:** work that needs a frontier-size model, more context than a model lists, or strict latency guarantees. Keep your current provider for those, and as a fallback.

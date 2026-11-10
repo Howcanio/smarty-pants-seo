@@ -125,4 +125,4 @@ For which chips come with which memory, see the [Macs](/macs/) pages.
 
 Pick a smaller model, a lower-bit build, or a shorter context, or run it somewhere else. The [Smarty Pants benchmarks](https://huggingface.co/datasets/smartypantsnet/mac-benchmarks) found that below 4 bits "quality drops sharply" for Qwen3.5-4B, so 4-bit is a sensible floor for most chat use.
 
-If you would rather not buy more memory, a hosted API runs the model for you. [Smarty Pants](/inference/) serves these models from idle Apple Silicon Macs through an OpenAI-compatible API, priced per token. Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+If you would rather not buy more memory, a hosted API runs the model for you. [Smarty Pants](/inference/) serves these models from idle Apple Silicon Macs through an OpenAI-compatible API, priced per token. [[API_ACCESS]]

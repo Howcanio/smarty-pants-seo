@@ -7,21 +7,21 @@ eyebrow: "Guide"
 audience: "supplier"
 primaryKeyword: "make money with idle computer"
 keywords: ["make money with idle computer", "earn money with my mac", "rent out mac computing power", "passive income mac", "sell idle compute apple silicon", "mac mini earn money"]
-summary: "You can rent an idle Apple Silicon Mac's compute to networks that run AI work on it. Smarty Pants has an intro offer of up to $1 a day per idle Mac, until 50 computers join, US only. Some other networks support Macs; Salad doesn't. Count your costs: at the 2025 US average of 17.30 cents per kWh, a Mac mini drawing Apple's measured maximum of 65 W all day costs about 27 cents. Earnings are gross and taxable."
+summary: "You can rent an idle Apple Silicon Mac's compute to networks that run AI work on it. Smarty Pants has an intro offer of up to $1 a day per idle Mac, until 50 computers join, US only; that is a ceiling, not a forecast. Some other networks support Macs; Salad doesn't. Count your costs: at the 2025 US average of 17.30 cents per kWh, a Mac mini drawing the 65 W maximum in Apple's specifications all day would cost about 27 cents. Earnings are gross and taxable."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 7
 faqs:
   - q: "How much can I earn with an idle Mac on Smarty Pants?"
-    a: "Today Smarty Pants has an intro offer: up to $1 a day per idle Mac, until 50 computers join, which is about $30 a month if the Mac is ready all day. It covers the first 50 supported Apple Silicon Macs with 16 GB or more, in the US only; after that, pay depends on the Mac and the app tells you before it changes."
+    a: "Today Smarty Pants has an intro offer: up to $1 a day per idle Mac, until 50 computers join, which would be a hypothetical $30 a month if the Mac were ready every hour of the month; real earnings can be lower. It covers the first 50 supported Apple Silicon Macs with 16 GB or more, in the US only; after that, pay depends on the Mac and the app tells you before it changes."
   - q: "How much electricity does an idle Mac mini use?"
-    a: "Apple measured 4 W at idle and 65 W at maximum for a 16 GB M4 Mac mini. At the 2025 US average residential price of 17.30 cents per kWh, that is about 1.7 cents a day idle and about 27 cents a day at maximum."
+    a: "Apple's specifications list 4 W at idle and 65 W at maximum for a 16 GB M4 Mac mini (Apple's tests, not a Mac serving AI models). At the 2025 US average residential price of 17.30 cents per kWh, that is about 1.7 cents a day idle and about 27 cents a day at maximum."
   - q: "Can I earn with a MacBook?"
     a: "On Smarty Pants, yes, if it is a supported Apple Silicon model with 16 GB or more and it stays plugged in. MacBooks pause themselves on battery."
   - q: "Do I pay tax on money my Mac earns?"
     a: "In the US, yes. The IRS says gig economy income is taxable even if you don't get a form such as a 1099. Smarty Pants shows earnings gross, with no electricity or tax taken off."
   - q: "Can Smarty Pants see my files?"
-    a: "Smarty Pants says it cannot browse your files, watch your screen, or control your Mac, and its app does not ask for the macOS permissions that would take (a design, not a guarantee). You can pause any time, and you choose whether your Mac serves a company Group, the general network, or both."
+    a: "The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee. You can pause any time, and you choose whether your Mac serves a company Group, the general network, or both."
   - q: "Does Salad work on a Mac?"
     a: "No. Salad's own support page says a Mac can't earn on Salad, with or without virtualization."
 related: ["/earn/", "/earn/earnings/", "/earn/safety-and-controls/", "/earn/how-it-works/", "/guides/mac-mini-for-ai/", "/macs/"]
@@ -63,7 +63,7 @@ Terms on every network change, so read the current page before you rely on any o
 
 ## What does Smarty Pants pay today?
 
-Smarty Pants has an intro offer, stated on its live site on 8 Nov 2026: **"Intro offer: up to $1 a day per idle Mac, until 50 computers join."** That works out to about $30 a month if the Mac is ready all day.
+Smarty Pants has an intro offer, stated on its live site on 8 Nov 2026: **"Intro offer: up to $1 a day per idle Mac, until 50 computers join."** That would be a hypothetical $30 a month if the Mac were ready every hour of the month. That is a ceiling, not a forecast: you earn it only for hours the Mac is on, idle and ready, and real earnings can be lower.
 
 The fine print:
 
@@ -73,13 +73,13 @@ The fine print:
 - Payouts go through Stripe. The payout fee is 3% with a $3.00 minimum, so on a $30 payout the fee would be the $3.00 minimum.
 - Electricity and internet are your costs. Displayed earnings are gross: no electricity or tax is deducted.
 
-The Mac app is invite only for now; we're inviting Macs in small batches. See [How earnings work](/earn/earnings/) and check [smartypants.network/humans](https://smartypants.network/humans) for the current terms.
+[[MAC_ACCESS]] See [How earnings work](/earn/earnings/) and check [smartypants.network/humans](https://smartypants.network/humans) for the current terms.
 
 ## How much does it cost in electricity to leave a Mac on?
 
 Usually cents a day, but it depends on your rate and how hard the Mac works. The U.S. Energy Information Administration puts the 2025 average residential price at [17.30 cents per kWh](https://www.eia.gov/energyexplained/electricity/prices-and-factors-affecting-prices.php). Apple publishes measured power for each Mac mini on its [power consumption page](https://support.apple.com/en-us/103253), measured from the wall.
 
-| Mac mini (Apple's tested configuration) | Idle | Max | Cost per day, idle | Cost per day at max, 24 hours |
+| Mac mini (Apple's specifications, tested configuration) | Idle | Max | Cost per day, idle | Cost per day at max, 24 hours |
 |---|---|---|---|---|
 | M4, 16 GB (2024) | 4 W | 65 W | about 1.7 cents | about 27 cents |
 | M4 Pro, 64 GB (2024) | 5 W | 140 W | about 2.1 cents | about 58 cents |
@@ -88,7 +88,7 @@ Usually cents a day, but it depends on your rate and how hard the Mac works. The
 
 How the math works: watts × 24 hours ÷ 1,000 = kWh per day, then × your price. For the M4 at maximum: 65 W × 24 ÷ 1,000 = 1.56 kWh, × $0.173 = about $0.27.
 
-Two cautions. Apple's "max" figure comes from "a compute-intensive test application that maximizes processor usage", so a Mac serving AI requests on and off will usually sit somewhere between idle and max. And your own rate may be well above or below the national average, so use the price on your bill. Treat these numbers as scenarios from Apple's tests, not measured Smarty Pants power use or a guaranteed cost range.
+Two cautions. Apple's "max" figure comes from "a compute-intensive test application that maximizes processor usage", so a Mac serving AI requests on and off will usually sit somewhere between idle and max. And your own rate may be well above or below the national average, so use the price on your bill. These are Apple's specifications, not measured power use while serving AI models, and not a guaranteed cost range.
 
 ## What about heat, noise and wear?
 
@@ -100,7 +100,7 @@ We could not find published data on how continuous AI work affects a Mac's lifes
 
 ## Is it safe to let strangers' AI work run on my Mac?
 
-Each network handles this differently, so read its safety page. Smarty Pants says it "cannot browse your files, watch your screen, or control your Mac" (its app does not ask for the macOS permissions that would take; that is a design, not a guarantee), and you choose the network: your company Group only, the general network only, or both. More in [Safety and controls](/earn/safety-and-controls/).
+Each network handles this differently, so read its safety page. The app does not ask for macOS file, screen-recording or accessibility permissions; that is a design, not a technical guarantee, and you choose the network: your company Group only, the general network only, or both. More in [Safety and controls](/earn/safety-and-controls/).
 
 ## Do I have to pay tax on what my Mac earns?
 

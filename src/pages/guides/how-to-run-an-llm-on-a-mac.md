@@ -128,12 +128,12 @@ A note on newer models: several recent Qwen builds on Hugging Face, such as [Qwe
 
 Use a hosted API when the model doesn't fit your Mac, when you need answers while your Mac is asleep or busy, or when many users send requests at once. A local model is the better choice when your data must not leave your machine and the model fits.
 
-Options include the large centralized providers and [Smarty Pants](/inference/), which serves exact, pinned open models from other people's idle Apple Silicon Macs through an OpenAI-compatible API at `https://smartypants.network/v1`. You keep the OpenAI SDK and change the base URL and key. Each model runs as a named build (for example 4-bit MLX), listed with its price in [`/v1/models`](https://smartypants.network/v1/models).
+Options include the large centralized providers and [Smarty Pants](/inference/), which serves pinned, quantized builds of open models from other people's idle Apple Silicon Macs through an OpenAI-compatible API at `https://smartypants.network/v1`. You keep the OpenAI SDK and change the base URL and key. Each model runs as a named build (for example 4-bit MLX), listed with its price in [`/v1/models`](https://smartypants.network/v1/models).
 
 Trade-offs to know before you pick Smarty Pants:
 
 - Requests run on Macs other people own. The live site asks you not to send sensitive data on the general network.
 - Availability changes hour to hour; each live model page shows how many Macs have that model online. A large centralized provider will usually have more capacity.
-- Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+- [[API_ACCESS]]
 
 Compare models and their memory needs on the [AI models](/ai-models/) page.

@@ -63,7 +63,7 @@ The [Black Forest Labs model card](https://huggingface.co/black-forest-labs/FLUX
 
 The request format is not published yet. The [API docs](https://smartypants.network/docs/agents) will cover it when image generation opens. Until then, the [model page](/ai-models/flux-1-schnell/) shows its current state.
 
-Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+[[API_ACCESS]]
 
 ## What are the use rules?
 

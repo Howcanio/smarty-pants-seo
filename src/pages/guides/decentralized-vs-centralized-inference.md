@@ -17,7 +17,7 @@ faqs:
   - q: "Is distributed inference the same as decentralized inference?"
     a: "Not always. Distributed inference often means splitting one model across several devices so their memory adds up, as exo does. Decentralized inference means many independent owners each serve requests."
   - q: "Is decentralized inference private?"
-    a: "Not by default. A serving machine must read your request to answer it, so on a shared network your prompt runs on a stranger's computer. Smarty Pants asks people not to send sensitive data to its general network."
+    a: "Not by default. A serving machine must read your request to answer it, so on a shared network your prompt runs on a stranger's computer. On Smarty Pants, a serving Mac decrypts each request in memory to answer it. Owners agree not to read requests and the app doesn't show them, but that is a rule and a design, not a technical guarantee, so don't send sensitive data on the general network."
   - q: "Is decentralized inference cheaper?"
     a: "Sometimes, not always. Prices for the same open model vary a lot between providers of both kinds, so compare listed prices for the exact model and build you need."
   - q: "How do companies use idle Macs without sending data to strangers?"
@@ -62,16 +62,16 @@ The provider is the single party you trust with your data, and the single party 
 
 Several networks work this way, each in its own manner:
 
-- [Akash Network](https://akash.network/) describes itself as a decentralized compute marketplace where independent providers bid on deployments in a reverse auction, and offers AkashML with OpenAI-compatible APIs.
-- [Salad](https://salad.com/) orchestrates containers across distributed GPUs, including a Community Cloud built from idle consumer hardware, and offers an OpenAI-compatible LLM endpoint served from that network.
-- [Vast.ai](https://vast.ai/) is a GPU rental marketplace where prices are set by supply and demand, with a Hosting section on its site for hardware owners.
-- [io.net](https://io.net/) describes itself as an open source AI infrastructure platform with on-demand GPU clusters.
+- [Akash Network](https://akash.network/) describes itself as a decentralized compute marketplace.
+- [Salad](https://salad.com/) describes orchestration for distributed infrastructure and the world's idle GPUs.
+- [Vast.ai](https://vast.ai/) is a GPU rental marketplace.
+- [io.net](https://io.net/) describes itself as an open source AI infrastructure platform.
 
 ## Is "distributed inference" the same thing?
 
 **Not always.** Often it means running one model across several devices so their memory adds up. [Exo Labs explains](https://exolabs.net/faq/what-is-distributed-inference/) that pipeline parallelism gives each device a block of layers, which pools memory but does not speed up a single request, while tensor parallelism splits every layer so devices work on each token together, which needs a fast, low-latency link.
 
-That kind of distributed inference usually happens on hardware you own, in one place. Decentralized inference is about ownership: many owners, each serving whole requests on their own machines. Smarty Pants is the second kind. Each request runs on one Mac that has the model loaded.
+That kind of distributed inference usually happens on hardware you own, in one place. Decentralized inference is about ownership: many owners, each serving whole requests on their own machines. Smarty Pants is a distributed inference network powered by independently owned Macs. It is about ownership, not splitting: it does not split one model across Macs. Each request runs whole on one Mac that has the model loaded.
 
 ## What are the trade-offs?
 
@@ -87,7 +87,7 @@ That kind of distributed inference usually happens on hardware you own, in one p
 
 ### Privacy and the trust boundary
 
-On any inference service, the machine that runs the model has to read your prompt to answer it. On a decentralized network that machine belongs to someone you don't know. Smarty Pants says this plainly: requests run on Macs other people own, a serving Mac must decrypt a request in memory to answer it, and the [API page](https://smartypants.network/api) asks: "General network: please don't send sensitive data." Smarty Pants does not show or retain prompt content in its interface or product logs, but that does not make the general network a place for secrets.
+On any inference service, the machine that runs the model has to read your prompt to answer it. On a decentralized network that machine belongs to someone you don't know. On Smarty Pants, requests run on Macs owned by other people, and a serving Mac decrypts each request in memory to answer it. Owners agree not to read requests and the app doesn't show them, but that is a rule and a design, not a technical guarantee, so don't send sensitive data on the general network. The [API page](https://smartypants.network/api) says the same: "General network: please don't send sensitive data."
 
 If your data is regulated, personal or confidential, a centralized provider with the right agreements, or hardware you own, is the better choice.
 
@@ -101,19 +101,19 @@ On a decentralized network, capacity is the number of machines online right now,
 
 ### Price
 
-Price is not decided by the model alone. On 9 Nov 2026, [OpenRouter's page for Qwen3.5-9B](https://openrouter.ai/qwen/qwen3.5-9b) listed routes from several providers, from $0.059 to $0.17 per million input tokens. Compare listed prices for the exact model and build, from each provider's own page, on the same day. Our [LLM API pricing guide](/guides/llm-api-pricing-explained/) walks through one comparison.
+Price is not decided by the model alone. On 9 Nov 2026, [OpenRouter's page for Qwen3.5-9B](https://openrouter.ai/qwen/qwen3.5-9b) listed routes from several providers, from $0.059 to $0.17 per million input tokens, and those routes did not all serve the same build. Compare listed prices for the exact model and build, from each provider's own page, on the same day. Our [LLM API pricing guide](/guides/llm-api-pricing-explained/) walks through one comparison.
 
 ## Where does Smarty Pants fit?
 
-**Smarty Pants is a decentralized network of Apple Silicon Macs, with exact pinned builds and an option to keep work on your own company's Macs.**
+**Smarty Pants is a distributed inference network powered by independently owned Macs, with exact pinned builds and an option to keep work on your own company's Macs.**
 
 - **Exact, pinned builds.** Each model is served as a specific build named in `/v1/models`, with its `build_id` and `quantization`. For `smartypants/qwen3.5-9b`, that was `qwen3.5-9b-mlx-4bit-r938d891` on 9 Nov 2026. You know which weights answered.
 - **OpenAI-compatible API.** Change the base URL to `https://smartypants.network/v1` and the key, and keep the OpenAI SDK. See the [OpenAI-compatible API guide](/guides/openai-compatible-api-explained/).
 - **Groups for company-owned Macs.** A team can put its own Macs in a Group. Members use them for AI for free, work stays on the Group's Macs first, and earnings go to one company wallet ([For teams](https://smartypants.network/for-teams)). Group sign-up is invite only for now.
 - **Not charged for failures.** You are not charged for a request Smarty Pants can't serve.
 
-Smarty Pants is opening in stages. You can see the models, prices and code today; sign in with your email on [smartypants.network/api](https://smartypants.network/api) to get a key.
+[[API_ACCESS]]
 
 ## When should you choose a centralized provider instead?
 
-**Choose one when you need frontier-size models, long context, steady latency or strong data agreements.** The [Smarty Pants agent docs](https://smartypants.network/docs/agents) say the same: for those needs, keep your current provider, and use it as a fallback. A decentralized network fits everyday text work and embeddings on non-sensitive data, where an exact open model is good enough and price matters. For a side-by-side view, see [Smarty Pants vs. centralized providers](/inference/vs-centralized-providers/).
+**Choose one when you need frontier-size models, long context, steady latency or strong data agreements.** The [Smarty Pants agent docs](https://smartypants.network/docs/agents) say the same: for those needs, keep your current provider, and use it as a fallback. Smarty Pants fits everyday text work and embeddings on data that is not sensitive, where an exact open model is good enough and price matters. For a side-by-side view, see [Smarty Pants vs. centralized providers](/inference/vs-centralized-providers/).

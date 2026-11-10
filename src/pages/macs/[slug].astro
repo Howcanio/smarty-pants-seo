@@ -121,7 +121,7 @@ const schema = {
       <div class="text-block">
         <h2>Can a {c.name} Mac earn with Smarty Pants?</h2>
         <p>{eligibleText}</p>
-        {qualifying.length > 0 && <p>The current intro offer on smartypants.network is up to ${OWNER_OFFER.perDay} a day for each idle Mac that is on, plugged in and ready, {OWNER_OFFER.until} ({OWNER_OFFER.region}). Electricity and internet are your costs, and Macs are invited in small batches. <a href="/earn/earnings/">How earnings work</a>.</p>}
+        {qualifying.length > 0 && <p>The current intro offer on smartypants.network is up to ${OWNER_OFFER.perDay} a day for each idle Mac that is on, plugged in and ready, {OWNER_OFFER.until} ({OWNER_OFFER.region}). {OWNER_OFFER.caveat} Electricity and internet are your costs, and Macs are invited in small batches. <a href="/earn/earnings/">How earnings work</a>.</p>}
         {c.macs.some((x) => x.startsWith('MacBook')) && <p>MacBooks must be plugged in while serving and pause on battery.</p>}
       </div>
       <div class="card">

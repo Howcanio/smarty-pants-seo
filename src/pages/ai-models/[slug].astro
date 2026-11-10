@@ -67,7 +67,7 @@ const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0,
         <p class="eyebrow">{m.kindLabel} model</p>
         <h1>{m.shortName} on Apple silicon Macs</h1>
         <p class="status-line"><StatusBadge status={m.status} /></p>
-        <p class="lead">{m.short} Smarty Pants serves an exact {m.served} build on qualified Macs with {m.minMemoryGB} GB of memory or more, through an OpenAI-compatible API.</p>
+        <p class="lead">{m.short} Smarty Pants serves a pinned, quantized {m.served} build on qualified Macs with {m.minMemoryGB} GB of memory or more, through an OpenAI-compatible API.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href={`${SITE.coreSite}/models/${m.id}`}>Live status and price</a>
           <a class="btn btn-secondary btn-lg" href="#call-it">Code to call it</a>

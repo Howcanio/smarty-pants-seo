@@ -28,7 +28,7 @@ const organization = {
   logo: new URL('/_seo/apple-icon.png', Astro.site).href,
   email: SITE.supportEmail,
   description:
-    'Smarty Pants runs exact, pinned open AI models on idle Apple silicon Macs and sells them per token through an OpenAI-compatible API. Mac owners get paid for the hours their Mac is ready.',
+    'Smarty Pants is a distributed inference network powered by independently owned Macs. It runs pinned, quantized builds of open AI models on idle Apple silicon Macs and sells them per token through an OpenAI-compatible API. Mac owners get paid for the hours their Mac is ready.',
   sameAs: ['https://huggingface.co/smartypantsnet'],
   parentOrganization: { '@type': 'Organization', name: SITE.operator },
 };
@@ -64,7 +64,7 @@ const website = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Smarty Pants: exact open AI models on idle Apple silicon Macs." />
+    <meta property="og:image:alt" content="Smarty Pants: pinned builds of open AI models on idle Apple silicon Macs." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
     <JsonLd data={organization} />
