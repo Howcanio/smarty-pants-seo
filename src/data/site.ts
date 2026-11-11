@@ -82,6 +82,7 @@ export const GUIDE_LINKS = [
   { href: '/guides/make-money-with-an-idle-mac/', label: 'Make money with an idle Mac' },
   { href: '/guides/openai-compatible-api-explained/', label: 'OpenAI-compatible APIs explained' },
   { href: '/guides/decentralized-vs-centralized-inference/', label: 'Decentralized vs. centralized inference' },
+  { href: '/guides/apple-harbor-vs-smarty-pants/', label: 'Harbor vs. Smarty Pants' },
   { href: '/guides/llm-api-pricing-explained/', label: 'LLM API pricing explained' },
   { href: '/guides/ai-agent-sandboxes-explained/', label: 'AI agent sandboxes explained' },
 ];
