@@ -7,7 +7,7 @@ eyebrow: "Guide"
 audience: "buyer"
 primaryKeyword: "apple harbor app"
 keywords: ["apple harbor app", "claris harbor", "harbor local ai mac", "mac cluster ai", "thunderbolt 5 mac cluster", "local ai server mac"]
-summary: "Harbor is a Mac app from Claris, Apple's subsidiary, that news reports describe as turning Apple silicon Macs you own into a private AI server. It is in early access, with no price or release date. Smarty Pants is available today. It also runs open models on Apple silicon Macs: your own team's Macs through a Group, or a network of member Macs when you need capacity on demand. Developers pay per token through an OpenAI-compatible API, and Mac owners can earn from idle time."
+summary: "Harbor is a Mac app from Claris, Apple's subsidiary, that news reports describe as turning Apple silicon Macs you own into a private AI server. It is in early access, with no price or release date. Smarty Pants is available today. It also runs open models on Apple silicon Macs: models you keep on your own Mac, your team's Macs through a Group, or a network of member Macs when you need capacity on demand. Developers pay per token through an OpenAI-compatible API, and Mac owners can earn from idle time."
 published: "2026-11-11"
 updated: "2026-11-11"
 readingMinutes: 6
@@ -20,6 +20,10 @@ faqs:
     a: "Claris has not announced a price."
   - q: "Can you earn money with Harbor?"
     a: "No report mentions it. With Smarty Pants, eligible Mac owners can earn from idle time."
+  - q: "Can I run a model on my own Mac with Smarty Pants?"
+    a: "Yes, if your Mac is in Smarty Pants. Pick models to keep on your Mac in the Mac app, and your own requests for them run there for free. If your Mac is busy or off, the request goes to the network at the normal price. Adding a Mac is by invite for now."
+  - q: "Does Smarty Pants work offline, like Harbor?"
+    a: "Not yet. Offline use of the models kept on your Mac is coming soon. Today your Mac needs an internet connection."
   - q: "Can I keep my work on my own Macs with Smarty Pants?"
     a: "Yes. Put your own Macs in a Group and set it to Group only, and your team's work runs only on those Macs. By default a Group uses its own Macs first and can use the wider network when they are busy. Group sign-up is invite only for now."
   - q: "Is Smarty Pants affiliated with Apple or Claris?"
@@ -54,6 +58,7 @@ On 10 November 2026, [MacRumors reported](https://www.macrumors.com/2026/11/10/a
 
 - **For developers:** call pinned open models through an OpenAI-compatible API at `https://smartypants.network/v1` and pay per token. Each model's exact build is listed at [/v1/models](https://smartypants.network/v1/models). You are not charged for a request Smarty Pants can't serve. [[API_ACCESS]]
 - **For teams:** put your company's own Macs in a Group. Members use them for AI at no charge, and you can set the Group so its work runs only on your Group's Macs ([For teams](https://smartypants.network/for-teams)). Group sign-up is invite only for now.
+- **Keep a model on your own Mac:** if your Mac is in Smarty Pants, pick models in the Mac app to keep on it, and your own requests for them run on that Mac for free. If it is busy or off, the request goes to the network at the normal price. Offline use is coming soon.
 - **For Mac owners:** earn from a Mac that would otherwise sit idle. Earn up to $1/day per eligible Mac during the intro offer. Eligible means a supported Apple silicon Mac with 16 GB of memory or more, in the US. Mac owner sign-up is invite only for now.
 
 ## What is Harbor?
@@ -71,13 +76,15 @@ No report mentions earning money from idle Macs, sharing capacity with other peo
 
 ## The core difference
 
-**Both run open models on Apple silicon Macs. Harbor is reported as an app for Macs you own. Smarty Pants works on Macs you own and adds an on-demand network, a standard API and a way to earn.**
+**Both run open models on Apple silicon Macs. Harbor is reported as an app for Macs you own. Smarty Pants lets you keep models on your own Mac too, and adds an on-demand network, a standard API and a way to earn.**
 
 | | Harbor (as reported) | Smarty Pants |
 |---|---|---|
 | Available today | Early access only | Yes. API sign-up is open; Mac owners and Groups join by invite |
 | Price | Not announced | Pay per token; your own Macs in a Group are free to use |
-| Runs on your own Macs | Yes | Yes, with a Group |
+| Keep a model on your own Mac for your own use | Yes (price not announced) | Yes, free, in the Mac app (adding a Mac is by invite) |
+| Your team's Macs | Yes, cabled together | Yes, with a Group |
+| Works with no internet | Not reported; Claris says nothing reaches the cloud | Coming soon |
 | Extra capacity when you need it | Not reported; uses the Macs you own | Yes, from the network |
 | Need to buy Macs first | Yes | No |
 | Works with the OpenAI SDK | Not reported | Yes. Change the base URL and key |
@@ -89,22 +96,23 @@ No report mentions earning money from idle Macs, sharing capacity with other peo
 - **You want to start today.** Harbor has no public release date. Smarty Pants API sign-up is open at [smartypants.network/api](https://smartypants.network/api).
 - **You don't want to buy hardware.** With Smarty Pants you pay only for the tokens you use.
 - **Your usage is light or uneven.** If you only need AI now and then, paying per token can cost less than buying Macs that sit idle most of the day.
-- **You want your own Macs and more.** Run your team's work on your own Macs in a Group, and use the network when you need extra capacity.
-- **You want to earn from a Mac you already have.** Eligible owners earn from idle time during the intro offer.
+- **You want your own Mac and more.** Keep the models you use most on your own Mac for free, run your team's work on your Group's Macs, and use the network when you need extra capacity, all from one app.
+- **You want to earn from a Mac you already have.** Eligible owners earn from idle time during the intro offer, and their own use of kept models stays free.
 - **You want a standard API.** Smarty Pants works with the OpenAI SDK: change the base URL and key.
 - **You want exact, named builds.** Every model is pinned to the build listed in `/v1/models`, so you know exactly which weights answered.
 
 ## When Harbor might fit
 
-Harbor may suit you if you need one model too large for any single Mac and are ready to buy several Thunderbolt 5 Macs and cable them together, or if you want a setup that, per Claris, keeps your data on your own hardware and away from the cloud.
+Harbor may suit you if you need one model too large for any single Mac and are ready to buy several Thunderbolt 5 Macs and cable them together, or if you need a setup that, per Claris, keeps your data on your own hardware and away from the cloud. Smarty Pants offline use is not available yet.
 
 ## Trade-offs to know
 
 **Smarty Pants**
 
-- On the shared network, requests run on member Macs. [[PRIVACY]] Keep sensitive work in a Group set to run only on your own Macs.
+- On the shared network, requests run on member Macs. [[PRIVACY]] Keep sensitive work in a Group set to run only on your own Macs. Models kept on your own Mac run there first, but if your Mac is busy or off the request goes to the network.
 - Capacity for a given model depends on how many Macs are online. Check live status at [/v1/models](https://smartypants.network/v1/models) before you build on it.
 - Each request runs on one Mac, so the very largest models aren't offered.
+- Offline use is coming soon; today your Mac needs an internet connection.
 
 **Harbor**
 
@@ -116,4 +124,4 @@ Harbor may suit you if you need one model too large for any single Mac and are r
 
 ## The bottom line
 
-**If you want open models today without buying hardware, want to run on your team's Macs with extra capacity when you need it, or want to earn from a Mac you already own, Smarty Pants is built for that. If you need one very large model spread across several cabled Macs, Harbor may be worth a look once Claris ships it.** Many teams will reasonably use both. We'll update this page when Claris publishes official details.
+**If you want open models today without buying hardware, want to keep your favorite models on your own Mac for free, want to run on your team's Macs with extra capacity when you need it, or want to earn from a Mac you already own, Smarty Pants is built for that. If you need one very large model spread across several cabled Macs, Harbor may be worth a look once Claris ships it.** Many teams will reasonably use both. We'll update this page when Claris publishes official details.
