@@ -24,6 +24,8 @@ faqs:
     a: "Yes, if your Mac is in Smarty Pants. Pick models to keep on your Mac in the Mac app, and your own requests for them run there for free. If your Mac is busy or off, the request goes to the network at the normal price. Adding a Mac is by invite for now."
   - q: "Does Smarty Pants work offline, like Harbor?"
     a: "Not yet. Offline use of the models kept on your Mac is coming soon. Today your Mac needs an internet connection."
+  - q: "How does Smarty Pants protect my requests?"
+    a: "Each request travels over an encrypted connection and is sealed with a key that only the Mac chosen to answer it holds. Mac owners join by invite, run our signed app, pass hardware checks, and agree not to read requests, and prompts and answers aren't stored in our product logs. The answering Mac unlocks the request in memory to run the model, so for your most sensitive work use your own Mac or a Group set to Group only."
   - q: "Can I keep my work on my own Macs with Smarty Pants?"
     a: "Yes. Put your own Macs in a Group and set it to Group only, and your team's work runs only on those Macs. By default a Group uses its own Macs first and can use the wider network when they are busy. Group sign-up is invite only for now."
   - q: "Is Smarty Pants affiliated with Apple or Claris?"
@@ -89,6 +91,7 @@ No report mentions earning money from idle Macs, sharing capacity with other peo
 | Need to buy Macs first | Yes | No |
 | Works with the OpenAI SDK | Not reported | Yes. Change the base URL and key |
 | Earn from idle Macs | Not reported | Yes, for eligible Macs |
+| How your request is protected | Stays on your own hardware, per Claris | Encrypted for the one Mac that answers; approved, signed Macs; nothing kept in our logs |
 | One model split across several Macs | Yes, over Thunderbolt 5 | No. Each request runs on one Mac |
 
 ## Where Smarty Pants is the better choice
@@ -105,11 +108,23 @@ No report mentions earning money from idle Macs, sharing capacity with other peo
 
 Harbor may suit you if you need one model too large for any single Mac and are ready to buy several Thunderbolt 5 Macs and cable them together, or if you need a setup that, per Claris, keeps your data on your own hardware and away from the cloud. Smarty Pants offline use is not available yet.
 
+## How Smarty Pants protects requests on the network
+
+When a request runs on another member's Mac, these protections apply:
+
+- **Encrypted for one Mac.** Each request travels over an encrypted connection, then is sealed with a key that only the Mac chosen to answer it holds (AES-256-GCM). Other Macs on the network can't read it.
+- **Approved Macs only.** Mac owners join by invite and run our signed app, which checks the Mac's chip, memory and real speed before it can do any paid work. Owners agree not to read requests, and the app doesn't show them.
+- **Nothing kept.** Prompts and answers aren't stored in our product logs, and the Mac drops them when the work is done.
+- **Checked models.** Every model is a build we tested and signed, and the app checks each file against that signature before using it.
+- **Outgoing connection only.** Each Mac connects out to Smarty Pants for work, so no one connects into it from the internet.
+
+To answer a request, the chosen Mac has to unlock it in memory and run the model on it. That's true of any service that runs AI, and it's why your own Mac or a Group set to Group only is the best home for your most sensitive work.
+
 ## Trade-offs to know
 
 **Smarty Pants**
 
-- On the shared network, requests run on member Macs. [[PRIVACY]] Keep sensitive work in a Group set to run only on your own Macs. Models kept on your own Mac run there first, but if your Mac is busy or off the request goes to the network.
+- On the shared network, requests run on member Macs, protected as described below. For your most sensitive work, use a Group set to run only on your own Macs. Models kept on your own Mac run there first, but if your Mac is busy or off the request goes to the network.
 - Capacity for a given model depends on how many Macs are online. Check live status at [/v1/models](https://smartypants.network/v1/models) before you build on it.
 - Each request runs on one Mac, so the very largest models aren't offered.
 - Offline use is coming soon; today your Mac needs an internet connection.
