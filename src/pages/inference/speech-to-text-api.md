@@ -8,7 +8,7 @@ audience: "buyer"
 status: "testing"
 primaryKeyword: "whisper api"
 keywords: ["whisper api", "speech to text api", "whisper large v3 turbo api", "audio transcription api", "openai compatible transcription"]
-summary: "Smarty Pants has a speech to text API that runs Whisper large-v3 turbo on Apple Silicon Macs through the OpenAI-format endpoint POST https://smartypants.network/v1/audio/transcriptions. Each file can be up to 30 minutes or 25 MB. The listed price on 8 Nov 2026 was $0.18 an hour of audio. The model is in testing and opens soon, so it is not for production traffic yet."
+summary: "Smarty Pants has a speech to text API that runs Whisper large-v3 turbo on Apple Silicon Macs through the OpenAI-format endpoint POST https://smartypants.network/v1/audio/transcriptions. Each file can be up to 30 minutes or 25 MB. The listed price on 19 Nov 2026 is about $0.011 an hour of audio, billed per second. The model is in testing and opens soon, so it is not for production traffic yet."
 published: "2026-11-09"
 updated: "2026-11-09"
 readingMinutes: 5
@@ -18,7 +18,7 @@ faqs:
   - q: "How long can an audio file be?"
     a: "Up to 30 minutes or 25 MB per file. Split longer recordings into parts before you upload them."
   - q: "What does it cost?"
-    a: "The listed price on 8 Nov 2026 was $0.18 an hour of audio. Check /v1/models or smartypants.network/api for the current price."
+    a: "The listed price on 19 Nov 2026 is about $0.011 an hour of audio ($0.003 per million milliseconds), billed per whole second. Check /v1/models or smartypants.network/api for the current price."
   - q: "Does it work with the OpenAI SDK?"
     a: "Yes. The endpoint uses the OpenAI format with a multipart audio upload, so client.audio.transcriptions.create works once you set the Smarty Pants base URL and key."
   - q: "Which version of Whisper is it?"
@@ -50,7 +50,7 @@ It is OpenAI's open Whisper large-v3 turbo model, served on Macs behind `POST /v
 | API name | `smartypants/whisper-large-v3-turbo` |
 | Endpoint | `POST https://smartypants.network/v1/audio/transcriptions` (multipart upload) |
 | Limit per file | up to 30 minutes or 25 MB |
-| Listed price (8 Nov 2026) | $0.18 an hour of audio |
+| Listed price (19 Nov 2026) | About $0.011 an hour of audio, billed per whole second |
 | Build | Core ML |
 | License | MIT |
 | Served on | qualified 16 GB+ Apple Silicon Macs |
@@ -91,7 +91,7 @@ While the model is in testing, `is_ready` on [`/v1/models`](https://smartypants.
 
 ## What does an hour of audio cost?
 
-The listed price on 8 Nov 2026 was $0.18 an hour of audio ([smartypants.network/api](https://smartypants.network/api)). Prices can change; [`/v1/models`](https://smartypants.network/v1/models) has the current one, and [/inference/pricing/](/inference/pricing/) has a calculator.
+The listed price on 19 Nov 2026 is about $0.011 an hour of audio, billed per whole second ([/v1/models](https://smartypants.network/v1/models)). Prices can change; [`/v1/models`](https://smartypants.network/v1/models) has the current one, and [/inference/pricing/](/inference/pricing/) has a calculator.
 
 That is not the lowest listed price for this model. On 9 Nov 2026 Groq's [supported models page](https://console.groq.com/docs/models) listed Whisper Large V3 Turbo at $0.04 an hour, with files up to 100 MB. If price per hour is what matters most, compare both before choosing. See [Smarty Pants vs. centralized providers](/inference/vs-centralized-providers/).
 

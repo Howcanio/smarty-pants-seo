@@ -21,7 +21,7 @@ faqs:
   - q: "How does OpenRouter differ from Smarty Pants?"
     a: "OpenRouter is a router: its docs say it gives access to hundreds of models through one endpoint and routes each request across providers by price, throughput, latency and reliability. Smarty Pants serves its own catalog on Macs, one pinned build per model."
   - q: "Is Smarty Pants cheaper than Groq?"
-    a: "It depends on the model, and the builds are not the same. On the dates checked, Smarty Pants listed lower per-token prices than Groq's models page for Qwen3.8 27B and gpt-oss-20b, and Groq listed a lower price for Whisper large-v3 turbo ($0.04 an hour against $0.18). Groq does not state the quantization of its builds, Smarty Pants serves named quantized builds, and Groq lists larger context windows."
+    a: "It depends on the model, and the builds are not the same. On the dates checked, Smarty Pants listed lower prices than Groq's models page for Qwen3.8 27B, gpt-oss-20b and Whisper large-v3 turbo (about $0.011 an hour against $0.04). Groq does not state the quantization of its builds, Smarty Pants serves named quantized builds, and Groq lists larger context windows."
 related: ["/inference/", "/guides/decentralized-vs-centralized-inference/", "/inference/pricing/", "/inference/openai-compatible-api/", "/guides/llm-api-pricing-explained/", "/ai-models/"]
 sources:
   - label: "Smarty Pants: llms.txt"
@@ -87,13 +87,13 @@ Smarty Pants' own guidance agrees: it is not a fit yet for work that needs a fro
 
 ## How do listed prices compare for the same open models?
 
-For some models Smarty Pants lists lower per-token prices; for Whisper, Groq lists a lower price. The builds are not the same, so read the build and context columns too. These are listed prices on the dates shown, not a promise. Always check both price pages before you decide.
+On the dates shown, Smarty Pants listed lower prices than Groq for all three. The builds are not the same, so read the build and context columns too. These are listed prices on the dates shown, not a promise. Always check both price pages before you decide.
 
-| Model | Smarty Pants listed price (8 Nov 2026) | Groq listed price (checked 9 Nov 2026) | Build: Smarty Pants / Groq | Context or file limit: Smarty Pants / Groq |
+| Model | Smarty Pants listed price (19 Nov 2026) | Groq listed price (checked 9 Nov 2026) | Build: Smarty Pants / Groq | Context or file limit: Smarty Pants / Groq |
 |---|---|---|---|---|
-| Qwen3.8 27B | $0.20 in / $1.20 out per M tokens (released) | $0.80 in / $4.00 out per M tokens (Groq "preview" model) | 3.8-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
-| gpt-oss-20b | $0.027 in / $0.135 out per M tokens (in testing, opens soon) | $0.075 in / $0.30 out per M tokens | 4-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
-| Whisper large-v3 turbo | $0.18 an hour of audio (in testing, opens soon) | $0.04 an hour of audio | Core ML / not stated | 25 MB / 100 MB max file |
+| Qwen3.8 27B | $0.035 in / $1.125 out per M tokens (released) | $0.80 in / $4.00 out per M tokens (Groq "preview" model) | 3.8-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
+| gpt-oss-20b | $0.0162 in / $0.081 out per M tokens (released) | $0.075 in / $0.30 out per M tokens | 4-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
+| Whisper large-v3 turbo | about $0.011 an hour of audio (in testing, opens soon) | $0.04 an hour of audio | Core ML / not stated | 25 MB / 100 MB max file |
 
 Sources: [Smarty Pants /v1/models](https://smartypants.network/v1/models), [Smarty Pants API guide](https://smartypants.network/api), [GroqCloud supported models](https://console.groq.com/docs/models). Groq does not state the quantization of its builds. Smarty Pants names the build it serves for each model, and its chat models are quantized MLX builds. So the models in each row are not the same build, and the context windows differ. For more on comparing token prices, see [LLM API pricing explained](/guides/llm-api-pricing-explained/) and [/inference/pricing/](/inference/pricing/).
 

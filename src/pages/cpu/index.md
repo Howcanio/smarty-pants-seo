@@ -10,7 +10,7 @@ primaryKeyword: "remote code execution api"
 keywords: ["remote code execution api", "code sandbox api", "run code in a sandbox", "run code in a vm", "mcp run code tool", "python sandbox api"]
 summary: "Smarty Pants CPU jobs run a short Python, JavaScript or shell program in a sealed ARM64 Linux VM on a Mac: no network, no disk, wiped after. Each job runs up to 30 seconds and returns up to 4 KB of output, which you can stream while it runs. Listed price: $0.00405 per vCPU-hour plus $0.002025 per GB-hour, about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory. Today it runs on Smarty Pants' own account first."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 5
 faqs:
   - q: "Can I use Smarty Pants CPU jobs today?"
@@ -42,7 +42,10 @@ Not from your own account yet. Smarty Pants runs CPU jobs on its own account fir
 | CPU jobs on Smarty Pants' own account, with the limits below | Available today |
 | Streamed output by byte offsets | Available today |
 | `run_code` MCP tool, for accounts that have CPU jobs | Available today |
-| CPU jobs from your own account | Planned |
+| Run code in one call (`POST /v1/code/run`): code and files in, output, charts and files back | Available today, in a [workspace](/workspaces/) |
+| Code jobs in a [batch](/inference/batch-api/), at the normal CPU price | Available today |
+| Code on your own or your Group's Macs, free | Available today, in a [workspace](/workspaces/) with `where: "mine"` |
+| Paid CPU jobs from your own account on other people's Macs | Opens after our own account |
 
 [[API_ACCESS]]
 
@@ -131,4 +134,4 @@ Each result includes `chargeMicros`, the charge for that job. Check the [agent d
 
 ## Where do CPU jobs fit with workspaces?
 
-A CPU job is one program in one VM, then gone. A [workspace](/workspaces/) keeps one VM open for many commands and files, up to 30 minutes. For the bigger picture, read [AI agent sandboxes explained](/guides/ai-agent-sandboxes-explained/). To call models rather than run code, see the [inference API](/inference/).
+A CPU job is one program in one VM, then gone. A [workspace](/workspaces/) keeps one VM open for many commands and files, up to 2 hours, and `POST /v1/code/run` runs a bigger program with files in one call. Compare prices on the [price page](/pricing/#workspaces). For the bigger picture, read [AI agent sandboxes explained](/guides/ai-agent-sandboxes-explained/). To call models rather than run code, see the [inference API](/inference/).

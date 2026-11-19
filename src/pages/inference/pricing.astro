@@ -13,7 +13,7 @@ const description = `Listed per-token prices for every Smarty Pants model, check
 const tokenModels = MODELS.filter((m) => m.kind === 'text' || m.kind === 'embedding');
 const fmt = (n: number) => { const [w, f = ''] = String(Number(n.toFixed(6))).split('.'); return `$${w}.${f.padEnd(2, '0')}`; };
 const faqs = [
-  { q: 'How does Smarty Pants charge?', a: 'Per token, at the listed price per million input tokens and per million output tokens for the model you call. Speech to text is priced per hour of audio and image making per picture. You are not charged for a request Smarty Pants can\'t serve.' },
+  { q: 'How does Smarty Pants charge?', a: 'Per token, at the listed price per million input tokens and per million output tokens for the model you call. Speech to text is priced per second of audio, image making per picture and video per clip. You are not charged for a request Smarty Pants can\'t serve.' },
   { q: 'Where is the current price?', a: `GET ${SITE.apiBase}/models returns every model's price (per token, in its pricing field). The prices on this page were checked on ${checked} and can change.` },
   { q: 'Do reasoning tokens cost extra?', a: 'Reasoning tokens count as output. Each model\'s default_reasoning field in /v1/models says whether reasoning is on by default; turning it off keeps output short.' },
   { q: 'Is there a minimum spend or subscription?', a: 'Smarty Pants does not list a subscription for the API. You add credit to a balance and requests are paid from it; a 402 error means the balance is too low.' },
@@ -27,7 +27,7 @@ const faqs = [
       <p class="eyebrow">For developers</p>
       <h1>What Smarty Pants inference costs</h1>
       <p class="lead">Every model has a listed price per million tokens, the same unit most providers use. Here are the prices on {checked}, and a calculator for your own traffic.</p>
-      <div class="summary"><p><strong>Short answer:</strong> On {checked}, Smarty Pants listed released chat models from {fmt(Math.min(...tokenModels.filter((m) => m.kind === 'text' && m.released).map((m) => m.inputPricePerMillionUsd)))} per million input tokens, embeddings at {fmt(tokenModels.find((m) => m.kind === 'embedding')?.inputPricePerMillionUsd ?? 0)} per million tokens, speech to text at $0.18 an hour of audio and images at $0.003 each. You pay only for requests it serves; the live price list is GET /v1/models.</p></div>
+      <div class="summary"><p><strong>Short answer:</strong> On {checked}, Smarty Pants listed released chat models from {fmt(Math.min(...tokenModels.filter((m) => m.kind === 'text' && m.released).map((m) => m.inputPricePerMillionUsd)))} per million input tokens, embeddings at {fmt(tokenModels.find((m) => m.kind === 'embedding')?.inputPricePerMillionUsd ?? 0)} per million tokens, speech to text at about $0.011 an hour of audio, images at $0.003 each and 480p video clips at $0.011 each. Every other product (batches, code jobs, workspaces, Groups) is on the <a href="/pricing/">full price page</a>. You pay only for requests it serves; the live price list is GET /v1/models.</p></div>
     </div>
   </section>
 

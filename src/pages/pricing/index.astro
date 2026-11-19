@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Faq from '../../components/Faq.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { MODELS, modelHref } from '../../data/models';
+import { MODEL_ENTRY, UNIQUE_MODELS, SANDBOX_ROWS, PRICES_CHECKED_LABEL, usd } from '../../data/prices';
+import { SITE } from '../../data/site';
+
+const title = 'Smarty Pants pricing: models, batches, workspaces';
+const description = `Every Smarty Pants price in one place, from models and batches to workspaces, next to the cheapest seller elsewhere. Checked ${PRICES_CHECKED_LABEL}.`;
+const entryById = Object.fromEntries(MODEL_ENTRY.map((e) => [e.id, e]));
+
+const PRODUCTS = [
+  { name: 'AI models (chat)', price: 'Per million tokens, from $0.0162 in / $0.081 out', who: 'Anyone with an API key', href: '/inference/' },
+  { name: 'Batches', price: 'Half the normal per-token price, results within 24 hours', who: 'Anyone with an API key', href: '/inference/batch-api/' },
+  { name: 'Embeddings and reranking', price: '$0.01 and $0.009 per million input tokens', who: 'Anyone with an API key', href: '/inference/embeddings-api/' },
+  { name: 'Speech to text', price: 'About $0.011 an hour of audio, billed per second', who: 'In testing', href: '/inference/speech-to-text-api/' },
+  { name: 'Pictures', price: '$0.003 a picture', who: 'In testing', href: '/inference/image-generation-api/' },
+  { name: 'Video', price: '$0.011 a 480p clip (2, 3 or 5 seconds)', who: 'Anyone with an API key', href: '/inference/video-generation/' },
+  { name: 'Code runs and workspaces', price: '$0.01215 an hour for 2 vCPU and 2 GB, billed per second', who: 'Free on your own Macs; paid use on our own account first', href: '/workspaces/' },
+  { name: 'Groups (your team\'s own Macs)', price: 'Free for members on the Group\'s Macs', who: 'Invite only', href: '/groups/' },
+  { name: 'Mac app builds', price: 'Free, on your own or your Group\'s Macs only', who: 'Coming (switched off today)', href: '/workspaces/mac-builds/' },
+];
+
+const faqs = [
+  { q: 'How does Smarty Pants set its prices?', a: `Each product is priced at 90 to 100% of the cheapest price we can find for the same model or the same kind of machine elsewhere. We checked on ${PRICES_CHECKED_LABEL}; most prices are 90% of the cheapest seller that day.` },
+  { q: 'Is there a subscription or a minimum?', a: 'No subscription. You add credit to a balance (top-ups start at $10) and each request is paid from it. New accounts get $10 of free credit, usable for 90 days.' },
+  { q: 'What am I never charged for?', a: 'A request Smarty Pants can\'t serve, a workspace that never became ready, a workspace our side lost (its Mac went quiet), and time after you end a workspace.' },
+  { q: 'Is using my own Macs really free?', a: 'Yes. Workspaces, code runs and model calls on Macs you own, or on your Group\'s Macs for its members, cost nothing. You pay only when work runs on Macs other people own.' },
+  { q: 'Where is the live price?', a: `GET ${SITE.apiBase}/models lists every model's current price, and GET ${SITE.apiBase}/prices/workspaces lists the workspace price. Prices on this page were checked on ${PRICES_CHECKED_LABEL} and can change.` },
+  { q: 'Are you cheaper than everyone?', a: 'Not always, and not forever. We aim for a little under the cheapest seller on the day we check, but other providers change prices often, and some offer things we don\'t (GPUs, longer context, guaranteed capacity, SOC 2 reports).' },
+];
+
+const offers = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'Smarty Pants prices',
+  url: `${SITE.coreSite}/pricing/`,
+  itemListElement: MODELS.filter((m) => m.kind === 'text' && m.released).map((m) => ({
+    '@type': 'Offer',
+    name: `${m.shortName} on Smarty Pants`,
+    description: m.priceText,
+    priceCurrency: 'USD',
+    priceSpecification: { '@type': 'UnitPriceSpecification', price: m.outputPricePerMillionUsd, priceCurrency: 'USD', unitText: 'per million output tokens' },
+  })),
+};
+---
+<BaseLayout title={title} description={description} schema={[offers]}>
+  <div class="container"><Breadcrumbs items={[{ label: 'Pricing', href: '/pricing/' }]} /></div>
+  <section class="hero">
+    <div class="container hero-solo">
+      <p class="eyebrow">Pricing</p>
+      <h1>Smarty Pants pricing</h1>
+      <p class="lead">Pay only for what you use, from a balance you top up. No subscription. Using your own Macs is free.</p>
+      <div class="summary"><p><strong>Short answer:</strong> Smarty Pants prices each product at about 90% of the cheapest seller of the same thing elsewhere. Chat models cost from $0.0162 per million input tokens, batches are half price, a 2 vCPU workspace is $0.01215 an hour billed per second, and work on Macs you or your Group own is free. New accounts get $10 of credit for 90 days. Checked {PRICES_CHECKED_LABEL}.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What does each product cost?</h2>
+      <p>One balance pays for everything. Each product has its own page with limits and code.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Price</th><th>Who can use it today</th></tr></thead>
+          <tbody>
+            {PRODUCTS.map((p) => (
+              <tr><th><a href={p.href}>{p.name}</a></th><td>{p.price}</td><td>{p.who}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Starter credit: $10 for a newly verified person or agent, once, usable for 90 days. Top-ups start at $10 and are paid on Stripe. Live prices: <a href={`${SITE.apiBase}/models`}>/v1/models</a> and <a href={`${SITE.apiBase}/prices/workspaces`}>/v1/prices/workspaces</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="models">
+    <div class="container">
+      <h2>How do model prices compare with the cheapest seller?</h2>
+      <p>For a model other providers also sell, we take the cheapest seller we can find and charge about 90% of its price. The builds are not identical (ours are 4-bit MLX builds on Apple silicon, named in <code>build_id</code>), so compare quality on your own examples too.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Model</th><th>Smarty Pants, per million tokens</th><th>Cheapest seller elsewhere</th><th class="num">Ours vs. theirs</th><th>Status</th></tr></thead>
+          <tbody>
+            {MODEL_ENTRY.map((e) => {
+              const m = MODELS.find((x) => x.id === e.id);
+              return (
+                <tr>
+                  <th>{m ? <a href={modelHref(m)}>{e.name}</a> : e.name}</th>
+                  <td>{e.ours}</td>
+                  <td>{e.entry} <small>(<a href={e.source.url}>{e.entrySeller}</a>)</small></td>
+                  <td class="num">{e.share}</td>
+                  <td>{m ? <StatusBadge status={m.status} /> : null}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <h3>Models only we sell</h3>
+      <p>When nobody else sells a model yet, we set the price from the nearest comparable model.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Model</th><th>Smarty Pants, per million tokens</th><th>Note</th></tr></thead>
+          <tbody>{UNIQUE_MODELS.map((u) => <tr><th>{u.name}</th><td>{u.ours}</td><td>{u.note}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="footnote">Seller prices from each linked page on the date shown, mostly OpenRouter's list of sellers on {PRICES_CHECKED_LABEL}. Picture prices come from a secondary source and may be out of date. <a href="/inference/pricing/">Model price calculator</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="workspaces">
+    <div class="container">
+      <h2>How do workspace prices compare with other sandboxes?</h2>
+      <p>A Smarty Pants workspace is a sealed Linux VM with 2 vCPU and 2 GB of memory, billed per second from when it is ready until it ends. Code runs (<code>POST /v1/code/run</code>), fleets and coding-agent jobs use the same rate per workspace. Here is the same size machine elsewhere, per hour.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Service</th><th>Per vCPU-hour</th><th>Per GB-hour</th><th class="num">2 vCPU + 2 GB, per hour</th><th>Free credit</th></tr></thead>
+          <tbody>
+            {SANDBOX_ROWS.map((r) => (
+              <tr class={r.ours ? 'row-ours' : undefined}>
+                <th><a href={r.source.url}>{r.name}</a></th><td>{r.vcpuHour}</td><td>{r.gibHour}</td><td class="num">{usd(r.twoByTwo)}</td><td>{r.free}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Other services' prices are from the linked comparison pages on their stated dates; check each provider before you decide. Prices are for running time only; storage, network and plan fees differ by provider.</p>
+      <h3>What the lower price does not buy you</h3>
+      <ul>
+        <li>No GPUs and no x86 machines: workspaces are ARM64 Linux on Apple silicon.</li>
+        <li>Capacity depends on Macs that are idle and online. A Mac with a workspace booted and waiting starts one in about a second; otherwise it takes longer, and sometimes no Mac is free.</li>
+        <li>The Mac's owner comes first. If they come back, the workspace ends within 5 seconds (save it, or turn on failover, to carry on elsewhere).</li>
+        <li>Workspace contents are not confidential from the Mac's owner. Use your own or your Group's Macs for private work.</li>
+        <li>No SOC 2 report yet. Paid workspaces on the general network are on our own account first.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="free">
+    <div class="container text-block">
+      <h2>What is free?</h2>
+      <p>Anything that runs on Macs you own is free, and so is anything a Group member runs on the Group's Macs. Add <code>where: "mine"</code> or <code>where: {'{'}group: "&lt;Group id&gt;"{'}'}</code> to a workspace request. You are also never charged for a request Smarty Pants can't serve, a workspace that never became ready, a workspace we lost, or time after you end one.</p>
+      <p>Compare us with others on the <a href="/compare/">comparison pages</a>, or read <a href="/guides/llm-api-pricing-explained/">LLM API pricing explained</a>.</p>
+      <Faq faqs={faqs} />
+    </div>
+  </section>
+  <CtaBand audience="buyer" />
+</BaseLayout>

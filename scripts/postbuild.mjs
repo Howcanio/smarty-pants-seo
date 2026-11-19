@@ -105,8 +105,9 @@ const section = (prefix) => indexable.filter((p) => p.path.startsWith(prefix));
 const line = (p) => `- [${p.title.replace(/ \| Smarty Pants$/, '')}](${SITE}${p.path}): ${p.description}`;
 const models = catalog.models.filter((m) => m.id !== 'smartypants/ribt');
 const price = (m) =>
-  m.kind === 'speech_to_text' ? '$0.18 an hour of audio' : m.kind === 'image_generation' ? '$0.003 a picture'
-  : m.kind === 'embedding' ? `$${m.inputPricePerMillionUsd} per million input tokens`
+  m.kind === 'speech_to_text' ? 'about $0.011 an hour of audio' : m.kind === 'image_generation' ? '$0.003 a picture'
+  : m.kind === 'video_generation' ? `$${m.outputPricePerMillionUsd / 1e6} a 480p clip`
+  : m.kind === 'embedding' || m.kind === 'rerank' ? `$${m.inputPricePerMillionUsd} per million input tokens`
   : `$${m.inputPricePerMillionUsd} per million input tokens, $${m.outputPricePerMillionUsd} per million output tokens`;
 const llms = [
   '# Smarty Pants',
@@ -116,15 +117,21 @@ const llms = [
   `## Models (listed on ${catalog.checked}; the live list with prices and is_ready is GET https://smartypants.network/v1/models)`,
   ...models.map((m) => `- \`${m.id}\`: ${m.name.replace(/ \(Smarty Pants\)$/, '')}; ${price(m)}; ${m.released ? 'released' : 'in testing, opens soon'}; ${m.description}`),
   '',
-  '## Planned (not available yet)',
-  '- Agent workspace snapshots and recovery, model calls from inside workspaces, fleets and browser work, always-on agents, filtered internet access for workspaces, a CLI and SDK for workspaces.',
-  '- Video generation.',
-  '- Sandboxed CPU jobs and single workspaces run on Smarty Pants\' own account first; other accounts get a 403 until they open.',
+  '## What is open to whom (checked 19 Nov 2026)',
+  '- Model calls, batches (half price), embeddings, reranking and video: anyone with an API key.',
+  '- Code runs, workspaces, saved setups, fleets and the task board: free on Macs you own or your Group\'s Macs; paid use on the general network is on Smarty Pants\' own account first (other accounts get a 403 until it opens).',
+  '- Mac app builds (Xcode) on your own or your Group\'s Macs: coming, switched off today.',
+  '- Not offered: GPUs, x86 machines, SOC 2 reports, guaranteed capacity.',
+  '',
+  '## Prices and comparisons',
+  ...section('/pricing/').map(line),
+  ...section('/compare/').map(line),
   '',
   '## For developers',
   ...section('/inference/').map(line),
   ...section('/cpu/').map(line),
   ...section('/workspaces/').map(line),
+  ...section('/groups/').map(line),
   '',
   '## Models',
   ...section('/ai-models/').map(line),

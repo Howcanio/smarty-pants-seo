@@ -54,19 +54,24 @@ Teams can also put their own Macs in a Group. Members use the Group's Macs for A
 
 ## Which models can you call?
 
-Four models are released and five are in testing. Prices below are the listed price on 8 Nov 2026; [`/v1/models`](https://smartypants.network/v1/models) always has the current price.
+Most models are released; a few are in testing. Prices below are the listed price on 19 Nov 2026, and every model and product is on the [price page](/pricing/); [`/v1/models`](https://smartypants.network/v1/models) always has the current price.
 
-| Model (API name) | What it does | Context / max output | Listed price (8 Nov 2026) | Status |
+| Model (API name) | What it does | Context / max output | Listed price (19 Nov 2026) | Status |
 |---|---|---|---|---|
-| [smartypants/qwen3.5-9b](/ai-models/qwen3-5-9b/) | chat | 16,384 / 4,096 | $0.10 in / $0.40 out per M tokens | Released |
-| [smartypants/qwen3.8-27b](/ai-models/qwen3-8-27b/) | chat | 16,384 / 4,096 | $0.20 / $1.20 per M tokens | Released |
+| [smartypants/qwen3.5-9b](/ai-models/qwen3-5-9b/) | chat | 16,384 / 4,096 | $0.072 in / $0.108 out per M tokens | Released |
+| [smartypants/qwen3.8-27b](/ai-models/qwen3-8-27b/) | chat | 16,384 / 4,096 | $0.035 / $1.125 per M tokens | Released |
 | [smartypants/nanbeige4.3-33b](/ai-models/nanbeige4-3-33b/) | chat | 16,384 / 4,096 | $0.30 / $2.00 per M tokens | Released |
 | [smartypants/qwen3-embedding-0.6b](/ai-models/qwen3-embedding-0-6b/) | embeddings, 1,024 dims or fewer | 8,192 | $0.01 in per M tokens | Released |
 | [smartypants/qwen3.5-4b](/ai-models/qwen3-5-4b/) | chat | 8,192 / 2,048 | $0.10 / $0.25 per M tokens | In testing, opens soon |
-| [smartypants/qwen3.6-35b-a3b](/ai-models/qwen3-6-35b-a3b/) | chat, mixture of experts | 16,384 / 4,096 | $0.09 / $0.80 per M tokens | In testing, opens soon |
-| [smartypants/gpt-oss-20b](/ai-models/gpt-oss-20b/) | chat, mixture of experts | 16,384 / 4,096 | $0.027 / $0.135 per M tokens | In testing, opens soon |
-| [smartypants/whisper-large-v3-turbo](/ai-models/whisper-large-v3-turbo/) | speech to text, up to 30 min or 25 MB per file | n/a | $0.18 an hour of audio | In testing, opens soon |
+| [smartypants/qwen3.6-35b-a3b](/ai-models/qwen3-6-35b-a3b/) | chat, mixture of experts | 98,304 / 4,096 | $0.045 / $0.63 per M tokens | Released |
+| [smartypants/gpt-oss-20b](/ai-models/gpt-oss-20b/) | chat, mixture of experts | 16,384 / 4,096 | $0.0162 / $0.081 per M tokens | Released |
+| [smartypants/whisper-large-v3-turbo](/ai-models/whisper-large-v3-turbo/) | speech to text, up to 30 min or 25 MB per file | n/a | about $0.011 an hour of audio | In testing, opens soon |
 | [smartypants/flux.1-schnell](/ai-models/flux-1-schnell/) | images, up to 4 per request, up to 1536×1024 | n/a | $0.003 a picture | In testing, opens soon |
+| [smartypants/arete-27b](/ai-models/arete-27b/) | chat | 16,384 / 4,096 | $0.20 / $1.20 per M tokens | Released |
+| [smartypants/axion-1.0-35b](/ai-models/axion-1-0-35b/) | chat, mixture of experts | 16,384 / 4,096 | $0.09 / $0.80 per M tokens | Released |
+| [smartypants/muse-glimmer-30b](/ai-models/muse-glimmer-30b/) | chat | 16,384 / 4,096 | $0.27 / $1.08 per M tokens | Released |
+| [smartypants/qwen3-reranker-0.6b](/ai-models/qwen3-reranker-0-6b/) | reranking | n/a | $0.009 in per M tokens | Released |
+| [smartypants/wan2.2-5b-video](/ai-models/wan2-2-5b-video/) | video, 2 to 5 second clips at 480p | n/a | $0.011 a clip | Released |
 
 "Released" does not mean a model is online right now. Availability changes hour to hour, because it depends on which Macs are idle. Check `is_ready` on `/v1/models` before you send traffic; when it is false, keep your current provider. See all models on [/ai-models/](/ai-models/) and costs on [/inference/pricing/](/inference/pricing/).
 

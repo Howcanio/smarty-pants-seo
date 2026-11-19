@@ -48,9 +48,9 @@ Keep the key in an environment variable, `SMARTYPANTS_API_KEY`, never in code. [
 
 | Model id | What it does | Listed price per million tokens |
 |---|---|---|
-| `smartypants/qwen3.5-9b` | Everyday chat, writing, simple code | $0.10 in / $0.40 out |
-| `smartypants/gpt-oss-20b` | Reasoning and tool use | $0.027 in / $0.135 out |
-| `smartypants/qwen3.6-35b-a3b` | Coding and agent work, 98,304-token context | $0.09 in / $0.80 out |
+| `smartypants/qwen3.5-9b` | Everyday chat, writing, simple code | $0.072 in / $0.108 out |
+| `smartypants/gpt-oss-20b` | Reasoning and tool use | $0.0162 in / $0.081 out |
+| `smartypants/qwen3.6-35b-a3b` | Coding and agent work, 98,304-token context | $0.045 in / $0.63 out |
 | `smartypants/qwen3-embedding-0.6b` | Embeddings for search | $0.01 in |
 
 Work that can wait can go through the Batch API (OpenAI format) at half the per-token price, with results within 24 hours.

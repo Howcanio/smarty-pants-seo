@@ -8,13 +8,13 @@ audience: "buyer"
 status: "planned"
 primaryKeyword: "persistent ai agents"
 keywords: ["persistent ai agents", "long-running agent sandbox", "scheduled ai agent", "agent that survives host loss"]
-summary: "Always-on agents are Planned for Smarty Pants workspaces and are not available today. They will let an agent keep working for days, waking on a schedule or an event, and continue on another Mac if the Mac it runs on goes away. Today's workspace sessions last up to 30 minutes and keep nothing after they end."
+summary: "Always-on agents are Planned for Smarty Pants workspaces and are not available today. They will let an agent keep working for days, waking on a schedule or an event, and continue on another Mac if the Mac it runs on goes away. Today a workspace lasts up to 2 hours, and saves with failover let a long run carry on on another Mac."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 3
 faqs:
   - q: "Can I run a persistent agent on Smarty Pants today?"
-    a: "No. Always-on agents are Planned and not available. Today's workspace sessions last up to 30 minutes."
+    a: "No. Always-on agents are Planned and not available. Today a workspace lasts up to 2 hours; saves and failover carry a run across Macs."
   - q: "What will always-on agents let me do?"
     a: "Keep an agent working for days, waking on a schedule or an event, and continuing on another Mac if its Mac goes away. This is Planned and not available."
   - q: "How will I know when always-on agents open?"
@@ -31,10 +31,11 @@ sources:
 
 | Feature | Status |
 |---|---|
-| [Workspace sessions](/workspaces/sessions/): up to 30 minutes, nothing kept after, on Smarty Pants' own account first | Available today |
+| [Workspace sessions](/workspaces/sessions/): up to 2 hours, free on your own Macs | Available today |
+| [Save, copy and failover](/workspaces/snapshots-and-recovery/) | Available today |
 | An agent that keeps working for days | Planned |
-| Waking an agent on a schedule or an event | Planned |
-| Continuing on another Mac if its Mac goes away | Planned |
+| Batches and jobs on a schedule (`/v1/batch-schedules`, `smartypants job --every`) | Available today |
+| A single agent that wakes on any event and runs for days | Planned |
 
 ## What does "always on" mean here?
 
@@ -46,7 +47,7 @@ The trust model is the same as for today's workspaces. VM isolation protects the
 
 ## What should I use for a long-running agent today?
 
-A dedicated server or a hosted sandbox service. Smarty Pants workspaces today fit short, self-contained tasks of up to 30 minutes.
+Split it into jobs of up to 2 hours that save as they go (`--retries`, `autoSave` with failover), and run them on a schedule. For one process that must stay up for days, use a dedicated server.
 
 ## When will it open?
 

@@ -1,60 +1,56 @@
 ---
 layout: ../../layouts/ContentLayout.astro
-title: "Sandbox snapshots and recovery for agents (Planned)"
-description: "Planned for Smarty Pants workspaces: save a workspace and continue it on another Mac if its Mac goes away. Not available yet. What works today."
-h1: "Snapshots and recovery for agent workspaces (Planned)"
+title: "Sandbox snapshots and failover for agent workspaces"
+description: "Save a Smarty Pants workspace by name, open copies of it, and let a long run carry on on another Mac if its Mac goes away. How saves and failover work."
+h1: "Save, copy and failover for agent workspaces"
 eyebrow: "Agent workspaces"
 audience: "buyer"
-status: "planned"
+status: "invite"
 primaryKeyword: "sandbox snapshots"
 keywords: ["sandbox snapshots", "agent sandbox recovery", "workspace checkpoint", "restore sandbox on another machine"]
-summary: "Snapshots and recovery are Planned for Smarty Pants agent workspaces and are not available today. They will let you save a workspace and continue it on another Mac if the Mac it runs on goes away. Today, a workspace session keeps nothing after it ends, and if the Mac's owner returns the workspace ends within 5 seconds."
+summary: "A Smarty Pants workspace can be saved by name and opened again as any number of copies. With autoSave and failover on, a long run survives its Mac going away: the site starts a new workspace on another Mac from the last save, with the time that was left, and the lost workspace is never charged. Saves keep the disk, not running programs. Paid use is on Smarty Pants' own account first."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 3
 faqs:
-  - q: "Can I snapshot a Smarty Pants workspace today?"
-    a: "No. Snapshots and recovery are Planned and not available. Today, a workspace keeps nothing after it ends."
-  - q: "What will snapshots and recovery let me do?"
-    a: "Save a workspace, and continue it on another Mac if the Mac it runs on goes away. This is Planned and not available."
-  - q: "What should I do today if a workspace ends early?"
-    a: "Start a new session, put the inputs back and redo the last step. Keep each step short and safe to redo."
-  - q: "How will I know when snapshots open?"
-    a: "We'll announce it on smartypants.network/docs/agents when it opens."
-related: ["/workspaces/", "/workspaces/sessions/", "/workspaces/always-on-agents/", "/guides/ai-agent-sandboxes-explained/"]
+  - q: "How do I save a workspace?"
+    a: "POST /v1/cpu/sessions/{id}/save with a name, or smartypants ws save ID NAME. Then open copies with POST /v1/cpu/sessions {from: NAME}."
+  - q: "What happens to my run if the Mac goes away?"
+    a: "If you opened the workspace with autoSave and failover: true, the site starts a new workspace on another Mac from the last save, with the time that was left. The lost workspace shows movedTo and is not charged."
+  - q: "Does a save keep running programs?"
+    a: "No. A save keeps the workspace's disk, so files and installed packages come back, but programs that were running must be started again."
+  - q: "Can I make a saved setup for a repo?"
+    a: "Yes. smartypants setup NAME --repo URL --setup \"npm ci\" clones and installs once; later jobs start from it with everything installed. A Dockerfile's RUN, ENV, WORKDIR and COPY steps can also become a saved setup."
+related: ["/workspaces/", "/workspaces/sessions/", "/workspaces/fleets/", "/pricing/"]
 sources:
   - label: "Smarty Pants: Agent kit (Workspaces)"
     url: "https://smartypants.network/docs/agents"
 ---
 
-**Planned.** Snapshots and recovery are not available today. They will let you save a workspace and continue it on another Mac if the Mac it runs on goes away.
+Macs in Smarty Pants belong to people, and a person can take theirs back at any moment. Saves and failover are how a workspace copes with that: keep the disk, and carry on somewhere else.
 
-## What is available today and what is Planned?
+## How do saves and copies work?
 
-| Feature | Status |
-|---|---|
-| [Workspace sessions](/workspaces/sessions/): one sealed VM for many commands and files, up to 30 minutes, on Smarty Pants' own account first | Available today |
-| Files kept after a workspace ends | Not available. Nothing is kept after it ends. |
-| Save a workspace as a snapshot | Planned |
-| Continue a workspace on another Mac if its Mac goes away | Planned |
+Save a workspace by name, then open any number of copies of it. A copy starts with the same files and installed packages.
 
-## Why would a workspace need recovery?
+| Step | API | Command line |
+|---|---|---|
+| Save | `POST /v1/cpu/sessions/{id}/save` `{name}` | `smartypants ws save ID NAME` |
+| Open one copy | `POST /v1/cpu/sessions` `{from: NAME}` | `smartypants ws new --from NAME` |
+| Open many copies | `POST /v1/cpu/fleets` `{size, from: NAME}` | `smartypants fleet new --size 4 --from NAME` |
 
-Because workspaces run on Macs that owners lend while idle, and the owner comes first. Today, if the owner returns, the workspace ends within 5 seconds with `OWNER_RETURNED`, and the work in it is gone. Recovery is Planned so that a workspace can continue on another Mac instead of starting over.
+`GET` on the new workspace shows `copy.state` until the copy is ready.
 
-## What should I do today?
+## How does failover work?
 
-Design your agent so a lost workspace costs little:
+Open a workspace with `"autoSave": {"name": "NAME"}` and `"failover": true`. When its Mac drops off, the site starts a new workspace on another Mac from the last save, with the time that was left. The lost one shows `movedTo` and costs nothing.
 
-- Keep each command short and safe to redo.
-- Fetch files you need as soon as a step produces them.
-- Make outside actions safe to repeat.
-- On `OWNER_RETURNED`, start a new session, put the inputs back and redo the last step.
+For whole jobs, add `--retries 2` (or `retries=2` in the kits). The job saves after each finished step; if its Mac is lost it opens a copy of that save, on another Mac when there is one, and goes on from the step that was cut off.
 
-## What does this mean for my data?
+## What should I know before relying on it?
 
-The trust model applies today and will not change. VM isolation protects the Mac's owner from guest code. It does not keep the guest's files or memory confidential from the Mac's owner. Do not put secrets in a workspace.
+A save keeps the disk, not memory: running programs start again. Failover needs another Mac to be free, which is not guaranteed. And saves live on Macs other people own, so the same data rule applies as for any workspace: nothing secret on other people's Macs.
 
-## When will snapshots open?
+## What does it cost?
 
-There is no date. We'll announce it on smartypants.network/docs/agents when it opens. Until then, read the live [agent docs](https://smartypants.network/docs/agents) and the [workspaces overview](/workspaces/).
+Saves are part of the workspace; time is billed at the workspace rate, $0.01215 an hour for 2 vCPU and 2 GB, and free on your own or your Group's Macs. See the [price page](/pricing/#workspaces).

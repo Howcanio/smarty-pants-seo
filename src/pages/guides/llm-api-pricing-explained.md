@@ -15,7 +15,7 @@ faqs:
   - q: "How is LLM API pricing calculated?"
     a: "Cost equals input tokens times the input price plus output tokens times the output price. Prices are usually quoted per million tokens, so divide your token counts by 1,000,000 first."
   - q: "Does output cost more than input?"
-    a: "On the price lists cited here, yes: each output token costs more than each input token. On Smarty Pants, smartypants/qwen3.5-9b listed $0.10 per million input tokens and $0.40 per million output tokens on 8 Nov 2026."
+    a: "On the price lists cited here, yes: each output token costs more than each input token. On Smarty Pants, smartypants/qwen3.5-9b listed $0.072 per million input tokens and $0.108 per million output tokens on 19 Nov 2026."
   - q: "Do reasoning tokens cost money?"
     a: "On OpenAI, yes: reasoning tokens are not visible but are billed as output tokens. On other providers, check the usage object in the response and the provider's pricing page."
   - q: "How much does an embeddings API cost?"
@@ -54,14 +54,14 @@ The API tells you the exact count. In OpenAI-format responses, the `usage` objec
 
 **Input price covers the tokens you send; output price covers the tokens the model generates.** Both are usually quoted in dollars per million tokens. Output is usually the higher number.
 
-Smarty Pants listed prices on 8 Nov 2026 (check [/v1/models](https://smartypants.network/v1/models) for current prices):
+Smarty Pants listed prices on 19 Nov 2026 (check [/v1/models](https://smartypants.network/v1/models) for current prices):
 
 | Model | Input, per M tokens | Output, per M tokens | Status |
 |---|---|---|---|
-| `smartypants/qwen3.5-9b` | $0.10 | $0.40 | released |
-| `smartypants/qwen3.8-27b` | $0.20 | $1.20 | released |
+| `smartypants/qwen3.5-9b` | $0.072 | $0.108 | released |
+| `smartypants/qwen3.8-27b` | $0.035 | $1.125 | released |
 | `smartypants/nanbeige4.3-33b` | $0.30 | $2.00 | released |
-| `smartypants/gpt-oss-20b` | $0.027 | $0.135 | in testing, opens soon |
+| `smartypants/gpt-oss-20b` | $0.0162 | $0.081 | released |
 | `smartypants/qwen3-embedding-0.6b` | $0.01 | none | released |
 
 Two habits keep costs in check: cap output with `max_tokens`, and trim long prompts, because every resent message in a chat counts as input again.
@@ -92,11 +92,11 @@ Cost = (2.0 × input price per M) + (0.5 × output price per M).
 
 | Provider | Build | Context | Input / output per M | Calculation | Total | Price checked |
 |---|---|---|---|---|---|---|
-| Smarty Pants (`smartypants/qwen3.5-9b`) | 4-bit MLX, named in `build_id` | 16,384 tokens | $0.10 / $0.40 | 2.0 × 0.10 + 0.5 × 0.40 | $0.40 | listed 8 Nov 2026, [/v1/models](https://smartypants.network/v1/models) |
+| Smarty Pants (`smartypants/qwen3.5-9b`) | 4-bit MLX, named in `build_id` | 16,384 tokens | $0.072 / $0.108 | 2.0 × 0.072 + 0.5 × 0.108 | $0.198 | listed 19 Nov 2026, [/v1/models](https://smartypants.network/v1/models) |
 | Together AI (Qwen3.5 9B) | Not checked; may differ | Not checked | $0.17 / $0.25 | 2.0 × 0.17 + 0.5 × 0.25 | $0.465 | 9 Nov 2026, [together.ai/pricing](https://www.together.ai/pricing) |
 | OpenRouter (Qwen3.5-9B, lowest listed route) | Varies by route: bf16, fp8 or fp4 | 262,144 tokens | $0.059 / $0.086 | 2.0 × 0.059 + 0.5 × 0.086 | $0.161 | 9 Nov 2026, [openrouter.ai](https://openrouter.ai/qwen/qwen3.5-9b) |
 
-The three rows are the same model name but not the same build, so this is a price comparison, not a like-for-like quality comparison. In this example, the lowest OpenRouter route costs less than Smarty Pants, and Together costs a little more. The totals are small either way. What usually decides it is everything else:
+The three rows are the same model name but not the same build, so this is a price comparison, not a like-for-like quality comparison. In this example, the lowest OpenRouter route on 9 Nov cost a little less than Smarty Pants, and Together costs more. Smarty Pants sets each price at about 90% of the cheapest seller it can find on the day it checks, so the gap moves both ways. The totals are small either way. What usually decides it is everything else:
 
 - **Build.** Smarty Pants serves a pinned 4-bit MLX build (`build_id` `qwen3.5-9b-mlx-4bit-r938d891`). OpenRouter's provider list on 9 Nov 2026 showed bf16, fp8 and fp4 routes. Different builds can give different answers.
 - **Context.** Smarty Pants lists 16,384 tokens of context for this model. OpenRouter lists 262,144. If your documents are longer than the context, the cheaper price doesn't help.

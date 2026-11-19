@@ -60,7 +60,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/whisper-large-v3-turbo': {
     slug: 'whisper-large-v3-turbo', short: 'Turns recordings into text.', kindLabel: 'Speech to text', endpoint: 'POST /v1/audio/transcriptions', served: 'Core ML',
-    priceText: '$0.18 an hour of audio',
+    priceText: 'about $0.011 an hour of audio',
     useFor: ['Transcribing calls, meetings and voice notes', 'Files up to 30 minutes or 25 MB'],
     avoidFor: ['Files over 30 minutes or 25 MB (split them first)', 'Live, word-by-word captions'],
   },
