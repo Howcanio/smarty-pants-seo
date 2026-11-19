@@ -8,7 +8,7 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "parallel agent sandboxes"
 keywords: ["parallel agent sandboxes", "run many sandboxes at once", "agent fleet", "parallel test runs"]
-summary: "A Smarty Pants fleet opens several identical workspaces at once, each a sealed Linux VM on a different Mac where one is free, optionally from a saved setup. Send the same command to all of them, read each result, and end them together. Each workspace is billed at $0.01215 an hour for 2 vCPU and 2 GB, and fleets on your own or your Group's Macs are free. A web browser inside a workspace is not available yet."
+summary: "A Smarty Pants fleet opens several identical workspaces at once, each a sealed Linux VM on a different Mac where one is free, optionally from a saved setup. Send the same command to all of them, read each result, and end them together. Each workspace is billed at $0.0129 an hour for 2 vCPU and 2 GB, and fleets on your own or your Group's Macs are free. A web browser inside a workspace is not available yet."
 published: "2026-11-09"
 updated: "2026-11-19"
 readingMinutes: 3
@@ -16,7 +16,7 @@ faqs:
   - q: "How do I open a fleet?"
     a: "POST /v1/cpu/fleets with {size} (and from: NAME to start every copy from a saved workspace), or smartypants fleet new --size 4."
   - q: "What does a fleet cost?"
-    a: "Each workspace in it costs the normal workspace price, $0.01215 an hour for 2 vCPU and 2 GB, billed per second. On your own or your Group's Macs it is free."
+    a: "Each workspace in it costs the normal workspace price, $0.0129 an hour for 2 vCPU and 2 GB, billed per second. On your own or your Group's Macs it is free."
   - q: "Is there a size limit?"
     a: "A fleet can only be as big as the number of free Macs at that moment, and each Mac runs a limited number of workspaces. Capacity is not guaranteed."
   - q: "Can a workspace run a web browser?"

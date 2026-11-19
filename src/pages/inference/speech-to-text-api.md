@@ -18,7 +18,7 @@ faqs:
   - q: "How long can an audio file be?"
     a: "Up to 30 minutes or 25 MB per file. Split longer recordings into parts before you upload them."
   - q: "What does it cost?"
-    a: "The listed price on 19 Nov 2026 is about $0.011 an hour of audio ($0.003 per million milliseconds), billed per whole second. Check /v1/models or smartypants.network/api for the current price."
+    a: "The listed price on 19 Nov 2026 is about $0.011 an hour of audio ($0.00317 per million milliseconds), billed per whole second. Check /v1/models or smartypants.network/api for the current price."
   - q: "Does it work with the OpenAI SDK?"
     a: "Yes. The endpoint uses the OpenAI format with a multipart audio upload, so client.audio.transcriptions.create works once you set the Smarty Pants base URL and key."
   - q: "Which version of Whisper is it?"

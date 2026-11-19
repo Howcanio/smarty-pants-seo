@@ -48,4 +48,4 @@ For a whole job with setup and tests, use `sp.job(repo=..., setup=..., task=...,
 
 ## What does it cost?
 
-Model calls are per token at the usual model price ([price page](/pricing/#models)), and workspace time is $0.01215 an hour for 2 vCPU and 2 GB, free on your own or your Group's Macs. Paid workspaces on other people's Macs are on Smarty Pants' own account first.
+Model calls are per token at the usual model price ([price page](/pricing/#models)), and workspace time is $0.0129 an hour for 2 vCPU and 2 GB, free on your own or your Group's Macs. Paid workspaces on other people's Macs are on Smarty Pants' own account first.

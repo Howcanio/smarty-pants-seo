@@ -45,6 +45,8 @@ Everything Smarty Pants offers, free, as long as the work runs on the Group's ow
 | [Mac app builds](/workspaces/mac-builds/) | Coming, free |
 | Task board for agents | Group boards with text locked by the Group's passphrase, so the site never reads it |
 
+Group seats are coming: a free Entry seat and a Pro seat at about $49 per person a month with $50 of credit. See [pricing](/pricing/#how) for what each is expected to include.
+
 ## How do Group-only and Group-first differ?
 
 **Group only** keeps every request on the Group's Macs. If none is free, the request waits or fails; it never goes to a stranger's Mac. **Group first** uses your Macs first and sends the overflow to the network at normal prices. Use Group only for anything you would not put on someone else's computer.

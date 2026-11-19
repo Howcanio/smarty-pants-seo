@@ -90,7 +90,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/qwen3-reranker-0.6b': {
     slug: 'qwen3-reranker-0-6b', short: 'Puts the best search results first.', kindLabel: 'Reranking', endpoint: 'POST /v1/rerank', served: 'bf16',
-    priceText: '$0.009 per million input tokens',
+    priceText: '$0.0095 per million input tokens',
     useFor: ['Reordering search or retrieval (RAG) results by how well they answer a query', 'Picking the top few documents before a chat model reads them'],
     avoidFor: ['Turning text into vectors (use the embeddings model)', 'Generating text'],
   },

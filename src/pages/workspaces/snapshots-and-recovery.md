@@ -53,4 +53,4 @@ A save keeps the disk, not memory: running programs start again. Failover needs 
 
 ## What does it cost?
 
-Saves are part of the workspace; time is billed at the workspace rate, $0.01215 an hour for 2 vCPU and 2 GB, and free on your own or your Group's Macs. See the [price page](/pricing/#workspaces).
+Saves are part of the workspace; time is billed at the workspace rate, $0.0129 an hour for 2 vCPU and 2 GB, and free on your own or your Group's Macs. See the [price page](/pricing/#workspaces).

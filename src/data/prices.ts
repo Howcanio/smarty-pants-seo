@@ -1,5 +1,6 @@
 // Every Smarty Pants product price next to the entry-level price for the same thing elsewhere.
-// Rule (Nat, 19 Nov 2026): price each product at 90-100% of the entry-level price in its space.
+// Rule (Nat, 19 Nov 2026): give away the entry points (your own and your Group's Macs) and price paid use
+// at 95-100% of the entry-level price in its space. We use 95%.
 // "Entry" means the cheapest listed seller we could find for the same model or the same kind of machine,
 // on the date shown. Competitor prices change often: every row names its source and date.
 
@@ -14,13 +15,13 @@ const OR = (slug: string): Source => ({ label: `OpenRouter sellers for ${slug}, 
 export const MODEL_ENTRY: {
   id: string; name: string; ours: string; entry: string; entrySeller: string; share: string; source: Source;
 }[] = [
-  { id: 'smartypants/qwen3.5-9b', name: 'Qwen3.5 9B', ours: '$0.072 in / $0.108 out', entry: '$0.08 / $0.12', entrySeller: 'DeepInfra', share: '90%', source: OR('qwen/qwen3.5-9b') },
-  { id: 'smartypants/qwen3.8-27b', name: 'Qwen3.8 27B', ours: '$0.035 / $1.125', entry: '$0.039 / $1.25', entrySeller: 'Chutes', share: '90%', source: OR('qwen/qwen3.8-27b') },
-  { id: 'smartypants/qwen3.6-35b-a3b', name: 'Qwen3.6 35B-A3B', ours: '$0.045 / $0.63', entry: '$0.05 / $0.70', entrySeller: 'Darkbloom', share: '90%', source: OR('qwen/qwen3.6-35b-a3b') },
-  { id: 'smartypants/gpt-oss-20b', name: 'gpt-oss-20b', ours: '$0.0162 / $0.081', entry: '$0.018 / $0.09', entrySeller: 'Darkbloom, AkashML', share: '90%', source: OR('openai/gpt-oss-20b') },
-  { id: 'smartypants/muse-glimmer-30b', name: 'Muse Glimmer 30B', ours: '$0.27 / $1.08', entry: '$0.30 / $1.20', entrySeller: 'DeepInfra, ModelRun', share: '90%', source: OR('meta/muse-glimmer-30b') },
-  { id: 'smartypants/qwen3-reranker-0.6b', name: 'Qwen3 Reranker 0.6B', ours: '$0.009 in', entry: '$0.01 in', entrySeller: 'DeepInfra (9 Nov)', share: '90%', source: { label: 'DeepInfra model page, 9 Nov 2026', url: 'https://deepinfra.com/Qwen/Qwen3-Reranker-0.6B' } },
-  { id: 'smartypants/whisper-large-v3-turbo', name: 'Whisper large-v3 turbo', ours: 'about $0.011 an hour of audio', entry: '$0.012 an hour ($0.0002 a minute)', entrySeller: 'DeepInfra', share: '90%', source: { label: 'computeprices.com, Whisper v3 turbo, updated 19 Nov 2026', url: 'https://computeprices.com/providers/groq/models/whisper-v3-turbo' } },
+  { id: 'smartypants/qwen3.5-9b', name: 'Qwen3.5 9B', ours: '$0.076 in / $0.114 out', entry: '$0.08 / $0.12', entrySeller: 'DeepInfra', share: '95%', source: OR('qwen/qwen3.5-9b') },
+  { id: 'smartypants/qwen3.8-27b', name: 'Qwen3.8 27B', ours: '$0.037 / $1.19', entry: '$0.039 / $1.25', entrySeller: 'Chutes', share: '95%', source: OR('qwen/qwen3.8-27b') },
+  { id: 'smartypants/qwen3.6-35b-a3b', name: 'Qwen3.6 35B-A3B', ours: '$0.048 / $0.665', entry: '$0.05 / $0.70', entrySeller: 'Darkbloom', share: '95%', source: OR('qwen/qwen3.6-35b-a3b') },
+  { id: 'smartypants/gpt-oss-20b', name: 'gpt-oss-20b', ours: '$0.0171 / $0.0855', entry: '$0.018 / $0.09', entrySeller: 'Darkbloom, AkashML', share: '95%', source: OR('openai/gpt-oss-20b') },
+  { id: 'smartypants/muse-glimmer-30b', name: 'Muse Glimmer 30B', ours: '$0.285 / $1.14', entry: '$0.30 / $1.20', entrySeller: 'DeepInfra, ModelRun', share: '95%', source: OR('meta/muse-glimmer-30b') },
+  { id: 'smartypants/qwen3-reranker-0.6b', name: 'Qwen3 Reranker 0.6B', ours: '$0.0095 in', entry: '$0.01 in', entrySeller: 'DeepInfra (9 Nov)', share: '95%', source: { label: 'DeepInfra model page, 9 Nov 2026', url: 'https://deepinfra.com/Qwen/Qwen3-Reranker-0.6B' } },
+  { id: 'smartypants/whisper-large-v3-turbo', name: 'Whisper large-v3 turbo', ours: 'about $0.011 an hour of audio', entry: '$0.012 an hour ($0.0002 a minute)', entrySeller: 'DeepInfra', share: '95%', source: { label: 'computeprices.com, Whisper v3 turbo, updated 19 Nov 2026', url: 'https://computeprices.com/providers/groq/models/whisper-v3-turbo' } },
   { id: 'smartypants/wan2.2-5b-video', name: 'Wan 2.2 5B video, 480p clip', ours: '$0.011 a clip', entry: 'about $0.0113 a clip (half of $0.0225 for 720p)', entrySeller: 'DeepInfra', share: '98%', source: { label: 'DeepInfra FastWan 2.2 5B, 19 Nov 2026', url: 'https://deepinfra.com/FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers/api' } },
   { id: 'smartypants/flux.1-schnell', name: 'FLUX.1 schnell picture', ours: '$0.003 a picture', entry: 'about $0.003 to $0.005 a picture', entrySeller: 'fal (reported)', share: 'about 100%', source: { label: 'DEV Community: Flux AI pricing 2026 (rates as of June 2026)', url: 'https://dev.to/techsifted/flux-ai-pricing-2026-api-costs-hosted-platform-rates-and-free-options-1ol1' } },
 ];
@@ -41,7 +42,7 @@ const NORTHFLANK: Source = { label: 'Northflank: AI sandbox pricing (5 May 2026)
 export const SANDBOX_ROWS: {
   name: string; vcpuHour: string; gibHour: string; twoByTwo: number; free: string; source: Source; ours?: boolean;
 }[] = [
-  { name: 'Smarty Pants workspace', vcpuHour: '$0.00405', gibHour: '$0.002025', twoByTwo: 0.01215, free: '$10 starter credit for 90 days; free on your own and your Group\'s Macs', source: { label: 'Smarty Pants: GET /v1/prices/workspaces', url: 'https://smartypants.network/v1/prices/workspaces' }, ours: true },
+  { name: 'Smarty Pants workspace', vcpuHour: '$0.0043', gibHour: '$0.00215', twoByTwo: 0.0129, free: '$10 starter credit for 90 days; free on your own and your Group\'s Macs', source: { label: 'Smarty Pants: GET /v1/prices/workspaces', url: 'https://smartypants.network/v1/prices/workspaces' }, ours: true },
   { name: 'boat', vcpuHour: '$0.0045', gibHour: '$0.00225', twoByTwo: 0.0135, free: 'Not checked', source: { label: 'boat.dev pricing, as compared in GET /v1/prices/workspaces (8 Nov 2026)', url: 'https://smartypants.network/v1/prices/workspaces' } },
   { name: 'Northflank', vcpuHour: '$0.01667', gibHour: '$0.00833', twoByTwo: 0.05, free: 'None stated', source: NORTHFLANK },
   { name: 'Fly.io Sprites', vcpuHour: '$0.0385', gibHour: '$0.021875', twoByTwo: 0.12, free: 'None stated', source: FLY },

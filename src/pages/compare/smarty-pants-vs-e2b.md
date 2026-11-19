@@ -7,13 +7,13 @@ eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "e2b alternative"
 keywords: ["e2b alternative", "smarty pants vs e2b", "cheap agent sandbox", "code interpreter sandbox price"]
-summary: "E2B runs agent sandboxes on cloud servers at $0.0504 per vCPU-hour plus $0.0162 per GB-hour, about $0.133 an hour for 2 vCPU and 2 GB (19 Nov 2026). A Smarty Pants workspace of that size is $0.01215 an hour, billed per second, and free on Macs you own. E2B is the steadier choice: x86, dedicated capacity, mature SDKs and templates. Smarty Pants fits cost-sensitive agent jobs that are fine on someone else's Mac, or private jobs on your own."
+summary: "E2B runs agent sandboxes on cloud servers at $0.0504 per vCPU-hour plus $0.0162 per GB-hour, about $0.133 an hour for 2 vCPU and 2 GB (19 Nov 2026). A Smarty Pants workspace of that size is $0.0129 an hour, billed per second, and free on Macs you own. E2B is the steadier choice: x86, dedicated capacity, mature SDKs and templates. Smarty Pants fits cost-sensitive agent jobs that are fine on someone else's Mac, or private jobs on your own."
 published: "2026-11-19"
 updated: "2026-11-19"
 readingMinutes: 4
 faqs:
   - q: "How much cheaper is a Smarty Pants workspace than an E2B sandbox?"
-    a: "For 2 vCPU and 2 GB, $0.01215 an hour against about $0.133 at E2B's listed rates (e2b.dev/pricing, 19 Nov 2026). On your own Macs Smarty Pants is free."
+    a: "For 2 vCPU and 2 GB, $0.0129 an hour against about $0.133 at E2B's listed rates (e2b.dev/pricing, 19 Nov 2026). On your own Macs Smarty Pants is free."
   - q: "Is Smarty Pants as reliable as E2B?"
     a: "No. Workspaces run on Macs people own and can take back; the workspace ends within 5 seconds when the owner returns. Saves and failover let a run carry on on another Mac, but capacity is not guaranteed."
   - q: "Does Smarty Pants support custom images like E2B templates?"
@@ -34,9 +34,9 @@ E2B and Smarty Pants both give an AI agent a sealed computer to run code in. E2B
 
 | | Smarty Pants workspace | E2B sandbox |
 |---|---|---|
-| Per vCPU-hour | $0.00405 | $0.0504 |
-| Per GB-hour | $0.002025 | $0.0162 |
-| 2 vCPU + 2 GB, per hour | $0.01215 | about $0.133 |
+| Per vCPU-hour | $0.0043 | $0.0504 |
+| Per GB-hour | $0.00215 | $0.0162 |
+| 2 vCPU + 2 GB, per hour | $0.0129 | about $0.133 |
 | Billing | Per second, from ready to end | Per second |
 | Free credit | $10 for 90 days, and free on your own Macs | $100 one time (Hobby) |
 

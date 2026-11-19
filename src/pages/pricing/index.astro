@@ -13,19 +13,19 @@ const description = `Every Smarty Pants price in one place, from models and batc
 const entryById = Object.fromEntries(MODEL_ENTRY.map((e) => [e.id, e]));
 
 const PRODUCTS = [
-  { name: 'AI models (chat)', price: 'Per million tokens, from $0.0162 in / $0.081 out', who: 'Anyone with an API key', href: '/inference/' },
+  { name: 'AI models (chat)', price: 'Per million tokens, from $0.0171 in / $0.0855 out', who: 'Anyone with an API key', href: '/inference/' },
   { name: 'Batches', price: 'Half the normal per-token price, results within 24 hours', who: 'Anyone with an API key', href: '/inference/batch-api/' },
-  { name: 'Embeddings and reranking', price: '$0.01 and $0.009 per million input tokens', who: 'Anyone with an API key', href: '/inference/embeddings-api/' },
+  { name: 'Embeddings and reranking', price: '$0.01 and $0.00955 per million input tokens', who: 'Anyone with an API key', href: '/inference/embeddings-api/' },
   { name: 'Speech to text', price: 'About $0.011 an hour of audio, billed per second', who: 'In testing', href: '/inference/speech-to-text-api/' },
   { name: 'Pictures', price: '$0.003 a picture', who: 'In testing', href: '/inference/image-generation-api/' },
   { name: 'Video', price: '$0.011 a 480p clip (2, 3 or 5 seconds)', who: 'Anyone with an API key', href: '/inference/video-generation/' },
-  { name: 'Code runs and workspaces', price: '$0.01215 an hour for 2 vCPU and 2 GB, billed per second', who: 'Free on your own Macs; paid use on our own account first', href: '/workspaces/' },
+  { name: 'Code runs and workspaces', price: '$0.0129 an hour for 2 vCPU and 2 GB, billed per second', who: 'Free on your own Macs; paid use on our own account first', href: '/workspaces/' },
   { name: 'Groups (your team\'s own Macs)', price: 'Free for members on the Group\'s Macs', who: 'Invite only', href: '/groups/' },
   { name: 'Mac app builds', price: 'Free, on your own or your Group\'s Macs only', who: 'Coming (switched off today)', href: '/workspaces/mac-builds/' },
 ];
 
 const faqs = [
-  { q: 'How does Smarty Pants set its prices?', a: `Each product is priced at 90 to 100% of the cheapest price we can find for the same model or the same kind of machine elsewhere. We checked on ${PRICES_CHECKED_LABEL}; most prices are 90% of the cheapest seller that day.` },
+  { q: 'How does Smarty Pants set its prices?', a: `The places you start are free: your own Macs, your Group's Macs and the $10 starter credit. Paid use on Macs other people own is priced at 95 to 100% of the cheapest price we can find for the same model or the same kind of machine elsewhere. We checked on ${PRICES_CHECKED_LABEL}; most prices are 95% of the cheapest seller that day.` },
   { q: 'Is there a subscription or a minimum?', a: 'No subscription. You add credit to a balance (top-ups start at $10) and each request is paid from it. New accounts get $10 of free credit, usable for 90 days.' },
   { q: 'What am I never charged for?', a: 'A request Smarty Pants can\'t serve, a workspace that never became ready, a workspace our side lost (its Mac went quiet), and time after you end a workspace.' },
   { q: 'Is using my own Macs really free?', a: 'Yes. Workspaces, code runs and model calls on Macs you own, or on your Group\'s Macs for its members, cost nothing. You pay only when work runs on Macs other people own.' },
@@ -54,7 +54,7 @@ const offers = {
       <p class="eyebrow">Pricing</p>
       <h1>Smarty Pants pricing</h1>
       <p class="lead">Pay only for what you use, from a balance you top up. No subscription. Using your own Macs is free.</p>
-      <div class="summary"><p><strong>Short answer:</strong> Smarty Pants prices each product at about 90% of the cheapest seller of the same thing elsewhere. Chat models cost from $0.0162 per million input tokens, batches are half price, a 2 vCPU workspace is $0.01215 an hour billed per second, and work on Macs you or your Group own is free. New accounts get $10 of credit for 90 days. Checked {PRICES_CHECKED_LABEL}.</p></div>
+      <div class="summary"><p><strong>Short answer:</strong> Starting is free: work on Macs you or your Group own costs nothing, and new accounts get $10 of credit for 90 days. Paid use on other people's Macs is priced at about 95% of the cheapest seller of the same thing elsewhere. Chat models cost from $0.0171 per million input tokens, batches are half price, a 2 vCPU workspace is $0.0129 an hour billed per second,. Checked {PRICES_CHECKED_LABEL}.</p></div>
     </div>
   </section>
 
@@ -76,10 +76,35 @@ const offers = {
     </div>
   </section>
 
-  <section class="section section-alt" id="models">
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <h2>What is free, and what do you pay for?</h2>
+      <p>We give away the places people start and charge close to market for the work that grows with use.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Free</th><th>Paid, at about 95% of the cheapest seller</th></tr></thead>
+          <tbody>
+            <tr><td>Workspaces, code runs and model calls on Macs you own</td><td>The same work on Macs other people own</td></tr>
+            <tr><td>Everything a Group member runs on the Group's Macs</td><td>Big-model output and long agent runs</td></tr>
+            <tr><td>$10 of starter credit for 90 days</td><td>Pictures, video, and models we offer first</td></tr>
+            <tr><td>Requests we can't serve, workspaces that never start or that we lose</td><td>Batches (half the normal per-token price)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Group seats (coming)</h3>
+      <p>Seats for teams are planned and not on sale yet. What we expect to offer:</p>
+      <ul>
+        <li><strong>Entry, free per person:</strong> the Group's shared folder, task board and history, unlimited agents, free use of the Group's own Macs, and Qwen3.5 9B free for up to 200,000 tokens a day per person.</li>
+        <li><strong>Pro, about $49 per person a month with $50 of credit:</strong> always-on workspaces, more saved storage, steady Macs first, and a discount on use past the credit.</li>
+      </ul>
+      <p class="footnote">Seat names, prices and limits may change before they open. Use beyond your Group's Macs is paid at the network price, with a spending cap you set.</p>
+    </div>
+  </section>
+
+  <section class="section" id="models">
     <div class="container">
       <h2>How do model prices compare with the cheapest seller?</h2>
-      <p>For a model other providers also sell, we take the cheapest seller we can find and charge about 90% of its price. The builds are not identical (ours are 4-bit MLX builds on Apple silicon, named in <code>build_id</code>), so compare quality on your own examples too.</p>
+      <p>For a model other providers also sell, we take the cheapest seller we can find and charge about 95% of its price. The builds are not identical (ours are 4-bit MLX builds on Apple silicon, named in <code>build_id</code>), so compare quality on your own examples too.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Model</th><th>Smarty Pants, per million tokens</th><th>Cheapest seller elsewhere</th><th class="num">Ours vs. theirs</th><th>Status</th></tr></thead>
@@ -111,7 +136,7 @@ const offers = {
     </div>
   </section>
 
-  <section class="section" id="workspaces">
+  <section class="section section-alt" id="workspaces">
     <div class="container">
       <h2>How do workspace prices compare with other sandboxes?</h2>
       <p>A Smarty Pants workspace is a sealed Linux VM with 2 vCPU and 2 GB of memory, billed per second from when it is ready until it ends. Code runs (<code>POST /v1/code/run</code>), fleets and coding-agent jobs use the same rate per workspace. Here is the same size machine elsewhere, per hour.</p>
@@ -139,7 +164,7 @@ const offers = {
     </div>
   </section>
 
-  <section class="section section-alt" id="free">
+  <section class="section" id="free">
     <div class="container text-block">
       <h2>What is free?</h2>
       <p>Anything that runs on Macs you own is free, and so is anything a Group member runs on the Group's Macs. Add <code>where: "mine"</code> or <code>where: {'{'}group: "&lt;Group id&gt;"{'}'}</code> to a workspace request. You are also never charged for a request Smarty Pants can't serve, a workspace that never became ready, a workspace we lost, or time after you end one.</p>
