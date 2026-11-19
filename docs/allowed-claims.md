@@ -71,3 +71,10 @@ Never write "available now", "ready now", "always on", "fast", "reliable", "priv
 - That data is private, encrypted end to end, or confidential on the general network.
 - That anyone can buy today or download the app today.
 - "Pilot" (the team does not use the word).
+
+## Agent discovery (checked 19 November 2026)
+
+- Smarty Pants is listed in the official MCP Registry as `network.smartypants/smartypants` (both `/mcp` and `/mcp/account`). (registry.modelcontextprotocol.io, 19 Nov 2026)
+- Framework setups (LangChain, OpenAI Agents SDK, Vercel AI SDK, LlamaIndex, Claude Code MCP + skill, GitHub Actions step) are on /docs/agents#frameworks and /llms-full.txt (core PR #517; until it is deployed those links 404 or show the app).
+- `GET /v1/key` shows a key's limit and `remaining_usd`; MCP connections are capped at $20 a month and last 90 days; `add_credit` returns a Stripe page the person pays on. (llms.txt)
+- Batch API: half the normal per-token price, results within 24 hours. (llms.txt)
