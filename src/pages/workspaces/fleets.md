@@ -1,61 +1,50 @@
 ---
 layout: ../../layouts/ContentLayout.astro
-title: "Parallel agent sandboxes and browser work (Planned)"
-description: "Planned for Smarty Pants workspaces: run several agent sandbox sessions at once, and use a web browser in a workspace. Not available yet."
-h1: "Fleets and browser work for agent workspaces (Planned)"
+title: "Parallel agent sandboxes: workspace fleets"
+description: "Run many identical Smarty Pants workspaces at once, from a saved setup, and send the same command to all of them. Free on your own Macs."
+h1: "Fleets: many agent workspaces at once"
 eyebrow: "Agent workspaces"
 audience: "buyer"
-status: "planned"
+status: "invite"
 primaryKeyword: "parallel agent sandboxes"
-keywords: ["parallel agent sandboxes", "run many sandboxes at once", "browser sandbox for ai agents", "agent fleet"]
-summary: "Fleets and browser work are Planned for Smarty Pants agent workspaces and are not available today. They will let one account run several workspace sessions at once, and let an agent use a web browser in a workspace. Today, single workspace sessions run on Smarty Pants' own account first, with no network."
+keywords: ["parallel agent sandboxes", "run many sandboxes at once", "agent fleet", "parallel test runs"]
+summary: "A Smarty Pants fleet opens several identical workspaces at once, each a sealed Linux VM on a different Mac where one is free, optionally from a saved setup. Send the same command to all of them, read each result, and end them together. Each workspace is billed at $0.0129 an hour for 2 vCPU and 2 GB, and fleets on your own or your Group's Macs are free. A web browser inside a workspace is not available yet."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 3
 faqs:
-  - q: "Can I run several Smarty Pants workspaces at once today?"
-    a: "No. Fleets are Planned and not available. Today, single workspace sessions run on Smarty Pants' own account first."
-  - q: "Can a workspace run a web browser today?"
-    a: "No. Workspaces have no network today, and browser work is Planned and not available."
-  - q: "What happens to a workspace when the Mac's owner comes back?"
-    a: "It ends within 5 seconds, because the owner comes first. Plan for sessions that end early and start them again."
-  - q: "How will I know when fleets open?"
-    a: "We'll announce it on smartypants.network/docs/agents when it opens."
-related: ["/workspaces/", "/workspaces/sessions/", "/workspaces/model-calls/", "/workspaces/snapshots-and-recovery/"]
+  - q: "How do I open a fleet?"
+    a: "POST /v1/cpu/fleets with {size} (and from: NAME to start every copy from a saved workspace), or smartypants fleet new --size 4."
+  - q: "What does a fleet cost?"
+    a: "Each workspace in it costs the normal workspace price, $0.0129 an hour for 2 vCPU and 2 GB, billed per second. On your own or your Group's Macs it is free."
+  - q: "Is there a size limit?"
+    a: "A fleet can only be as big as the number of free Macs at that moment, and each Mac runs a limited number of workspaces. Capacity is not guaranteed."
+  - q: "Can a workspace run a web browser?"
+    a: "Not yet. Browser work inside a workspace is being built and is not available."
+related: ["/workspaces/", "/workspaces/snapshots-and-recovery/", "/workspaces/sessions/", "/pricing/"]
 sources:
-  - label: "Smarty Pants: Agent kit (Workspaces)"
+  - label: "Smarty Pants: Agent kit (Command line, Workspaces)"
     url: "https://smartypants.network/docs/agents"
 ---
 
-**Planned.** Fleets and browser work are not available today. Fleets will let one account run several workspace sessions at once. Browser work will let an agent open and use web pages in a workspace.
+A fleet is several workspaces opened together, for work that splits well: running a test suite in pieces, trying one change many ways, or grading many answers at once.
 
-## What is available today and what is Planned?
+## How do I use a fleet?
 
-| Feature | Status |
-|---|---|
-| A single [workspace session](/workspaces/sessions/), with no network, on Smarty Pants' own account first | Available today |
-| Several workspace sessions at once for one job (a fleet) | Planned |
-| A web browser inside a workspace | Planned |
-| Internet access from a workspace | Planned |
+Open it, send a command to every workspace, read the results, end it.
 
-## What is a fleet?
+```sh
+F=$(smartypants fleet new --size 4)
+smartypants fleet exec $F sh -c 'uname -m'
+smartypants fleet end $F
+```
 
-Several workspace sessions running at the same time for one job. For example, an agent splits a test suite into parts, or tries several fixes in parallel, each in its own sealed VM. This is Planned and not available.
+Add `--from NAME` to start every workspace from a [saved setup](/workspaces/snapshots-and-recovery/), so dependencies are already installed. The API is `POST /v1/cpu/fleets` with `{size, from}`.
 
-## What would browser work mean?
+## What are the limits?
 
-Running a browser inside a workspace so an agent can open and use web pages. It needs internet access, which workspaces do not have today. Both are Planned and not available.
+Each workspace has the [session limits](/workspaces/sessions/): 2 vCPU, 2 GB, up to 2 hours. How many you get at once depends on how many Macs are idle and online, so plan for a smaller fleet than you asked for, or keep the work on your own Macs with `--where mine`.
 
-## How should I design for Macs going away?
+## Who can use it?
 
-The same way as for today's sessions. The Mac's owner comes first: if they return, the workspace on that Mac ends within 5 seconds with `OWNER_RETURNED`.
-
-Give each task its own inputs, make each step safe to redo, and collect results as they arrive. [Snapshots and recovery](/workspaces/snapshots-and-recovery/), which will let a workspace continue on another Mac, are Planned and not available.
-
-## What about my data?
-
-The trust model does not change with scale. VM isolation protects each Mac's owner from guest code. It does not keep the guest's files or memory confidential from the Mac's owner. Keep secrets out of every workspace.
-
-## When will fleets open?
-
-There is no date. We'll announce it on smartypants.network/docs/agents when it opens. Until then, read the live [agent docs](https://smartypants.network/docs/agents) and the [workspaces overview](/workspaces/).
+Free on Macs you own and on your Group's Macs. Paid fleets on Macs other people own are on Smarty Pants' own account first. See the [price page](/pricing/#workspaces).

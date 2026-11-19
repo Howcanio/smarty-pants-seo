@@ -46,6 +46,8 @@ const SECTIONS: Record<string, { label: string; href: string }> = {
   workspaces: { label: 'Agent workspaces', href: '/workspaces/' },
   cpu: { label: 'CPU jobs', href: '/cpu/' },
   earn: { label: 'Earn with a Mac', href: '/earn/' },
+  compare: { label: 'Compare', href: '/compare/' },
+  groups: { label: 'Groups', href: '/groups/' },
 };
 const section = SECTIONS[path.split('/')[1]];
 const crumbs = section && section.href !== path ? [section, { label: h1, href: path }] : [{ label: h1, href: path }];

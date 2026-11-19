@@ -60,7 +60,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/whisper-large-v3-turbo': {
     slug: 'whisper-large-v3-turbo', short: 'Turns recordings into text.', kindLabel: 'Speech to text', endpoint: 'POST /v1/audio/transcriptions', served: 'Core ML',
-    priceText: '$0.18 an hour of audio',
+    priceText: 'about $0.011 an hour of audio',
     useFor: ['Transcribing calls, meetings and voice notes', 'Files up to 30 minutes or 25 MB'],
     avoidFor: ['Files over 30 minutes or 25 MB (split them first)', 'Live, word-by-word captions'],
   },
@@ -90,7 +90,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/qwen3-reranker-0.6b': {
     slug: 'qwen3-reranker-0-6b', short: 'Puts the best search results first.', kindLabel: 'Reranking', endpoint: 'POST /v1/rerank', served: 'bf16',
-    priceText: '$0.009 per million input tokens',
+    priceText: '$0.0095 per million input tokens',
     useFor: ['Reordering search or retrieval (RAG) results by how well they answer a query', 'Picking the top few documents before a chat model reads them'],
     avoidFor: ['Turning text into vectors (use the embeddings model)', 'Generating text'],
   },

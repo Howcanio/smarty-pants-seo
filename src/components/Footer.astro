@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LINKS } from '../data/site';
+import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LINKS, COMPARE_LINKS } from '../data/site';
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
@@ -13,9 +13,11 @@ import { SITE, BUYER_LINKS, COMPUTE_LINKS, OWNER_LINKS, GUIDE_LINKS, PRODUCT_LIN
       <h2>Inference</h2>
       <ul>{BUYER_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}<li><a href="/ai-models/">All models</a></li></ul>
     </nav>
-    <nav aria-label="CPU and workspaces">
-      <h2>CPU and workspaces</h2>
+    <nav aria-label="Workspaces and Groups">
+      <h2>Workspaces and Groups</h2>
       <ul>{COMPUTE_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      <h2 class="footer-sub">Compare</h2>
+      <ul>{COMPARE_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
     </nav>
     <nav aria-label="Mac owners">
       <h2>Mac owners</h2>

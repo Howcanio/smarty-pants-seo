@@ -8,48 +8,49 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "agent sandbox session"
 keywords: ["agent sandbox session", "persistent sandbox for ai agents", "run multiple commands in a sandbox", "cpu sessions api", "sp.workspace"]
-summary: "A Smarty Pants workspace session keeps one sealed Linux VM open on a Mac so an agent can put files, run several commands and read results, then end it. Limits: 30 minutes per workspace, 10 minutes idle, 10 minutes per command, files up to 8 KB, 4 KB of output per stream. It runs on Smarty Pants' own account first and is not charged while tested. If the Mac's owner returns, it ends within 5 seconds."
+summary: "A Smarty Pants workspace session keeps one sealed Linux VM open on a Mac so an agent can put files, run several commands and read results, then end it. Limits: up to 2 hours per workspace, 10 minutes idle, 10 minutes per command, files up to 16 MiB in and 64 MiB out. It costs $0.0129 an hour for 2 vCPU and 2 GB, billed per second, and is free on your own or your Group's Macs. If the Mac's owner returns, it ends within 5 seconds."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 4
 faqs:
   - q: "How long can a workspace session last?"
-    a: "Up to 30 minutes per workspace. It also ends after 10 minutes idle, and each command can run up to 10 minutes."
+    a: "Up to 2 hours per workspace. It also ends after 10 minutes idle, and each command can run up to 10 minutes."
   - q: "Are workspace sessions charged?"
-    a: "Not while Smarty Pants tests them on its own account. Other accounts cannot use them yet."
+    a: "Free on Macs you own or your Group's Macs. On other people's Macs, $0.0129 an hour for 2 vCPU and 2 GB, billed per second; that paid use is on Smarty Pants' own account first."
   - q: "What does OWNER_RETURNED mean?"
-    a: "The Mac's owner came back, so the workspace ended within 5 seconds. Start a new session and redo the step that was interrupted."
+    a: "The Mac's owner came back, so the workspace ended within 5 seconds. With autoSave and failover on, the site opens a copy on another Mac from the last save; otherwise start a new session and redo the step."
   - q: "Are files kept after a session ends?"
-    a: "No. Files live until the workspace ends and nothing is kept after. Fetch what you need before you end it."
+    a: "Not unless you save it. Save a workspace by name and open copies of it later; otherwise files are gone when it ends."
   - q: "Can a session install packages from the internet?"
-    a: "No. The VM has no network today. Internet access from a workspace is Planned and not available."
+    a: "Only from reviewed public sites such as GitHub, PyPI and npm, when the workspace is opened with them. There is no network by default, and home-network and private addresses are always blocked."
 related: ["/workspaces/", "/cpu/", "/workspaces/snapshots-and-recovery/", "/guides/ai-agent-sandboxes-explained/"]
 sources:
   - label: "Smarty Pants: Agent kit (Workspaces: one VM, many commands)"
     url: "https://smartypants.network/docs/agents"
 ---
 
-A workspace session is the part of Smarty Pants agent workspaces that exists today. It keeps one sealed Linux VM open on an Apple Silicon Mac so your agent can write a file, run a program, run another one on the result, and read the answer back. When you end it, everything is gone. All details here come from the live [agent docs](https://smartypants.network/docs/agents).
+A workspace session is the building block of Smarty Pants agent workspaces. It keeps one sealed Linux VM open on an Apple Silicon Mac so your agent can write a file, run a program, run another one on the result, and read the answer back. When you end it, everything is gone unless you saved it. All details here come from the live [agent docs](https://smartypants.network/docs/agents).
 
 ## Who can use sessions today?
 
-Smarty Pants' own account first. Sessions are not charged while Smarty Pants tests them, and other accounts cannot use them until they open. The [agent docs](https://smartypants.network/docs/agents) will say when they do.
+Anyone on Macs they own, and Group members on their Group's Macs, free: add `where: "mine"` or `where: {group: "<Group id>"}`. Paid sessions on Macs other people own run on Smarty Pants' own account first; other accounts get a 403 until that opens. The [agent docs](https://smartypants.network/docs/agents) will say when it does.
 
 ## What are the limits?
 
-Short and small: 30 minutes per workspace and files up to 8 KB.
+Up to 2 hours per workspace, with files up to 16 MiB in and 64 MiB out.
 
 | Limit | Value |
 |---|---|
-| Workspace lifetime | 30 minutes |
+| Size | 2 vCPU, 2 GB of memory |
+| Workspace lifetime | Up to 2 hours |
 | Idle timeout | 10 minutes |
 | Per command | Up to 10 minutes |
-| File size | Up to 8 KB |
-| Output | 4 KB per stream |
-| Network | None |
-| After it ends | Nothing is kept |
+| Files | Up to 16 MiB in and 64 MiB out (8 KiB at once, larger ones in pieces of up to 256 KiB) |
+| Output | 64 KiB per stream |
+| Network | None by default; reviewed public sites when asked for |
+| After it ends | Nothing is kept unless you saved it |
 | Owner returns | Workspace ends within 5 seconds, `OWNER_RETURNED` |
-| Charge | Not charged while tested |
+| Price | $0.0129 an hour, billed per second from ready to end; free on your own or your Group's Macs |
 
 The VM is the same kind used for [CPU jobs](/cpu/): ARM64 Linux with Python 3, Node.js and a basic shell.
 
@@ -94,28 +95,27 @@ Good habits:
 - Fetch any file you need as soon as a step produces it.
 - On `OWNER_RETURNED`, start a new session, put the inputs back and redo the last step.
 
-Continuing a workspace on another Mac is Planned and not available; see [snapshots and recovery](/workspaces/snapshots-and-recovery/).
+To carry on automatically, open the workspace with `"autoSave": {"name": "NAME"}` and `"failover": true`: when its Mac drops off, the site starts a new workspace on another Mac from the last save. See [save, copy and failover](/workspaces/snapshots-and-recovery/).
 
 ## What should not go into a session?
 
 Secrets and confidential data. The VM protects the Mac's owner from your code. It does not keep your files or memory confidential from the Mac's owner.
 
-Use sessions for public code, test data and throwaway work. If you need internet access, large files or work that runs for hours, a hosted sandbox on dedicated servers fits better today.
+Use sessions on other people's Macs for public code, test data and throwaway work, and your own or your Group's Macs for anything private. If you need GPUs, x86 machines or a single VM for more than 2 hours, a hosted sandbox on dedicated servers fits better today.
 
-## What is available today and what is Planned?
+## What else works with sessions?
 
 | Feature | Status |
 |---|---|
-| Sessions on Smarty Pants' own account, with the limits above | Available today |
-| Sessions from your own account | Planned |
-| [Snapshots and recovery](/workspaces/snapshots-and-recovery/) | Planned |
-| Internet access from a workspace | Planned |
-| [Model calls from a workspace](/workspaces/model-calls/) | Planned |
-| [Several sessions at once](/workspaces/fleets/) | Planned |
-| CLI and SDK | Planned |
-
-Planned features are not available. We'll announce it on smartypants.network/docs/agents when each one opens.
+| Sessions on your own or your Group's Macs | Available, free |
+| Paid sessions on other people's Macs | Smarty Pants' own account first |
+| [Save, copy and failover](/workspaces/snapshots-and-recovery/) | Available |
+| Reviewed public sites (GitHub, PyPI, npm and others) | Available when asked for |
+| [Model calls from a workspace](/workspaces/model-calls/) | Available |
+| [Fleets of identical workspaces](/workspaces/fleets/) | Available |
+| Command-line tool and Python and JavaScript kits | Available (`npm install -g smartypants-network`) |
+| [Always-on agents](/workspaces/always-on-agents/) | Planned |
 
 ## Where next?
 
-Read the [workspaces overview](/workspaces/) for what is Planned, or [CPU jobs](/cpu/) for single 30-second runs. For background, see [AI agent sandboxes explained](/guides/ai-agent-sandboxes-explained/).
+Read the [workspaces overview](/workspaces/) for everything a workspace can do, [CPU jobs](/cpu/) for single short runs, or the [price page](/pricing/#workspaces) to compare costs. For background, see [AI agent sandboxes explained](/guides/ai-agent-sandboxes-explained/).
