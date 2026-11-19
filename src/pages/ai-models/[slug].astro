@@ -21,6 +21,8 @@ const titleByKind: Record<string, string> = {
   embedding: `${m.shortName} embeddings API: price and specs`,
   speech_to_text: `${m.shortName} API for speech to text`,
   image_generation: `${m.shortName} image API on Apple silicon`,
+  rerank: `${m.shortName} rerank API: price and specs`,
+  video_generation: `${m.shortName} API: price, clips and code`,
 };
 const title = titleByKind[m.kind] ?? `${m.shortName} on Smarty Pants`;
 const description = `${m.shortName} on Smarty Pants: ${m.short.toLowerCase().replace(/\.$/, '')}. Listed price, context, memory needed (${m.minMemoryGB} GB+ Macs) and code to call it.`.slice(0, 160);
@@ -33,7 +35,9 @@ const python = {
   text: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nreply = client.chat.completions.create(\n    model="${m.id}",\n    messages=[{"role": "user", "content": "Hello!"}],\n)\nprint(reply.choices[0].message.content)`,
   embedding: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nresult = client.embeddings.create(\n    model="${m.id}",\n    input=["Macs with unified memory run local models well."],\n)\nprint(len(result.data[0].embedding))  # 1,024 unless you ask for fewer with dimensions`,
   speech_to_text: `from openai import OpenAI\n\nclient = OpenAI(base_url="${SITE.apiBase}", api_key="YOUR_SMARTY_PANTS_KEY")\n\nwith open("meeting.m4a", "rb") as audio:\n    text = client.audio.transcriptions.create(model="${m.id}", file=audio)\nprint(text.text)`,
-}[m.kind as 'text' | 'embedding' | 'speech_to_text'];
+  rerank: `import os, requests\n\nr = requests.post("${SITE.apiBase}/rerank",\n    headers={"Authorization": "Bearer YOUR_SMARTY_PANTS_KEY"},\n    json={"model": "${m.id}", "query": "How do I reset my password?",\n          "documents": ["Reset it from the sign-in page.", "Our office opens at 9."], "top_n": 1})\nprint(r.json())  # index and relevance_score, best first`,
+  video_generation: `import time, requests\n\nH = {"Authorization": "Bearer YOUR_SMARTY_PANTS_KEY"}\njob = requests.post("${SITE.apiBase}/videos", headers=H,\n    json={"model": "${m.id}", "prompt": "A paper boat on a rainy street", "size": "832x480", "seconds": 3}).json()\nwhile (job := requests.get(f"${SITE.apiBase}/videos/{job['id']}", headers=H).json())["status"] in ("queued", "in_progress"):\n    time.sleep(10)\nprint(job["status"])  # completed clips are held up to 30 minutes`,
+}[m.kind as 'text' | 'embedding' | 'speech_to_text' | 'rerank' | 'video_generation'];
 
 const faqs = [
   { q: `What is the API name for ${m.shortName} on Smarty Pants?`, a: `Use "${m.id}" as the model with the OpenAI-compatible base URL ${SITE.apiBase}.${m.aliases?.length ? ` The older name ${m.aliases.join(', ')} still works.` : ''}` },

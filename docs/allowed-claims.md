@@ -44,7 +44,8 @@ Never write "available now", "ready now", "always on", "fast", "reliable", "priv
 
 - Always show a price as "listed price on 8 Nov 2026" and link to `/v1/models` for the current price.
 - Do not quote live speed or uptime numbers (they change daily). You MAY quote dated benchmark results from https://huggingface.co/datasets/smartypantsnet/mac-benchmarks with the date and Mac named (e.g. "Qwen3.5-4B standard 4-bit: 99.7 tok/s on an M5 Pro Mac mini, measured 22 Oct 2026").
-- Not on this site: ribt voice (price not approved), video models (Planned only).
+- Not on this site: ribt voice (price not approved).
+- Added 19 Nov 2026 from live /v1/models (all released): Arete 27B $0.20/$1.20, Axion 1.0 35B $0.09/$0.80, Muse Glimmer 30B $0.27/$1.08 (text only on SP), Qwen3 Reranker 0.6B $0.009 in, Wan 2.2 video $0.011 a 480p clip (Nat OK'd 11 Nov). Bench lines from the factory reports in the project benchmarks inbox, dated.
 - Licenses: all listed models are Apache-2.0 except Whisper (MIT) and FLUX.1 schnell (check its license on Hugging Face before stating it).
 
 ## Mac owners (supply)
