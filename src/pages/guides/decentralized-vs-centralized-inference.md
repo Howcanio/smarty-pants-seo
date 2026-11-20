@@ -9,7 +9,7 @@ primaryKeyword: "decentralized ai inference"
 keywords: ["decentralized ai inference", "distributed inference", "decentralized gpu network", "centralized ai provider", "idle computers ai inference"]
 summary: "Centralized inference runs your requests on hardware one provider owns and operates. Decentralized inference runs them on machines owned by many independent people or companies, coordinated by a network. Decentralized networks can use idle capacity and set prices differently, but your request runs on someone else's computer, capacity varies, and latency is less predictable. Keep sensitive data on hardware you or your provider control."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-20"
 readingMinutes: 7
 faqs:
   - q: "What is decentralized AI inference?"
@@ -22,7 +22,7 @@ faqs:
     a: "Sometimes, not always. Prices for the same open model vary a lot between providers of both kinds, so compare listed prices for the exact model and build you need."
   - q: "How do companies use idle Macs without sending data to strangers?"
     a: "On Smarty Pants, a team can put its own Macs in a Group. Members use them for AI for free and work stays on the Group's Macs first. Group sign-up is invite only for now."
-related: ["/inference/vs-centralized-providers/", "/inference/", "/guides/openai-compatible-api-explained/", "/guides/llm-api-pricing-explained/", "/earn/safety-and-controls/", "/guides/what-is-mlx/"]
+related: ["/inference/vs-centralized-providers/", "/inference/", "/guides/openai-compatible-api-explained/", "/guides/llm-api-pricing-explained/", "/earn/safety-and-controls/", "/guides/what-is-mlx/", "/compare/smarty-pants-vs-antseed/"]
 sources:
   - label: "Exo Labs: What is distributed inference? Pipeline vs tensor parallelism"
     url: "https://exolabs.net/faq/what-is-distributed-inference/"
@@ -36,6 +36,8 @@ sources:
     url: "https://vast.ai/"
   - label: "io.net: The Open Source AI Infrastructure Platform"
     url: "https://io.net/"
+  - label: "AntSeed: home page and Colony (viewed 20 Nov 2026)"
+    url: "https://antseed.com/colony/"
   - label: "OpenRouter: Qwen3.5-9B providers and prices"
     url: "https://openrouter.ai/qwen/qwen3.5-9b"
   - label: "Smarty Pants: Agent kit and docs"
@@ -66,6 +68,7 @@ Several networks work this way, each in its own manner:
 - [Salad](https://salad.com/) describes orchestration for distributed infrastructure and the world's idle GPUs.
 - [Vast.ai](https://vast.ai/) is a GPU rental marketplace.
 - [io.net](https://io.net/) describes itself as an open source AI infrastructure platform.
+- [AntSeed](https://antseed.com/) calls itself "a fully peer-to-peer network for AI", where independent providers compete for each request and settle in USDC on Base. Its Colony app, in early access on 20 Nov 2026, pools Macs to serve one open model. See [Smarty Pants vs. AntSeed](/compare/smarty-pants-vs-antseed/).
 
 ## Is "distributed inference" the same thing?
 

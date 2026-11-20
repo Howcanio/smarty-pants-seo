@@ -9,7 +9,7 @@ primaryKeyword: "make money with idle computer"
 keywords: ["make money with idle computer", "earn money with my mac", "rent out mac computing power", "passive income mac", "sell idle compute apple silicon", "mac mini earn money"]
 summary: "You can rent an idle Apple Silicon Mac's compute to networks that run AI work on it. On Smarty Pants, earn up to $1/day per eligible Mac during the intro offer (US only, first 50 Macs, paid only for hours the Mac is on, idle and ready). Some other networks support Macs; Salad doesn't. Electricity and internet are your costs, and earnings are taxable."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-20"
 readingMinutes: 5
 faqs:
   - q: "How much can I earn with an idle Mac on Smarty Pants?"
@@ -30,6 +30,8 @@ sources:
     url: "https://io.net/docs/guides/workers/install-on-macos"
   - label: "Darkbloom docs: Provider quickstart"
     url: "https://docs.darkbloom.dev/quickstart-provider.md"
+  - label: "AntSeed: Colony (viewed 20 Nov 2026)"
+    url: "https://antseed.com/colony/"
   - label: "Salad Support: Do you support macOS and Linux?"
     url: "https://support.salad.com/faq/compatibility/do-you-support-macos-and-linux/"
   - label: "Smarty Pants: For humans (owner FAQ)"
@@ -49,6 +51,7 @@ The main option is renting its compute to a network that runs AI or other jobs o
 | [Smarty Pants](/earn/) | Yes, Apple Silicon with 16 GB+, macOS 14+ | Runs open AI models through a signed Mac app; MacBooks must be plugged in | Intro offer, see below |
 | [io.net](https://io.net/docs/guides/workers/install-on-macos) | Yes, "Apple chip processors (M3, M4)" | Runs a worker in Docker Desktop with a 20 GB container | Describes "block rewards"; no rates on the install page |
 | [Darkbloom](https://docs.darkbloom.dev/quickstart-provider.md) | Yes, Apple Silicon M1 or later | 16 GB minimum, 36 GB recommended for most models; calls itself "an experimental research prototype" | Earnings shown in its CLI; no rates on the quickstart page |
+| [AntSeed Colony](https://antseed.com/colony/) | Yes, "any Mac with Apple silicon", macOS 14+ | Early access with a waitlist on 20 Nov 2026; the app was not yet downloadable. One open model per Colony | Earnings settle in USDC on Base to your own wallet; no rates shown ([compared](/compare/smarty-pants-vs-antseed/)) |
 | [Salad](https://support.salad.com/faq/compatibility/do-you-support-macos-and-linux/) | No | "A Mac can't earn on Salad, with or without virtualization." | n/a |
 
 Terms on every network change, so read the current page before you rely on any of this.
