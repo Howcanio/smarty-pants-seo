@@ -6,8 +6,8 @@ h1: "Smarty Pants vs. AntSeed and AntSeed Colony"
 eyebrow: "Compare"
 audience: "both"
 primaryKeyword: "antseed alternative"
-keywords: ["antseed alternative", "smarty pants vs antseed", "antseed colony", "antseed colony alternative", "earn with mac ai network", "peer-to-peer ai inference"]
-summary: "AntSeed is a peer-to-peer AI network where independent providers sell model access to buyers, with provider payments settled in USDC on Base. AntSeed Colony is its Mac app for pooling Macs to serve one open model per Colony; on 20 Nov 2026 it was in early access with a waitlist and the app was not yet downloadable. Smarty Pants is live today: anyone can get an API key with $10 of free credit, it lists 12 open models on Apple Silicon Macs, Mac owners are paid in US dollars through Stripe, and teams can pool their own Macs in a Group for free. AntSeed offers far more models and anonymous use, and Colony keeps decryption keys in the Secure Enclave, which Smarty Pants does not yet do. Smarty Pants also sells on AntSeed as a verified provider."
+keywords: ["antseed alternative", "best mac ai network for owners", "smarty pants vs antseed", "antseed colony", "antseed colony alternative", "earn with mac ai network", "peer-to-peer ai inference"]
+summary: "Smarty Pants is the more complete choice for most teams and Mac owners. It is live today with open API sign-up and $10 of free credit, lists 12 open models, and adds sealed Linux workspaces for agents. AI on Macs you or your Group own is free, which matters most for teams already spending heavily on models and VMs. Mac owners are paid in US dollars through Stripe, and during the intro offer eligible Macs earn for the hours they are ready, not only for work they serve. AntSeed is a peer-to-peer AI network with far more models and anonymous use, settled in USDC on Base; its Mac pool, AntSeed Colony, was in early access with a waitlist on 20 Nov 2026. Smarty Pants also sells on AntSeed as a verified provider."
 published: "2026-11-20"
 updated: "2026-11-20"
 readingMinutes: 5
@@ -51,22 +51,28 @@ AntSeed and Smarty Pants both send AI requests to machines that independent peop
 | Account | Email sign-up | "No account or email required" | Same as AntSeed |
 | How Mac owners are paid | US dollars through Stripe; up to $1/day per eligible Mac during the intro offer | USDC on Base, at prices the provider sets | USDC on Base, split by the Colony's contract; no rates shown |
 | Crypto wallet for owners | Not needed | Needed, plus a little ETH for gas | Needed |
+| Pay for ready time, not just work | Yes, during the intro offer | No | No rates shown |
+| Agent workspaces (Linux VMs) | Yes | No | No |
+| Free use of your own Macs | Yes, and your Group's | n/a | n/a |
 | Your own pool of Macs | Groups (invite only), free for members | n/a | "Build a Colony. Coming soon." |
 | API | OpenAI-compatible | Its own gateway, desktop app and CLI, for tools like Claude Code and Codex | Same as AntSeed |
 
 ## Where does Smarty Pants lead?
 
-- **Live for buyers today.** Sign up with an email, get $10 of free credit and call models with the OpenAI SDK.
-- **Mac owners paid in dollars.** Payouts go through Stripe, with no wallet, gas or token to manage. The intro offer pays up to $1/day per eligible Mac for hours it is on, plugged in, online and ready, even with no job running ([earnings details](/earn/earnings/)).
-- **Many models on one network.** Smarty Pants lists 12 open models, including text, embeddings, reranking and video. A Colony serves one.
-- **Groups.** A team, family or community can pool the Macs it already owns. Members use them for free, and work can stay on the Group's Macs only ([Groups](/groups/)). On AntSeed, running your own Colony is "coming soon".
+Smarty Pants was built as one service for people running AI agents: models, the machines agents work on, and the Macs you already own, under one account.
+
+- **Owners are paid for being available, not only for work served.** During the intro offer, an eligible Mac earns up to $1/day for hours it is on, plugged in, online and ready, even with no job running ([earnings details](/earn/earnings/)). Payouts are in US dollars through Stripe, with no wallet, gas or token to manage. Colony's pages describe earnings from what buyers pay for answers and show no rates.
+- **Free AI on Macs you already own.** Model calls, workspaces and batches on your own Macs, or your Group's Macs for its members, cost nothing. That applies to a person, a community or a company, and it is the biggest saving for teams already paying a lot for models and VMs ([pricing](/pricing/)).
+- **More than inference.** Agents also get [workspaces](/workspaces/): sealed ARM64 Linux VMs on Apple Silicon Macs where they can clone a repo, run tests and keep files, at $0.0129 an hour for 2 vCPU and 2 GB, free on your own Macs. More is coming, such as [Mac app builds](/workspaces/mac-builds/). AntSeed sells model access.
+- **Built for agents.** An OpenAI-compatible API, an agent kit and docs written for AI agents at [smartypants.network/docs/agents](https://smartypants.network/docs/agents), and `is_ready` on every model so an agent can check before it sends.
+- **Live for buyers today.** Sign up with an email, get $10 of free credit and keep the OpenAI SDK. A Colony serves one model; Smarty Pants lists 12, including text, embeddings, reranking and video.
+- **Groups now, not later.** A team, family or community can pool the Macs it owns, and work can stay on them only ([Groups](/groups/), invite only for now). On AntSeed, running your own Colony is "coming soon".
 - **Pinned builds.** Each model is one build named in `build_id`, so the same request runs on the same weights every time.
 
 ## Where does AntSeed lead?
 
 - **Breadth and price.** AntSeed's home page shows 700+ models and very low listed prices for some large models, such as DeepSeek V4 Flash at $0.001 per million tokens. Many of those models are far too big for the Macs Smarty Pants runs on.
 - **No account.** AntSeed says buyers can use it anonymously, with "No account or email required."
-- **Stronger key storage on Colony.** Colony says its "decryption keys never leave the Mac's Secure Enclave and are bound to the signed app", and that its pool "routes ciphertext". Pools that run device management can show Apple's attestation that System Integrity Protection is on. Smarty Pants gives each Mac its own encryption key, but keeps it in the macOS Keychain, not the Secure Enclave, and its server handles each request before sealing it to the chosen Mac.
 
 ## What is the same on both?
 

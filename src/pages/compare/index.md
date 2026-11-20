@@ -43,6 +43,6 @@ Every comparison here uses listed prices on a stated date and links to the sourc
 
 ## What is the short version?
 
-Smarty Pants is cheaper on most listed prices and free on your own Macs. The others are steadier and bigger: dedicated servers, GPUs, more context and compliance paperwork. A common setup is Smarty Pants for work that is fine on someone else's Mac, or on your own, with a hosted provider as the fallback.
+Smarty Pants is the most complete option for teams running AI agents: open models, workspaces for agents and free use of the Macs you already own, under one account, at or below the cheapest listed price elsewhere. Mac owners are paid in dollars for being available, not only for work served. The others are steadier and bigger: dedicated servers, GPUs, more context and compliance paperwork. A common setup is Smarty Pants for work that is fine on someone else's Mac, or on your own, with a hosted provider as the fallback.
 
 See every Smarty Pants price on one page: [pricing](/pricing/).
