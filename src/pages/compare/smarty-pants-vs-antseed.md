@@ -38,7 +38,7 @@ sources:
     url: "https://smartypants.network/for-teams"
 ---
 
-AntSeed and Smarty Pants both send AI requests to machines that independent people own, and both work with Apple Silicon Macs. They are built differently. AntSeed is an open, peer-to-peer marketplace: anyone can become a provider and set a price, and buyers choose who serves them. Smarty Pants runs each model itself, as one pinned build on Apple Silicon Macs, and sells it through one OpenAI-compatible API. Everything below comes from each side's own pages, viewed on 20 Nov 2026.
+AntSeed and Smarty Pants both send AI requests to machines that independent people own, and both like Apple Silicon Macs. That's where the family resemblance mostly ends. AntSeed is an open, peer-to-peer marketplace: anyone can become a provider and set a price, and buyers choose who serves them. Smarty Pants runs each model itself, as one pinned build on Apple Silicon Macs, and sells it through one OpenAI-compatible API. Everything below comes from each side's own pages, viewed on 20 Nov 2026.
 
 ## How do they compare at a glance?
 
@@ -59,7 +59,7 @@ AntSeed and Smarty Pants both send AI requests to machines that independent peop
 
 ## Where does Smarty Pants lead?
 
-Smarty Pants was built as one service for people running AI agents: models, the machines agents work on, and the Macs you already own, under one account.
+Short version: we thought about it a bit. Smarty Pants was built as one service for people running AI agents: models, the machines agents work on, and the Macs you already own, under one account.
 
 - **Owners are paid for being available, not only for work served.** During the intro offer, an eligible Mac earns up to $1/day for hours it is on, plugged in, online and ready, even with no job running ([earnings details](/earn/earnings/)). Payouts are in US dollars through Stripe, with no wallet, gas or token to manage. Colony's pages describe earnings from what buyers pay for answers and show no rates.
 - **Free AI on Macs you already own.** Model calls, workspaces and batches on your own Macs, or your Group's Macs for its members, cost nothing. That applies to a person, a community or a company, and it is the biggest saving for teams already paying a lot for models and VMs ([pricing](/pricing/)).
@@ -71,6 +71,9 @@ Smarty Pants was built as one service for people running AI agents: models, the 
 
 ## Where does AntSeed lead?
 
+Credit where it's due, and there's some due.
+
+
 - **Breadth and price.** AntSeed's home page shows 700+ models and very low listed prices for some large models, such as DeepSeek V4 Flash at $0.001 per million tokens. Many of those models are far too big for the Macs Smarty Pants runs on.
 - **No account.** AntSeed says buyers can use it anonymously, with "No account or email required."
 
@@ -80,7 +83,7 @@ Neither is a trusted execution environment. AntSeed's Colony FAQ says so directl
 
 ## Can I use both?
 
-Yes. Smarty Pants has been a verified provider on AntSeed since 30 Oct 2026, so some AntSeed requests are served by Smarty Pants Macs. If you build on Smarty Pants directly, you get one API, dollar billing and Groups. Keep a fallback either way: check `is_ready` on [/v1/models](https://smartypants.network/v1/models) before you send traffic.
+Yes, and we'd know. Smarty Pants has been a verified provider on AntSeed since 30 Oct 2026, so some AntSeed requests are served by Smarty Pants Macs. If you build on Smarty Pants directly, you get one API, dollar billing and Groups. Keep a fallback either way: check `is_ready` on [/v1/models](https://smartypants.network/v1/models) before you send traffic.
 
 ## How do I try Smarty Pants?
 

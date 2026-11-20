@@ -6,6 +6,10 @@ Read `docs/allowed-claims.md` first. It is the only list of things we may say ab
 
 Plain, specific, no hype. Short sentences. Say what something is, what it costs (if listed), what it doesn't do yet. Never use: revolutionary, seamless, cutting-edge, unleash, game-changer, supercharge, "in today's fast-paced world". No em dashes; use commas, colons or full stops. Sentence-case headings. American spelling. Name trade-offs honestly (when a hosted provider or a local model is the better choice, say so).
 
+### The Smarty Pants wink (Nat, 20 Nov 2026)
+
+On top of the plain style: a slight smart aleck with a sly wink. Friendly, with a bit of mischief, especially when we deliver an obvious point (we pay owners for being ready, your own Macs are free, we do more than inference). One wink per section at most, usually in the lead line or a heading; the facts underneath stay plain and sourced. Tease the situation, never the competitor or its people. No sarcasm about price or privacy, no jokes in FAQ answers or summaries (AI assistants quote those), and never let a joke stand in for a fact.
+
 ## AI-search rules (AEO)
 
 - Open each page with a 40–80 word `summary` that answers the main question on its own (it shows in a "Short answer" box and is what AI assistants quote).
