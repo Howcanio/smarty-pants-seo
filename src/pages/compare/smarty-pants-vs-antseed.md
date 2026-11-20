@@ -17,7 +17,7 @@ faqs:
   - q: "Is AntSeed Colony available now?"
     a: "On 20 Nov 2026 Colony was in early access: you join a waitlist and AntSeed invites Macs in small groups. Its FAQ answered \"Can I download the app now?\" with \"Not yet.\" Smarty Pants serves buyers today; its Mac app is invite only for now."
   - q: "How do Mac owners get paid on each?"
-    a: "On AntSeed Colony, earnings are settled in USDC on the Base blockchain and claimed to your own Base wallet; Colony's pages show no rates. On Smarty Pants, eligible Macs earn up to $1/day during the intro offer, paid in US dollars through Stripe with a 3% fee and a $3 minimum. No crypto wallet is needed."
+    a: "AntSeed Colony pays for finished work only: a Mac earns from what each buyer signs for after a response. Smarty Pants also pays for ready time. On AntSeed Colony, earnings are settled in USDC on the Base blockchain and claimed to your own Base wallet; Colony's pages show no rates. On Smarty Pants, eligible Macs earn up to $1/day during the intro offer, paid in US dollars through Stripe with a 3% fee and a $3 minimum. No crypto wallet is needed."
   - q: "Can a Mac owner read my prompts on either network?"
     a: "Technically, yes, on both. AntSeed's Colony FAQ says it is not a TEE and \"the Mac's owner can still read prompts in the inference engine.\" On Smarty Pants, a serving Mac decrypts each request in memory to answer it; owners agree not to read requests and the app doesn't show them. Keep sensitive data off both general networks."
   - q: "Can I run my own pool of Macs?"
@@ -51,7 +51,7 @@ AntSeed and Smarty Pants both send AI requests to machines that independent peop
 | Account | Email sign-up | "No account or email required" | Same as AntSeed |
 | How Mac owners are paid | US dollars through Stripe; up to $1/day per eligible Mac during the intro offer | USDC on Base, at prices the provider sets | USDC on Base, split by the Colony's contract; no rates shown |
 | Crypto wallet for owners | Not needed | Needed, plus a little ETH for gas | Needed |
-| Pay for ready time, not just work | Yes, during the intro offer | No | No rates shown |
+| What owners are paid for | Ready time and the work served (intro offer) | Work served, at the provider's price | Finished answers, from what each buyer signs for; no rates shown |
 | Agent workspaces (Linux VMs) | Yes | No | No |
 | Free use of your own Macs | Yes, and your Group's | n/a | n/a |
 | Your own pool of Macs | Groups (invite only), free for members | n/a | "Build a Colony. Coming soon." |
@@ -61,10 +61,11 @@ AntSeed and Smarty Pants both send AI requests to machines that independent peop
 
 Short version: we thought about it a bit. Smarty Pants was built as one service for people running AI agents: models, the machines agents work on, and the Macs you already own, under one account.
 
-- **Owners are paid for being available, not only for work served.** Yes, for sitting there ready. During the intro offer, an eligible Mac earns up to $1/day for hours it is on, plugged in, online and ready, even with no job running ([earnings details](/earn/earnings/)). Payouts are in US dollars through Stripe, with no wallet, gas or token to manage. Colony's pages describe earnings from what buyers pay for answers and show no rates.
+- **Owners are paid for being available, not only for work served.** Yes, for sitting there ready. During the intro offer, an eligible Mac earns up to $1/day for hours it is on, plugged in, online and ready, even with no job running ([earnings details](/earn/earnings/)). Payouts are in US dollars through Stripe, with no wallet, gas or token to manage. On Colony, a Mac earns from the payment a buyer signs "after each response": finished work only, with no rates shown.
 - **Free AI on Macs you already own.** Model calls, workspaces and batches on your own Macs, or your Group's Macs for its members, cost nothing. That applies to a person, a community or a company, and it is the biggest saving for teams already paying a lot for models and VMs ([pricing](/pricing/)).
 - **More than inference.** Agents also get [workspaces](/workspaces/): sealed ARM64 Linux VMs on Apple Silicon Macs where they can clone a repo, run tests and keep files, at $0.0129 an hour for 2 vCPU and 2 GB, free on your own Macs. More is coming, such as [Mac app builds](/workspaces/mac-builds/). AntSeed sells model access.
 - **Built for agents.** An OpenAI-compatible API, an agent kit and docs written for AI agents at [smartypants.network/docs/agents](https://smartypants.network/docs/agents), and `is_ready` on every model so an agent can check before it sends.
+- **Under the hosted APIs on price.** Paid models are priced at about 95% of the cheapest hosted seller of the same model (OpenRouter, checked 19 Nov 2026; [details](/compare/smarty-pants-vs-openrouter/)).
 - **Live for buyers today.** Sign up with an email, get $10 of free credit and keep the OpenAI SDK. A Colony serves one model; Smarty Pants lists 12, including text, embeddings, reranking and video.
 - **Groups now, not later.** A team, family or community can pool the Macs it owns, and work can stay on them only ([Groups](/groups/), invite only for now). On AntSeed, running your own Colony is "coming soon".
 - **Pinned builds.** Each model is one build named in `build_id`, so the same request runs on the same weights every time.
