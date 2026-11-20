@@ -1,15 +1,15 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Smarty Pants compared: OpenRouter, E2B, Modal and more"
-description: "Smarty Pants side by side with OpenRouter, Together AI, E2B, Daytona, Modal and GitHub macOS runners: dated prices and when to pick which."
+description: "Smarty Pants side by side with OpenRouter, AntSeed, Together AI, E2B, Daytona, Modal and GitHub macOS runners: dated prices and when to pick which."
 h1: "How Smarty Pants compares"
 eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "smarty pants alternatives"
-keywords: ["smarty pants vs openrouter", "smarty pants vs e2b", "cheap agent sandbox", "cheapest open model api", "e2b alternative", "openrouter alternative"]
+keywords: ["smarty pants vs openrouter", "smarty pants vs antseed", "antseed alternative", "smarty pants vs e2b", "cheap agent sandbox", "cheapest open model api", "e2b alternative", "openrouter alternative"]
 summary: "Smarty Pants runs open AI models and agent workspaces on idle Apple Silicon Macs, priced at about 95% of the cheapest seller of the same thing and free on Macs you own. Hosted providers offer things it does not: GPUs, x86 machines, longer context, guaranteed capacity and compliance reports. Each page below compares one provider with listed prices, dated, and says when to choose them instead."
 published: "2026-11-19"
-updated: "2026-11-19"
+updated: "2026-11-20"
 readingMinutes: 3
 faqs:
   - q: "Is Smarty Pants always the cheapest?"
@@ -33,6 +33,7 @@ Every comparison here uses listed prices on a stated date and links to the sourc
 | If you use | For | Read |
 |---|---|---|
 | OpenRouter | Open models through one API | [Smarty Pants vs. OpenRouter](/compare/smarty-pants-vs-openrouter/) |
+| AntSeed or AntSeed Colony | A peer-to-peer AI network, or earning with a Mac | [Smarty Pants vs. AntSeed](/compare/smarty-pants-vs-antseed/) |
 | Together AI | Hosted open models and batches | [Smarty Pants vs. Together AI](/compare/smarty-pants-vs-together-ai/) |
 | E2B | Sandboxes for AI agents | [Smarty Pants vs. E2B](/compare/smarty-pants-vs-e2b/) |
 | Daytona | Sandboxes for AI agents | [Smarty Pants vs. Daytona](/compare/smarty-pants-vs-daytona/) |
