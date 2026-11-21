@@ -16,8 +16,8 @@ export const SITE = {
   /** Pages stay noindexed unless INDEXABLE=true, so a staging copy never competes with smartypants.network. */
   indexable: env.INDEXABLE === 'true',
   /** Date the facts on this site were last checked against the live product. */
-  checked: '2026-11-09',
-  checkedLabel: 'November 9, 2026',
+  checked: '2026-11-19',
+  checkedLabel: 'November 19, 2026',
 };
 
 /** The current Mac owner offer, word for word from the live home page and FAQ (checked 9 Nov 2026). */
@@ -38,32 +38,37 @@ export const OWNER_OFFER = {
 export { API_ACCESS, API_ACCESS_TEXT, MAC_ACCESS_TEXT, PRIVACY_TEXT, expandTokens } from './access.mjs';
 
 export const NAV = [
-  { href: '/inference/', label: 'Inference API' },
-  { href: '/ai-models/', label: 'Models' },
+  { href: '/inference/', label: 'Models API' },
   { href: '/workspaces/', label: 'Workspaces' },
+  { href: '/groups/', label: 'Groups' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/compare/', label: 'Compare' },
   { href: '/earn/', label: 'Earn with a Mac' },
-  { href: '/guides/', label: 'Guides' },
 ];
 
 export const BUYER_LINKS = [
   { href: '/inference/', label: 'LLM inference API' },
   { href: '/inference/openai-compatible-api/', label: 'OpenAI-compatible API' },
-  { href: '/inference/pricing/', label: 'Prices and cost calculator' },
+  { href: '/pricing/', label: 'Pricing for every product' },
+  { href: '/inference/pricing/', label: 'Model price calculator' },
+  { href: '/inference/batch-api/', label: 'Batch API (half price)' },
   { href: '/inference/vs-centralized-providers/', label: 'Vs. centralized providers' },
   { href: '/inference/embeddings-api/', label: 'Embeddings API' },
   { href: '/inference/speech-to-text-api/', label: 'Speech to text API' },
   { href: '/inference/image-generation-api/', label: 'Image generation API' },
-  { href: '/inference/video-generation/', label: 'Video generation (planned)' },
+  { href: '/inference/video-generation/', label: 'Video generation API' },
 ];
 
 export const COMPUTE_LINKS = [
-  { href: '/cpu/', label: 'Sandboxed CPU jobs' },
   { href: '/workspaces/', label: 'Agent workspaces' },
   { href: '/workspaces/sessions/', label: 'Workspace sessions' },
-  { href: '/workspaces/snapshots-and-recovery/', label: 'Snapshots and recovery (planned)' },
-  { href: '/workspaces/model-calls/', label: 'Model calls from workspaces (planned)' },
-  { href: '/workspaces/fleets/', label: 'Fleets and browser work (planned)' },
+  { href: '/workspaces/snapshots-and-recovery/', label: 'Save, copy and failover' },
+  { href: '/workspaces/model-calls/', label: 'Model calls from workspaces' },
+  { href: '/workspaces/fleets/', label: 'Fleets' },
+  { href: '/cpu/', label: 'Short code jobs' },
+  { href: '/workspaces/mac-builds/', label: 'Mac app builds (coming)' },
   { href: '/workspaces/always-on-agents/', label: 'Always-on agents (planned)' },
+  { href: '/groups/', label: 'Groups: your team\'s own Macs' },
 ];
 
 export const OWNER_LINKS = [
@@ -87,6 +92,16 @@ export const GUIDE_LINKS = [
   { href: '/guides/ai-agent-sandboxes-explained/', label: 'AI agent sandboxes explained' },
 ];
 
+export const COMPARE_LINKS = [
+  { href: '/compare/', label: 'All comparisons' },
+  { href: '/compare/smarty-pants-vs-openrouter/', label: 'Vs. OpenRouter' },
+  { href: '/compare/smarty-pants-vs-together-ai/', label: 'Vs. Together AI' },
+  { href: '/compare/smarty-pants-vs-e2b/', label: 'Vs. E2B' },
+  { href: '/compare/smarty-pants-vs-daytona/', label: 'Vs. Daytona' },
+  { href: '/compare/smarty-pants-vs-modal/', label: 'Vs. Modal' },
+  { href: '/compare/smarty-pants-vs-github-actions-macos-runners/', label: 'Vs. GitHub macOS runners' },
+];
+
 export const PRODUCT_LINKS = [
   { href: 'https://smartypants.network/api', label: 'Get an API key' },
   { href: 'https://smartypants.network/docs/agents', label: 'Agent kit and docs' },
@@ -96,5 +111,5 @@ export const PRODUCT_LINKS = [
 ];
 
 export const LINK_LABELS: Record<string, string> = Object.fromEntries(
-  [...BUYER_LINKS, ...COMPUTE_LINKS, ...OWNER_LINKS, ...GUIDE_LINKS, { href: '/guides/', label: 'All guides' }, { href: '/ai-models/', label: 'All models' }, { href: '/macs/', label: 'Macs that can serve models' }].map((l) => [l.href, l.label])
+  [...BUYER_LINKS, ...COMPUTE_LINKS, ...OWNER_LINKS, ...GUIDE_LINKS, ...COMPARE_LINKS, { href: '/guides/', label: 'All guides' }, { href: '/ai-models/', label: 'All models' }, { href: '/macs/', label: 'Macs that can serve models' }].map((l) => [l.href, l.label])
 );

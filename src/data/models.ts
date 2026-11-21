@@ -60,7 +60,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/whisper-large-v3-turbo': {
     slug: 'whisper-large-v3-turbo', short: 'Turns recordings into text.', kindLabel: 'Speech to text', endpoint: 'POST /v1/audio/transcriptions', served: 'Core ML',
-    priceText: '$0.18 an hour of audio',
+    priceText: 'about $0.011 an hour of audio',
     useFor: ['Transcribing calls, meetings and voice notes', 'Files up to 30 minutes or 25 MB'],
     avoidFor: ['Files over 30 minutes or 25 MB (split them first)', 'Live, word-by-word captions'],
   },
@@ -69,6 +69,36 @@ const EXTRA: Record<string, Extra> = {
     priceText: '$0.003 a picture',
     useFor: ['Illustrations, mockups and concept images', 'Up to 4 images up to 1536×1024 per request'],
     avoidFor: ['Sexual or nude images of real people, or fakes meant to fool people about real people (not allowed by the use rules)', 'Anything that must not be labeled as AI-made'],
+  },
+  'smartypants/arete-27b': {
+    slug: 'arete-27b', short: 'Strong chat, writing and agent work.', kindLabel: 'Chat', endpoint: 'POST /v1/chat/completions', served: '4-bit MLX',
+    bench: { text: 'The 4-bit build Smarty Pants serves answered 94.3% of 300 GSM8K math problems correctly (thinking off) at 35.5 tokens a second with 18.26 GB peak memory on an Apple M5 Pro Mac mini with 64 GB.', date: '2026-11-09' },
+    useFor: ['General assistance and agent steps with tool calls', 'Writing and analysis where you want its changed framing on political topics'],
+    avoidFor: ['Inputs longer than 16,384 tokens', 'Latency-critical chat (it is slower than the small models)'],
+  },
+  'smartypants/axion-1.0-35b': {
+    slug: 'axion-1-0-35b', short: 'Reasoning, research and tool use.', kindLabel: 'Chat', endpoint: 'POST /v1/chat/completions', served: '4-bit MLX',
+    bench: { text: 'The 4-bit build Smarty Pants serves answered 92.3% of 300 GSM8K math problems correctly (thinking off) at 74.7 tokens a second with 21.09 GB peak memory on an Apple M5 Pro Mac mini with 64 GB.', date: '2026-11-11' },
+    useFor: ['Scientific and multi-step reasoning', 'Agent work with tools and information seeking', 'Fast answers from a larger model (about 3B active)'],
+    avoidFor: ['Inputs longer than 16,384 tokens'],
+  },
+  'smartypants/muse-glimmer-30b': {
+    slug: 'muse-glimmer-30b', short: 'Agent work, tool use and many languages.', kindLabel: 'Chat', endpoint: 'POST /v1/chat/completions', served: '4-bit MLX',
+    bench: { text: 'A 4-bit build answered 90.7% of 300 GSM8K math problems correctly (thinking off) at 17.5 tokens a second with 15.98 GB peak memory on an Apple M5 Pro Mac mini with 64 GB.', date: '2026-11-10' },
+    useFor: ['Multi-step agent tasks with tool calls', 'Text work in many languages'],
+    avoidFor: ['Inputs longer than 16,384 tokens', 'Image input (Smarty Pants serves it for text only)', 'Latency-critical chat'],
+  },
+  'smartypants/qwen3-reranker-0.6b': {
+    slug: 'qwen3-reranker-0-6b', short: 'Puts the best search results first.', kindLabel: 'Reranking', endpoint: 'POST /v1/rerank', served: 'bf16',
+    priceText: '$0.0095 per million input tokens',
+    useFor: ['Reordering search or retrieval (RAG) results by how well they answer a query', 'Picking the top few documents before a chat model reads them'],
+    avoidFor: ['Turning text into vectors (use the embeddings model)', 'Generating text'],
+  },
+  'smartypants/wan2.2-5b-video': {
+    slug: 'wan2-2-5b-video', short: 'Makes short video clips from a description.', kindLabel: 'Video', endpoint: 'POST /v1/videos', served: 'bf16',
+    priceText: '$0.011 a 480p clip',
+    useFor: ['Short 2, 3 or 5 second clips at 480p (832x480 or 480x832)', 'Concept and mood clips'],
+    avoidFor: ['Long or high-resolution video', 'Sexual or nude content of real people, or fakes meant to fool people about real people (not allowed by the use rules)', 'Anything that must not be labeled as AI-made'],
   },
 };
 

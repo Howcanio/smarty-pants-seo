@@ -44,7 +44,8 @@ Never write "available now", "ready now", "always on", "fast", "reliable", "priv
 
 - Always show a price as "listed price on 8 Nov 2026" and link to `/v1/models` for the current price.
 - Do not quote live speed or uptime numbers (they change daily). You MAY quote dated benchmark results from https://huggingface.co/datasets/smartypantsnet/mac-benchmarks with the date and Mac named (e.g. "Qwen3.5-4B standard 4-bit: 99.7 tok/s on an M5 Pro Mac mini, measured 22 Oct 2026").
-- Not on this site: ribt voice (price not approved), video models (Planned only).
+- Not on this site: ribt voice (price not approved).
+- Added 19 Nov 2026 from live /v1/models (all released): Arete 27B $0.20/$1.20, Axion 1.0 35B $0.09/$0.80, Muse Glimmer 30B $0.285/$1.14 (text only on SP), Qwen3 Reranker 0.6B $0.0095 in, Wan 2.2 video $0.011 a 480p clip (Nat OK'd 11 Nov). Bench lines from the factory reports in the project benchmarks inbox, dated.
 - Licenses: all listed models are Apache-2.0 except Whisper (MIT) and FLUX.1 schnell (check its license on Hugging Face before stating it).
 
 ## Mac owners (supply)
@@ -59,7 +60,7 @@ Never write "available now", "ready now", "always on", "fast", "reliable", "priv
 
 ## CPU jobs and agent workspaces
 
-- **Short code jobs (CPU jobs):** a short Python, JavaScript or shell program runs in a sealed Linux (ARM64) VM on a Mac: no network, no disk, wiped after. Up to 30 seconds per job, up to 4 KB output; output can be streamed while running. Listed price $0.00405 per vCPU-hour + $0.002025 per GB-hour (about $0.00007 for a 20-second job). Status: **our own account first**: other accounts get 403 until it opens. (live /docs/agents)
+- **Short code jobs (CPU jobs):** a short Python, JavaScript or shell program runs in a sealed Linux (ARM64) VM on a Mac: no network, no disk, wiped after. Up to 30 seconds per job, up to 4 KB output; output can be streamed while running. Listed price $0.0043 per vCPU-hour + $0.00215 per GB-hour (about $0.00007 for a 20-second job). Status: **our own account first**: other accounts get 403 until it opens. (live /docs/agents)
 - **Workspaces (sessions):** one sealed VM kept open for many commands and files; limits 30 min per workspace, 10 min idle, 10 min per command, files up to 8 KB, 4 KB output per stream; the Mac's owner comes first (workspace ends within 5 seconds if they return). Status: **our own account first, not charged while tested.** (live /docs/agents)
 - VM isolation protects the owner from guest code; it does NOT keep the guest's files or memory confidential from the Mac's owner. (repo AGENT-WORKSPACES-PLAN.md, rule 5)
 - **Planned** (roadmap v1.3, approved 8 Nov 2026; label every one "Planned"): snapshots and recovery (disk-only snapshots; restore on another Mac after a host is lost), model calls from workspaces (workspace-scoped inference key with a budget; credential proxy with placeholder keys), browser work and fleets (several sessions at once), persistent always-on agents, guest internet through a filter that allows listed public sites only and blocks home-network addresses, CLI and SDK for paid developer use.
@@ -71,3 +72,24 @@ Never write "available now", "ready now", "always on", "fast", "reliable", "priv
 - That data is private, encrypted end to end, or confidential on the general network.
 - That anyone can buy today or download the app today.
 - "Pilot" (the team does not use the word).
+
+## Agent discovery (checked 19 November 2026)
+
+- Smarty Pants is listed in the official MCP Registry as `network.smartypants/smartypants` (both `/mcp` and `/mcp/account`). (registry.modelcontextprotocol.io, 19 Nov 2026)
+- Framework setups (LangChain, OpenAI Agents SDK, Vercel AI SDK, LlamaIndex, Claude Code MCP + skill, GitHub Actions step) are on /docs/agents#frameworks and /llms-full.txt (core PR #517; until it is deployed those links 404 or show the app).
+- `GET /v1/key` shows a key's limit and `remaining_usd`; MCP connections are capped at $20 a month and last 90 days; `add_credit` returns a Stripe page the person pays on. (llms.txt)
+- Batch API: half the normal per-token price, results within 24 hours. (llms.txt)
+
+## Prices, products and comparisons (checked 19 November 2026)
+
+- Price rule (Nat, 19 Nov 2026): each product at 90-100% of the entry-level (cheapest) price for the same thing elsewhere; we use about 95%. Source of truth for the comparison numbers: `src/data/prices.ts` (each row names its source and date).
+- New listed prices from 19 Nov 2026 (core PR on branch claude/project-thread-m5cmnb; live after the next deploy): Qwen3.5 9B $0.076/$0.114, Qwen3.8 27B $0.037/$1.19, Qwen3.6 35B-A3B $0.048/$0.665, gpt-oss-20b $0.0171/$0.0855, Whisper about $0.011 an hour ($0.00317 per million ms). Unchanged: Arete, Axion, Nanbeige, Muse Glimmer, embeddings, reranker, video $0.011 a clip, pictures $0.003.
+- Workspaces: $0.0043 per vCPU-hour + $0.00215 per GB-hour = $0.0129 an hour for 2 vCPU / 2 GB, billed per second from ready to end (GET /v1/prices/workspaces). Limits: up to 2 hours, 10 min idle, 10 min per command, files 16 MiB in / 64 MiB out, 64 KiB output per stream. Free on your own Macs (`where: "mine"`) and Group Macs. Paid use on other people's Macs: our own account first. Available: code run, whole jobs, saves + copies + failover, workspace model key + coding agent, fleets, public links, Dockerfile setups, task board, reviewed public sites (GitHub, PyPI, npm). Mac app builds: built, switched off. Always-on agents and browser workspaces: not available.
+- Starter credit $10 for 90 days; top-ups from $10.
+- Competitor prices: OpenRouter seller lists (19 Nov); e2b.dev/pricing (19 Nov: $0.000014/vCPU-s, $0.0000045/GiB-s, $100 one-time credit); Daytona, Modal, Sprites, Vercel from Fly.io's comparison (checked 5 Oct 2026); Northflank blog (5 May 2026); GitHub macOS runner $0.062/min (docs.github.com, 19 Nov); DeepInfra Whisper $0.0002/min and FastWan 480p (19 Nov); FLUX schnell about $0.003-0.005 (secondary source, June 2026 rates).
+- Always say what we don't do: no GPUs, no x86, no SOC 2 yet, no guaranteed capacity, mostly 16,384-token context, the owner can take the Mac back.
+
+## Free entry, paid growth (Nat, 19 Nov 2026)
+
+- Give away the entry points, charge about 95% of the cheapest seller for paid use on other people's Macs (replaces the 90% figure earlier the same day). Core PR on branch claude/project-thread-m5cmnb.
+- Group seats: COMING, not on sale; always label "coming" and say names, prices and limits may change. Entry free per person (Group folder, task board, history, unlimited agents, free use of the Group's Macs, Qwen3.5 9B free up to 200,000 tokens a day per person). Pro about $49 per person a month with $50 of credit (always-on workspaces, more saved storage, steady Macs first, discount past the credit). Source: core PR Howcanio/smarty-pants#524 (seats) and a follow-up PR (daily free allowance).

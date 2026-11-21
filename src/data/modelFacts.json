@@ -212,5 +212,103 @@
         "url": "https://bfl.ai/blog/24-08-01-bfl"
       }
     ]
+  },
+  "smartypants/arete-27b": {
+    "developer": "Nous Research",
+    "upstreamRepo": "NousResearch/Arete-27B",
+    "params": "27B",
+    "activeParams": null,
+    "architecture": "dense decoder-only transformer (Qwen3.8-27B design, 64 layers)",
+    "nativeContext": "262,144 tokens (config); trained at 64K",
+    "released": "2026-11",
+    "license": "Apache-2.0",
+    "strengths": "A supervised fine-tune of Alibaba's Qwen3.8-27B for general assistance and agentic work, trained to change the base model's framing on seven value topics (such as freedom of expression and democracy) without a meaningful loss on general and agentic benchmarks, per Nous Research.",
+    "uniqueFact": "Nous Research reports its fact score on those topics rose from 2.32 to 2.98 out of 5, and answers containing propaganda fell from 22% to 0.9%, on its own evaluation.",
+    "sources": [
+      {
+        "label": "Hugging Face: NousResearch/Arete-27B model card",
+        "url": "https://huggingface.co/NousResearch/Arete-27B"
+      },
+      {
+        "label": "Hugging Face: NousResearch/Arete-27B config.json",
+        "url": "https://huggingface.co/NousResearch/Arete-27B/blob/main/config.json"
+      }
+    ]
+  },
+  "smartypants/axion-1.0-35b": {
+    "developer": "Axion 1.0 team (reproduction checkpoint)",
+    "upstreamRepo": "Axion1-0/Axion-1.0-35B",
+    "params": "about 35B",
+    "activeParams": "about 3B",
+    "architecture": "mixture-of-experts transformer (40 layers, 256 experts, 8 active per token)",
+    "nativeContext": "262,144 tokens (config)",
+    "released": "2026-10",
+    "license": "Apache-2.0",
+    "strengths": "Built for scientific reasoning, information seeking and tool-augmented problem solving, following the recipe in the paper Axion 1.0: Open Agent Foundation Models, Simplified.",
+    "uniqueFact": "Trained in three stages from about 18K fine-tuning examples: learn to reason, learn to investigate with tools, then reinforcement learning over agent trajectories.",
+    "sources": [
+      {
+        "label": "Hugging Face: Axion1-0/Axion-1.0-35B model card",
+        "url": "https://huggingface.co/Axion1-0/Axion-1.0-35B"
+      },
+      {
+        "label": "Hugging Face: Axion1-0/Axion-1.0-35B config.json",
+        "url": "https://huggingface.co/Axion1-0/Axion-1.0-35B/blob/main/config.json"
+      }
+    ]
+  },
+  "smartypants/muse-glimmer-30b": {
+    "developer": "Meta Superintelligence Lab",
+    "upstreamRepo": "meta-models/Muse-Glimmer-30B",
+    "params": "about 29.6B (including the vision encoder)",
+    "activeParams": null,
+    "architecture": "dense transformer with a vision (perception) encoder, 52 layers",
+    "nativeContext": "131,072+ tokens",
+    "released": "2026-08",
+    "license": "Apache-2.0",
+    "strengths": "Distilled from Muse Spark for agentic tasks on consumer hardware: multi-step reasoning, tool use, recovering from failed tool calls, and more than 100 languages.",
+    "uniqueFact": "Supports different reasoning strengths, so a caller can trade quality for speed.",
+    "sources": [
+      {
+        "label": "Hugging Face: meta-models/Muse-Glimmer-30B model card",
+        "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+      }
+    ]
+  },
+  "smartypants/qwen3-reranker-0.6b": {
+    "developer": "Alibaba Qwen team",
+    "upstreamRepo": "Qwen/Qwen3-Reranker-0.6B",
+    "params": "0.6B",
+    "activeParams": null,
+    "architecture": "reranker built on Qwen3-0.6B",
+    "nativeContext": "32K tokens",
+    "released": "2025-05",
+    "license": "Apache-2.0",
+    "strengths": "Scores how well each document answers a query, for search and retrieval (RAG); part of the Qwen3 Embedding series and supports more than 100 languages, including programming languages.",
+    "uniqueFact": "Accepts a task instruction; the Qwen team reports instructions usually improve results by 1% to 5%.",
+    "sources": [
+      {
+        "label": "Hugging Face: Qwen/Qwen3-Reranker-0.6B model card",
+        "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B"
+      }
+    ]
+  },
+  "smartypants/wan2.2-5b-video": {
+    "developer": "FastVideo team (on Wan-AI's Wan2.2-TI2V-5B)",
+    "upstreamRepo": "FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers",
+    "params": "5B",
+    "activeParams": null,
+    "architecture": "text-and-image-to-video diffusion model, distilled for 3-step generation",
+    "nativeContext": null,
+    "released": "2025-08",
+    "license": "Apache-2.0",
+    "strengths": "Makes short video clips from a text prompt in 3 steps instead of dozens, which makes it practical on a Mac.",
+    "uniqueFact": "Trained at 704x1280; Smarty Pants serves 480p clips (832x480 or 480x832).",
+    "sources": [
+      {
+        "label": "Hugging Face: FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers model card",
+        "url": "https://huggingface.co/FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers"
+      }
+    ]
   }
 }

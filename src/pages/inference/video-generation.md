@@ -1,79 +1,69 @@
 ---
 layout: ../../layouts/ContentLayout.astro
-title: "Video generation API on Smarty Pants (Planned)"
-description: "Video generation on Smarty Pants is Planned and not available. Here is what exists today, what to use instead, and how to ask for a video model."
-h1: "Video generation on Smarty Pants: Planned"
+title: "Video generation API: Wan 2.2 on Smarty Pants"
+description: "Make short 480p video clips from a text prompt with Wan 2.2 5B on Apple Silicon Macs. $0.011 a clip, OpenAI-style requests, every clip labeled as AI-made."
+h1: "Video generation API: short clips with Wan 2.2"
 eyebrow: "For developers"
 audience: "buyer"
-status: "planned"
+status: "released"
 primaryKeyword: "video generation api"
-keywords: ["video generation api", "ai video api", "open source video model api", "text to video api"]
-summary: "Video generation on Smarty Pants is Planned. It is not available, there is no video model in the catalog, and there is no date. Today Smarty Pants serves chat and embedding models, and is testing speech to text (Whisper large-v3 turbo) and image generation (FLUX.1 schnell); both open soon. If you need video now, use a provider that offers it. To ask for a specific open video model, use smartypants.network/request-a-model."
+keywords: ["video generation api", "ai video api", "open source video model api", "text to video api", "wan 2.2 api"]
+summary: "Smarty Pants makes short video clips from a text prompt with Wan 2.2 5B (FastWan build) on Apple Silicon Macs. Clips are 480p (832x480 or 480x832) and 2, 3 or 5 seconds long, cost $0.011 each, and take a few minutes. Send POST /v1/videos for a job id and poll it, or POST /v1/videos/generations to wait for the MP4. Every clip is labeled as made by AI."
 published: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-19"
 readingMinutes: 3
 faqs:
-  - q: "Can I generate video with Smarty Pants?"
-    a: "No. Video generation is Planned and not available. There is no video model in the Smarty Pants catalog today."
-  - q: "When will video generation open?"
-    a: "There is no date. Planned means it is on the roadmap but not usable by the public."
-  - q: "Which video model will Smarty Pants use?"
-    a: "Smarty Pants has not named one. You can ask for a specific open video model at smartypants.network/request-a-model."
-  - q: "What can I use instead today?"
-    a: "For still images, FLUX.1 schnell is in testing on Smarty Pants and opens soon. For video, use a provider that offers it now."
-  - q: "Will AI-made video be labeled?"
-    a: "The Smarty Pants use rules already say that images and video are labeled as made by AI, and that you must not remove the label to pass them off as real."
-related: ["/inference/image-generation-api/", "/inference/", "/ai-models/flux-1-schnell/", "/inference/vs-centralized-providers/"]
+  - q: "What does a video clip cost?"
+    a: "$0.011 a clip at 480p, for 2, 3 or 5 seconds. You are not charged for a clip that fails or is refused."
+  - q: "How long does a clip take?"
+    a: "A few minutes on a Mac. Use POST /v1/videos, which answers at once with a job id, and poll GET /v1/videos/{id}; it shows your place in line and an estimate."
+  - q: "Which sizes are supported?"
+    a: "832x480 (landscape) or 480x832 (portrait), 2, 3 or 5 seconds. Higher resolutions are not offered."
+  - q: "Are there content rules?"
+    a: "Yes. No sexual content involving minors, no sexual or nude video of real people, no fakes meant to fool people. Prompts are checked on the Mac before generation, and every clip is labeled as AI-made."
+  - q: "How does the price compare?"
+    a: "On 19 Nov 2026 DeepInfra listed the same model at $0.0225 for a 5 second 720p clip and half that at 480p, and fal listed $0.0125 for a 480p clip. Smarty Pants is $0.011."
+related: ["/ai-models/wan2-2-5b-video/", "/inference/image-generation-api/", "/inference/", "/pricing/"]
 sources:
-  - label: "Smarty Pants: GET /v1/models (catalog and use rules)"
-    url: "https://smartypants.network/v1/models"
-  - label: "Smarty Pants: Request a model"
-    url: "https://smartypants.network/request-a-model"
-  - label: "Smarty Pants: llms.txt"
+  - label: "Smarty Pants: llms.txt (Video)"
     url: "https://smartypants.network/llms.txt"
-  - label: "Smarty Pants: OpenAPI description (model wishes)"
-    url: "https://smartypants.network/openapi.json"
+  - label: "Smarty Pants: GET /v1/models"
+    url: "https://smartypants.network/v1/models"
+  - label: "DeepInfra: FastWan 2.2 TI2V 5B"
+    url: "https://deepinfra.com/FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers/api"
+  - label: "fal: Wan 2.2 5B fast"
+    url: "https://fal.ai/models/fal-ai/wan/v2.2-5b/text-to-video/fast-wan"
 ---
 
-Video generation is Planned on Smarty Pants. It is not available, and there is no date. This page says what that means, what you can use today, and how to tell the team which video model you want.
+Smarty Pants turns a text prompt into a short video clip on an Apple Silicon Mac. It is made for concept clips, mood shots and quick drafts, not long or high-resolution video.
 
-## Can you generate video on Smarty Pants today?
+## How do I make a clip?
 
-No. There is no video model in the catalog, and no video endpoint. The endpoints that exist are `GET /v1/models`, `POST /v1/chat/completions`, `POST /v1/embeddings` and `POST /v1/audio/transcriptions` ([llms.txt](https://smartypants.network/llms.txt)).
+Start a job, then poll it. The request body is the same for both routes.
 
-| Capability | Status on Smarty Pants |
+```sh
+curl https://smartypants.network/v1/videos \
+  -H "Authorization: Bearer $SMARTYPANTS_API_KEY" -H "Content-Type: application/json" \
+  -d '{"model": "smartypants/wan2.2-5b-video", "prompt": "A paper boat drifting down a rainy street", "size": "832x480", "seconds": 3}'
+# -> {"id": "...", "status": "queued", "ahead": 0, "eta_seconds": ...}
+curl https://smartypants.network/v1/videos/ID -H "Authorization: Bearer $SMARTYPANTS_API_KEY"
+```
+
+When `status` is `completed`, the response carries the MP4 as `b64_json`. A finished clip is held for at most 30 minutes, so collect it soon. `POST /v1/videos/generations` does the same in one call and waits for the clip.
+
+## What are the limits?
+
+| Setting | Value |
 |---|---|
-| Chat (Qwen3.5 9B, Qwen3.8 27B, Nanbeige4.3 33B) | Released; check `is_ready` |
-| Embeddings (Qwen3 Embedding 0.6B) | Released; check `is_ready` |
-| Speech to text (Whisper large-v3 turbo) | In testing, opens soon |
-| Images (FLUX.1 schnell) | In testing, opens soon |
-| Video | Planned |
+| Model | `smartypants/wan2.2-5b-video` (Wan 2.2 TI2V 5B, FastWan build) |
+| Size | 832x480 or 480x832 |
+| Length | 2, 3 or 5 seconds |
+| Time | A few minutes per clip |
+| Price | $0.011 a clip |
+| Labels | Every clip is labeled as made by AI |
 
-"Planned" means it is on the roadmap, not usable by the public. It is not a promise of a launch date or of a particular model.
+## When is another provider better?
 
-## Which video model is being considered?
+When you need 720p or higher, clips longer than 5 seconds, image-to-video, or results in seconds. GPU providers offer those. Smarty Pants fits low-cost drafts where a few minutes' wait is fine.
 
-Smarty Pants has not named one, so this page doesn't either. If there is an open video model you want, ask for it.
-
-## How do you ask for a video model?
-
-Use [smartypants.network/request-a-model](https://smartypants.network/request-a-model). You can paste a Hugging Face link, an org/name id or a model name, and add a short note about what you would use it for. No sign-in is needed. Agents can send the same request to `POST https://smartypants.network/v1/model-wishes` ([llms.txt](https://smartypants.network/llms.txt)).
-
-Requests help the team see which models people want. They don't guarantee a model will be added.
-
-## What can you use instead right now?
-
-For still images, look at FLUX.1 schnell, which is in testing on Smarty Pants: up to 4 images of up to 1536×1024 per request, each labeled as made by AI. See the [image generation API](/inference/image-generation-api/).
-
-For video you need today, use a provider that already offers video models. Smarty Pants is not the right choice for that work yet.
-
-## What rules will apply to AI video?
-
-The Smarty Pants use rules already cover video, listed in `use_rules` on [`/v1/models`](https://smartypants.network/v1/models):
-
-- No sexual content involving anyone under 18, ever.
-- No sexual or nude images or video of real people, and no fake images meant to fool people about real people.
-- Images and video are labeled as made by AI. Do not remove the label to pass them off as real.
-- Requests and answers that break these rules are blocked and thrown away.
-
-Every model in the Smarty Pants catalog lists these rules today.
+Video runs only on Macs with enough memory, and how many are online changes through the day: check `is_ready` on [/v1/models](https://smartypants.network/v1/models) first. Compare all prices on the [price page](/pricing/).
