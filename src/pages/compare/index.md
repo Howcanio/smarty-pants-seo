@@ -30,7 +30,7 @@ Every comparison here uses listed prices on a stated date and links to the sourc
 
 ## Using five of these at once?
 
-Most teams running agents stitch together a model API, a batch service, sandboxes, a dev VM, Mac CI and a worker host. Smarty Pants puts models, embeddings and batches behind one key and one balance today, adds workspaces for agents (invite only for now), and has CI, scheduled jobs and Docker builds coming. All of it is free on your Group's Macs. Read [one account instead of five](/compare/one-account-for-ai-agents/).
+Most teams running agents stitch together a model API, a batch service, sandboxes, a dev VM, Mac CI and a worker host. Smarty Pants puts models, embeddings and batches behind one key and one balance today, adds workspaces for agents (invite only for now), and has CI, scheduled jobs and Docker builds coming soon. All of it is free on your Group's Macs. Read [one account instead of five](/compare/one-account-for-ai-agents/).
 
 ## Which comparison do you need?
 

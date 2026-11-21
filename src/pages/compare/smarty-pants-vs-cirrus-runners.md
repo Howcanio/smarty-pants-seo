@@ -1,14 +1,14 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Smarty Pants vs. Cirrus Runners for macOS CI"
-description: "Cirrus Runners rents Apple Silicon GitHub Actions runners for a flat monthly fee. Smarty Pants runners on your own or your Group's Macs are coming, and free."
+description: "Cirrus Runners rents Apple Silicon GitHub Actions runners for a flat monthly fee. Smarty Pants runners on your own or your Group's Macs are coming soon, and free."
 h1: "Smarty Pants vs. Cirrus Runners"
 eyebrow: "Compare"
 audience: "buyer"
 status: "planned"
 primaryKeyword: "cirrus runners alternative"
 keywords: ["cirrus runners alternative", "macos github actions runner", "free macos ci", "self-hosted mac runner", "apple silicon ci"]
-summary: "Cirrus Runners rents macOS M4 Pro runners for GitHub Actions at a fixed $150 a month per concurrent runner with unlimited minutes (listed 21 Nov 2026). Smarty Pants GitHub Actions runners, coming and not on sale today, will run jobs on Macs you or your Group already own, free, in a fresh VM per job. Cirrus is the choice if you don't own spare Macs or need runners today."
+summary: "Cirrus Runners rents macOS M4 Pro runners for GitHub Actions at a fixed $150 a month per concurrent runner with unlimited minutes (listed 21 Nov 2026). Smarty Pants GitHub Actions runners, coming soon and not on sale today, will run jobs on Macs you or your Group already own, free, in a fresh VM per job. Cirrus is the choice if you don't own spare Macs or need runners today."
 published: "2026-11-21"
 updated: "2026-11-21"
 readingMinutes: 3
@@ -35,7 +35,7 @@ Cirrus Runners and GitHub's own macOS runners solve the same problem: you need m
 | Price | Free | $150 a month per concurrent runner, unlimited minutes |
 | A fresh VM per job | Yes | See Cirrus's docs |
 | Same account as models and workspaces | Yes | No |
-| Status on 21 Nov 2026 | Coming, switched off | Available |
+| Status on 21 Nov 2026 | Coming soon | Available |
 
 Source: [Cirrus Runners](https://cirrus-runners.app/), checked 21 Nov 2026.
 
