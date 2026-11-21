@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Smarty Pants vs. GitHub macOS runners for Mac builds"
-description: "Run Xcode builds on Macs your team already owns with Smarty Pants (coming, free) or on GitHub's hosted macOS runners (per minute). Cost, limits and fit."
+description: "Run Xcode builds on Macs your team already owns with Smarty Pants (coming soon, free) or on GitHub's hosted macOS runners (per minute). Cost, limits and fit."
 h1: "Smarty Pants vs. GitHub's macOS runners"
 eyebrow: "Compare"
 audience: "buyer"
@@ -37,13 +37,13 @@ Building Mac and iPhone apps needs macOS, and macOS CI minutes are among the mos
 | Price | Free | $0.062 a minute (standard runner, 19 Nov 2026) |
 | Builds at once | Up to 2 per Mac | Per plan |
 | Signing keys | Never sent to a Mac | Stored as GitHub secrets |
-| Status | Coming, switched off today | Available |
+| Status | Coming soon | Available |
 
 Source: [GitHub's runner pricing](https://docs.github.com/en/billing/reference/actions-runner-pricing), checked 19 Nov 2026.
 
 ## What about GitHub Actions runners on my own Macs?
 
-Coming. Smarty Pants is building GitHub Actions runners that run your jobs on Macs you or your Group own, free, in a fresh VM per job. Your GitHub token stays encrypted on Smarty Pants, each runner gets a one-job pass that expires, and signing keys never go to a Mac. They are built and switched off today. Linux runners are coming after that; GitHub lists its 2-core Linux runner at $0.006 a minute (21 Nov 2026). For a flat-fee hosted option, see [Smarty Pants vs. Cirrus Runners](/compare/smarty-pants-vs-cirrus-runners/).
+Coming soon. Smarty Pants is building GitHub Actions runners that run your jobs on Macs you or your Group own, free, in a fresh VM per job. Your GitHub token stays encrypted on Smarty Pants, each runner gets a one-job pass that expires, and signing keys never go to a Mac. They are built and switched off today. Linux runners are coming soon after that; GitHub lists its 2-core Linux runner at $0.006 a minute (21 Nov 2026). For a flat-fee hosted option, see [Smarty Pants vs. Cirrus Runners](/compare/smarty-pants-vs-cirrus-runners/).
 
 ## When should I stay with GitHub's runners?
 
