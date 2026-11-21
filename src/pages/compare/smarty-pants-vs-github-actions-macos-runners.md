@@ -10,7 +10,7 @@ primaryKeyword: "github actions macos runner alternative"
 keywords: ["github actions macos runner alternative", "self-hosted macos runner", "cheap macos ci", "xcode build on own mac"]
 summary: "GitHub's hosted macOS runners charge per minute (listed at $0.062 a minute for the standard runner on 19 Nov 2026). Smarty Pants Mac app builds, coming soon, will run Xcode builds in macOS VMs on Macs you or your Group own, free, two at a time per Mac. They do not run on strangers' Macs, because Apple's license does not allow renting macOS VMs by the minute. GitHub stays the choice if you don't own spare Macs."
 published: "2026-11-19"
-updated: "2026-11-19"
+updated: "2026-11-21"
 readingMinutes: 3
 faqs:
   - q: "Can I use Smarty Pants for Mac builds today?"
@@ -19,7 +19,7 @@ faqs:
     a: "Apple's macOS license allows up to 2 macOS virtual machines per Mac for development and testing by the Mac's own user. Renting them to strangers by the minute is not allowed, so builds run only on your own or your Group's Macs."
   - q: "How is this different from a self-hosted GitHub runner?"
     a: "Both use your own Macs. Smarty Pants adds a fresh macOS VM per build, owner controls and pause, and the same account, Group and budget as the rest of Smarty Pants."
-related: ["/compare/", "/workspaces/mac-builds/", "/groups/", "/pricing/"]
+related: ["/compare/", "/compare/smarty-pants-vs-cirrus-runners/", "/compare/one-account-for-ai-agents/", "/workspaces/mac-builds/", "/groups/", "/pricing/"]
 sources:
   - label: "GitHub Docs: Actions runner pricing (checked 19 Nov 2026)"
     url: "https://docs.github.com/en/billing/reference/actions-runner-pricing"
@@ -40,6 +40,10 @@ Building Mac and iPhone apps needs macOS, and macOS CI minutes are among the mos
 | Status | Coming, switched off today | Available |
 
 Source: [GitHub's runner pricing](https://docs.github.com/en/billing/reference/actions-runner-pricing), checked 19 Nov 2026.
+
+## What about GitHub Actions runners on my own Macs?
+
+Coming. Smarty Pants is building GitHub Actions runners that run your jobs on Macs you or your Group own, free, in a fresh VM per job. Your GitHub token stays encrypted on Smarty Pants, each runner gets a one-job pass that expires, and signing keys never go to a Mac. They are built and switched off today. Linux runners are coming after that; GitHub lists its 2-core Linux runner at $0.006 a minute (21 Nov 2026). For a flat-fee hosted option, see [Smarty Pants vs. Cirrus Runners](/compare/smarty-pants-vs-cirrus-runners/).
 
 ## When should I stay with GitHub's runners?
 
