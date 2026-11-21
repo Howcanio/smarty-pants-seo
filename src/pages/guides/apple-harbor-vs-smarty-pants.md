@@ -9,7 +9,7 @@ primaryKeyword: "apple harbor app"
 keywords: ["apple harbor app", "claris harbor", "harbor local ai mac", "mac cluster ai", "thunderbolt 5 mac cluster", "local ai server mac"]
 summary: "Harbor is a Mac app from Claris, Apple's subsidiary, that news reports describe as turning Apple silicon Macs you own into a private AI server. It is in early access, with no price or release date. Smarty Pants is available today. It also runs open models on Apple silicon Macs: models you keep on your own Mac, your team's Macs through a Group, or a network of member Macs when you need capacity on demand. Developers pay per token through an OpenAI-compatible API, and Mac owners can earn from idle time."
 published: "2026-11-11"
-updated: "2026-11-14"
+updated: "2026-11-21"
 readingMinutes: 6
 faqs:
   - q: "What is Apple's Harbor app?"
@@ -21,7 +21,7 @@ faqs:
   - q: "Can you earn money with Harbor?"
     a: "No report mentions it. With Smarty Pants, eligible Mac owners can earn from idle time."
   - q: "Can I run a model on my own Mac with Smarty Pants?"
-    a: "Yes, if your Mac is in Smarty Pants. Pick models to keep on your Mac in the Mac app, and your own requests for them run there for free. If your Mac is busy or off, the request goes to the network at the normal price. Adding a Mac is by invite for now."
+    a: "Yes, if your Mac is in Smarty Pants. Pick a model to keep on your Mac in the Mac app (one model per account for now), and your own requests for them run there for free. If your Mac is busy or off, the request goes to the network at the normal price. Adding a Mac is by invite for now."
   - q: "Does Smarty Pants work offline?"
     a: "Yes, for models you keep on your own Mac. Apps on that Mac can call them at http://127.0.0.1:7777/v1 with the Mac's own key, or you can use the Chat on this Mac window. These answers are free, work with no internet, and nothing leaves the Mac. Models you haven't kept need an internet connection."
   - q: "How does Smarty Pants protect my requests?"
@@ -60,7 +60,7 @@ On 10 November 2026, [MacRumors reported](https://www.macrumors.com/2026/11/10/a
 
 - **For developers:** call pinned open models through an OpenAI-compatible API at `https://smartypants.network/v1` and pay per token. Each model's exact build is listed at [/v1/models](https://smartypants.network/v1/models). You are not charged for a request Smarty Pants can't serve. [[API_ACCESS]]
 - **For teams:** put your company's own Macs in a Group. Members use them for AI at no charge, and you can set the Group so its work runs only on your Group's Macs ([For teams](https://smartypants.network/for-teams)). Group sign-up is invite only for now.
-- **Keep a model on your own Mac:** if your Mac is in Smarty Pants, pick models in the Mac app to keep on it, and your own requests for them run on that Mac for free. If it is busy or off, the request goes to the network at the normal price. Kept models also work with no internet: apps on the Mac call them at `http://127.0.0.1:7777/v1`, or you can use the Chat on this Mac window, and nothing leaves the Mac.
+- **Keep a model on your own Mac:** if your Mac is in Smarty Pants, pick a model in the Mac app to keep on it (one model per account for now), and your own requests for them run on that Mac for free. If it is busy or off, the request goes to the network at the normal price. Kept models also work with no internet: apps on the Mac call them at `http://127.0.0.1:7777/v1`, or you can use the Chat on this Mac window, and nothing leaves the Mac.
 - **For Mac owners:** earn from a Mac that would otherwise sit idle. Earn up to $1/day per eligible Mac during the intro offer. Eligible means a supported Apple silicon Mac with 16 GB of memory or more, in the US. Mac owner sign-up is invite only for now.
 
 ## What is Harbor?
