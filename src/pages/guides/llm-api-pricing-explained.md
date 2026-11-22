@@ -6,12 +6,14 @@ h1: "LLM API pricing explained, with a worked example"
 eyebrow: "Guide"
 audience: "buyer"
 primaryKeyword: "llm api pricing"
-keywords: ["llm api pricing", "price per million tokens", "input vs output tokens", "reasoning tokens cost", "embeddings api pricing", "open model api price"]
+keywords: ["llm api pricing", "price per million tokens", "input vs output tokens", "reasoning tokens cost", "embeddings api pricing", "open model api price", "cheapest llm api", "cheapest open source llm api"]
 summary: "LLM APIs charge per token, usually quoted in dollars per million tokens, with separate prices for input (your prompt) and output (the model's answer). Output usually costs more. Reasoning tokens are billed as output on OpenAI. Embeddings charge for input only. To estimate cost, multiply input and output token counts by their prices, and compare providers for the same model and build on the same day."
 published: "2026-11-09"
-updated: "2026-11-09"
-readingMinutes: 7
+updated: "2026-11-22"
+readingMinutes: 8
 faqs:
+  - q: "What is the cheapest API for open-source LLMs?"
+    a: "It depends on the model and on how much input versus output you use. On 22 Nov 2026, Smarty Pants and the lowest-priced OpenRouter routes for gpt-oss-20b, Qwen3.5 9B and Qwen3.8 27B were within a few cents per million tokens of each other. Compare the same model and build on the same day, and use batch pricing if your work can wait."
   - q: "How is LLM API pricing calculated?"
     a: "Cost equals input tokens times the input price plus output tokens times the output price. Prices are usually quoted per million tokens, so divide your token counts by 1,000,000 first."
   - q: "Does output cost more than input?"
@@ -102,6 +104,24 @@ The three rows are the same model name but not the same build, so this is a pric
 - **Context.** Smarty Pants lists 16,384 tokens of context for this model. OpenRouter lists 262,144. If your documents are longer than the context, the cheaper price doesn't help.
 - **Capacity.** Check `is_ready` on Smarty Pants before sending traffic, and keep a fallback.
 - **Prices move.** The lowest OpenRouter price for this model changed during the day we checked it. Re-check every provider's own page on the day you compare.
+
+## Which API is cheapest for popular open models?
+
+**It depends on the model, and the gap is often a few cents per million tokens, so compare the exact model and build on the same day.** Here is one snapshot, taken on 22 Nov 2026, of Smarty Pants listed prices next to the lowest-priced route [OpenRouter](https://openrouter.ai/) listed for the same model:
+
+| Model | Smarty Pants, input / output per M | Lowest OpenRouter route, input / output per M | Builds |
+|---|---|---|---|
+| gpt-oss-20b | $0.0171 / $0.0855 | $0.017 / $0.085 (Darkbloom) | Ours 4-bit MLX; that route fp8 |
+| Qwen3.5 9B | $0.076 / $0.114 | $0.08 / $0.12 (DeepInfra) | Ours 4-bit MLX; that route bf16 |
+| Qwen3.8 27B | $0.037 / $1.19 | $0.035 / $1.50 (Darkbloom); $0.039 / $1.25 (Chutes) | Ours 4-bit MLX; those routes fp4 and fp8 |
+
+So on these three models the listed prices are within a few cents of each other, and which one is cheapest depends on whether your job is mostly input or mostly output. Three things matter more than the headline price:
+
+- **Same build?** A 4-bit build and a bf16 build of the same model are not the same thing. Smarty Pants names its exact build in `build_id` on [/v1/models](https://smartypants.network/v1/models).
+- **Enough context?** Smarty Pants lists 16,384 tokens of context for these three models. Many routes list far more.
+- **Batch discount.** Smarty Pants batches cost half the normal per-token price, if your work can wait. See the [batch API](/inference/batch-api/).
+
+Sources: Smarty Pants [/v1/models](https://smartypants.network/v1/models) and OpenRouter's provider lists for [gpt-oss-20b](https://openrouter.ai/openai/gpt-oss-20b), [Qwen3.5 9B](https://openrouter.ai/qwen/qwen3.5-9b) and [Qwen3.8 27B](https://openrouter.ai/qwen/qwen3.8-27b), all checked 22 Nov 2026.
 
 ## How do I estimate my own cost?
 
