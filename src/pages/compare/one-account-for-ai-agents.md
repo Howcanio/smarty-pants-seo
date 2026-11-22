@@ -7,7 +7,7 @@ eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "all in one platform for ai agents"
 keywords: ["all in one platform for ai agents", "ai agent infrastructure", "openrouter e2b alternative", "one api for models and sandboxes", "free ci on your own macs", "agent sandbox and model api", "developer platform for agents"]
-summary: "Teams running AI agents usually stitch together a model API, a batch service, a sandbox provider, a dev VM, Mac CI minutes and a worker host, each with its own key, bill and dashboard. Smarty Pants puts open models, embeddings, reranking, half-price batches, scheduled batches, a skills shelf and sealed Linux workspaces behind one key and one balance. Work on Macs you or your Group own is free. GitHub Actions runners on your Group's Macs, scheduled jobs, Linux CI and Docker builds are coming soon, and are marked that way below."
+summary: "Teams running AI agents usually stitch together a model API, a batch service, a sandbox provider, a dev VM, Mac CI minutes and a worker host, each with its own key, bill and dashboard. Smarty Pants puts open models, embeddings, reranking, half-price batches, scheduled batches, scheduled jobs on your Group's Macs, a skills shelf and sealed Linux workspaces behind one key and one balance. Work on Macs you or your Group own is free. GitHub Actions runners on your Group's Macs, Linux CI and Docker builds are coming soon, and are marked that way below."
 published: "2026-11-21"
 updated: "2026-11-22"
 readingMinutes: 5
@@ -15,7 +15,7 @@ faqs:
   - q: "What can I use on Smarty Pants today?"
     a: "Open models through an OpenAI-compatible API (12 listed on /v1/models on 21 Nov 2026), embeddings, reranking, video, batches at half the normal per-token price, saved batches that run on a schedule, an MCP server, a command-line tool and a skills shelf of vetted agent skills. Sign-up is open and new accounts get $10 of free credit. Workspaces and Groups are invite only for now."
   - q: "What is coming soon?"
-    a: "GitHub Actions runners on your own or your Group's Macs, scheduled background jobs, Linux CI runners, arm64 Docker builds and Mac app builds. None of these are on sale today."
+    a: "GitHub Actions runners on your own or your Group's Macs, Linux CI runners, arm64 Docker builds and Mac app builds. None of these are on sale today."
   - q: "Is it really free on my own Macs?"
     a: "Yes. Model calls, workspaces, code runs and batches on Macs you own, or your Group's Macs for its members, cost nothing. You pay only for work that runs on other people's Macs."
   - q: "Will CI runners run on strangers' Macs?"
@@ -52,7 +52,7 @@ An agent with a real job needs more than a model. It needs somewhere to run code
 | Dev VM | GitHub Codespaces | $0.18 an hour, 2-core | Workspaces as above; free on your own Macs |
 | Mac CI | GitHub macOS runners, Cirrus Runners | $0.062 a minute; $150 a month per runner | Coming soon: GitHub Actions runners on your own or your Group's Macs, free |
 | Linux CI | GitHub Linux runners | $0.006 a minute, 2-core | Coming soon |
-| Background workers and cron | Render | From $7 a month per worker | Coming soon: scheduled jobs. Live now: scheduled batches |
+| Background workers and cron | Render | From $7 a month per worker | Live: scheduled code runs and background jobs on your own or your Group's Macs, free, plus scheduled batches |
 | Docker builds | Depot, Docker Build Cloud | Depot $20 a month for 500 build minutes | Coming soon: arm64 builds on your Group's Macs |
 
 Sources: [GitHub runner pricing](https://docs.github.com/en/billing/reference/actions-runner-pricing), [Codespaces billing](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces), [Cirrus Runners](https://cirrus-runners.app/), [Render pricing](https://render.com/pricing), [Depot pricing](https://depot.dev/pricing), all checked 21 Nov 2026. The products differ in size and features; each comparison page has the details.
@@ -66,11 +66,11 @@ Sources: [GitHub runner pricing](https://docs.github.com/en/billing/reference/ac
 
 ## What is live and what is coming soon?
 
-Live today, with open sign-up and $10 of free credit: model calls, embeddings, reranking, video, batches and scheduled batches, the MCP server and the CLI, and a skills shelf of skills we've checked (outside skills are pinned to a commit) that an agent installs with `npx -y smartypants-network skills add <name>` (listed at [/v1/skills](https://smartypants.network/v1/skills)).
+Live today, with open sign-up and $10 of free credit: model calls, embeddings, reranking, video, batches and scheduled batches, scheduled code runs and background jobs on your own or your Group's Macs (free; if a Mac drops out, the job retries on another), the MCP server and the CLI, and a skills shelf of skills we've checked (outside skills are pinned to a commit) that an agent installs with `npx -y smartypants-network skills add <name>` (listed at [/v1/skills](https://smartypants.network/v1/skills)).
 
 Invite only for now: [workspaces](/workspaces/) and [fleets](/workspaces/fleets/) on the network (free on your own Macs), and [Groups](/groups/).
 
-Coming soon, and not on sale today: GitHub Actions runners on your own or your Group's Macs, scheduled background jobs, Linux CI runners, arm64 Docker builds and [Mac app builds](/workspaces/mac-builds/). Each one stays "coming soon" here until it is live and has passed our own checks.
+Coming soon, and not on sale today: GitHub Actions runners on your own or your Group's Macs, Linux CI runners, arm64 Docker builds and [Mac app builds](/workspaces/mac-builds/). Each one stays "coming soon" here until it is live and has passed our own checks.
 
 ## When should I keep the stack I have?
 

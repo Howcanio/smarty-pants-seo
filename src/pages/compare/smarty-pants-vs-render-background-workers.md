@@ -1,15 +1,15 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Smarty Pants vs. Render background workers and cron jobs"
-description: "Render runs always-on workers and cron jobs for your app. Smarty Pants runs agent work by the second, with scheduled batches live and scheduled jobs coming soon."
+description: "Render runs always-on workers and cron jobs for your app. Smarty Pants runs agent work by the second, with scheduled batches and scheduled jobs on your own Macs live."
 h1: "Smarty Pants vs. Render workers and cron jobs"
 eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "render background worker alternative"
 keywords: ["render background worker alternative", "cheap cron jobs for ai", "scheduled ai batch", "background jobs for agents"]
-summary: "Render lists background workers from $7 a month (under 1 CPU, 512 MB) and cron jobs from $0.00016 a minute (checked 21 Nov 2026). Smarty Pants is not a web host. It runs agent work when it is needed: saved batches of model calls or code jobs that run every 15 minutes or more are live today, and scheduled background jobs on your own or your Group's Macs are coming soon. Keep Render for services that must always be on."
+summary: "Render lists background workers from $7 a month (under 1 CPU, 512 MB) and cron jobs from $0.00016 a minute (checked 21 Nov 2026). Smarty Pants is not a web host. It runs agent work when it is needed: saved batches of model calls or code jobs that run every 15 minutes or more are live today, and so are scheduled code runs and background jobs on your own or your Group's Macs, free. Keep Render for services that must always be on."
 published: "2026-11-21"
-updated: "2026-11-21"
+updated: "2026-11-22"
 readingMinutes: 3
 faqs:
   - q: "Can Smarty Pants replace my Render worker?"
@@ -17,7 +17,7 @@ faqs:
   - q: "What is a scheduled batch?"
     a: "A saved batch that Smarty Pants runs again every 15 minutes or more, or when you call its webhook. Model calls in it cost half the normal per-token price."
   - q: "What are scheduled jobs?"
-    a: "Coming soon: background jobs that run on a schedule on your own or your Group's Macs. They are built and switched off today."
+    a: "Code runs and background jobs that run on a schedule on your own or your Group's Macs, free. If a Mac drops out, the job retries on another one. They don't run on other people's Macs."
 related: ["/compare/", "/compare/one-account-for-ai-agents/", "/pricing/", "/groups/"]
 sources:
   - label: "Render: pricing (checked 21 Nov 2026)"
@@ -33,7 +33,7 @@ We like Render enough to run our own site on it. But a worker that waits all nig
 | | Smarty Pants | Render |
 |---|---|---|
 | Best for | AI work in bulk or on a schedule | Always-on apps, workers and cron |
-| Scheduled work | Live: scheduled batches (every 15 minutes or more, or by webhook). Coming soon: scheduled jobs on your Group's Macs | Cron jobs from $0.00016 a minute |
+| Scheduled work | Live: scheduled batches (every 15 minutes or more, or by webhook). Live: scheduled jobs on your own or your Group's Macs, free | Cron jobs from $0.00016 a minute |
 | Always-on worker | No | From $7 a month (under 1 CPU, 512 MB); $25 a month for 1 CPU, 2 GB |
 | Model calls in the job | Same key; half price in batches | A separate vendor |
 | On your own Macs | Free | n/a |
