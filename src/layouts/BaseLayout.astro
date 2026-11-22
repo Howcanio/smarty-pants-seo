@@ -10,8 +10,10 @@ interface Props {
   description: string;
   schema?: unknown[];
   ogType?: 'website' | 'article';
+  /** A plain markdown copy of this page (guides), for AI assistants. */
+  markdownUrl?: string;
 }
-const { title, description, schema = [], ogType = 'website' } = Astro.props;
+const { title, description, schema = [], ogType = 'website', markdownUrl } = Astro.props;
 
 const brand = ' | Smarty Pants';
 const fullTitle = title.includes('Smarty Pants') || title.length + brand.length > 64 ? title : title + brand;
@@ -70,6 +72,7 @@ const website = {
     <meta property="og:image:alt" content="Smarty Pants: pinned builds of open AI models on idle Apple silicon Macs." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+    {markdownUrl && <link rel="alternate" type="text/markdown" href={markdownUrl} />}
     <JsonLd data={organization} />
     <JsonLd data={website} />
     {schema.map((s) => <JsonLd data={s} />)}

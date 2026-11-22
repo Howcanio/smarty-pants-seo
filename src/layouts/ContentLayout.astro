@@ -74,7 +74,7 @@ const article = {
   ...(fm.primaryKeyword ? { about: fm.primaryKeyword } : {}),
 };
 ---
-<BaseLayout title={fm.title} description={fm.description} ogType={isGuide ? 'article' : 'website'} schema={[article]}>
+<BaseLayout title={fm.title} description={fm.description} ogType={isGuide ? 'article' : 'website'} schema={[article]} markdownUrl={isGuide ? `${path.replace(/\/$/, '')}.md` : undefined}>
   <div class="container">
     <Breadcrumbs items={crumbs} />
   </div>
