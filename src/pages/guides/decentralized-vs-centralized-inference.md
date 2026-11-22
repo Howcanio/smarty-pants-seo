@@ -6,12 +6,14 @@ h1: "Decentralized vs. centralized AI inference: what's the real trade-off?"
 eyebrow: "Guide"
 audience: "buyer"
 primaryKeyword: "decentralized ai inference"
-keywords: ["decentralized ai inference", "distributed inference", "decentralized gpu network", "centralized ai provider", "idle computers ai inference"]
+keywords: ["decentralized ai inference", "distributed inference", "decentralized gpu network", "centralized ai provider", "idle computers ai inference", "ai inference on macs", "mac inference network"]
 summary: "Centralized inference runs your requests on hardware one provider owns and operates. Decentralized inference runs them on machines owned by many independent people or companies, coordinated by a network. Decentralized networks can use idle capacity and set prices differently, but your request runs on someone else's computer, capacity varies, and latency is less predictable. Keep sensitive data on hardware you or your provider control."
 published: "2026-11-09"
-updated: "2026-11-20"
-readingMinutes: 7
+updated: "2026-11-22"
+readingMinutes: 8
 faqs:
+  - q: "Which networks run AI inference on people's Macs?"
+    a: "As of 22 Nov 2026, Smarty Pants and Darkbloom serve requests on independently owned Apple Silicon Macs, and AntSeed Colony pools Macs for one model in early access. exo and Apple's Minions research pool Macs you already own rather than strangers' Macs."
   - q: "What is decentralized AI inference?"
     a: "It is running AI model requests on computers owned by many independent operators instead of one provider's data centers. A network matches each request to a machine that has the model loaded."
   - q: "Is distributed inference the same as decentralized inference?"
@@ -24,6 +26,10 @@ faqs:
     a: "On Smarty Pants, a team can put its own Macs in a Group. Members use them for AI for free and work stays on the Group's Macs first. Group sign-up is invite only for now."
 related: ["/inference/vs-centralized-providers/", "/inference/", "/guides/openai-compatible-api-explained/", "/guides/llm-api-pricing-explained/", "/earn/safety-and-controls/", "/guides/what-is-mlx/", "/compare/smarty-pants-vs-antseed/"]
 sources:
+  - label: "The Register: Darkbloom links old Macs into an AI inference network (24 Aug 2026)"
+    url: "https://www.theregister.com/ai-and-ml/2026/08/24/conjure-cash-with-old-macs-by-linking-them-to-ai-inference-borg/5292002"
+  - label: "Apple Machine Learning Research: Minions, a virtual GPU cloud on idle Apple Silicon devices"
+    url: "https://machinelearning.apple.com/research/distributed-gpu-cloud"
   - label: "Exo Labs: What is distributed inference? Pipeline vs tensor parallelism"
     url: "https://exolabs.net/faq/what-is-distributed-inference/"
   - label: "Exo Labs: Local AI FAQ"
@@ -69,6 +75,20 @@ Several networks work this way, each in its own manner:
 - [Vast.ai](https://vast.ai/) is a GPU rental marketplace.
 - [io.net](https://io.net/) describes itself as an open source AI infrastructure platform.
 - [AntSeed](https://antseed.com/) calls itself "a fully peer-to-peer network for AI", where independent providers compete for each request and settle in USDC on Base. Its Colony app, in early access on 20 Nov 2026, pools Macs to serve one open model. See [Smarty Pants vs. AntSeed](/compare/smarty-pants-vs-antseed/).
+
+## Which networks run AI inference on people's Macs?
+
+**A few, and they work differently. Darkbloom and Smarty Pants serve requests on Macs that independent owners run. AntSeed Colony pools Macs for one model. exo and Apple's Minions research join Macs you or your team already own.** As of 22 Nov 2026:
+
+| Network | Whose Macs | How you use it | Status |
+|---|---|---|---|
+| Smarty Pants | Independently owned Macs, plus your own or your Group's Macs | OpenAI-compatible API at `smartypants.network/v1`, exact pinned builds | Live; API sign-up is open, Mac owners join by invitation for now |
+| [Darkbloom](https://darkbloom.dev/) (Eigen Labs) | Personally owned Apple Silicon Macs; its terms bar renting cloud Macs to resell | Listed as a paid inference provider on OpenRouter, per [The Register](https://www.theregister.com/ai-and-ml/2026/08/24/conjure-cash-with-old-macs-by-linking-them-to-ai-inference-borg/5292002) (24 Aug 2026) | Live |
+| [AntSeed Colony](https://antseed.com/colony/) | Macs pooled to serve one open model, inside AntSeed's peer-to-peer network | Pays in USDC on Base | Early access on 20 Nov 2026 |
+| [exo](https://exolabs.net/faq/) | Your own Macs on one local network | Splits one large model across them so their memory adds up | Open-source software, not a public network |
+| [Apple Minions](https://machinelearning.apple.com/research/distributed-gpu-cloud) | Idle Apple Silicon Macs inside an organization | Pools their GPUs into one virtual cloud for inference | Research paper (Oct 2026), not a product |
+
+If you want to call open models on other people's Macs from code, the first three are your options. If you want to pool Macs you already own, look at exo, or at a Smarty Pants Group, where members use their own Macs for free.
 
 ## Is "distributed inference" the same thing?
 
