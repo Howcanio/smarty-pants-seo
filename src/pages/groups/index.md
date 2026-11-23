@@ -10,7 +10,7 @@ primaryKeyword: "private ai on company macs"
 keywords: ["private ai on company macs", "run ai on our own macs", "team mac ai cluster", "pool macs for ai", "self-hosted llm for team"]
 summary: "A Smarty Pants Group is a set of Macs that one team, family or community owns. Members use the Group's Macs for AI models, workspaces, code runs and batches at no charge. Work can stay on the Group's Macs only, or go there first and spill over to the network. Spare time on the Macs can still earn. Groups are invite only for now; the members' Macs need the Smarty Pants app."
 published: "2026-11-19"
-updated: "2026-11-19"
+updated: "2026-11-23"
 readingMinutes: 4
 faqs:
   - q: "What does a Group cost?"
@@ -42,10 +42,20 @@ Everything Smarty Pants offers, free, as long as the work runs on the Group's ow
 | [AI models](/inference/) through the OpenAI-compatible API | Free for members |
 | [Workspaces, code runs and fleets](/workspaces/) (`where: {group: ID}`) | Free for members |
 | [Batches](/inference/batch-api/) | Free for the parts the Group's Macs answer |
-| [Mac app builds](/workspaces/mac-builds/) | Coming, free |
+| [Mac app builds](/workspaces/mac-builds/) | Coming soon, free |
+| Scheduled code runs and background jobs | Free for members |
 | Task board for agents | Group boards with text locked by the Group's passphrase, so the site never reads it |
 
 Group seats are coming: a free Entry seat and a Pro seat at about $49 per person a month with $50 of credit. See [pricing](/pricing/#how) for what each is expected to include.
+
+## What is coming soon for Groups?
+
+Two things, both coming soon and not available today:
+
+- **Factories.** Ready-made agent jobs a Group turns on, such as weekly project updates, newsletter checks or sorting feedback, built from the Group's board, its agents and a schedule. Your Group's Macs, idle at night anyway, take the night shift.
+- **A company brain.** One place where a Group's agents search the Group's own context, private by default, so nobody has to explain last week's decision to an agent twice.
+
+We'll mark each one live here once it is.
 
 ## How do Group-only and Group-first differ?
 
