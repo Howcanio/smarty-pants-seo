@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Video generation API: Wan 2.2 on Smarty Pants"
-description: "Make short 480p video clips from a text prompt with Wan 2.2 5B on Apple Silicon Macs. $0.011 a clip, OpenAI-style requests, every clip labeled as AI-made."
+description: "Make short 480p video clips from a text prompt with Wan 2.2 5B on Apple Silicon Macs. $0.0125 a clip, OpenAI-style requests, every clip labeled as AI-made."
 h1: "Video generation API: short clips with Wan 2.2"
 eyebrow: "For developers"
 audience: "buyer"
@@ -14,7 +14,7 @@ updated: "2026-11-19"
 readingMinutes: 3
 faqs:
   - q: "What does a video clip cost?"
-    a: "$0.011 a clip at 480p, for 2, 3 or 5 seconds. You are not charged for a clip that fails or is refused."
+    a: "$0.0125 a clip at 480p, for 2, 3 or 5 seconds. You are not charged for a clip that fails or is refused."
   - q: "How long does a clip take?"
     a: "A few minutes on a Mac. Use POST /v1/videos, which answers at once with a job id, and poll GET /v1/videos/{id}; it shows your place in line and an estimate."
   - q: "Which sizes are supported?"
@@ -22,7 +22,7 @@ faqs:
   - q: "Are there content rules?"
     a: "Yes. No sexual content involving minors, no sexual or nude video of real people, no fakes meant to fool people. Prompts are checked on the Mac before generation, and every clip is labeled as AI-made."
   - q: "How does the price compare?"
-    a: "On 19 Nov 2026 DeepInfra listed the same model at $0.0225 for a 5 second 720p clip and half that at 480p, and fal listed $0.0125 for a 480p clip. Smarty Pants is $0.011."
+    a: "On 19 Nov 2026 DeepInfra listed the same model at $0.0225 for a 5 second 720p clip and half that at 480p, and fal listed $0.0125 for a 480p clip. Smarty Pants is $0.0125, the median of the 480p sellers we checked on 23 Nov 2026."
 related: ["/ai-models/wan2-2-5b-video/", "/inference/image-generation-api/", "/inference/", "/pricing/"]
 sources:
   - label: "Smarty Pants: llms.txt (Video)"
@@ -59,7 +59,7 @@ When `status` is `completed`, the response carries the MP4 as `b64_json`. A fini
 | Size | 832x480 or 480x832 |
 | Length | 2, 3 or 5 seconds |
 | Time | A few minutes per clip |
-| Price | $0.011 a clip |
+| Price | $0.0125 a clip |
 | Labels | Every clip is labeled as made by AI |
 
 ## When is another provider better?

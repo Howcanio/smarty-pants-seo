@@ -7,13 +7,13 @@ eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "together ai alternative"
 keywords: ["together ai alternative", "smarty pants vs together ai", "cheap open model api", "qwen3.5 9b api price"]
-summary: "Together AI runs open models on its own GPU cloud, with a large catalog, fine-tuning and dedicated endpoints. Smarty Pants runs a smaller set of open models on idle Apple Silicon Macs. On 19 Nov 2026, Smarty Pants listed Qwen3.5 9B at $0.076 / $0.114 per million tokens against Together's $0.17 / $0.25, and Muse Glimmer 30B at $0.285 / $1.14 against $0.35 / $1.50. Pick Together for GPUs, fine-tuning and guaranteed capacity."
+summary: "Together AI runs open models on its own GPU cloud, with a large catalog, fine-tuning and dedicated endpoints. Smarty Pants runs a smaller set of open models on idle Apple Silicon Macs. On 19 Nov 2026, Smarty Pants listed Qwen3.5 9B at $0.10 / $0.15 per million tokens against Together's $0.17 / $0.25, and Muse Glimmer 30B at $0.325 / $1.35 against $0.35 / $1.50. Pick Together for GPUs, fine-tuning and guaranteed capacity."
 published: "2026-11-19"
 updated: "2026-11-19"
 readingMinutes: 3
 faqs:
   - q: "Is Smarty Pants cheaper than Together AI?"
-    a: "For the two models we found both listing on 19 Nov 2026, yes: Qwen3.5 9B and Muse Glimmer 30B. Together sells many models Smarty Pants does not, so compare model by model."
+    a: "For the two models we found both listing, yes, on the dates checked (Together 19 Nov 2026, Smarty Pants 23 Nov 2026): Qwen3.5 9B and Muse Glimmer 30B. Together sells many models Smarty Pants does not, so compare model by model."
   - q: "Does Smarty Pants offer fine-tuning or dedicated endpoints?"
     a: "No. Smarty Pants serves fixed builds of open models per token. For fine-tuning or reserved GPUs, Together is the better fit."
   - q: "Does Smarty Pants have a batch API?"
@@ -34,8 +34,8 @@ Together AI and Smarty Pants both sell open models per token through an OpenAI-c
 
 | Model | Smarty Pants (in / out, per M tokens) | Together AI (in / out) |
 |---|---|---|
-| Qwen3.5 9B | $0.076 / $0.114 | $0.17 / $0.25 |
-| Muse Glimmer 30B | $0.285 / $1.14 | $0.35 / $1.50 |
+| Qwen3.5 9B | $0.10 / $0.15 | $0.17 / $0.25 |
+| Muse Glimmer 30B | $0.325 / $1.35 | $0.35 / $1.50 |
 
 Together's prices are as listed for Together on [OpenRouter's seller pages](https://openrouter.ai/qwen/qwen3.5-9b) on 19 Nov 2026; check [together.ai/pricing](https://www.together.ai/pricing) for its own current list. The builds are not the same, so test quality on your own examples.
 

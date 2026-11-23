@@ -1,14 +1,14 @@
 ---
 layout: ../../layouts/ContentLayout.astro
 title: "Smarty Pants workspaces vs. GitHub Codespaces for agents"
-description: "GitHub Codespaces is a cloud dev box for people. Smarty Pants workspaces are sealed Linux VMs for agents at $0.0129 an hour, free on your own Macs."
+description: "GitHub Codespaces is a cloud dev box for people. Smarty Pants workspaces are sealed Linux VMs for agents at $0.0666 an hour, free on your own Macs."
 h1: "Smarty Pants workspaces vs. GitHub Codespaces"
 eyebrow: "Compare"
 audience: "buyer"
 status: "invite"
 primaryKeyword: "codespaces alternative for ai agents"
 keywords: ["codespaces alternative", "codespaces alternative for ai agents", "cheap dev vm for agents", "agent sandbox linux vm", "cloud dev environment for agents"]
-summary: "GitHub Codespaces lists a 2-core machine at $0.18 an hour plus $0.07 per GB-month of storage, with a monthly free allowance for personal accounts (checked 21 Nov 2026). A Smarty Pants workspace is a sealed ARM64 Linux VM with 2 vCPU and 2 GB for $0.0129 an hour, and free on Macs you or your Group own. Codespaces has bigger machines and an editor built for people; Smarty Pants is built for agents and is on our own account first."
+summary: "GitHub Codespaces lists a 2-core machine at $0.18 an hour plus $0.07 per GB-month of storage, with a monthly free allowance for personal accounts (checked 21 Nov 2026). A Smarty Pants workspace is a sealed ARM64 Linux VM with 2 vCPU and 2 GB for $0.0666 an hour, and free on Macs you or your Group own. Codespaces has bigger machines and an editor built for people; Smarty Pants is built for agents and is on our own account first."
 published: "2026-11-21"
 updated: "2026-11-21"
 readingMinutes: 3
@@ -33,7 +33,7 @@ Codespaces is a great place for a person to write code. An agent doesn't need a 
 |---|---|---|
 | Made for | Agents, through the API, MCP or CLI | People, in an editor |
 | Machine | ARM64 Linux VM, 2 vCPU, 2 GB | From 2 cores up |
-| Price | $0.0129 an hour, billed per second | $0.18 an hour for 2-core, plus $0.07 per GB-month storage |
+| Price | $0.0666 an hour, billed per second | $0.18 an hour for 2-core, plus $0.07 per GB-month storage |
 | On your own Macs | Free | n/a |
 | Free allowance | $10 credit for new accounts | A monthly allowance for personal accounts (no free quota for organizations) |
 | Status on 21 Nov 2026 | Our own account first | Available |

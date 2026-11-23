@@ -96,7 +96,7 @@ const EXTRA: Record<string, Extra> = {
   },
   'smartypants/wan2.2-5b-video': {
     slug: 'wan2-2-5b-video', short: 'Makes short video clips from a description.', kindLabel: 'Video', endpoint: 'POST /v1/videos', served: 'bf16',
-    priceText: '$0.011 a 480p clip',
+    priceText: '$0.0125 a 480p clip',
     useFor: ['Short 2, 3 or 5 second clips at 480p (832x480 or 480x832)', 'Concept and mood clips'],
     avoidFor: ['Long or high-resolution video', 'Sexual or nude content of real people, or fakes meant to fool people about real people (not allowed by the use rules)', 'Anything that must not be labeled as AI-made'],
   },

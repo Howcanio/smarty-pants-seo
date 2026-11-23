@@ -91,7 +91,7 @@ Defaults differ. E2B's [internet access page](https://docs.e2b.dev/network/inter
 - A short Python, JavaScript or shell program runs in a sealed Linux (ARM64) VM: no network, no disk, wiped after.
 - Up to 30 seconds per job and up to 4 KB of output.
 - Output streams while it runs: `GET /v1/cpu/jobs/{id}/output?stdoutOffset=0&stderrOffset=0` returns what it has printed so far. Pass back each stream's `nextOffset` until `done` is true.
-- Listed price: $0.0043 per vCPU-hour plus $0.00215 per GB-hour, about $0.00007 for a 20-second job at the default size of 2 vCPU and 2 GB of memory.
+- Listed price: $0.0252 per vCPU-hour plus $0.0081 per GB-hour, about $0.0004 for a 20-second job at the default size of 2 vCPU and 2 GB of memory.
 
 More on the [CPU jobs page](/cpu/).
 

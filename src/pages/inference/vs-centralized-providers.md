@@ -91,8 +91,8 @@ On the dates shown, Smarty Pants listed lower prices than Groq for all three. Th
 
 | Model | Smarty Pants listed price (19 Nov 2026) | Groq listed price (checked 9 Nov 2026) | Build: Smarty Pants / Groq | Context or file limit: Smarty Pants / Groq |
 |---|---|---|---|---|
-| Qwen3.8 27B | $0.037 in / $1.19 out per M tokens (released) | $0.80 in / $4.00 out per M tokens (Groq "preview" model) | 3.8-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
-| gpt-oss-20b | $0.0171 in / $0.0855 out per M tokens (released) | $0.075 in / $0.30 out per M tokens | 4-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
+| Qwen3.8 27B | $0.21 in / $2.10 out per M tokens (released) | $0.80 in / $4.00 out per M tokens (Groq "preview" model) | 3.8-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
+| gpt-oss-20b | $0.03 in / $0.15 out per M tokens (released) | $0.075 in / $0.30 out per M tokens | 4-bit MLX / quantization not stated | 16,384 / 131,072 tokens |
 | Whisper large-v3 turbo | about $0.011 an hour of audio (in testing, opens soon) | $0.04 an hour of audio | Core ML / not stated | 25 MB / 100 MB max file |
 
 Sources: [Smarty Pants /v1/models](https://smartypants.network/v1/models), [Smarty Pants API guide](https://smartypants.network/api), [GroqCloud supported models](https://console.groq.com/docs/models). Groq does not state the quantization of its builds. Smarty Pants names the build it serves for each model, and its chat models are quantized MLX builds. So the models in each row are not the same build, and the context windows differ. For more on comparing token prices, see [LLM API pricing explained](/guides/llm-api-pricing-explained/) and [/inference/pricing/](/inference/pricing/).
