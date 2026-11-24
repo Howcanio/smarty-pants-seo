@@ -44,11 +44,11 @@ An agent with a real job needs more than a model. It needs somewhere to run code
 
 | The job | What people often use | Their listed price (checked 21 Nov 2026) | On Smarty Pants |
 |---|---|---|---|
-| Open model calls | OpenRouter, Together AI | Varies by model | Live: about 95% of the cheapest hosted seller of the same model |
+| Open model calls | OpenRouter, Together AI | Varies by model | Live: the median price of hosted sellers of the same model; free on your own and your Group's Macs |
 | Overnight bulk calls | A batch API | Often half price | Live: batches at half the per-token price, plus saved batches that run every 15 minutes or more |
 | Embeddings and reranking | A second vendor | Varies | Live, same key |
 | Agent skills | Copying SKILL.md files from repos | Free, unchecked | Live: a shelf of checked skills, one command to install |
-| Agent sandboxes | E2B, Daytona, Modal | Per second | Our own account first: sealed Linux workspaces, $0.0129 an hour for 2 vCPU and 2 GB |
+| Agent sandboxes | E2B, Daytona, Modal | Per second | Our own account first: sealed Linux workspaces, $0.0666 an hour for 2 vCPU and 2 GB |
 | Dev VM | GitHub Codespaces | $0.18 an hour, 2-core | Workspaces as above; free on your own Macs |
 | Mac CI | GitHub macOS runners, Cirrus Runners | $0.062 a minute; $150 a month per runner | Coming soon: GitHub Actions runners on your own or your Group's Macs, free |
 | Linux CI | GitHub Linux runners | $0.006 a minute, 2-core | Coming soon |

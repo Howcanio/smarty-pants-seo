@@ -8,7 +8,7 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "agent sandbox session"
 keywords: ["agent sandbox session", "persistent sandbox for ai agents", "run multiple commands in a sandbox", "cpu sessions api", "sp.workspace"]
-summary: "A Smarty Pants workspace session keeps one sealed Linux VM open on a Mac so an agent can put files, run several commands and read results, then end it. Limits: up to 2 hours per workspace, 10 minutes idle, 10 minutes per command, files up to 16 MiB in and 64 MiB out. It costs $0.0129 an hour for 2 vCPU and 2 GB, billed per second, and is free on your own or your Group's Macs. If the Mac's owner returns, it ends within 5 seconds."
+summary: "A Smarty Pants workspace session keeps one sealed Linux VM open on a Mac so an agent can put files, run several commands and read results, then end it. Limits: up to 2 hours per workspace, 10 minutes idle, 10 minutes per command, files up to 16 MiB in and 64 MiB out. It costs $0.0666 an hour for 2 vCPU and 2 GB, billed per second, and is free on your own or your Group's Macs. If the Mac's owner returns, it ends within 5 seconds."
 published: "2026-11-09"
 updated: "2026-11-19"
 readingMinutes: 4
@@ -16,7 +16,7 @@ faqs:
   - q: "How long can a workspace session last?"
     a: "Up to 2 hours per workspace. It also ends after 10 minutes idle, and each command can run up to 10 minutes."
   - q: "Are workspace sessions charged?"
-    a: "Free on Macs you own or your Group's Macs. On other people's Macs, $0.0129 an hour for 2 vCPU and 2 GB, billed per second; that paid use is on Smarty Pants' own account first."
+    a: "Free on Macs you own or your Group's Macs. On other people's Macs, $0.0666 an hour for 2 vCPU and 2 GB, billed per second; that paid use is on Smarty Pants' own account first."
   - q: "What does OWNER_RETURNED mean?"
     a: "The Mac's owner came back, so the workspace ended within 5 seconds. With autoSave and failover on, the site opens a copy on another Mac from the last save; otherwise start a new session and redo the step."
   - q: "Are files kept after a session ends?"
@@ -50,7 +50,7 @@ Up to 2 hours per workspace, with files up to 16 MiB in and 64 MiB out.
 | Network | None by default; reviewed public sites when asked for |
 | After it ends | Nothing is kept unless you saved it |
 | Owner returns | Workspace ends within 5 seconds, `OWNER_RETURNED` |
-| Price | $0.0129 an hour, billed per second from ready to end; free on your own or your Group's Macs |
+| Price | $0.0666 an hour, billed per second from ready to end; free on your own or your Group's Macs |
 
 The VM is the same kind used for [CPU jobs](/cpu/): ARM64 Linux with Python 3, Node.js and a basic shell.
 

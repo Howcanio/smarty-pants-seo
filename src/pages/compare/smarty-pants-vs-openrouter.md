@@ -7,13 +7,13 @@ eyebrow: "Compare"
 audience: "buyer"
 primaryKeyword: "openrouter alternative"
 keywords: ["openrouter alternative", "smarty pants vs openrouter", "cheapest qwen api", "cheapest gpt-oss-20b api"]
-summary: "OpenRouter is one API in front of many sellers, with hundreds of models and long context. Smarty Pants serves a smaller set of open models on Apple Silicon Macs and prices each at about 95% of the cheapest OpenRouter seller of the same model (checked 19 Nov 2026). Pick OpenRouter for breadth, long context and many fallbacks; pick Smarty Pants for the lowest listed price on the models it serves, models nobody else hosts, and free use of your own Macs."
+summary: "OpenRouter is one API in front of many sellers, with hundreds of models and long context. Smarty Pants serves a smaller set of open models on Apple Silicon Macs and prices each at the median of the OpenRouter sellers of the same model (checked 23 Nov 2026). Pick OpenRouter for breadth, long context and many fallbacks; pick Smarty Pants for the lowest listed price on the models it serves, models nobody else hosts, and free use of your own Macs."
 published: "2026-11-19"
 updated: "2026-11-19"
 readingMinutes: 4
 faqs:
   - q: "Is Smarty Pants cheaper than OpenRouter?"
-    a: "On 19 Nov 2026, for the five models both list, Smarty Pants charged about 95% of the cheapest OpenRouter seller. OpenRouter sellers change prices often, so check both before deciding."
+    a: "Not on price per token. On 23 Nov 2026, for the five models both list, Smarty Pants charged the median OpenRouter seller's price, so the cheapest seller on each model is cheaper. What Smarty Pants adds is free use of your own and your Group's Macs, a free daily small-model allowance, and workspaces on the same account."
   - q: "Can I use both?"
     a: "Yes. Both speak the OpenAI API format. Many teams send everyday work to one and keep the other as a fallback when is_ready is false or a request fails."
   - q: "Why is the context shorter on Smarty Pants?"
@@ -32,17 +32,17 @@ OpenRouter and Smarty Pants both give you open models through an OpenAI-compatib
 
 ## How do listed prices compare?
 
-For each model both list, Smarty Pants charges about 95% of OpenRouter's cheapest seller, per million tokens, on 19 Nov 2026.
+For each model both list, Smarty Pants charges the median of OpenRouter's sellers, per million tokens, on 23 Nov 2026.
 
-| Model | Smarty Pants (in / out) | Cheapest OpenRouter seller | Seller |
-|---|---|---|---|
-| Qwen3.5 9B | $0.076 / $0.114 | $0.08 / $0.12 | DeepInfra |
-| Qwen3.8 27B | $0.037 / $1.19 | $0.039 / $1.25 | Chutes |
-| Qwen3.6 35B-A3B | $0.048 / $0.665 | $0.05 / $0.70 | Darkbloom |
-| gpt-oss-20b | $0.0171 / $0.0855 | $0.018 / $0.09 | Darkbloom, AkashML |
-| Muse Glimmer 30B | $0.285 / $1.14 | $0.30 / $1.20 | DeepInfra, ModelRun |
+| Model | Smarty Pants (in / out) | Median OpenRouter seller | Cheapest OpenRouter seller | Sellers |
+|---|---|---|---|---|
+| Qwen3.5 9B | $0.10 / $0.15 | $0.10 / $0.15 | $0.08 / $0.12 (DeepInfra) | 8 |
+| Qwen3.8 27B | $0.21 / $2.10 | $0.21 / $2.10 | $0.035 / $1.05 (Darkbloom, StreamLake) | 22 |
+| Qwen3.6 35B-A3B | $0.10 / $0.925 | $0.10 / $0.925 | $0.05 / $0.70 (Darkbloom) | 10 |
+| gpt-oss-20b | $0.03 / $0.15 | $0.03 / $0.15 | $0.015 / $0.076 (Darkbloom) | 11 |
+| Muse Glimmer 30B | $0.325 / $1.35 | $0.325 / $1.35 | $0.30 / $1.20 (DeepInfra, ModelRun) | 4 |
 
-Sources: [OpenRouter](https://openrouter.ai/models) seller lists and [Smarty Pants /v1/models](https://smartypants.network/v1/models), both 19 Nov 2026. The builds differ: Smarty Pants serves 4-bit MLX builds (named in `build_id`); OpenRouter sellers use bf16, fp8 or fp4.
+Sources: [OpenRouter](https://openrouter.ai/models) seller lists and [Smarty Pants /v1/models](https://smartypants.network/v1/models), both 23 Nov 2026. The builds differ: Smarty Pants serves 4-bit MLX builds (named in `build_id`); OpenRouter sellers use bf16, fp8 or fp4.
 
 ## What does OpenRouter do better?
 
@@ -53,7 +53,7 @@ Sources: [OpenRouter](https://openrouter.ai/models) seller lists and [Smarty Pan
 
 ## What does Smarty Pants do better?
 
-- **Price on the models it serves:** about 10% under the cheapest seller on the day we checked.
+- **The bundle around the price:** free use of your own and your Group's Macs, a free daily small-model allowance, and workspaces and Mac builds on the same account. Pro members pay 85% of the listed price.
 - **Exact builds:** each model is one pinned build, so the same request runs on the same weights every time.
 - **Models first:** some open models, like Arete 27B and Nanbeige4.3 33B, had no other seller when we added them.
 - **Your own Macs:** with a [Group](/groups/), your team's Macs serve your requests for free, and private work can stay on them.

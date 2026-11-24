@@ -58,20 +58,20 @@ Most models are released; a few are in testing. Prices below are the listed pric
 
 | Model (API name) | What it does | Context / max output | Listed price (19 Nov 2026) | Status |
 |---|---|---|---|---|
-| [smartypants/qwen3.5-9b](/ai-models/qwen3-5-9b/) | chat | 16,384 / 4,096 | $0.076 in / $0.114 out per M tokens | Released |
-| [smartypants/qwen3.8-27b](/ai-models/qwen3-8-27b/) | chat | 16,384 / 4,096 | $0.037 / $1.19 per M tokens | Released |
+| [smartypants/qwen3.5-9b](/ai-models/qwen3-5-9b/) | chat | 16,384 / 4,096 | $0.10 in / $0.15 out per M tokens | Released |
+| [smartypants/qwen3.8-27b](/ai-models/qwen3-8-27b/) | chat | 16,384 / 4,096 | $0.21 / $2.10 per M tokens | Released |
 | [smartypants/nanbeige4.3-33b](/ai-models/nanbeige4-3-33b/) | chat | 16,384 / 4,096 | $0.30 / $2.00 per M tokens | Released |
 | [smartypants/qwen3-embedding-0.6b](/ai-models/qwen3-embedding-0-6b/) | embeddings, 1,024 dims or fewer | 8,192 | $0.01 in per M tokens | Released |
 | [smartypants/qwen3.5-4b](/ai-models/qwen3-5-4b/) | chat | 8,192 / 2,048 | $0.10 / $0.25 per M tokens | In testing, opens soon |
-| [smartypants/qwen3.6-35b-a3b](/ai-models/qwen3-6-35b-a3b/) | chat, mixture of experts | 98,304 / 4,096 | $0.048 / $0.665 per M tokens | Released |
-| [smartypants/gpt-oss-20b](/ai-models/gpt-oss-20b/) | chat, mixture of experts | 16,384 / 4,096 | $0.0171 / $0.0855 per M tokens | Released |
+| [smartypants/qwen3.6-35b-a3b](/ai-models/qwen3-6-35b-a3b/) | chat, mixture of experts | 98,304 / 4,096 | $0.10 / $0.925 per M tokens | Released |
+| [smartypants/gpt-oss-20b](/ai-models/gpt-oss-20b/) | chat, mixture of experts | 16,384 / 4,096 | $0.03 / $0.15 per M tokens | Released |
 | [smartypants/whisper-large-v3-turbo](/ai-models/whisper-large-v3-turbo/) | speech to text, up to 30 min or 25 MB per file | n/a | about $0.011 an hour of audio | In testing, opens soon |
 | [smartypants/flux.1-schnell](/ai-models/flux-1-schnell/) | images, up to 4 per request, up to 1536×1024 | n/a | $0.003 a picture | In testing, opens soon |
 | [smartypants/arete-27b](/ai-models/arete-27b/) | chat | 16,384 / 4,096 | $0.20 / $1.20 per M tokens | Released |
 | [smartypants/axion-1.0-35b](/ai-models/axion-1-0-35b/) | chat, mixture of experts | 16,384 / 4,096 | $0.09 / $0.80 per M tokens | Released |
-| [smartypants/muse-glimmer-30b](/ai-models/muse-glimmer-30b/) | chat | 16,384 / 4,096 | $0.285 / $1.14 per M tokens | Released |
+| [smartypants/muse-glimmer-30b](/ai-models/muse-glimmer-30b/) | chat | 16,384 / 4,096 | $0.325 / $1.35 per M tokens | Released |
 | [smartypants/qwen3-reranker-0.6b](/ai-models/qwen3-reranker-0-6b/) | reranking | n/a | $0.0095 in per M tokens | Released |
-| [smartypants/wan2.2-5b-video](/ai-models/wan2-2-5b-video/) | video, 2 to 5 second clips at 480p | n/a | $0.011 a clip | Released |
+| [smartypants/wan2.2-5b-video](/ai-models/wan2-2-5b-video/) | video, 2 to 5 second clips at 480p | n/a | $0.0125 a clip | Released |
 
 "Released" does not mean a model is online right now. Availability changes hour to hour, because it depends on which Macs are idle. Check `is_ready` on `/v1/models` before you send traffic; when it is false, keep your current provider. See all models on [/ai-models/](/ai-models/) and costs on [/inference/pricing/](/inference/pricing/).
 
