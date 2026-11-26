@@ -59,6 +59,10 @@ const schema = {
   dateModified: CATALOG_CHECKED,
   publisher: { '@id': `${SITE.coreSite}/#organization` },
 };
+const speed = (m as any).tokensPerSecond ? { tps: (m as any).tokensPerSecond as number, first: (m as any).firstTokenMs as number | null } : null;
+const canTry = (m as any).playgroundReady === true && m.kind !== 'speech_to_text' && m.kind !== 'text_to_speech';
+const tryHref = `${SITE.coreSite}/playground?model=${encodeURIComponent(m.id)}`;
+const onlyHostedDate = m.onlyHostedSince ? new Date(`${m.onlyHostedSince}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : null;
 const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0, 4);
 ---
 <BaseLayout title={title} description={description} schema={[schema]}>
@@ -72,8 +76,10 @@ const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0,
         <h1>{m.shortName} on Apple silicon Macs</h1>
         <p class="status-line"><StatusBadge status={m.status} /></p>
         <p class="lead">{m.short} Smarty Pants serves a pinned, quantized {m.served} build on qualified Macs with {m.minMemoryGB} GB of memory or more, through an OpenAI-compatible API.</p>
+        {onlyHostedDate && <p>As of {onlyHostedDate}, Smarty Pants is the only hosted API for {m.shortName}: neither the Hugging Face inference router nor OpenRouter lists a provider for it.</p>}
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href={`${SITE.coreSite}/models/${m.id}`}>Live status and price</a>
+          {canTry && <a class="btn btn-primary btn-lg" href={tryHref}>Try it free</a>}
+          <a class={`btn ${canTry ? 'btn-secondary' : 'btn-primary'} btn-lg`} href={`${SITE.coreSite}/models/${m.id}`}>Live status and price</a>
           <a class="btn btn-secondary btn-lg" href="#call-it">Code to call it</a>
         </div>
       </div>
@@ -98,6 +104,7 @@ const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0,
         <div><dt>Mac memory needed</dt><dd>{m.minMemoryGB} GB or more</dd></div>
         {(m.kind === 'text' || m.kind === 'embedding') && <div><dt>Context on Smarty Pants</dt><dd>{m.contextTokens.toLocaleString('en-US')} tokens</dd></div>}
         {m.kind === 'text' && <div><dt>Max output</dt><dd>{m.maxOutputTokens.toLocaleString('en-US')} tokens</dd></div>}
+        {speed && <div><dt>Live speed</dt><dd>{speed.tps.toLocaleString('en-US')} tokens a second{speed.first ? `, first token in ${(speed.first / 1000).toFixed(1)} s` : ''} (on {checked})</dd></div>}
         {f?.developer && <div><dt>Developer</dt><dd>{f.developer}</dd></div>}
         {f?.params && <div><dt>Parameters</dt><dd>{f.params}{f.activeParams ? `, ${f.activeParams} active per token` : ''}</dd></div>}
         {f?.license && <div><dt>License</dt><dd>{f.license}</dd></div>}
@@ -105,7 +112,7 @@ const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0,
         {f?.released && <div><dt>First released</dt><dd>{new Date(`${f.released}-15T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' })}</dd></div>}
         <div><dt>Status</dt><dd>{m.status === 'released' ? 'Released' : 'In testing, opens soon'}</dd></div>
       </dl>
-      <p class="footnote">Smarty Pants catalog checked {checked}. Upstream facts from the developer's model card (sources below).</p>
+      <p class="footnote">Smarty Pants catalog checked {checked}.{speed ? ' Live speed is from the public catalog on that date and changes with the Mac serving your request.' : ''} Upstream facts from the developer's model card (sources below).</p>
     </div>
   </section>
 
@@ -148,6 +155,17 @@ const others = MODELS.filter((o) => o.id !== m.id && o.kind === m.kind).slice(0,
       </div>
       {python ? <pre class="code"><code>{python}</code></pre> : <p>The request format for image making will be in the <a href={`${SITE.coreSite}/docs/agents`}>agent kit and docs</a> when the model opens. Every image is labeled as made by AI, and the use rules forbid sexual content involving minors, sexual or nude images of real people, and deceptive fakes.</p>}
       <p class="footnote">Before sending real traffic, check <code>is_ready</code> for this model on <code>GET /v1/models</code>. A 429 or 503 means no Mac can take the request right now: wait the Retry-After seconds or use your fallback provider.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container text-block">
+      <h2>More ways to use it</h2>
+      <ul class="tick-list">
+        {m.batchText && <li><strong>Batch at half price.</strong> {m.kind === 'text' ? `Work that can wait, like grading a test set or tagging a catalog, costs half: ${m.batchText}.` : `Embedding a whole library that can wait costs half: ${m.batchText}.`} <a href="/inference/batch-api/">How batches work</a></li>}
+        {m.kind === 'text' && <li><strong>From an agent's workspace.</strong> An agent in a Smarty Pants workspace calls this model with a key that is already there, capped at the budget you set. <a href="/workspaces/model-calls/">Model calls in workspaces</a></li>}
+        <li><strong>Free on your Group's Macs.</strong> Put your team's own Macs in a Group, and members' requests that those Macs answer cost nothing. <a href="/groups/">How Groups work</a></li>
+      </ul>
     </div>
   </section>
 

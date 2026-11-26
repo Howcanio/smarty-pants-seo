@@ -39,6 +39,11 @@ const fromV1 = (v) => {
     embeddingDimensions: v.embedding_dimensions ?? null,
     licenseId: v.license?.id ?? null,
     licenseUrl: v.license?.url ?? null,
+    // Live speed and the playground flag only come from /api/public/models, and only for models a Mac
+    // can serve now. Never carried over from an older refresh: a stale speed is worse than none.
+    tokensPerSecond: p.tokensPerSecond ?? null,
+    firstTokenMs: p.firstTokenMs ?? null,
+    playgroundReady: p.playgroundReady ?? false,
   };
 };
 const live = v1.data.map(fromV1);
@@ -47,4 +52,5 @@ const kept = old.models.filter((m) => !liveIds.has(m.id));
 const models = [...live, ...kept];
 const out = { checked: new Date().toISOString().slice(0, 10), source: `${BASE}/v1/models (plus ${BASE}/api/public/models)`, models };
 writeFileSync(file, JSON.stringify(out, null, 2) + '\n');
+console.log('Reminder: re-check ONLY_HOSTED in src/data/models.ts (Hugging Face router and OpenRouter) before committing.');
 console.log(`catalog: ${live.length} from /v1/models, ${kept.length} kept from before (${kept.map((m) => m.id).join(', ') || 'none'}), checked ${out.checked}`);
