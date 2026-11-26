@@ -1,7 +1,33 @@
 {
-  "checked": "2026-11-24",
+  "checked": "2026-11-26",
   "source": "https://smartypants.network/v1/models (plus https://smartypants.network/api/public/models)",
   "models": [
+    {
+      "id": "smartypants/qwen3-embedding-0.6b",
+      "name": "Qwen3 Embedding 0.6B (Smarty Pants)",
+      "description": "Qwen3 Embedding 0.6B text embeddings (4-bit MLX), served by Smarty Pants on qualified 16 GB+ Apple Silicon Macs. 1,024 dimensions, or fewer with dimensions.",
+      "kind": "embedding",
+      "contextTokens": 8192,
+      "maxOutputTokens": 0,
+      "inputPricePerMillionUsd": 0.01,
+      "outputPricePerMillionUsd": 0,
+      "released": true,
+      "buildId": "qwen3-embedding-0.6b-mlx-4bit-dwq-r6c3ae70",
+      "upstream": "Qwen/Qwen3-Embedding-0.6B",
+      "quantization": "affine-4bit",
+      "aliases": [],
+      "supportedParameters": [
+        "dimensions",
+        "encoding_format"
+      ],
+      "supportedFeatures": [],
+      "embeddingDimensions": 1024,
+      "licenseId": "Apache-2.0",
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/blob/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/README.md",
+      "tokensPerSecond": null,
+      "firstTokenMs": null,
+      "playgroundReady": true
+    },
     {
       "id": "smartypants/arete-27b",
       "name": "Arete 27B (Smarty Pants)",
@@ -35,7 +61,10 @@
       ],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/NousResearch/Arete-27B/blob/108f0afbdcfaa1ceeda4a635004304dfff6d4da2/LICENSE"
+      "licenseUrl": "https://huggingface.co/NousResearch/Arete-27B/blob/108f0afbdcfaa1ceeda4a635004304dfff6d4da2/LICENSE",
+      "tokensPerSecond": 28.2,
+      "firstTokenMs": 4287,
+      "playgroundReady": true
     },
     {
       "id": "smartypants/axion-1.0-35b",
@@ -70,7 +99,10 @@
       ],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Axion1-0/Axion-1.0-35B/blob/d4fdb2d6d284ecc24359bfa161a58b835a63c754/LICENSE"
+      "licenseUrl": "https://huggingface.co/Axion1-0/Axion-1.0-35B/blob/d4fdb2d6d284ecc24359bfa161a58b835a63c754/LICENSE",
+      "tokensPerSecond": 71.2,
+      "firstTokenMs": 4074,
+      "playgroundReady": false
     },
     {
       "id": "smartypants/wan2.2-5b-video",
@@ -94,7 +126,10 @@
       "supportedFeatures": [],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers/blob/3e187042a324f6f5fb68fd22110a78725253de8f/README.md"
+      "licenseUrl": "https://huggingface.co/FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers/blob/3e187042a324f6f5fb68fd22110a78725253de8f/README.md",
+      "tokensPerSecond": null,
+      "firstTokenMs": null,
+      "playgroundReady": false
     },
     {
       "id": "smartypants/gpt-oss-20b",
@@ -129,42 +164,10 @@
       ],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/openai/gpt-oss-20b/blob/6cee5e81ee83917806bbde320786a8fb61efebee/LICENSE"
-    },
-    {
-      "id": "smartypants/muse-glimmer-30b",
-      "name": "Muse Glimmer 30B (Smarty Pants)",
-      "description": "Meta Muse Glimmer 30B (4-bit MLX, text), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
-      "kind": "text",
-      "contextTokens": 16384,
-      "maxOutputTokens": 4096,
-      "inputPricePerMillionUsd": 0.325,
-      "outputPricePerMillionUsd": 1.35,
-      "released": true,
-      "buildId": "muse-glimmer-30b-mlx-4bit-r3e7677d",
-      "upstream": "meta-models/Muse-Glimmer-30B",
-      "quantization": "affine-4bit",
-      "aliases": [],
-      "supportedParameters": [
-        "temperature",
-        "top_p",
-        "max_tokens",
-        "stop",
-        "stream",
-        "tools",
-        "tool_choice",
-        "response_format",
-        "reasoning"
-      ],
-      "supportedFeatures": [
-        "streaming",
-        "reasoning",
-        "tools",
-        "structured_output"
-      ],
-      "embeddingDimensions": null,
-      "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/meta-models/Muse-Glimmer-30B/blob/cec94fcfd6512f2cfe708138c32533b346ea4f69/LICENSE"
+      "licenseUrl": "https://huggingface.co/openai/gpt-oss-20b/blob/6cee5e81ee83917806bbde320786a8fb61efebee/LICENSE",
+      "tokensPerSecond": 80.6,
+      "firstTokenMs": 380,
+      "playgroundReady": true
     },
     {
       "id": "smartypants/nanbeige4.3-33b",
@@ -199,30 +202,10 @@
       ],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Nurymanau/Nanbeige4.3-33B-MLX-4bit/blob/604f4abb0d4ef97550aa76327dfc3953229b9d74/LICENSE"
-    },
-    {
-      "id": "smartypants/qwen3-embedding-0.6b",
-      "name": "Qwen3 Embedding 0.6B (Smarty Pants)",
-      "description": "Qwen3 Embedding 0.6B text embeddings (4-bit MLX), served by Smarty Pants on qualified 16 GB+ Apple Silicon Macs. 1,024 dimensions, or fewer with dimensions.",
-      "kind": "embedding",
-      "contextTokens": 8192,
-      "maxOutputTokens": 0,
-      "inputPricePerMillionUsd": 0.01,
-      "outputPricePerMillionUsd": 0,
-      "released": true,
-      "buildId": "qwen3-embedding-0.6b-mlx-4bit-dwq-r6c3ae70",
-      "upstream": "Qwen/Qwen3-Embedding-0.6B",
-      "quantization": "affine-4bit",
-      "aliases": [],
-      "supportedParameters": [
-        "dimensions",
-        "encoding_format"
-      ],
-      "supportedFeatures": [],
-      "embeddingDimensions": 1024,
-      "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/blob/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/README.md"
+      "licenseUrl": "https://huggingface.co/Nurymanau/Nanbeige4.3-33B-MLX-4bit/blob/604f4abb0d4ef97550aa76327dfc3953229b9d74/LICENSE",
+      "tokensPerSecond": 15.1,
+      "firstTokenMs": 1586,
+      "playgroundReady": false
     },
     {
       "id": "smartypants/qwen3-reranker-0.6b",
@@ -246,7 +229,162 @@
       "supportedFeatures": [],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/blob/e61197ed45024b0ed8a2d74b80b4d909f1255473/README.md"
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/blob/e61197ed45024b0ed8a2d74b80b4d909f1255473/README.md",
+      "tokensPerSecond": null,
+      "firstTokenMs": null,
+      "playgroundReady": false
+    },
+    {
+      "id": "smartypants/qwen3.5-9b",
+      "name": "Qwen3.5 9B (Smarty Pants)",
+      "description": "Qwen3.5 9B (4-bit MLX), served by Smarty Pants on qualified 16 GB+ Apple Silicon Macs.",
+      "kind": "text",
+      "contextTokens": 16384,
+      "maxOutputTokens": 4096,
+      "inputPricePerMillionUsd": 0.1,
+      "outputPricePerMillionUsd": 0.15,
+      "released": true,
+      "buildId": "qwen3.5-9b-mlx-4bit-r938d891",
+      "upstream": "Qwen/Qwen3.5-9B",
+      "quantization": "affine-4bit",
+      "aliases": [],
+      "supportedParameters": [
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "stop",
+        "stream",
+        "tools",
+        "tool_choice",
+        "response_format",
+        "reasoning"
+      ],
+      "supportedFeatures": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "structured_output"
+      ],
+      "embeddingDimensions": null,
+      "licenseId": "Apache-2.0",
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.5-9B/blob/c202236235762e1c871ad0ccb60c8ee5ba337b9a/LICENSE",
+      "tokensPerSecond": 47.3,
+      "firstTokenMs": 783,
+      "playgroundReady": true
+    },
+    {
+      "id": "smartypants/qwen3.6-35b-a3b",
+      "name": "Qwen3.6 35B-A3B (Smarty Pants)",
+      "description": "Qwen3.6 35B-A3B (4-bit MLX, mixture of experts), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
+      "kind": "text",
+      "contextTokens": 98304,
+      "maxOutputTokens": 16384,
+      "inputPricePerMillionUsd": 0.1,
+      "outputPricePerMillionUsd": 0.925,
+      "released": true,
+      "buildId": "qwen3.6-35b-a3b-mlx-4bit-r38740b8",
+      "upstream": "Qwen/Qwen3.6-35B-A3B",
+      "quantization": "affine-4bit",
+      "aliases": [],
+      "supportedParameters": [
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "stop",
+        "stream",
+        "tools",
+        "tool_choice",
+        "response_format",
+        "reasoning"
+      ],
+      "supportedFeatures": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "structured_output"
+      ],
+      "embeddingDimensions": null,
+      "licenseId": "Apache-2.0",
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/LICENSE",
+      "tokensPerSecond": 79.4,
+      "firstTokenMs": 1428,
+      "playgroundReady": false
+    },
+    {
+      "id": "smartypants/qwen3.8-27b",
+      "name": "Qwen3.8 27B (Smarty Pants)",
+      "description": "Qwen3.8 27B (3.8-bit MLX), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
+      "kind": "text",
+      "contextTokens": 16384,
+      "maxOutputTokens": 4096,
+      "inputPricePerMillionUsd": 0.21,
+      "outputPricePerMillionUsd": 2.1,
+      "released": true,
+      "buildId": "qwen3.8-27b-mlx-dwq3.8-r9fa7ab0",
+      "upstream": "Qwen/Qwen3.8-27B",
+      "quantization": "affine-4bit",
+      "aliases": [],
+      "supportedParameters": [
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "stop",
+        "stream",
+        "tools",
+        "tool_choice",
+        "response_format",
+        "reasoning"
+      ],
+      "supportedFeatures": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "structured_output"
+      ],
+      "embeddingDimensions": null,
+      "licenseId": "Apache-2.0",
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/LICENSE",
+      "tokensPerSecond": 19.7,
+      "firstTokenMs": 3063,
+      "playgroundReady": false
+    },
+    {
+      "id": "smartypants/muse-glimmer-30b",
+      "name": "Muse Glimmer 30B (Smarty Pants)",
+      "description": "Meta Muse Glimmer 30B (4-bit MLX, text), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
+      "kind": "text",
+      "contextTokens": 16384,
+      "maxOutputTokens": 4096,
+      "inputPricePerMillionUsd": 0.325,
+      "outputPricePerMillionUsd": 1.35,
+      "released": true,
+      "buildId": "muse-glimmer-30b-mlx-4bit-r3e7677d",
+      "upstream": "meta-models/Muse-Glimmer-30B",
+      "quantization": "affine-4bit",
+      "aliases": [],
+      "supportedParameters": [
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "stop",
+        "stream",
+        "tools",
+        "tool_choice",
+        "response_format",
+        "reasoning"
+      ],
+      "supportedFeatures": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "structured_output"
+      ],
+      "embeddingDimensions": null,
+      "licenseId": "Apache-2.0",
+      "licenseUrl": "https://huggingface.co/meta-models/Muse-Glimmer-30B/blob/cec94fcfd6512f2cfe708138c32533b346ea4f69/LICENSE",
+      "tokensPerSecond": 16.3,
+      "firstTokenMs": 3503,
+      "playgroundReady": false
     },
     {
       "id": "smartypants/qwen3.5-4b",
@@ -283,112 +421,10 @@
       ],
       "embeddingDimensions": null,
       "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.5-4B/blob/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/LICENSE"
-    },
-    {
-      "id": "smartypants/qwen3.5-9b",
-      "name": "Qwen3.5 9B (Smarty Pants)",
-      "description": "Qwen3.5 9B (4-bit MLX), served by Smarty Pants on qualified 16 GB+ Apple Silicon Macs.",
-      "kind": "text",
-      "contextTokens": 16384,
-      "maxOutputTokens": 4096,
-      "inputPricePerMillionUsd": 0.1,
-      "outputPricePerMillionUsd": 0.15,
-      "released": true,
-      "buildId": "qwen3.5-9b-mlx-4bit-r938d891",
-      "upstream": "Qwen/Qwen3.5-9B",
-      "quantization": "affine-4bit",
-      "aliases": [],
-      "supportedParameters": [
-        "temperature",
-        "top_p",
-        "max_tokens",
-        "stop",
-        "stream",
-        "tools",
-        "tool_choice",
-        "response_format",
-        "reasoning"
-      ],
-      "supportedFeatures": [
-        "streaming",
-        "reasoning",
-        "tools",
-        "structured_output"
-      ],
-      "embeddingDimensions": null,
-      "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.5-9B/blob/c202236235762e1c871ad0ccb60c8ee5ba337b9a/LICENSE"
-    },
-    {
-      "id": "smartypants/qwen3.6-35b-a3b",
-      "name": "Qwen3.6 35B-A3B (Smarty Pants)",
-      "description": "Qwen3.6 35B-A3B (4-bit MLX, mixture of experts), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
-      "kind": "text",
-      "contextTokens": 98304,
-      "maxOutputTokens": 4096,
-      "inputPricePerMillionUsd": 0.1,
-      "outputPricePerMillionUsd": 0.925,
-      "released": true,
-      "buildId": "qwen3.6-35b-a3b-mlx-4bit-r38740b8",
-      "upstream": "Qwen/Qwen3.6-35B-A3B",
-      "quantization": "affine-4bit",
-      "aliases": [],
-      "supportedParameters": [
-        "temperature",
-        "top_p",
-        "max_tokens",
-        "stop",
-        "stream",
-        "tools",
-        "tool_choice",
-        "response_format",
-        "reasoning"
-      ],
-      "supportedFeatures": [
-        "streaming",
-        "reasoning",
-        "tools",
-        "structured_output"
-      ],
-      "embeddingDimensions": null,
-      "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/LICENSE"
-    },
-    {
-      "id": "smartypants/qwen3.8-27b",
-      "name": "Qwen3.8 27B (Smarty Pants)",
-      "description": "Qwen3.8 27B (3.8-bit MLX), served by Smarty Pants on qualified 32 GB+ Apple Silicon Macs.",
-      "kind": "text",
-      "contextTokens": 16384,
-      "maxOutputTokens": 4096,
-      "inputPricePerMillionUsd": 0.21,
-      "outputPricePerMillionUsd": 2.1,
-      "released": true,
-      "buildId": "qwen3.8-27b-mlx-dwq3.8-r9fa7ab0",
-      "upstream": "Qwen/Qwen3.8-27B",
-      "quantization": "affine-4bit",
-      "aliases": [],
-      "supportedParameters": [
-        "temperature",
-        "top_p",
-        "max_tokens",
-        "stop",
-        "stream",
-        "tools",
-        "tool_choice",
-        "response_format",
-        "reasoning"
-      ],
-      "supportedFeatures": [
-        "streaming",
-        "reasoning",
-        "tools",
-        "structured_output"
-      ],
-      "embeddingDimensions": null,
-      "licenseId": "Apache-2.0",
-      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/LICENSE"
+      "licenseUrl": "https://huggingface.co/Qwen/Qwen3.5-4B/blob/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/LICENSE",
+      "tokensPerSecond": 53.2,
+      "firstTokenMs": 294,
+      "playgroundReady": true
     },
     {
       "id": "smartypants/flux.1-schnell",

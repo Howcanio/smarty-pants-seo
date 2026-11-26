@@ -16,6 +16,19 @@ type Extra = {
   useFor: string[]; avoidFor: string[];
 };
 
+/** A batch costs this share of the normal per-token price (BATCH_PRICE_PERCENT on the live site; llms.txt says half). */
+export const BATCH_PERCENT = 50;
+
+/**
+ * Models no one else offers as a hosted API, checked by hand on the date given against the Hugging Face
+ * inference router and OpenRouter's model list. Re-check at every catalog refresh; drop an entry the day it stops being true.
+ */
+export const ONLY_HOSTED: Record<string, string> = {
+  'smartypants/nanbeige4.3-33b': '2026-11-26',
+  'smartypants/arete-27b': '2026-11-26',
+  'smartypants/axion-1.0-35b': '2026-11-26',
+};
+
 export const BENCH_URL = 'https://huggingface.co/datasets/smartypantsnet/mac-benchmarks';
 
 /** Per-model notes written for this site. Plain-language "what it does" lines match smartypants.network/api. */
@@ -121,7 +134,10 @@ export const MODELS = catalog.models
         ? `${money(m.inputPricePerMillionUsd)} per million input tokens`
         : `${money(m.inputPricePerMillionUsd)} per million input tokens, ${money(m.outputPricePerMillionUsd)} per million output tokens`);
     const status: 'released' | 'testing' = m.released ? 'released' : 'testing';
-    return { ...m, ...x, facts: f, shortName, minMemoryGB, priceText, status };
+    const batchText = m.kind === 'text'
+      ? `${money(m.inputPricePerMillionUsd * BATCH_PERCENT / 100)} per million tokens in and ${money(m.outputPricePerMillionUsd * BATCH_PERCENT / 100)} per million tokens out`
+      : m.kind === 'embedding' ? `${money(m.inputPricePerMillionUsd * BATCH_PERCENT / 100)} per million tokens` : null;
+    return { ...m, ...x, facts: f, shortName, minMemoryGB, priceText, status, batchText, onlyHostedSince: ONLY_HOSTED[m.id] ?? null };
   })
   .sort((a, b) => Number(b.released) - Number(a.released) || a.minMemoryGB - b.minMemoryGB);
 
