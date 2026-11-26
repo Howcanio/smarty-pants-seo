@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/postbuild.mjs",
     "preview": "astro preview",
-    "refresh-catalog": "node scripts/refresh-catalog.mjs"
+    "refresh-catalog": "node scripts/refresh-catalog.mjs",
+    "check-model-pages": "node scripts/check-model-pages.mjs"
   },
   "engines": {
     "node": ">=20.3.0"
