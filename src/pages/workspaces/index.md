@@ -8,7 +8,7 @@ audience: "buyer"
 status: "invite"
 primaryKeyword: "agent sandbox"
 keywords: ["agent sandbox", "cloud sandbox for ai agents", "ai agent workspace", "sandbox for ai agents", "code execution sandbox"]
-summary: "A Smarty Pants workspace is a sealed ARM64 Linux VM on an Apple Silicon Mac where an agent can clone a repo, run commands and tests, keep files, call models and hand back results. It costs $0.0666 an hour for 2 vCPU and 2 GB, billed per second, and nothing on Macs you or your Group own. Paid use on other people's Macs is on Smarty Pants' own account first. The Mac's owner always comes first."
+summary: "A Smarty Pants workspace is a sealed ARM64 Linux VM on an Apple Silicon Mac where an agent can clone a repo, run commands and tests, keep files, call models and hand back results. It is billed per second for the size you pick and free while paused: $0.0666 an hour for 2 vCPU and 2 GB, $0.083 for 2 vCPU and 4 GB, and nothing on Macs you or your Group own. Paid use on other people's Macs is on Smarty Pants' own account first. The Mac's owner always comes first."
 published: "2026-11-09"
 updated: "2026-11-19"
 readingMinutes: 5
@@ -16,7 +16,7 @@ faqs:
   - q: "Can I use Smarty Pants agent workspaces today?"
     a: "Yes on your own Macs or your Group's Macs, free. Paid workspaces on Macs other people own run on Smarty Pants' own account first; other accounts get a 403 until that opens."
   - q: "What does a workspace cost?"
-    a: "$0.0666 an hour for 2 vCPU and 2 GB ($0.0252 per vCPU-hour plus $0.0081 per GB-hour), billed per second from when it is ready until it ends. Model calls from inside are charged per token on the same bill."
+    a: "$0.0666 an hour for 2 vCPU and 2 GB ($0.0252 per vCPU-hour plus $0.0081 per GB-hour), billed per second for the size you pick from when it is ready until it ends, and free while paused. The idle wait before a pause is never charged, and 2 vCPU and 4 GB is $0.083 an hour ($0.070 for Pro members). Model calls from inside are charged per token on the same bill."
   - q: "Does a workspace have internet access?"
     a: "Not by default. A workspace can be opened with a short list of reviewed public sites (for example package registries and GitHub) that it may reach; home-network and private addresses are always blocked."
   - q: "Are my files in a workspace confidential?"
@@ -53,7 +53,7 @@ Run several commands in one VM, keep files between them, and give results back. 
 
 ## Who can use it, and what does it cost?
 
-Free on Macs you own, and free for Group members on the Group's Macs. On Macs other people own, it is $0.0666 an hour for 2 vCPU and 2 GB, billed per second; that paid use is on Smarty Pants' own account first.
+Free on Macs you own, and free for Group members on the Group's Macs. On Macs other people own, it is billed per second for the size you pick and free while paused ($0.0666 an hour for 2 vCPU and 2 GB, $0.083 for 2 vCPU and 4 GB); that paid use is on Smarty Pants' own account first.
 
 Add `where: "mine"` or `where: {group: "<Group id>"}` to keep a workspace on your own or your Group's Macs. Opening a paid workspace holds its full length against your balance, and the unused part is let go when it ends. A workspace that never became ready, or that our side lost, costs nothing. See the [price page](/pricing/#workspaces) for how this compares with E2B, Daytona, Modal and others.
 
