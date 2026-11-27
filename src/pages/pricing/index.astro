@@ -19,7 +19,7 @@ const PRODUCTS = [
   { name: 'Speech to text', price: 'About $0.011 an hour of audio, billed per second', who: 'In testing', href: '/inference/speech-to-text-api/' },
   { name: 'Pictures', price: '$0.003 a picture', who: 'In testing', href: '/inference/image-generation-api/' },
   { name: 'Video', price: '$0.0125 a 480p clip (2, 3 or 5 seconds)', who: 'Anyone with an API key', href: '/inference/video-generation/' },
-  { name: 'Code runs and workspaces', price: '$0.0666 an hour for 2 vCPU and 2 GB, billed per second', who: 'Free on your own Macs; paid use on our own account first', href: '/workspaces/' },
+  { name: 'Code runs and workspaces', price: 'Per second for the size you pick, free while paused: $0.0252 per vCPU-hour plus $0.0081 per GB-hour ($0.0666 an hour for 2 vCPU and 2 GB, $0.083 for 2 vCPU and 4 GB)', who: 'Free on your own Macs; paid use on our own account first', href: '/workspaces/' },
   { name: 'Groups (your team\'s own Macs)', price: 'Free for members on the Group\'s Macs', who: 'Invite only', href: '/groups/' },
   { name: 'Mac app builds', price: 'Free, on your own or your Group\'s Macs only', who: 'Coming (switched off today)', href: '/workspaces/mac-builds/' },
 ];
@@ -54,7 +54,7 @@ const offers = {
       <p class="eyebrow">Pricing</p>
       <h1>Smarty Pants pricing</h1>
       <p class="lead">Pay only for what you use, from a balance you top up. No subscription. Using your own Macs is free.</p>
-      <div class="summary"><p><strong>Short answer:</strong> Starting is free: work on Macs you or your Group own costs nothing, and new accounts get $10 of credit for 90 days. Paid use on other people's Macs is priced at the median seller of the same thing elsewhere, and Pro members will pay {PRO_PERCENT}% of that. Chat models cost from $0.03 per million input tokens, batches are half price, and a 2 vCPU workspace is $0.0666 an hour billed per second (half the median sandbox price). Checked {PRICES_CHECKED_LABEL}.</p></div>
+      <div class="summary"><p><strong>Short answer:</strong> Starting is free: work on Macs you or your Group own costs nothing, and new accounts get $10 of credit for 90 days. Paid use on other people's Macs is priced at the median seller of the same thing elsewhere, and Pro members will pay {PRO_PERCENT}% of that. Chat models cost from $0.03 per million input tokens, batches are half price, and workspaces are billed per second for the size you pick and free while paused, at $0.0252 per vCPU-hour plus $0.0081 per GB-hour (2 vCPU and 4 GB is $0.083 an hour, $0.070 for Pro members; half the median sandbox price). Checked {PRICES_CHECKED_LABEL}.</p></div>
     </div>
   </section>
 
@@ -148,7 +148,7 @@ const offers = {
   <section class="section section-alt" id="workspaces">
     <div class="container">
       <h2>How do workspace prices compare with other sandboxes?</h2>
-      <p>A Smarty Pants workspace is a sealed Linux VM with 2 vCPU and 2 GB of memory, billed per second from when it is ready until it ends. Code runs (<code>POST /v1/code/run</code>), fleets and coding-agent jobs use the same rate per workspace. Our price is half the median of the ten sandbox services we checked, including those below ({SANDBOX_MEDIAN.vcpuHour} per vCPU-hour plus {SANDBOX_MEDIAN.gibHour} per GB-hour, {usd(SANDBOX_MEDIAN.twoByTwo)} an hour) while we build up our startup record. Here is the same size machine elsewhere, per hour.</p>
+      <p>A Smarty Pants workspace is a sealed Linux VM, billed per second for the size you pick and free while paused: $0.0252 per vCPU-hour plus $0.0081 per GB-hour of memory. The standard 2 vCPU and 2 GB is $0.0666 an hour; 2 vCPU and 4 GB is $0.083 an hour ($0.070 for Pro members). Billing runs from when it is ready until it ends, and stops at its last command or file request when it sits idle until it pauses or ends, so the idle wait is never charged. Code runs (<code>POST /v1/code/run</code>), fleets and coding-agent jobs use the same rate per workspace. Our price is half the median of the ten sandbox services we checked, including those below ({SANDBOX_MEDIAN.vcpuHour} per vCPU-hour plus {SANDBOX_MEDIAN.gibHour} per GB-hour, {usd(SANDBOX_MEDIAN.twoByTwo)} an hour) while we build up our startup record. Here is the same 2 vCPU and 2 GB machine elsewhere, per hour.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Service</th><th>Per vCPU-hour</th><th>Per GB-hour</th><th class="num">2 vCPU + 2 GB, per hour</th><th>Free credit</th></tr></thead>
