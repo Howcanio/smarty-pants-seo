@@ -20,7 +20,9 @@ for (const id of ids) {
   if (canonicalOf(g.body) !== `${BASE}${guide}`) problems.push(`${id}: ${guide} canonical is ${canonicalOf(g.body)}`);
   if (!seoMap.includes(`${BASE}${guide}<`)) problems.push(`${id}: ${guide} missing from /_seo/sitemap.xml`);
   const app = await get(`/models/${id}`);
-  if (canonicalOf(app.body) !== `${BASE}${guide}`) problems.push(`${id}: /models/${id} canonical is ${canonicalOf(app.body)}, not ${guide}`);
+  // A noindex app page (a model the app's own catalog doesn't list) can't compete in search, so it passes.
+  const noindex = /<meta name="robots" content="[^"]*noindex/.test(app.body);
+  if (!noindex && canonicalOf(app.body) !== `${BASE}${guide}`) problems.push(`${id}: /models/${id} canonical is ${canonicalOf(app.body)}, not ${guide}`);
   if (appMap.includes(`/models/${id}<`)) problems.push(`${id}: /models/${id} still in sitemap-pages.xml`);
 }
 console.log(`model pages: ${ids.length} models checked, ${problems.length} problem(s)`);
